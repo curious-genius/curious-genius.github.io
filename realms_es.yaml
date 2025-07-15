@@ -1,0 +1,13 @@
+realms:
+  - icon: "🧩"
+    name: "Llanuras Pixel (Edades 6–8)"
+    description: "Lógica divertida y animaciones con Scratch y Code.org"
+  - icon: "🎮"
+    name: "Montañas de Lógica (9–12)"
+    description: "Construir juegos, explorar App Lab y diseñar circuitos"
+  - icon: "💻"
+    name: "Ciudadela Cibernética (13–15)"
+    description: "HTML, JavaScript y diseño web del mundo real"
+  - icon: "🧠"
+    name: "Terminal de Sombras (16–18)"
+    description: "Domina Python, APIs, herramientas de IA y proyectos finales"
