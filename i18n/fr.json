@@ -1,6 +1,16 @@
 {
+  "title": "Curious Genius | Royaumes du Codeverse",
+  "brand": "Curious Genius",
+  "tagline": "Inspirer les jeunes esprits avec le code. Apprendre, créer et diriger l'avenir.",
   "aboutTitle": "Bienvenue chez Curious Genius",
-  "aboutText": "Chez Curious Genius, nous allons au-delà du codage de base. Nos parcours d'apprentissage à thème fantastique emmènent les étudiants à travers les Royaumes magiques du Codeverse — des aventures technologiques engageantes conçues pour les enfants et les adolescents de 6 à 18 ans. Que votre enfant débute ou rêve de construire une IA, nos projets concrets renforcent la confiance, la créativité et les compétences du futur.",
-  "programsTitle": "Nos Royaumes de Code",
-  "contactTitle": "Contact et Lieu"
+  "aboutText": "Nous enseignons le codage avec créativité et confiance. Chaque enfant explore son propre chemin unique à travers nos royaumes de Codeverse.",
+  "programsTitle": "Royaumes du Code",
+  "realms": [
+    { "icon": "🧩", "name": "Pixel Plains (6–8 ans)", "description": "Logique ludique et animation avec Scratch & Code.org" },
+    { "icon": "🎮", "name": "Montagnes Logiques (9–12 ans)", "description": "Créer des jeux, explorer App Lab et concevoir des circuits" },
+    { "icon": "💻", "name": "Citadelle Cyber (13–15 ans)", "description": "HTML, JavaScript et conception web pratiques" },
+    { "icon": "🧠", "name": "Terminal de l'Ombre (16–18 ans)", "description": "Maîtriser Python, les APIs, l'IA et les projets finaux" }
+  ],
+  "contactTitle": "Contact et Lieu",
+  "footer": "© 2025 Curious Genius. Des royaumes de codage pour les esprits curieux."
 }
