@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Curious Genius | Realms of Codeverse</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #00bfff;
-      --accent: #ff6b00;
-      --highlight: #a6e22e;
-      --dark: #1e1e1e;
-      --light: #f8fbfd;
+      --primary: #0077cc;
+      --secondary: #fca311;
+      --background: #ffffff;
+      --light-bg: #f1f9ff;
+      --text-dark: #1a1a1a;
+      --text-light: #555;
     }
 
     * {
@@ -22,16 +23,17 @@
     }
 
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--light);
-      color: var(--dark);
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--background);
+      color: var(--text-dark);
       line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(120deg, var(--primary), var(--highlight));
+      background-color: var(--primary);
+      color: white;
       text-align: center;
-      padding: 2rem 1rem 1.5rem;
+      padding: 2rem 1rem;
     }
 
     header img {
@@ -40,27 +42,26 @@
     }
 
     header h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      color: var(--dark);
+      font-size: 2.8rem;
+      font-weight: 700;
     }
 
     header p {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      color: #e0f0ff;
     }
 
     .lang-toggle {
       text-align: center;
-      margin-top: 1rem;
+      margin: 1rem 0;
     }
 
     .lang-toggle button {
-      margin: 0 0.5rem;
-      padding: 0.4rem 1rem;
+      margin: 0 0.3rem;
+      padding: 0.4rem 0.8rem;
       border: none;
       border-radius: 5px;
-      background-color: var(--accent);
+      background-color: var(--secondary);
       color: white;
       font-weight: bold;
       cursor: pointer;
@@ -71,58 +72,56 @@
       justify-content: center;
       gap: 2rem;
       padding: 1rem;
-      background-color: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background-color: var(--light-bg);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     nav a {
-      color: var(--dark);
+      color: var(--text-dark);
       font-weight: bold;
       text-decoration: none;
-      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: var(--accent);
+      color: var(--secondary);
     }
 
     .section {
       max-width: 1000px;
       margin: 2rem auto;
       padding: 0 1.5rem;
-      animation: fadeIn 0.6s ease-in;
     }
 
     .section h2 {
-      font-size: 2.25rem;
-      color: var(--accent);
+      font-size: 2rem;
+      color: var(--primary);
       margin-bottom: 1rem;
     }
 
     .section p, .section li {
       font-size: 1.1rem;
+      color: var(--text-light);
     }
 
     .btn {
-      background-color: var(--accent);
+      background-color: var(--secondary);
       color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
       display: inline-block;
-      margin-top: 1.5rem;
-      transition: background 0.3s;
+      margin-top: 1rem;
     }
 
     .btn:hover {
-      background-color: #e65b00;
+      background-color: #e29300;
     }
 
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      background-color: var(--dark);
+      background-color: #333;
       color: white;
     }
 
@@ -142,38 +141,46 @@
 
       nav {
         flex-direction: column;
-        align-items: center;
         gap: 1rem;
       }
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
   <script>
-  async function changeLanguage(lang) {
-    try {
-      const res = await fetch(`i18n/${lang}.json`);
-      const data = await res.json();
-      document.getElementById('aboutTitle').innerText = data.aboutTitle;
-      document.getElementById('aboutText').innerText = data.aboutText;
-      document.getElementById('programsTitle').innerText = data.programsTitle;
-      document.getElementById('contactTitle').innerText = data.contactTitle;
-    } catch (error) {
-      console.error('Error loading language file:', error);
-    }
-  }
-</script>
+    const translations = {
+      en: {
+        aboutTitle: "Welcome to Curious Genius",
+        aboutText: "We teach coding with creativity and confidence. Each child explores their own unique path through our Codeverse realms — personalized learning that’s fun, hands-on, and empowering.",
+        programsTitle: "Realms of Code",
+        contactTitle: "Contact & Location"
+      },
+      fr: {
+        aboutTitle: "Bienvenue chez Curious Genius",
+        aboutText: "Nous enseignons le codage avec créativité et confiance. Chaque enfant explore son propre chemin unique à travers nos royaumes de Codeverse.",
+        programsTitle: "Royaumes du Code",
+        contactTitle: "Contact et Lieu"
+      },
+      es: {
+        aboutTitle: "Bienvenido a Curious Genius",
+        aboutText: "Enseñamos codificación con creatividad y confianza. Cada niño explora su propio camino único a través de nuestros Reinos del Código.",
+        programsTitle: "Reinos del Código",
+        contactTitle: "Contacto y Ubicación"
+      }
+    };
 
+    function changeLanguage(lang) {
+      document.getElementById('aboutTitle').innerText = translations[lang].aboutTitle;
+      document.getElementById('aboutText').innerText = translations[lang].aboutText;
+      document.getElementById('programsTitle').innerText = translations[lang].programsTitle;
+      document.getElementById('contactTitle').innerText = translations[lang].contactTitle;
+    }
+  </script>
 </head>
 <body>
 
 <header>
   <img src="curious-genius-logo.png" alt="Curious Genius Logo" />
   <h1>Curious Genius</h1>
-  <p>Code. Create. Conquer. Welcome to the Realms of Codeverse in Calgary NW.</p>
+  <p>Inspiring young minds through code. Learn, create, and lead the future.</p>
 </header>
 
 <div class="lang-toggle">
@@ -191,19 +198,18 @@
 <section class="section" id="about">
   <h2 id="aboutTitle">Welcome to Curious Genius</h2>
   <p id="aboutText">
-    At Curious Genius, we go beyond basic coding. Our fantasy-themed learning journeys take students through the magical Realms of Codeverse — engaging, leveled-up tech adventures designed for kids and teens aged 6–18.
-    Whether your child is just starting or dreaming of building AI, our hands-on, real-world projects build confidence, creativity, and future-ready skills.
+    We teach coding with creativity and confidence. Each child explores their own unique path through our Codeverse realms — personalized learning that’s fun, hands-on, and empowering.
   </p>
   <a href="#contact" class="btn">Book a Free Trial</a>
 </section>
 
 <section class="section" id="programs">
-  <h2 id="programsTitle">Our Realms of Code</h2>
+  <h2 id="programsTitle">Realms of Code</h2>
   <ul>
-    <li>🧩 <strong>Pixel Plains (Ages 6–8):</strong> Code.org & Scratch, story-based coding, drag & drop adventures</li>
-    <li>🎮 <strong>Logic Mountains (Ages 9–12):</strong> Game logic, App Lab, Roblox scripting, intro robotics</li>
-    <li>💻 <strong>Cyber Citadel (Ages 13–15):</strong> Web development, game dev, AI concepts, animation with JS</li>
-    <li>🧠 <strong>Shadow Terminal (Ages 16–18):</strong> Python, JavaScript, APIs, Capstone portfolio projects</li>
+    <li><strong>🧩 Pixel Plains (Ages 6–8):</strong> Playful logic and animation in Scratch & Code.org</li>
+    <li><strong>🎮 Logic Mountains (Ages 9–12):</strong> Build games, explore App Lab & design circuits</li>
+    <li><strong>💻 Cyber Citadel (Ages 13–15):</strong> Learn real-world HTML, JavaScript, & web design</li>
+    <li><strong>🧠 Shadow Terminal (Ages 16–18):</strong> Master Python, APIs, AI tools & capstone coding</li>
   </ul>
   <a href="#contact" class="btn">Explore Curriculum</a>
 </section>
@@ -213,11 +219,10 @@
   <p><strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a></p>
   <p><strong>Phone:</strong> <a href="tel:14038301013">403-830-1013</a></p>
   <p><strong>Location:</strong> Unit 5, 5505 Shaganappi Trail NW, Calgary AB, T3A 1Z6 (Inside CO-OP Dalhousie)</p>
-  <a href="mailto:learn@curiousgenius.ca" class="btn">Email Us</a>
 </section>
 
 <footer>
-  <p>&copy; 2025 Curious Genius. All rights reserved. Designed for future coders.</p>
+  <p>&copy; 2025 Curious Genius. Coding realms built for the curious mind.</p>
 </footer>
 
 </body>
