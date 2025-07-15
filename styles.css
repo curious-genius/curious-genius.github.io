@@ -1,0 +1,137 @@
+:root {
+  --primary: #0077cc;
+  --secondary: #fca311;
+  --background: #ffffff;
+  --light-bg: #f1f9ff;
+  --text-dark: #1a1a1a;
+  --text-light: #555;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+header {
+  background-color: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header img {
+  width: 90px;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #e0f0ff;
+}
+
+.lang-toggle {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.lang-toggle button {
+  margin: 0 0.3rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--secondary);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: var(--light-bg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+nav a {
+  color: var(--text-dark);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--secondary);
+}
+
+.section {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.section h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.section p,
+.section li {
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.btn {
+  background-color: var(--secondary);
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background-color: #e29300;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #333;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li::before {
+  content: "\2728 ";
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
