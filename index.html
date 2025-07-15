@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Curious Genius | Realms of Codeverse</title>
+  <title id="pageTitle"></title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -15,216 +15,81 @@
       --text-dark: #1a1a1a;
       --text-light: #555;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Nunito', sans-serif;
-      background-color: var(--background);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    header img {
-      width: 90px;
-      margin-bottom: 1rem;
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #e0f0ff;
-    }
-
-    .lang-toggle {
-      text-align: center;
-      margin: 1rem 0;
-    }
-
-    .lang-toggle button {
-      margin: 0 0.3rem;
-      padding: 0.4rem 0.8rem;
-      border: none;
-      border-radius: 5px;
-      background-color: var(--secondary);
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      background-color: var(--light-bg);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    nav a {
-      color: var(--text-dark);
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      color: var(--secondary);
-    }
-
-    .section {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .section p, .section li {
-      font-size: 1.1rem;
-      color: var(--text-light);
-    }
-
-    .btn {
-      background-color: var(--secondary);
-      color: white;
-      padding: 0.7rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 1rem;
-    }
-
-    .btn:hover {
-      background-color: #e29300;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background-color: #333;
-      color: white;
-    }
-
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    ul li::before {
-      content: "\2728 ";
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-      }
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Nunito', sans-serif; background-color: var(--background); color: var(--text-dark); line-height: 1.6; }
+    header { background-color: var(--primary); color: white; text-align: center; padding: 2rem 1rem; }
+    header img { width: 90px; margin-bottom: 1rem; }
+    header h1 { font-size: 2.8rem; font-weight: 700; }
+    header p { font-size: 1.2rem; color: #e0f0ff; }
+    .lang-toggle { text-align: center; margin: 1rem 0; }
+    .lang-toggle button { margin: 0 0.3rem; padding: 0.4rem 0.8rem; border: none; border-radius: 5px; background-color: var(--secondary); color: white; font-weight: bold; cursor: pointer; }
+    nav { display: flex; justify-content: center; gap: 2rem; padding: 1rem; background-color: var(--light-bg); box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    nav a { color: var(--text-dark); font-weight: bold; text-decoration: none; }
+    nav a:hover { color: var(--secondary); }
+    .section { max-width: 1000px; margin: 2rem auto; padding: 0 1.5rem; }
+    .section h2 { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
+    .section p, .section li { font-size: 1.1rem; color: var(--text-light); }
+    .btn { background-color: var(--secondary); color: white; padding: 0.7rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 1rem; }
+    .btn:hover { background-color: #e29300; }
+    footer { text-align: center; padding: 2rem 1rem; background-color: #333; color: white; }
+    ul { list-style-type: none; padding-left: 0; }
+    ul li::before { content: "\2728 "; }
+    @media (max-width: 768px) { header h1 { font-size: 2rem; } nav { flex-direction: column; gap: 1rem; } }
   </style>
   <script>
-    const translations = {
-      en: {
-        aboutTitle: "Welcome to Curious Genius",
-        aboutText: "We teach coding with creativity and confidence. Each child explores their own unique path through our Codeverse realms — personalized learning that’s fun, hands-on, and empowering.",
-        programsTitle: "Realms of Code",
-        contactTitle: "Contact & Location"
-      },
-      fr: {
-        aboutTitle: "Bienvenue chez Curious Genius",
-        aboutText: "Nous enseignons le codage avec créativité et confiance. Chaque enfant explore son propre chemin unique à travers nos royaumes de Codeverse.",
-        programsTitle: "Royaumes du Code",
-        contactTitle: "Contact et Lieu"
-      },
-      es: {
-        aboutTitle: "Bienvenido a Curious Genius",
-        aboutText: "Enseñamos codificación con creatividad y confianza. Cada niño explora su propio camino único a través de nuestros Reinos del Código.",
-        programsTitle: "Reinos del Código",
-        contactTitle: "Contacto y Ubicación"
-      }
-    };
+    let content = {};
 
-    function changeLanguage(lang) {
-      document.getElementById('aboutTitle').innerText = translations[lang].aboutTitle;
-      document.getElementById('aboutText').innerText = translations[lang].aboutText;
-      document.getElementById('programsTitle').innerText = translations[lang].programsTitle;
-      document.getElementById('contactTitle').innerText = translations[lang].contactTitle;
+    async function loadContent(lang = 'en') {
+      const res = await fetch(`./lang/${lang}.json`);
+      content = await res.json();
+
+      document.getElementById("pageTitle").innerText = content.title;
+      document.querySelector("header h1").innerText = content.brand;
+      document.querySelector("header p").innerText = content.tagline;
+      document.getElementById("aboutTitle").innerText = content.aboutTitle;
+      document.getElementById("aboutText").innerText = content.aboutText;
+      document.getElementById("programsTitle").innerText = content.programsTitle;
+      document.getElementById("realmsList").innerHTML = content.realms.map(r => `<li><strong>${r.icon} ${r.name}:</strong> ${r.description}</li>`).join('');
+      document.getElementById("contactTitle").innerText = content.contactTitle;
+      document.getElementById("footerNote").innerText = content.footer;
     }
   </script>
 </head>
-<body>
-
-<header>
-  <img src="curious-genius-logo.png" alt="Curious Genius Logo" />
-  <h1>Curious Genius</h1>
-  <p>Inspiring young minds through code. Learn, create, and lead the future.</p>
-</header>
-
-<div class="lang-toggle">
-  <button onclick="changeLanguage('en')">English</button>
-  <button onclick="changeLanguage('fr')">Français</button>
-  <button onclick="changeLanguage('es')">Español</button>
-</div>
-
-<nav>
-  <a href="#about">About</a>
-  <a href="#programs">Programs</a>
-  <a href="#contact">Contact</a>
-  <a href="https://curiousgenius.moodlecloud.com/login/index.php" target="_blank" rel="noopener" title="Learn">Learn</a>
-</nav>
-
-<section class="section" id="about">
-  <h2 id="aboutTitle">Welcome to Curious Genius</h2>
-  <p id="aboutText">
-    We teach coding with creativity and confidence. Each child explores their own unique path through our Codeverse realms — personalized learning that’s fun, hands-on, and empowering.
-  </p>
-  <a href="#contact" class="btn">Book a Free Trial</a>
-</section>
-
-<section class="section" id="programs">
-  <h2 id="programsTitle">Realms of Code</h2>
-  <ul>
-    <li><strong>🧩 Pixel Plains (Ages 6–8):</strong> Playful logic and animation in Scratch & Code.org</li>
-    <li><strong>🎮 Logic Mountains (Ages 9–12):</strong> Build games, explore App Lab & design circuits</li>
-    <li><strong>💻 Cyber Citadel (Ages 13–15):</strong> Learn real-world HTML, JavaScript, & web design</li>
-    <li><strong>🧠 Shadow Terminal (Ages 16–18):</strong> Master Python, APIs, AI tools & capstone coding</li>
-  </ul>
-  <a href="#contact" class="btn">Explore Curriculum</a>
-</section>
-
-<section class="section" id="contact">
-  <h2 id="contactTitle">Contact & Location</h2>
-  <p><strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a></p>
-  <p><strong>Phone:</strong> <a href="tel:14038301013">403-830-1013</a></p>
-  <p><strong>Location:</strong> Unit 5, 5505 Shaganappi Trail NW, Calgary AB, T3A 1Z6 (Inside CO-OP Dalhousie)</p>
-</section>
-
-<footer>
-  <p>&copy; 2025 Curious Genius. Coding realms built for the curious mind.</p>
-</footer>
-
+<body onload="loadContent()">
+  <header>
+    <img src="curious-genius-logo.png" alt="Curious Genius Logo" />
+    <h1></h1>
+    <p></p>
+  </header>
+  <div class="lang-toggle">
+    <button onclick="loadContent('en')">English</button>
+    <button onclick="loadContent('fr')">Français</button>
+    <button onclick="loadContent('es')">Español</button>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#contact">Contact</a>
+    <a href="https://curiousgenius.moodlecloud.com/login/index.php" target="_blank" rel="noopener" title="Learn">Learn</a>
+  </nav>
+  <section class="section" id="about">
+    <h2 id="aboutTitle"></h2>
+    <p id="aboutText"></p>
+    <a href="#contact" class="btn">Book a Free Trial</a>
+  </section>
+  <section class="section" id="programs">
+    <h2 id="programsTitle"></h2>
+    <ul id="realmsList"></ul>
+    <a href="#contact" class="btn">Explore Curriculum</a>
+  </section>
+  <section class="section" id="contact">
+    <h2 id="contactTitle"></h2>
+    <p><strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a></p>
+    <p><strong>Phone:</strong> <a href="tel:14038301013">403-830-1013</a></p>
+    <p><strong>Location:</strong> Unit 5, 5505 Shaganappi Trail NW, Calgary AB, T3A 1Z6 (Inside CO-OP Dalhousie)</p>
+  </section>
+  <footer>
+    <p id="footerNote"></p>
+  </footer>
 </body>
 </html>
