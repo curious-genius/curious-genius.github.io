@@ -2,57 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Curious Genius | Coding for Kids & Teens in Calgary</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curious Genius | Realms of Codeverse</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #00bfff;
       --accent: #ff6b00;
       --highlight: #a6e22e;
+      --dark: #1e1e1e;
+      --light: #f8fbfd;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background-color: #f8fbfd;
-      color: #222;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(to right, var(--primary), var(--highlight));
-      color: #000;
-      padding: 1.5rem 1rem;
+      background: linear-gradient(120deg, var(--primary), var(--highlight));
       text-align: center;
+      padding: 2rem 1rem 1.5rem;
     }
 
     header img {
-      width: 100px;
-      height: auto;
-      margin-bottom: 0.5rem;
-      animation: pop 1s ease-in-out;
+      width: 90px;
+      margin-bottom: 1rem;
     }
 
     header h1 {
-      font-size: 2.75rem;
-      margin: 0.25rem 0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: var(--dark);
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      gap: 2rem;
       padding: 1rem;
+      background-color: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     nav a {
+      color: var(--dark);
+      font-weight: bold;
       text-decoration: none;
-      color: #222;
-      font-weight: 600;
       transition: color 0.3s;
     }
 
@@ -61,27 +71,31 @@
     }
 
     .section {
-      padding: 2rem 1rem;
-      max-width: 960px;
-      margin: auto;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
       animation: fadeIn 0.6s ease-in;
     }
 
     .section h2 {
-      color: var(--accent);
       font-size: 2.25rem;
+      color: var(--accent);
       margin-bottom: 1rem;
     }
 
+    .section p, .section li {
+      font-size: 1.1rem;
+    }
+
     .btn {
-      display: inline-block;
       background-color: var(--accent);
-      color: #fff;
+      color: white;
       padding: 0.75rem 1.5rem;
-      border-radius: 12px;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
-      margin-top: 1rem;
+      display: inline-block;
+      margin-top: 1.5rem;
       transition: background 0.3s;
     }
 
@@ -92,34 +106,29 @@
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      background-color: #222;
-      color: #fff;
+      background-color: var(--dark);
+      color: white;
     }
 
     ul {
-      list-style: none;
-      padding: 0;
+      list-style-type: none;
+      padding-left: 0;
     }
 
-    ul li {
-      margin: 0.5rem 0;
-      font-size: 1.1rem;
+    ul li::before {
+      content: "\2728 ";
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       header h1 {
         font-size: 2rem;
       }
 
       nav {
         flex-direction: column;
+        align-items: center;
         gap: 1rem;
       }
-    }
-
-    @keyframes pop {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
     }
 
     @keyframes fadeIn {
@@ -130,50 +139,49 @@
 </head>
 <body>
 
-  <header>
-    <img src="curious-genius-logo.png" alt="Curious Genius Logo" />
-    <h1>Curious Genius</h1>
-    <p>Code. Create. Conquer. Empowering young minds through technology in Calgary NW.</p>
-  </header>
+<header>
+  <img src="curious-genius-logo.png" alt="Curious Genius Logo" />
+  <h1>Curious Genius</h1>
+  <p>Code. Create. Conquer. Welcome to the Realms of Codeverse in Calgary NW.</p>
+</header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav>
+  <a href="#about">About</a>
+  <a href="#programs">Programs</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section class="section" id="about">
-    <h2>Welcome to Curious Genius</h2>
-    <p>
-      We are a private coding school in Dalhousie, Calgary, offering fun and engaging tech programs for kids and teens aged 6–18.
-      Our small class sizes, personalized attention, and real-world learning paths help students grow from beginner to expert.
-    </p>
-    <a href="#contact" class="btn">Book a Free Trial</a>
-  </section>
+<section class="section" id="about">
+  <h2>Welcome to Curious Genius</h2>
+  <p>
+    At Curious Genius, we go beyond basic coding. Our fantasy-themed learning journeys take students through the magical Realms of Codeverse — engaging, leveled-up tech adventures designed for kids and teens aged 6–18.
+    Whether your child is just starting or dreaming of building AI, our hands-on, real-world projects build confidence, creativity, and future-ready skills.
+  </p>
+  <a href="#contact" class="btn">Book a Free Trial</a>
+</section>
 
-  <section class="section" id="programs">
-    <h2>Our Programs</h2>
-    <ul>
-      <li>🧩 Ages 6–8: Code.org & Scratch (Pixel Plains & Bugwood Forest)</li>
-      <li>🎮 Ages 9–12: Game logic, App Lab, Robotics (Logic Mountains)</li>
-      <li>💻 Ages 13–15: Web development, AI basics (Cyber Citadel)</li>
-      <li>🧠 Ages 16–18: Python, JavaScript, Capstone Projects (Shadow Terminal)</li>
-    </ul>
-    <a href="#contact" class="btn">Explore Curriculum</a>
-  </section>
+<section class="section" id="programs">
+  <h2>Our Realms of Code</h2>
+  <ul>
+    <li>🧩 <strong>Pixel Plains (Ages 6–8):</strong> Code.org & Scratch, story-based coding, drag & drop adventures</li>
+    <li>🎮 <strong>Logic Mountains (Ages 9–12):</strong> Game logic, App Lab, Roblox scripting, intro robotics</li>
+    <li>💻 <strong>Cyber Citadel (Ages 13–15):</strong> Web development, game dev, AI concepts, animation with JS</li>
+    <li>🧠 <strong>Shadow Terminal (Ages 16–18):</strong> Python, JavaScript, APIs, Capstone portfolio projects</li>
+  </ul>
+  <a href="#contact" class="btn">Explore Curriculum</a>
+</section>
 
-  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a></p>
-    <p>Phone: <a href="tel:14038301013">403-654-6595</a></p>
-    <p>Location: CO-OP Dalhousie</p>
-    <p>Unit 5 - 5505 Shaganappi Trail NW Calgary AB T3A 1Z6</p>
-    <a href="mailto:learn@curiousgenius.ca" class="btn">Email Us</a>
-  </section>
+<section class="section" id="contact">
+  <h2>Contact & Location</h2>
+  <p><strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a></p>
+  <p><strong>Phone:</strong> <a href="tel:14038301013">403-830-1013</a></p>
+  <p><strong>Location:</strong> Unit 5, 5505 Shaganappi Trail NW, Calgary AB, T3A 1Z6 (Inside CO-OP Dalhousie)</p>
+  <a href="mailto:learn@curiousgenius.ca" class="btn">Email Us</a>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Curious Genius. All rights reserved.</p>
-  </footer>
+<footer>
+  <p>&copy; 2025 Curious Genius. All rights reserved. Designed for future coders.</p>
+</footer>
 
 </body>
 </html>
