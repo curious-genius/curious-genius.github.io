@@ -54,6 +54,57 @@
       document.getElementById("footerNote").innerText = content.footer;
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+<script>
+  let yamlData = null;
+  let realmsData = null;
+  let currentLang = 'en';
+
+  async function fetchYaml(path) {
+    const res = await fetch(path);
+    if (!res.ok) throw new Error(`Failed to load ${path}`);
+    const text = await res.text();
+    return jsyaml.load(text);
+  }
+
+  async function loadContent(lang = 'en') {
+    try {
+      currentLang = lang;
+      // Load main content
+      yamlData = await fetchYaml('content.yaml');
+
+      // Load realms content
+      realmsData = await fetchYaml(`realms_${lang}.yaml`);
+
+      if (!yamlData[lang]) throw new Error(`Language ${lang} not found in content.yaml`);
+
+      const content = { ...yamlData[lang], ...realmsData };
+
+      document.title = content.title || 'Curious Genius';
+      document.getElementById("pageTitle").innerText = content.title || '';
+      document.querySelector("header h1").innerText = content.brand || '';
+      document.querySelector("header p").innerText = content.tagline || '';
+      document.getElementById("aboutTitle").innerText = content.aboutTitle || '';
+      document.getElementById("aboutText").innerText = content.aboutText || '';
+      document.getElementById("programsTitle").innerText = content.programsTitle || '';
+
+      const realmsList = document.getElementById("realmsList");
+      if (content.realms && Array.isArray(content.realms)) {
+        realmsList.innerHTML = content.realms
+          .map(r => `<li><strong>${r.icon} ${r.name}:</strong> ${r.description}</li>`).join('');
+      } else {
+        realmsList.innerHTML = '';
+      }
+
+      document.getElementById("contactTitle").innerText = content.contactTitle || '';
+      document.getElementById("footerNote").innerText = content.footer || '';
+    } catch (error) {
+      console.error(error);
+      alert('Failed to load content.');
+    }
+  }
+</script>
+
 </head>
 <body onload="loadContent()">
   <header>
