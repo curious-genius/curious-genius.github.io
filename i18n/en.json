@@ -1,6 +1,16 @@
 {
+  "title": "Curious Genius | Realms of Codeverse",
+  "brand": "Curious Genius",
+  "tagline": "Inspiring young minds through code. Learn, create, and lead the future.",
   "aboutTitle": "Welcome to Curious Genius",
-  "aboutText": "At Curious Genius, we go beyond basic coding. Our fantasy-themed learning journeys take students through the magical Realms of Codeverse — engaging, leveled-up tech adventures designed for kids and teens aged 6–18. Whether your child is just starting or dreaming of building AI, our hands-on, real-world projects build confidence, creativity, and future-ready skills.",
-  "programsTitle": "Our Realms of Code",
-  "contactTitle": "Contact & Location"
+  "aboutText": "We teach coding with creativity and confidence. Each child explores their own unique path through our Codeverse realms — personalized learning that’s fun, hands-on, and empowering.",
+  "programsTitle": "Realms of Code",
+  "realms": [
+    { "icon": "🧩", "name": "Pixel Plains (Ages 6–8)", "description": "Playful logic and animation in Scratch & Code.org" },
+    { "icon": "🎮", "name": "Logic Mountains (Ages 9–12)", "description": "Build games, explore App Lab & design circuits" },
+    { "icon": "💻", "name": "Cyber Citadel (Ages 13–15)", "description": "Learn real-world HTML, JavaScript, & web design" },
+    { "icon": "🧠", "name": "Shadow Terminal (Ages 16–18)", "description": "Master Python, APIs, AI tools & capstone coding" }
+  ],
+  "contactTitle": "Contact & Location",
+  "footer": "© 2025 Curious Genius. Coding realms built for the curious mind."
 }
