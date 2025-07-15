@@ -50,6 +50,22 @@
       margin-top: 0.5rem;
     }
 
+    .lang-toggle {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .lang-toggle button {
+      margin: 0 0.5rem;
+      padding: 0.4rem 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--accent);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     nav {
       display: flex;
       justify-content: center;
@@ -136,6 +152,35 @@
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
+  <script>
+    const translations = {
+      en: {
+        aboutTitle: "Welcome to Curious Genius",
+        aboutText: "At Curious Genius, we go beyond basic coding...",
+        programsTitle: "Our Realms of Code",
+        contactTitle: "Contact & Location"
+      },
+      fr: {
+        aboutTitle: "Bienvenue chez Curious Genius",
+        aboutText: "Chez Curious Genius, nous allons au-delà du codage de base...",
+        programsTitle: "Nos Royaumes de Code",
+        contactTitle: "Contact et Lieu"
+      },
+      es: {
+        aboutTitle: "Bienvenido a Curious Genius",
+        aboutText: "En Curious Genius, vamos más allá de la codificación básica...",
+        programsTitle: "Nuestros Reinos de Código",
+        contactTitle: "Contacto y Ubicación"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.getElementById('aboutTitle').innerText = translations[lang].aboutTitle;
+      document.getElementById('aboutText').innerText = translations[lang].aboutText;
+      document.getElementById('programsTitle').innerText = translations[lang].programsTitle;
+      document.getElementById('contactTitle').innerText = translations[lang].contactTitle;
+    }
+  </script>
 </head>
 <body>
 
@@ -145,6 +190,12 @@
   <p>Code. Create. Conquer. Welcome to the Realms of Codeverse in Calgary NW.</p>
 </header>
 
+<div class="lang-toggle">
+  <button onclick="changeLanguage('en')">English</button>
+  <button onclick="changeLanguage('fr')">Français</button>
+  <button onclick="changeLanguage('es')">Español</button>
+</div>
+
 <nav>
   <a href="#about">About</a>
   <a href="#programs">Programs</a>
@@ -152,8 +203,8 @@
 </nav>
 
 <section class="section" id="about">
-  <h2>Welcome to Curious Genius</h2>
-  <p>
+  <h2 id="aboutTitle">Welcome to Curious Genius</h2>
+  <p id="aboutText">
     At Curious Genius, we go beyond basic coding. Our fantasy-themed learning journeys take students through the magical Realms of Codeverse — engaging, leveled-up tech adventures designed for kids and teens aged 6–18.
     Whether your child is just starting or dreaming of building AI, our hands-on, real-world projects build confidence, creativity, and future-ready skills.
   </p>
@@ -161,7 +212,7 @@
 </section>
 
 <section class="section" id="programs">
-  <h2>Our Realms of Code</h2>
+  <h2 id="programsTitle">Our Realms of Code</h2>
   <ul>
     <li>🧩 <strong>Pixel Plains (Ages 6–8):</strong> Code.org & Scratch, story-based coding, drag & drop adventures</li>
     <li>🎮 <strong>Logic Mountains (Ages 9–12):</strong> Game logic, App Lab, Roblox scripting, intro robotics</li>
@@ -172,7 +223,7 @@
 </section>
 
 <section class="section" id="contact">
-  <h2>Contact & Location</h2>
+  <h2 id="contactTitle">Contact & Location</h2>
   <p><strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a></p>
   <p><strong>Phone:</strong> <a href="tel:14038301013">403-830-1013</a></p>
   <p><strong>Location:</strong> Unit 5, 5505 Shaganappi Trail NW, Calgary AB, T3A 1Z6 (Inside CO-OP Dalhousie)</p>
