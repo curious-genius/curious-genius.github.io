@@ -1,0 +1,13 @@
+realms:
+  - icon: "🧩"
+    name: "Pixel Plains (6–8 ans)"
+    description: "Logique ludique et animation avec Scratch & Code.org"
+  - icon: "🎮"
+    name: "Montagnes Logiques (9–12 ans)"
+    description: "Créer des jeux, explorer App Lab et concevoir des circuits"
+  - icon: "💻"
+    name: "Citadelle Cyber (13–15 ans)"
+    description: "HTML, JavaScript et conception web pratiques"
+  - icon: "🧠"
+    name: "Terminal de l'Ombre (16–18 ans)"
+    description: "Maîtriser Python, les APIs, l'IA et les projets finaux"
