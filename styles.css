@@ -14,17 +14,20 @@
 }
 
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Rubik', sans-serif;
   background-color: var(--background);
   color: var(--text-dark);
   line-height: 1.6;
 }
 
-header h1, nav a, .btn, .section h2 {
+header h1,
+nav a,
+.section h2,
+.btn {
   font-family: 'Orbitron', sans-serif;
-  letter-spacing: 0.05em;
-  /* give it that techy spaced-out feel */
+  letter-spacing: 0.03em;
 }
+
 header {
   background-color: var(--primary);
   color: white;
