@@ -1,0 +1,13 @@
+realms:
+  - icon: "🧩"
+    name: "Pixel Plains (Ages 6–8)"
+    description: "Playful logic and animation in Scratch & Code.org"
+  - icon: "🎮"
+    name: "Logic Mountains (Ages 9–12)"
+    description: "Build games, explore App Lab & design circuits"
+  - icon: "💻"
+    name: "Cyber Citadel (Ages 13–15)"
+    description: "Learn real-world HTML, JavaScript, & web design"
+  - icon: "🧠"
+    name: "Shadow Terminal (Ages 16–18)"
+    description: "Master Python, APIs, AI tools & capstone coding"
