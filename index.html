@@ -153,34 +153,20 @@
     }
   </style>
   <script>
-    const translations = {
-      en: {
-        aboutTitle: "Welcome to Curious Genius",
-        aboutText: "At Curious Genius, we go beyond basic coding...",
-        programsTitle: "Our Realms of Code",
-        contactTitle: "Contact & Location"
-      },
-      fr: {
-        aboutTitle: "Bienvenue chez Curious Genius",
-        aboutText: "Chez Curious Genius, nous allons au-delà du codage de base...",
-        programsTitle: "Nos Royaumes de Code",
-        contactTitle: "Contact et Lieu"
-      },
-      es: {
-        aboutTitle: "Bienvenido a Curious Genius",
-        aboutText: "En Curious Genius, vamos más allá de la codificación básica...",
-        programsTitle: "Nuestros Reinos de Código",
-        contactTitle: "Contacto y Ubicación"
-      }
-    };
-
-    function changeLanguage(lang) {
-      document.getElementById('aboutTitle').innerText = translations[lang].aboutTitle;
-      document.getElementById('aboutText').innerText = translations[lang].aboutText;
-      document.getElementById('programsTitle').innerText = translations[lang].programsTitle;
-      document.getElementById('contactTitle').innerText = translations[lang].contactTitle;
+  async function changeLanguage(lang) {
+    try {
+      const res = await fetch(`i18n/${lang}.json`);
+      const data = await res.json();
+      document.getElementById('aboutTitle').innerText = data.aboutTitle;
+      document.getElementById('aboutText').innerText = data.aboutText;
+      document.getElementById('programsTitle').innerText = data.programsTitle;
+      document.getElementById('contactTitle').innerText = data.contactTitle;
+    } catch (error) {
+      console.error('Error loading language file:', error);
     }
-  </script>
+  }
+</script>
+
 </head>
 <body>
 
