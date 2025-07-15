@@ -1,6 +1,16 @@
 {
+  "title": "Curious Genius | Reinos del Codeverso",
+  "brand": "Curious Genius",
+  "tagline": "Inspirando a jóvenes mentes a través del código. Aprende, crea y lidera el futuro.",
   "aboutTitle": "Bienvenido a Curious Genius",
-  "aboutText": "En Curious Genius, vamos más allá de la codificación básica. Nuestros viajes de aprendizaje temáticos llevan a los estudiantes a través de los Reinos Mágicos del Codeverse — aventuras tecnológicas diseñadas para niños y adolescentes de 6 a 18 años. Ya sea que tu hijo esté comenzando o soñando con crear IA, nuestros proyectos prácticos construyen confianza, creatividad y habilidades para el futuro.",
-  "programsTitle": "Nuestros Reinos de Código",
-  "contactTitle": "Contacto y Ubicación"
+  "aboutText": "Enseñamos codificación con creatividad y confianza. Cada niño explora su propio camino único a través de nuestros Reinos del Código.",
+  "programsTitle": "Reinos del Código",
+  "realms": [
+    { "icon": "🧩", "name": "Llanuras Pixel (Edades 6–8)", "description": "Lógica divertida y animaciones con Scratch y Code.org" },
+    { "icon": "🎮", "name": "Montañas de Lógica (9–12)", "description": "Construir juegos, explorar App Lab y diseñar circuitos" },
+    { "icon": "💻", "name": "Ciudadela Cibernética (13–15)", "description": "HTML, JavaScript y diseño web del mundo real" },
+    { "icon": "🧠", "name": "Terminal de Sombras (16–18)", "description": "Domina Python, APIs, herramientas de IA y proyectos finales" }
+  ],
+  "contactTitle": "Contacto y Ubicación",
+  "footer": "© 2025 Curious Genius. Reinos de codificación para mentes curiosas."
 }
