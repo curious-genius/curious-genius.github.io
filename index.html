@@ -95,7 +95,7 @@
         const realmsList = document.getElementById('realmsList');
         if (content.realms && Array.isArray(content.realms)) {
           realmsList.innerHTML = content.realms
-            .map(r => `<li><strong>${r.icon} ${r.name}:</strong> ${r.description}</li>`)
+            .map(r => `<li><strong>${r.icon} ${r.name}:</strong> <span>${r.description}</span></li>`)
             .join('');
         } else {
           realmsList.innerHTML = '';
