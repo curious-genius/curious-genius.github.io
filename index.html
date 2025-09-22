@@ -6,20 +6,26 @@
   <title id="pageTitle"></title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Fonts: Orbitron (headings), Rubik (body), Cairo (Arabic), Noto Sans Gurmukhi (Punjabi) -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;500;700&family=Cairo:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Styles -->
+  <!-- External Styles -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Minimal RTL helper (kept inline so it works even if styles.css isn't updated yet) -->
+  <style>
+    body.rtl { direction: rtl; }
+    body.rtl nav a { margin-left: 0; margin-right: 0; }
+    body.rtl .btn { letter-spacing: 0; }
+  </style>
 
   <!-- YAML parser -->
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 
-  <!-- Content loader (YAML) -->
   <script>
-    let yamlData = null;
-    let realmsData = null;
     let currentLang = 'en';
+    let yamlMain = null;   // content.yaml (titles, nav, buttons, etc.)
+    let yamlRealms = null; // realms_<lang>.yaml (realms list)
 
     async function fetchYaml(path) {
       const res = await fetch(path);
@@ -28,30 +34,65 @@
       return jsyaml.load(text);
     }
 
+    function applyDirection(lang) {
+      const html = document.documentElement;
+      const body = document.body;
+
+      // Arabic is RTL; others are LTR
+      const isRTL = (lang === 'ar');
+      html.setAttribute('lang', lang);
+      html.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+      body.classList.toggle('rtl', isRTL);
+
+      // Font fallbacks by language (keep Orbitron on headings)
+      if (isRTL) {
+        body.style.fontFamily = `'Cairo', 'Rubik', sans-serif`;
+      } else if (lang === 'pa') {
+        body.style.fontFamily = `'Noto Sans Gurmukhi', 'Rubik', sans-serif`;
+      } else {
+        body.style.fontFamily = `'Rubik', sans-serif`;
+      }
+    }
+
     async function loadContent(lang = 'en') {
       try {
         currentLang = lang;
 
-        // Load main content (no realms inside)
-        yamlData = await fetchYaml('content.yaml');
+        // Load main content once (all languages in content.yaml)
+        if (!yamlMain) {
+          yamlMain = await fetchYaml('content.yaml');
+        }
+        if (!yamlMain[lang]) throw new Error(`Language '${lang}' not found in content.yaml`);
 
-        // Load realms for the selected language
-        realmsData = await fetchYaml(`realms_${lang}.yaml`);
+        // Load realms for this language
+        yamlRealms = await fetchYaml(`realms_${lang}.yaml`);
 
-        if (!yamlData[lang]) throw new Error(`Language ${lang} not found in content.yaml`);
+        // Merge content objects (realms will be at content.realms)
+        const content = { ...yamlMain[lang], ...yamlRealms };
 
-        const content = { ...yamlData[lang], ...realmsData };
+        // Direction + font per language
+        applyDirection(lang);
 
-        // Populate text
+        // ---- Populate Head & Header ----
         document.title = content.title || 'Curious Genius';
-        document.getElementById("pageTitle").innerText = content.title || '';
-        document.querySelector("header h1").innerText = content.brand || '';
-        document.querySelector("header p").innerText = content.tagline || '';
-        document.getElementById("aboutTitle").innerText = content.aboutTitle || '';
-        document.getElementById("aboutText").innerText = content.aboutText || '';
-        document.getElementById("programsTitle").innerText = content.programsTitle || '';
+        document.getElementById('pageTitle').innerText = content.title || '';
+        document.querySelector('header h1').innerText = content.brand || '';
+        document.querySelector('header p').innerText = content.tagline || '';
 
-        const realmsList = document.getElementById("realmsList");
+        // ---- Nav (localized) ----
+        document.getElementById('navAbout').innerText = content.navAbout || 'About';
+        document.getElementById('navPrograms').innerText = content.navPrograms || 'Programs';
+        document.getElementById('navContact').innerText = content.navContact || 'Contact';
+        document.getElementById('navLearn').innerText = content.navLearn || 'Learn';
+
+        // ---- About ----
+        document.getElementById('aboutTitle').innerText = content.aboutTitle || '';
+        document.getElementById('aboutText').innerText = content.aboutText || '';
+        document.getElementById('btnTrial').innerText = content.btnTrial || 'Book a Free Trial';
+
+        // ---- Programs ----
+        document.getElementById('programsTitle').innerText = content.programsTitle || '';
+        const realmsList = document.getElementById('realmsList');
         if (content.realms && Array.isArray(content.realms)) {
           realmsList.innerHTML = content.realms
             .map(r => `<li><strong>${r.icon} ${r.name}:</strong> ${r.description}</li>`)
@@ -59,12 +100,24 @@
         } else {
           realmsList.innerHTML = '';
         }
+        document.getElementById('btnCurriculum').innerText = content.btnCurriculum || 'Explore Curriculum';
 
-        document.getElementById("contactTitle").innerText = content.contactTitle || '';
-        document.getElementById("footerNote").innerText = content.footer || '';
-      } catch (error) {
-        console.error(error);
-        alert('Failed to load content.');
+        // ---- Contact ----
+        document.getElementById('contactTitle').innerText = content.contactTitle || '';
+
+        // Optional localization for labels (if provided)
+        if (content.emailLabel) document.getElementById('emailLabel').innerText = content.emailLabel;
+        if (content.phoneLabel) document.getElementById('phoneLabel').innerText = content.phoneLabel;
+        if (content.locationLabel) document.getElementById('locationLabel').innerText = content.locationLabel;
+
+        // Map note localized
+        document.getElementById('mapNote').innerText = content.mapNote || '';
+
+        // ---- Footer ----
+        document.getElementById('footerNote').innerText = content.footer || '';
+      } catch (err) {
+        console.error(err);
+        alert('Failed to load localized content. Check console for details.');
       }
     }
   </script>
@@ -80,36 +133,37 @@
     <button onclick="loadContent('en')">English</button>
     <button onclick="loadContent('fr')">Français</button>
     <button onclick="loadContent('es')">Español</button>
+    <button onclick="loadContent('ar')">العربية</button>
+    <button onclick="loadContent('pa')">ਪੰਜਾਬੀ</button>
   </div>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#contact">Contact</a>
-    <a href="https://curiousgenius.moodlecloud.com/login/index.php" target="_blank" rel="noopener" title="Learn">Learn</a>
+    <a id="navAbout" href="#about"></a>
+    <a id="navPrograms" href="#programs"></a>
+    <a id="navContact" href="#contact"></a>
+    <a id="navLearn" href="https://curiousgenius.moodlecloud.com/login/index.php" target="_blank" rel="noopener"></a>
   </nav>
 
   <section class="section" id="about">
     <h2 id="aboutTitle"></h2>
     <p id="aboutText"></p>
-    <a href="#contact" class="btn">Book a Free Trial</a>
+    <a href="#contact" class="btn" id="btnTrial"></a>
   </section>
 
   <section class="section" id="programs">
     <h2 id="programsTitle"></h2>
     <ul id="realmsList"></ul>
-    <a href="#contact" class="btn">Explore Curriculum</a>
+    <a href="#contact" class="btn" id="btnCurriculum"></a>
   </section>
 
-  <!-- Merged contact section with embedded map -->
+  <!-- Contact with embedded map -->
   <section class="section" id="contact">
     <h2 id="contactTitle"></h2>
 
-    <p><strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a></p>
-    <p><strong>Phone:</strong> <a href="tel:14038301013">403-830-1013</a></p>
-    <p><strong>Location:</strong> Unit 5, 5505 Shaganappi Trail NW, Calgary AB, T3A 1Z6 (Inside CO-OP Dalhousie)</p>
+    <p><strong id="emailLabel">Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a></p>
+    <p><strong id="phoneLabel">Phone:</strong> <a href="tel:14038301013">403-830-1013</a></p>
+    <p><strong id="locationLabel">Location:</strong> Unit 5, 5505 Shaganappi Trail NW, Calgary AB, T3A 1Z6 (Inside CO-OP Dalhousie)</p>
 
-    <!-- 📍 Embedded Map -->
     <div class="map-container" style="margin-top:1em; text-align:center;">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.413880785179!2d-114.15838952332478!3d51.10137294251151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716f0c76c1f86b%3A0x5f0f9b6fce0b1cd!2sCalgary%20Co-op%20Dalhousie%20Centre!5e0!3m2!1sen!2sca!4v1692730000000"
@@ -120,9 +174,7 @@
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
-      <p style="margin-top:0.5em; font-size:0.9em; color:#555;">
-        We’re located inside CO-OP Dalhousie (Unit 5, near the mall entrance).
-      </p>
+      <p id="mapNote" style="margin-top:0.5em; font-size:0.9em; color:#555;"></p>
     </div>
   </section>
 
