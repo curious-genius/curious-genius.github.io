@@ -18,12 +18,11 @@
   <!-- External Styles -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Minimal RTL helper (kept inline to ensure proper direction even if CSS is cached) -->
+  <!-- Minimal RTL helper -->
   <style>
     body.rtl { direction: rtl; }
     body.rtl nav { direction: rtl; }
     body.rtl .btn { letter-spacing: 0; }
-    /* Optional: tweak list alignment in RTL */
     body.rtl ul { padding-right: 0; }
   </style>
 
@@ -31,15 +30,20 @@
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 
   <script>
-    let currentLang = 'en';
-    let yamlMain = null;   // content.yaml (all languages)
+    // ---- Language detection with safe fallback ----
+    const supportedLangs = ['en', 'fr', 'es', 'ar', 'pa'];
+    const rawLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase(); // e.g. "fr-CA"
+    const browserLang = rawLang.slice(0, 2);
+    let currentLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+
+    let yamlMain = null;   // content.yaml (single document mapping)
     let yamlRealms = null; // realms_<lang>.yaml (per language)
 
     async function fetchYaml(path) {
-      const res = await fetch(path);
-      if (!res.ok) throw new Error(`Failed to load ${path}`);
+      const res = await fetch(path, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`Failed to load ${path} (HTTP ${res.status})`);
       const text = await res.text();
-      return jsyaml.load(text);
+      return jsyaml.load(text); // single-document YAML
     }
 
     function applyDirectionAndFonts(lang) {
@@ -61,45 +65,35 @@
       }
     }
 
-    async function loadContent(lang = 'en') {
-      try {
-        currentLang = lang;
+    function setText(id, value, fallback = '') {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value ?? fallback;
+    }
 
-        // Load main content once (all languages inside)
-        if (!yamlMain) {
-          yamlMain = await fetchYaml('content.yaml');
-        }
-        if (!yamlMain[lang]) throw new Error(`Language '${lang}' not found in content.yaml`);
+    function renderContent(content) {
+      // Head & header
+      document.title = content.title || 'Curious Genius';
+      setText('pageTitle', content.title);
+      const headerH1 = document.querySelector('header h1');
+      const headerP  = document.querySelector('header p');
+      if (headerH1) headerH1.textContent = content.brand || '';
+      if (headerP)  headerP.textContent  = content.tagline || '';
 
-        // Load realms for this language each time (small files)
-        yamlRealms = await fetchYaml(`realms_${lang}.yaml`);
+      // Nav
+      setText('navAbout',    content.navAbout,    'About');
+      setText('navPrograms', content.navPrograms, 'Programs');
+      setText('navContact',  content.navContact,  'Contact');
+      setText('navLearn',    content.navLearn,    'Learn');
 
-        // Merge content objects (realms will sit at content.realms)
-        const content = { ...yamlMain[lang], ...yamlRealms };
+      // About
+      setText('aboutTitle', content.aboutTitle);
+      setText('aboutText',  content.aboutText);
+      setText('btnTrial',   content.btnTrial, 'Book a Free Trial');
 
-        // Direction + fonts
-        applyDirectionAndFonts(lang);
-
-        // ---- Head & Header ----
-        document.title = content.title || 'Curious Genius';
-        document.getElementById('pageTitle').innerText = content.title || '';
-        document.querySelector('header h1').innerText = content.brand || '';
-        document.querySelector('header p').innerText = content.tagline || '';
-
-        // ---- Nav ----
-        document.getElementById('navAbout').innerText = content.navAbout || 'About';
-        document.getElementById('navPrograms').innerText = content.navPrograms || 'Programs';
-        document.getElementById('navContact').innerText = content.navContact || 'Contact';
-        document.getElementById('navLearn').innerText = content.navLearn || 'Learn';
-
-        // ---- About ----
-        document.getElementById('aboutTitle').innerText = content.aboutTitle || '';
-        document.getElementById('aboutText').innerText = content.aboutText || '';
-        document.getElementById('btnTrial').innerText = content.btnTrial || 'Book a Free Trial';
-
-        // ---- Programs ----
-        document.getElementById('programsTitle').innerText = content.programsTitle || '';
-        const realmsList = document.getElementById('realmsList');
+      // Programs
+      setText('programsTitle', content.programsTitle);
+      const realmsList = document.getElementById('realmsList');
+      if (realmsList) {
         if (Array.isArray(content.realms)) {
           realmsList.innerHTML = content.realms
             .map(r => `<li><strong>${r.icon} ${r.name}:</strong> ${r.description}</li>`)
@@ -107,24 +101,63 @@
         } else {
           realmsList.innerHTML = '';
         }
-        document.getElementById('btnCurriculum').innerText = content.btnCurriculum || 'Explore Curriculum';
+      }
+      setText('btnCurriculum', content.btnCurriculum, 'Explore Curriculum');
 
-        // ---- Contact ----
-        document.getElementById('contactTitle').innerText = content.contactTitle || '';
-        if (content.emailLabel)    document.getElementById('emailLabel').innerText    = content.emailLabel;
-        if (content.phoneLabel)    document.getElementById('phoneLabel').innerText    = content.phoneLabel;
-        if (content.locationLabel) document.getElementById('locationLabel').innerText = content.locationLabel;
+      // Contact
+      setText('contactTitle', content.contactTitle);
+      if (content.emailLabel)    setText('emailLabel',    content.emailLabel);
+      if (content.phoneLabel)    setText('phoneLabel',    content.phoneLabel);
+      if (content.locationLabel) setText('locationLabel', content.locationLabel);
 
-        // Map note localized
-        document.getElementById('mapNote').innerText = content.mapNote || '';
+      // Map note
+      setText('mapNote', content.mapNote);
 
-        // ---- Footer ----
-        document.getElementById('footerNote').innerText = content.footer || '';
+      // Footer
+      setText('footerNote', content.footer);
+    }
+
+    async function loadContent(lang = currentLang) {
+      try {
+        // Load main content once (single-document YAML with top-level keys en/fr/es/ar/pa)
+        if (!yamlMain) {
+          yamlMain = await fetchYaml('content.yaml');
+        }
+
+        // Validate lang; fallback to en if missing
+        if (!yamlMain[lang]) {
+          console.warn(`[i] Language '${lang}' not found in content.yaml. Falling back to 'en'.`);
+          lang = 'en';
+        }
+        currentLang = lang;
+
+        // Load realms for this language; fallback to realms_en.yaml if needed
+        const realmsPath = `realms_${lang}.yaml`;
+        let realmsDoc = {};
+        try {
+          realmsDoc = await fetchYaml(realmsPath);
+          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) throw new Error('Invalid realms format');
+        } catch (e) {
+          console.warn(`[i] Problem with ${realmsPath}. Falling back to realms_en.yaml.`);
+          realmsDoc = await fetchYaml('realms_en.yaml');
+          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) {
+            console.error('[!] Missing/invalid realms_en.yaml. Rendering without realms.');
+            realmsDoc = { realms: [] };
+          }
+        }
+
+        // Merge & render
+        const content = { ...yamlMain[lang], ...realmsDoc };
+        applyDirectionAndFonts(lang);
+        renderContent(content);
       } catch (err) {
         console.error(err);
         alert('Failed to load localized content. Check console for details.');
       }
     }
+
+    // Expose for language buttons
+    window.loadContent = loadContent;
   </script>
 </head>
 <body onload="loadContent()">
