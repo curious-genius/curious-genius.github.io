@@ -32,4 +32,263 @@
       padding: 1rem;
       margin: 0.75rem 0 1.25rem;
       background: #fff;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.04)
+      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+    }
+    .subheading {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary, #0077cc);
+      letter-spacing: 0.02em;
+    }
+  </style>
+
+  <!-- YAML parser -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
+  <script>
+    // ---- Language detection with safe fallback ----
+    const supportedLangs = ['en', 'fr', 'es', 'ar', 'pa'];
+    const rawLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase(); // e.g. "fr-CA"
+    const browserLang = rawLang.slice(0, 2);
+    let currentLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+
+    let yamlMain = null;   // content.yaml (single-document)
+    let yamlRealms = null; // realms_<lang>.yaml (per language)
+
+    async function fetchYaml(path) {
+      const res = await fetch(path, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`Failed to load ${path} (HTTP ${res.status})`);
+      const text = await res.text();
+      return jsyaml.load(text);
+    }
+
+    function applyDirectionAndFonts(lang) {
+      const html = document.documentElement;
+      const body = document.body;
+      const isRTL = (lang === 'ar');
+
+      html.setAttribute('lang', lang);
+      html.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+      body.classList.toggle('rtl', isRTL);
+
+      // Body font per language (headings stay Orbitron via CSS)
+      if (isRTL) {
+        body.style.fontFamily = "'Cairo', 'Rubik', sans-serif";
+      } else if (lang === 'pa') {
+        body.style.fontFamily = "'Noto Sans Gurmukhi', 'Rubik', sans-serif";
+      } else {
+        body.style.fontFamily = "'Rubik', sans-serif";
+      }
+    }
+
+    function setText(id, value, fallback = '') {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value ?? fallback;
+    }
+
+    function renderContent(content) {
+      // Head & header
+      document.title = content.title || 'Curious Genius';
+      setText('pageTitle', content.title);
+      const headerH1 = document.querySelector('header h1');
+      const headerP  = document.querySelector('header p');
+      if (headerH1) headerH1.textContent = content.brand || '';
+      if (headerP)  headerP.textContent  = content.tagline || '';
+
+      // Nav
+      setText('navAbout',    content.navAbout,    'About');
+      setText('navPrograms', content.navPrograms, 'Programs');
+      setText('navPortal',   content.navPortal,   'Portal');
+      setText('navContact',  content.navContact,  'Contact');
+      setText('navLearn',    content.navLearn,    'Learn');
+
+      // About
+      setText('aboutTitle', content.aboutTitle);
+      setText('aboutText',  content.aboutText);
+      setText('btnTrial',   content.btnTrial, 'Book a Free Trial');
+
+      // Programs
+      setText('programsTitle', content.programsTitle);
+      const realmsList = document.getElementById('realmsList');
+      if (realmsList) {
+        if (Array.isArray(content.realms)) {
+          realmsList.innerHTML = content.realms
+            .map(r => `<li><strong>${r.icon} ${r.name}:</strong> ${r.description}</li>`)
+            .join('');
+        } else {
+          realmsList.innerHTML = '';
+        }
+      }
+      setText('btnCurriculum', content.btnCurriculum, 'Explore Curriculum');
+
+      // Portal section headings (with safe defaults if not yet localized)
+      setText('portalTitle', content.portalTitle, 'Parent & Student Portal');
+      setText('portalIntro', content.portalIntro, 'Manage your account with TutorBird: sign up, log in, add students, check availability, book from the calendar, and contact us — all in one place.');
+      setText('portalLoginTitle',   content.portalLoginTitle,   'Login (Parent & Student)');
+      setText('portalSignupTitle',  content.portalSignupTitle,  'Sign Up (One Parent • Multiple Students)');
+      setText('portalBookTitle',    content.portalBookTitle,    'Book (Availability)');
+      setText('portalCalendarTitle',content.portalCalendarTitle,'Book from Calendar');
+      setText('portalContactTitle', content.portalContactTitle, 'Contact (TutorBird)');
+
+      // Contact
+      setText('contactTitle', content.contactTitle);
+      if (content.emailLabel)    setText('emailLabel',    content.emailLabel);
+      if (content.phoneLabel)    setText('phoneLabel',    content.phoneLabel);
+      if (content.locationLabel) setText('locationLabel', content.locationLabel);
+
+      // Map note
+      setText('mapNote', content.mapNote);
+
+      // Footer
+      setText('footerNote', content.footer);
+    }
+
+    async function loadContent(lang = currentLang) {
+      try {
+        // Load main content once
+        if (!yamlMain) {
+          yamlMain = await fetchYaml('content.yaml');
+        }
+
+        // Validate lang; fallback to en if missing
+        if (!yamlMain[lang]) {
+          console.warn(`[i] Language '${lang}' not found in content.yaml. Falling back to 'en'.`);
+          lang = 'en';
+        }
+        currentLang = lang;
+
+        // Load realms for this language; fallback to realms_en.yaml if needed
+        const realmsPath = `realms_${lang}.yaml`;
+        let realmsDoc = {};
+        try {
+          realmsDoc = await fetchYaml(realmsPath);
+          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) throw new Error('Invalid realms format');
+        } catch (e) {
+          console.warn(`[i] Problem with ${realmsPath}. Falling back to realms_en.yaml.`);
+          realmsDoc = await fetchYaml('realms_en.yaml');
+          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) {
+            console.error('[!] Missing/invalid realms_en.yaml. Rendering without realms.');
+            realmsDoc = { realms: [] };
+          }
+        }
+
+        // Merge & render UI text
+        const content = { ...yamlMain[lang], ...realmsDoc };
+        applyDirectionAndFonts(lang);
+        renderContent(content);
+      } catch (err) {
+        console.error(err);
+        alert('Failed to load localized content. Check console for details.');
+      }
+    }
+
+    // Expose for language buttons
+    window.loadContent = loadContent;
+  </script>
+</head>
+<body onload="loadContent()">
+  <header>
+    <img src="curious-genius-logo.png" alt="Curious Genius Logo" />
+    <h1></h1>
+    <p></p>
+  </header>
+
+  <div class="lang-toggle">
+    <button onclick="loadContent('en')">English</button>
+    <button onclick="loadContent('fr')">Français</button>
+    <button onclick="loadContent('es')">Español</button>
+    <button onclick="loadContent('ar')">العربية</button>
+    <button onclick="loadContent('pa')">ਪੰਜਾਬੀ</button>
+  </div>
+
+  <nav>
+    <a id="navAbout" href="#about"></a>
+    <a id="navPrograms" href="#programs"></a>
+    <a id="navPortal" href="#portal"></a>
+    <a id="navContact" href="#contact"></a>
+    <a id="navLearn" href="https://curiousgenius.moodlecloud.com/login/index.php" target="_blank" rel="noopener"></a>
+  </nav>
+
+  <section class="section" id="about">
+    <h2 id="aboutTitle"></h2>
+    <p id="aboutText"></p>
+    <a href="#contact" class="btn" id="btnTrial"></a>
+  </section>
+
+  <section class="section" id="programs">
+    <h2 id="programsTitle"></h2>
+    <ul id="realmsList"></ul>
+    <a href="#contact" class="btn" id="btnCurriculum"></a>
+  </section>
+
+  <!-- ===== TutorBird Portal Section ===== -->
+  <section class="section" id="portal">
+    <h2 id="portalTitle"></h2>
+    <p id="portalIntro"></p>
+
+    <!-- Login (Parent & Student) -->
+    <h3 class="subheading" id="portalLoginTitle"></h3>
+    <div class="widget-block">
+      <!-- Your LOGIN widget -->
+      <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjNKeSJ9"></script>
+    </div>
+
+    <!-- Sign Up (One parent, multiple students) -->
+    <h3 class="subheading" id="portalSignupTitle"></h3>
+    <div class="widget-block">
+      <!-- Your SIGNUP + BOOK widget (per-student fields) -->
+      <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQnNKUSJ9"></script>
+    </div>
+
+    <!-- Book (Availability) -->
+    <h3 class="subheading" id="portalBookTitle"></h3>
+    <div class="widget-block">
+      <!-- Your BOOK/AVAILABILITY widget (the “general” widget you posted first) -->
+      <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjJKTSJ9"></script>
+    </div>
+
+    <!-- Book from Calendar (existing fields) -->
+    <h3 class="subheading" id="portalCalendarTitle"></h3>
+    <div class="widget-block">
+      <!-- Your BOOK-FROM-CALENDAR widget (existing fields) -->
+      <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQkhKYyJ9"></script>
+    </div>
+
+    <!-- Contact (TutorBird contact form) -->
+    <h3 class="subheading" id="portalContactTitle"></h3>
+    <div class="widget-block">
+      <!-- Your CONTACT widget -->
+      <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQkRKSCJ9"></script>
+    </div>
+  </section>
+  <!-- ===== End TutorBird Portal Section ===== -->
+
+  <!-- Contact with embedded Google map (your own location) -->
+  <section class="section" id="contact">
+    <h2 id="contactTitle"></h2>
+
+    <p><strong id="emailLabel">Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a></p>
+    <p><strong id="phoneLabel">Phone:</strong> <a href="tel:14038301013">403-830-1013</a></p>
+    <p><strong id="locationLabel">Location:</strong> Unit 5, 5505 Shaganappi Trail NW, Calgary AB, T3A 1Z6 (Inside CO-OP Dalhousie)</p>
+
+    <div class="map-container" style="margin-top:1em; text-align:center;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.413880785179!2d-114.15838952332478!3d51.10137294251151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716f0c76c1f86b%3A0x5f0f9b6fce0b1cd!2sCalgary%20Co-op%20Dalhousie%20Centre!5e0!3m2!1sen!2sca!4v1692730000000"
+        width="100%"
+        height="350"
+        style="border:0; border-radius:12px;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <p id="mapNote" style="margin-top:0.5em; font-size:0.9em; color:#555;"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p id="footerNote"></p>
+  </footer>
+</body>
+</html>
