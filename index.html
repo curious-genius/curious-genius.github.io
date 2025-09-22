@@ -2,21 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
   <title id="pageTitle"></title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
   <!-- Fonts: Orbitron (headings), Rubik (body), Cairo (Arabic), Noto Sans Gurmukhi (Punjabi) -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;500;700&family=Cairo:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;500;700&family=Cairo:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
 
   <!-- External Styles -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Minimal RTL helper (kept inline so it works even if styles.css isn't updated yet) -->
+  <!-- Minimal RTL helper (kept inline to ensure proper direction even if CSS is cached) -->
   <style>
     body.rtl { direction: rtl; }
-    body.rtl nav a { margin-left: 0; margin-right: 0; }
+    body.rtl nav { direction: rtl; }
     body.rtl .btn { letter-spacing: 0; }
+    /* Optional: tweak list alignment in RTL */
+    body.rtl ul { padding-right: 0; }
   </style>
 
   <!-- YAML parser -->
@@ -24,8 +32,8 @@
 
   <script>
     let currentLang = 'en';
-    let yamlMain = null;   // content.yaml (titles, nav, buttons, etc.)
-    let yamlRealms = null; // realms_<lang>.yaml (realms list)
+    let yamlMain = null;   // content.yaml (all languages)
+    let yamlRealms = null; // realms_<lang>.yaml (per language)
 
     async function fetchYaml(path) {
       const res = await fetch(path);
@@ -34,23 +42,22 @@
       return jsyaml.load(text);
     }
 
-    function applyDirection(lang) {
+    function applyDirectionAndFonts(lang) {
       const html = document.documentElement;
       const body = document.body;
-
-      // Arabic is RTL; others are LTR
       const isRTL = (lang === 'ar');
+
       html.setAttribute('lang', lang);
       html.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
       body.classList.toggle('rtl', isRTL);
 
-      // Font fallbacks by language (keep Orbitron on headings)
+      // Body font family per language (headings stay Orbitron via CSS)
       if (isRTL) {
-        body.style.fontFamily = `'Cairo', 'Rubik', sans-serif`;
+        body.style.fontFamily = "'Cairo', 'Rubik', sans-serif";
       } else if (lang === 'pa') {
-        body.style.fontFamily = `'Noto Sans Gurmukhi', 'Rubik', sans-serif`;
+        body.style.fontFamily = "'Noto Sans Gurmukhi', 'Rubik', sans-serif";
       } else {
-        body.style.fontFamily = `'Rubik', sans-serif`;
+        body.style.fontFamily = "'Rubik', sans-serif";
       }
     }
 
@@ -58,28 +65,28 @@
       try {
         currentLang = lang;
 
-        // Load main content once (all languages in content.yaml)
+        // Load main content once (all languages inside)
         if (!yamlMain) {
           yamlMain = await fetchYaml('content.yaml');
         }
         if (!yamlMain[lang]) throw new Error(`Language '${lang}' not found in content.yaml`);
 
-        // Load realms for this language
+        // Load realms for this language each time (small files)
         yamlRealms = await fetchYaml(`realms_${lang}.yaml`);
 
-        // Merge content objects (realms will be at content.realms)
+        // Merge content objects (realms will sit at content.realms)
         const content = { ...yamlMain[lang], ...yamlRealms };
 
-        // Direction + font per language
-        applyDirection(lang);
+        // Direction + fonts
+        applyDirectionAndFonts(lang);
 
-        // ---- Populate Head & Header ----
+        // ---- Head & Header ----
         document.title = content.title || 'Curious Genius';
         document.getElementById('pageTitle').innerText = content.title || '';
         document.querySelector('header h1').innerText = content.brand || '';
         document.querySelector('header p').innerText = content.tagline || '';
 
-        // ---- Nav (localized) ----
+        // ---- Nav ----
         document.getElementById('navAbout').innerText = content.navAbout || 'About';
         document.getElementById('navPrograms').innerText = content.navPrograms || 'Programs';
         document.getElementById('navContact').innerText = content.navContact || 'Contact';
@@ -93,9 +100,9 @@
         // ---- Programs ----
         document.getElementById('programsTitle').innerText = content.programsTitle || '';
         const realmsList = document.getElementById('realmsList');
-        if (content.realms && Array.isArray(content.realms)) {
+        if (Array.isArray(content.realms)) {
           realmsList.innerHTML = content.realms
-            .map(r => `<li><strong>${r.icon} ${r.name}:</strong> <span>${r.description}</span></li>`)
+            .map(r => `<li><strong>${r.icon} ${r.name}:</strong> ${r.description}</li>`)
             .join('');
         } else {
           realmsList.innerHTML = '';
@@ -104,10 +111,8 @@
 
         // ---- Contact ----
         document.getElementById('contactTitle').innerText = content.contactTitle || '';
-
-        // Optional localization for labels (if provided)
-        if (content.emailLabel) document.getElementById('emailLabel').innerText = content.emailLabel;
-        if (content.phoneLabel) document.getElementById('phoneLabel').innerText = content.phoneLabel;
+        if (content.emailLabel)    document.getElementById('emailLabel').innerText    = content.emailLabel;
+        if (content.phoneLabel)    document.getElementById('phoneLabel').innerText    = content.phoneLabel;
         if (content.locationLabel) document.getElementById('locationLabel').innerText = content.locationLabel;
 
         // Map note localized
