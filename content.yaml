@@ -3,7 +3,6 @@ en:
   brand: "Curious Genius"
   tagline: "Small classes. Big projects. Real skills."
 
-  # Navigation
   navAbout: "About"
   navPrograms: "Programs"
   navApproach: "How It Works"
@@ -11,11 +10,9 @@ en:
   navContact: "Contact"
   navLearn: "Learn"
 
-  # Hero CTAs
-  ctaPrimary: "Sign Up / Enroll"
+  ctaPrimary: "Sign Up"
   ctaSecondary: "See Programs"
 
-  # Value props
   propsTitle: "Why families choose Curious Genius"
   prop1Title: "Small Classes"
   prop1Body: "6–8 learners per cohort for focused, individualized attention."
@@ -24,11 +21,9 @@ en:
   prop3Title: "Trusted Curriculum"
   prop3Body: "Aligned to Code.org pathways and industry best practices."
 
-  # Programs
   programsTitle: "Programs by Level"
   btnCurriculum: "Explore Curriculum"
 
-  # Approach (How it works)
   approachTitle: "How it works"
   step1Title: "1) Free Trial"
   step1Body: "A 30–45 minute trial to discover interests and fit."
@@ -37,13 +32,11 @@ en:
   step3Title: "3) Build & Celebrate"
   step3Body: "Weekly classes, visible progress, and showcase days."
 
-  # Portal (no vendor naming)
   portalTitle: "Parent & Student Portal"
-  portalIntro: "Log in to manage your account or sign up to enroll and add students."
+  portalIntro: "Sign up (parent first), add your student, then log in anytime to manage your schedule."
   portalLoginTitle: "Login"
   portalSignupTitle: "Sign Up"
 
-  # Contact & footer
   contactTitle: "Contact & Location"
   emailLabel: "Email:"
   phoneLabel: "Phone:"
@@ -63,7 +56,7 @@ fr:
   navContact: "Contact"
   navLearn: "Apprendre"
 
-  ctaPrimary: "S’inscrire / S’enrôler"
+  ctaPrimary: "S’inscrire"
   ctaSecondary: "Voir les programmes"
 
   propsTitle: "Pourquoi les familles choisissent Curious Genius"
@@ -86,7 +79,7 @@ fr:
   step3Body: "Cours hebdomadaires, progression visible et journées vitrine."
 
   portalTitle: "Portail Parents & Élèves"
-  portalIntro: "Connectez-vous pour gérer votre compte ou inscrivez-vous pour ajouter des élèves."
+  portalIntro: "Inscrivez-vous (parent d’abord), ajoutez votre élève, puis connectez-vous à tout moment pour gérer l’horaire."
   portalLoginTitle: "Connexion"
   portalSignupTitle: "Inscription"
 
@@ -109,7 +102,7 @@ es:
   navContact: "Contacto"
   navLearn: "Aprender"
 
-  ctaPrimary: "Inscribirse / Matricular"
+  ctaPrimary: "Inscribirse"
   ctaSecondary: "Ver programas"
 
   propsTitle: "Por qué las familias eligen Curious Genius"
@@ -132,7 +125,7 @@ es:
   step3Body: "Clases semanales, progreso visible y días de presentación."
 
   portalTitle: "Portal para Familias y Estudiantes"
-  portalIntro: "Inicia sesión para gestionar tu cuenta o inscríbete para añadir estudiantes."
+  portalIntro: "Inscríbete (primero el padre), agrega a tu estudiante y accede cuando quieras para gestionar tu horario."
   portalLoginTitle: "Iniciar sesión"
   portalSignupTitle: "Inscribirse"
 
@@ -155,7 +148,7 @@ ar:
   navContact: "تواصل"
   navLearn: "التعلّم"
 
-  ctaPrimary: "التسجيل / الالتحاق"
+  ctaPrimary: "التسجيل"
   ctaSecondary: "عرض البرامج"
 
   propsTitle: "لماذا تختار العائلات كيريوس جينيوس"
@@ -178,7 +171,7 @@ ar:
   step3Body: "صفوف أسبوعية وتقدّم ملحوظ وأيام عرض للمشاريع."
 
   portalTitle: "بوابة أولياء الأمور والطلاب"
-  portalIntro: "سجّل الدخول لإدارة حسابك أو سجّل للالتحاق وإضافة الطلاب."
+  portalIntro: "سجّل (بيانات وليّ الأمر أولاً)، أضف الطالب، ثم سجّل الدخول في أي وقت لإدارة جدولك."
   portalLoginTitle: "تسجيل الدخول"
   portalSignupTitle: "التسجيل"
 
@@ -201,7 +194,7 @@ pa:
   navContact: "ਸੰਪਰਕ"
   navLearn: "ਸਿੱਖੋ"
 
-  ctaPrimary: "ਸਾਈਨ ਅੱਪ / ਦਾਖ਼ਲਾ"
+  ctaPrimary: "ਸਾਈਨ ਅੱਪ"
   ctaSecondary: "ਪ੍ਰੋਗਰਾਮ ਵੇਖੋ"
 
   propsTitle: "ਪਰਿਵਾਰ Curious Genius ਕਿਉਂ ਚੁਣਦੇ ਹਨ"
@@ -224,7 +217,7 @@ pa:
   step3Body: "ਹਫ਼ਤਾਵਾਰੀ ਕਲਾਸਾਂ, ਦਿੱਖਣਯੋਗ ਤਰੱਕੀ ਅਤੇ ਸ਼ੋਕੇਸ ਦਿਨ।"
 
   portalTitle: "ਮਾਪਿਆਂ ਅਤੇ ਵਿਦਿਆਰਥੀਆਂ ਲਈ ਪੋਰਟਲ"
-  portalIntro: "ਖਾਤਾ ਸੰਭਾਲਣ ਲਈ ਲਾਗਇਨ ਕਰੋ ਜਾਂ ਦਾਖ਼ਲਾ/ਵਿਦਿਆਰਥੀ ਜੋੜਣ ਲਈ ਸਾਈਨ ਅੱਪ ਕਰੋ।"
+  portalIntro: "ਪਹਿਲਾਂ ਮਾਪੇ ਦੀ ਜਾਣਕਾਰੀ ਨਾਲ ਸਾਈਨ ਅੱਪ ਕਰੋ, ਫਿਰ ਵਿਦਿਆਰਥੀ ਜੋੜੋ। ਕਿਸੇ ਵੀ ਸਮੇਂ ਲਾਗਇਨ ਕਰਕੇ ਆਪਣਾ ਸ਼ਡਿਊਲ ਸੰਭਾਲੋ।"
   portalLoginTitle: "ਲਾਗਇਨ"
   portalSignupTitle: "ਸਾਈਨ ਅੱਪ"
 
