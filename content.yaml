@@ -1,129 +1,54 @@
 en:
-  title: "Curious Genius | Realms of Codeverse"
+  title: "Curious Genius | Learn to Code – Classes for Ages 5–18"
   brand: "Curious Genius"
-  tagline: "Inspiring young minds through code. Learn, create, and lead the future."
+  tagline: "Small classes. Big projects. Real skills."
 
+  # Navigation
   navAbout: "About"
   navPrograms: "Programs"
+  navApproach: "How It Works"
+  navPortal: "Portal"
   navContact: "Contact"
   navLearn: "Learn"
 
-  btnTrial: "Book a Free Trial"
+  # Hero CTAs
+  ctaPrimary: "Book Free Trial"
+  ctaSecondary: "See Programs"
+
+  # Value props
+  propsTitle: "Why parents choose us"
+  prop1Title: "Small Classes"
+  prop1Body: "6–8 learners per cohort for attention that counts."
+  prop2Title: "Project-Based"
+  prop2Body: "Kids build games, apps, and websites they’re proud to show."
+  prop3Title: "Certified Curriculum"
+  prop3Body: "Built on Code.org pathways and industry best practices."
+
+  # Programs
+  programsTitle: "Programs by Level"
   btnCurriculum: "Explore Curriculum"
 
+  # Approach (How it works)
+  approachTitle: "How it works"
+  step1Title: "1) Free Trial"
+  step1Body: "A 30–45 minute session so your child can try it out."
+  step2Title: "2) Personalized Plan"
+  step2Body: "We place them at the right level and map the next steps."
+  step3Title: "3) Build & Celebrate"
+  step3Body: "Weekly classes, visible progress, and showcase days."
+
+  # Portal
+  portalTitle: "Parent & Student Portal"
+  portalIntro: "Manage your account with TutorBird—login, sign up/add students, book from the calendar, and contact us."
+  portalLoginTitle: "Login"
+  portalSignupTitle: "Sign Up / Enroll (1 parent • many students)"
+  portalCalendarTitle: "Book from Calendar"
+  portalContactTitle: "Contact"
+
+  # Contact & footer
+  contactTitle: "Contact & Location"
   emailLabel: "Email:"
   phoneLabel: "Phone:"
   locationLabel: "Location:"
-
   mapNote: "We’re located inside CO-OP Dalhousie (Unit 5, near the mall entrance)."
-
-  aboutTitle: "Welcome to Curious Genius"
-  aboutText: "We teach coding with creativity and confidence. Each child explores their own unique path through our Codeverse realms — personalized learning that’s fun, hands-on, and empowering."
-  programsTitle: "Realms of Code"
-  contactTitle: "Contact & Location"
-
   footer: "© 2025 Curious Genius. Coding realms built for the curious mind."
-
-fr:
-  title: "Curious Genius | Royaumes du Codeverse"
-  brand: "Curious Genius"
-  tagline: "Inspirer les jeunes esprits avec le code. Apprendre, créer et diriger l'avenir."
-
-  navAbout: "À propos"
-  navPrograms: "Programmes"
-  navContact: "Contact"
-  navLearn: "Apprendre"
-
-  btnTrial: "Réserver un essai gratuit"
-  btnCurriculum: "Explorer le programme"
-
-  emailLabel: "Courriel :"
-  phoneLabel: "Téléphone :"
-  locationLabel: "Adresse :"
-
-  mapNote: "Nous sommes situés à l'intérieur du CO-OP Dalhousie (Unité 5, près de l'entrée du centre commercial)."
-
-  aboutTitle: "Bienvenue chez Curious Genius"
-  aboutText: "Nous enseignons le codage avec créativité et confiance. Chaque enfant explore son propre chemin unique à travers nos royaumes de Codeverse."
-  programsTitle: "Royaumes du Code"
-  contactTitle: "Contact et Lieu"
-
-  footer: "© 2025 Curious Genius. Des royaumes de codage pour les esprits curieux."
-
-es:
-  title: "Curious Genius | Reinos del Codeverso"
-  brand: "Curious Genius"
-  tagline: "Inspirando a jóvenes mentes a través del código. Aprende, crea y lidera el futuro."
-
-  navAbout: "Acerca de"
-  navPrograms: "Programas"
-  navContact: "Contacto"
-  navLearn: "Aprender"
-
-  btnTrial: "Reserva una prueba gratuita"
-  btnCurriculum: "Explorar plan de estudios"
-
-  emailLabel: "Correo:"
-  phoneLabel: "Teléfono:"
-  locationLabel: "Ubicación:"
-
-  mapNote: "Estamos ubicados dentro de CO-OP Dalhousie (Unidad 5, cerca de la entrada del centro comercial)."
-
-  aboutTitle: "Bienvenido a Curious Genius"
-  aboutText: "Enseñamos codificación con creatividad y confianza. Cada niño explora su propio camino único a través de nuestros Reinos del Código."
-  programsTitle: "Reinos del Código"
-  contactTitle: "Contacto y Ubicación"
-
-  footer: "© 2025 Curious Genius. Reinos de codificación para mentes curiosas."
-
-ar:
-  title: "كيريوس جينيوس | عوالم كودفيرس"
-  brand: "كيريوس جينيوس"
-  tagline: "إلهام العقول الصغيرة من خلال البرمجة. تعلم، أنشئ، وقُد المستقبل."
-
-  navAbout: "من نحن"
-  navPrograms: "البرامج"
-  navContact: "تواصل معنا"
-  navLearn: "التعلم"
-
-  btnTrial: "احجز تجربة مجانية"
-  btnCurriculum: "استكشف المنهج"
-
-  emailLabel: "البريد الإلكتروني:"
-  phoneLabel: "الهاتف:"
-  locationLabel: "الموقع:"
-
-  mapNote: "نحن موجودون داخل CO-OP Dalhousie (الوحدة 5، بالقرب من مدخل المركز التجاري)."
-
-  aboutTitle: "مرحبًا بك في كيريوس جينيوس"
-  aboutText: "نُعلّم البرمجة بالإبداع والثقة. كل طفل يستكشف مساره الفريد من خلال عوالم كودفيرس — تعلم ممتع، عملي، ومُلهم."
-  programsTitle: "عوالم الكود"
-  contactTitle: "التواصل والموقع"
-
-  footer: "© 2025 كيريوس جينيوس. عوالم برمجة بُنيت من أجل العقول الفضولية."
-
-pa:
-  title: "Curious Genius | ਕੋਡਵਰਸ ਦੇ ਰੀਅਲਮਜ਼"
-  brand: "Curious Genius"
-  tagline: "ਕੋਡ ਰਾਹੀਂ ਨੌਜਵਾਨ ਮਨਾਂ ਨੂੰ ਪ੍ਰੇਰਿਤ ਕਰਨਾ। ਸਿੱਖੋ, ਬਣਾਓ ਅਤੇ ਭਵਿੱਖ ਦੀ ਅਗਵਾਈ ਕਰੋ।"
-
-  navAbout: "ਸਾਡੇ ਬਾਰੇ"
-  navPrograms: "ਕਾਰਜਕ੍ਰਮ"
-  navContact: "ਸੰਪਰਕ"
-  navLearn: "ਸਿੱਖੋ"
-
-  btnTrial: "ਮੁਫ਼ਤ ਟਰਾਇਲ ਬੁੱਕ ਕਰੋ"
-  btnCurriculum: "ਪਾਠਕ੍ਰਮ ਦੀ ਖੋਜ ਕਰੋ"
-
-  emailLabel: "ਈਮੇਲ:"
-  phoneLabel: "ਫ਼ੋਨ:"
-  locationLabel: "ਸਥਾਨ:"
-
-  mapNote: "ਅਸੀਂ CO-OP Dalhousie ਦੇ ਅੰਦਰ ਸਥਿਤ ਹਾਂ (ਯੂਨਿਟ 5, ਮਾਲ ਦੇ ਦਰਵਾਜ਼ੇ ਨੇੜੇ)।"
-
-  aboutTitle: "Curious Genius ਵਿੱਚ ਸੁਆਗਤ ਹੈ"
-  aboutText: "ਅਸੀਂ ਰਚਨਾਤਮਕਤਾ ਅਤੇ ਆਤਮ ਵਿਸ਼ਵਾਸ ਨਾਲ ਕੋਡਿੰਗ ਸਿਖਾਉਂਦੇ ਹਾਂ। ਹਰ ਬੱਚਾ ਸਾਡੇ ਕੋਡਵਰਸ ਰੀਅਲਮਜ਼ ਰਾਹੀਂ ਆਪਣਾ ਵਿਲੱਖਣ ਰਸਤਾ ਖੋਜਦਾ ਹੈ — ਮਨੋਰੰਜਕ, ਹੱਥ-ਪੱਕੜ ਅਤੇ ਪ੍ਰੇਰਣਾਦਾਇਕ ਸਿੱਖਿਆ।"
-  programsTitle: "ਕੋਡ ਦੇ ਰੀਅਲਮਜ਼"
-  contactTitle: "ਸੰਪਰਕ ਅਤੇ ਸਥਾਨ"
-
-  footer: "© 2025 Curious Genius. ਉਤਸੁਕ ਮਨਾਂ ਲਈ ਕੋਡਿੰਗ ਰੀਅਲਮਜ਼ ਬਣਾਏ ਗਏ।"
