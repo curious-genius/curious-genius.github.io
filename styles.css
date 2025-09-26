@@ -106,3 +106,56 @@ body{
   .contact-grid{grid-template-columns:1fr}
   .mainnav{display:none} /* optional simple mobile nav; can swap to hamburger later */
 }
+
+/* ==== Footer (responsive, dark, tidy) ==== */
+footer {
+  background: #0f172a;            /* deep slate */
+  color: #e5e7eb;                 /* light gray text */
+  padding: 24px 16px;
+  margin-top: 40px;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+footer .footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 8px 24px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+footer .contact {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+footer #footerNote {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* separator bullet/pipe spacing */
+footer .sep {
+  display: inline-block;
+  padding: 0 10px;
+  opacity: 0.7;
+}
+
+/* Stack vertically on narrow screens */
+@media (max-width: 640px) {
+  footer .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  footer .sep { display: inline; }
+}
