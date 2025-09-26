@@ -31,7 +31,6 @@
     let currentLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
 
     let yamlMain = null;   // content.yaml (single document with en/fr/es/ar/pa)
-    let yamlRealms = null; // realms_<lang>.yaml
 
     async function fetchYaml(path) {
       const res = await fetch(path, { cache: 'no-store' });
@@ -79,17 +78,17 @@
       t('navLearn', content.navLearn, 'Learn');
 
       /* Hero CTAs */
-      t('ctaPrimary', content.ctaPrimary, 'Sign Up / Enroll');
+      t('ctaPrimary', content.ctaPrimary, 'Sign Up');
       t('ctaSecondary', content.ctaSecondary, 'See Programs');
 
       /* Value props */
-      t('propsTitle', content.propsTitle, 'Why parents choose us');
+      t('propsTitle', content.propsTitle, 'Why families choose Curious Genius');
       t('prop1Title', content.prop1Title, 'Small Classes');
-      t('prop1Body', content.prop1Body, '6–8 learners per cohort for attention that counts.');
-      t('prop2Title', content.prop2Title, 'Project-Based');
-      t('prop2Body', content.prop2Body, 'Kids build games, apps, and websites they’re proud to show.');
-      t('prop3Title', content.prop3Title, 'Certified Curriculum');
-      t('prop3Body', content.prop3Body, 'Built on Code.org pathways and industry best practices.');
+      t('prop1Body', content.prop1Body, '6–8 learners per cohort for focused, individualized attention.');
+      t('prop2Title', content.prop2Title, 'Project-Based Learning');
+      t('prop2Body', content.prop2Body, 'Kids build real games, apps, and websites they’re proud to show.');
+      t('prop3Title', content.prop3Title, 'Trusted Curriculum');
+      t('prop3Body', content.prop3Body, 'Aligned to Code.org pathways and industry best practices.');
 
       /* Programs (realms) */
       t('programsTitle', content.programsTitle || 'Programs by Level');
@@ -112,25 +111,23 @@
       /* Approach */
       t('approachTitle', content.approachTitle, 'How it works');
       t('step1Title', content.step1Title, '1) Free Trial');
-      t('step1Body',  content.step1Body,  'A 30–45 minute session so your child can try it out.');
+      t('step1Body',  content.step1Body,  'A 30–45 minute trial to discover interests and fit.');
       t('step2Title', content.step2Title, '2) Personalized Plan');
-      t('step2Body',  content.step2Body,  'We place them at the right level and map the next steps.');
+      t('step2Body',  content.step2Body,  'Placement by age and experience, with clear next steps.');
       t('step3Title', content.step3Title, '3) Build & Celebrate');
       t('step3Body',  content.step3Body,  'Weekly classes, visible progress, and showcase days.');
 
-      /* Portal (just headings, no vendor name) */
+      /* Portal */
       t('portalTitle', content.portalTitle, 'Parent & Student Portal');
-      t('portalIntro', content.portalIntro, 'Log in to manage your account or sign up to enroll and add students.');
-
+      t('portalIntro', content.portalIntro, 'Sign up (parent first), add your student, then log in anytime to manage your schedule.');
       t('portalLoginTitle', content.portalLoginTitle, 'Login');
-      t('portalSignupTitle', content.portalSignupTitle, 'Sign Up / Enroll (1 parent • many students)');
-
+      t('portalSignupTitle', content.portalSignupTitle, 'Sign Up');
       /* Contact */
       t('contactTitle', content.contactTitle || 'Contact & Location');
       t('mapNote', content.mapNote || '');
+
       /* Footer */
       t('footerNote', content.footer || '');
-      // Phone & Email are displayed in the footer (static links below)
     }
 
     async function loadContent(lang = currentLang) {
@@ -139,12 +136,12 @@
         if (!yamlMain[lang]) lang = 'en';
         currentLang = lang;
 
-        // realms_<lang>.yaml with fallback to en
+        // Load realms_<lang>.yaml with fallback to en
         const realmsPath = `realms_${lang}.yaml`;
         let realmsDoc = {};
         try {
           realmsDoc = await fetchYaml(realmsPath);
-          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) throw new Error('Invalid realms');
+          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) throw new Error('Invalid realms format');
         } catch {
           realmsDoc = await fetchYaml('realms_en.yaml').catch(() => ({ realms: [] }));
           if (!realmsDoc || !Array.isArray(realmsDoc.realms)) realmsDoc = { realms: [] };
@@ -258,13 +255,13 @@
     </ul>
   </section>
 
-  <!-- PORTAL (Login + Sign Up only) -->
+  <!-- PORTAL (Login + Sign Up) -->
   <section class="section" id="portal">
     <h2 id="portalTitle"></h2>
     <p id="portalIntro" class="muted"></p>
 
     <div class="grid grid--2">
-      <!-- Login (parents log in, then select/book sessions inside the portal) -->
+      <!-- Login (parents log in, then book sessions inside the portal) -->
       <div class="card card--widget">
         <h3 id="portalLoginTitle"></h3>
         <div class="widget">
@@ -272,28 +269,105 @@
         </div>
       </div>
 
-      <!-- Sign Up / Enroll (your working script) -->
+      <!-- Sign Up (Parent first; single student) -->
       <div class="card card--widget">
         <h3 id="portalSignupTitle"></h3>
-        <div class="widget">
+        <div class="widget" id="signupWidget">
+          <!-- Your Sign Up widget -->
           <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjJKTSJ9"></script>
         </div>
+        <!-- Post-load tweaks (only works if widget is NOT in an iframe) -->
+        <script>
+          (function () {
+            const container = document.getElementById('signupWidget');
+            if (!container) return;
+
+            const dalhousieSchools = [
+              '', // placeholder
+              'Dalhousie School (CBE K–5)',
+              'H.D. Cartwright School (CBE 7–9)',
+              'Sir Winston Churchill High School (CBE 10–12)',
+              'St. Dominic School (CCSD K–6)'
+            ];
+
+            const obs = new MutationObserver(() => {
+              try {
+                // If it’s an iframe, we can’t modify inside.
+                if (container.querySelector('iframe')) { obs.disconnect(); return; }
+
+                const form = container.querySelector('form') || container;
+                if (!form) return;
+
+                // --- Reorder: Parent/Guardian above Student ---
+                const findHeading = (rx) => Array.from(form.querySelectorAll('h1,h2,h3,h4,h5,h6'))
+                  .find(h => rx.test(h.textContent.trim()));
+                const parentH = findHeading(/parent|guardian/i);
+                const studentH = findHeading(/student/i);
+                if (parentH && studentH) {
+                  const parentBlock = parentH.nextElementSibling;
+                  if (studentH.compareDocumentPosition(parentH) & Node.DOCUMENT_POSITION_FOLLOWING) {
+                    form.insertBefore(parentH, studentH);
+                    if (parentBlock) form.insertBefore(parentBlock, studentH);
+                  }
+                }
+
+                // --- Hide Student Phone + Skill Level ---
+                const hideByLabel = (rx) => {
+                  const labels = form.querySelectorAll('label, .field-label, .mdc-floating-label, .mat-mdc-floating-label');
+                  labels.forEach(l => {
+                    if (rx.test(l.textContent.trim())) {
+                      const field = l.closest('.field, .form-group, .mat-mdc-form-field, .tb-field, li, div');
+                      if (field) field.style.display = 'none';
+                    }
+                  });
+                };
+                hideByLabel(/student\s*phone/i);
+                hideByLabel(/skill\s*level/i);
+
+                // --- Convert "Current School" to a dropdown with Dalhousie options ---
+                const labels = Array.from(form.querySelectorAll('label, .field-label, .mdc-floating-label, .mat-mdc-floating-label'));
+                const schoolLabel = labels.find(l => /current\s*school/i.test(l.textContent.trim()));
+                if (schoolLabel) {
+                  const fieldWrap = schoolLabel.closest('.field, .form-group, .mat-mdc-form-field, .tb-field, div');
+                  const input = fieldWrap && fieldWrap.querySelector('input[type="text"], input:not([type]), textarea');
+                  if (input) {
+                    const select = document.createElement('select');
+                    select.name = input.name || 'currentSchool';
+                    select.required = input.required || false;
+                    select.style.width = '100%';
+                    dalhousieSchools.forEach(v => {
+                      const o = document.createElement('option');
+                      o.value = v;
+                      o.textContent = v || 'Select your school';
+                      select.appendChild(o);
+                    });
+                    input.replaceWith(select);
+                  }
+                }
+
+                obs.disconnect();
+              } catch (e) {
+                console.warn('Sign-up tweak warning:', e);
+              }
+            });
+
+            obs.observe(container, { childList: true, subtree: true });
+          })();
+        </script>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT (single section: contact form + map; phone/email moved to footer) -->
+  <!-- CONTACT (form + map; phone/email in footer) -->
   <section class="section" id="contact">
     <h2 id="contactTitle"></h2>
     <div class="contact-grid">
       <div class="card card--widget">
-        <!-- Contact form widget -->
         <div class="widget">
           <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQkRKSCJ9"></script>
         </div>
       </div>
       <div class="map">
-        <!-- Updated address: Unit 7, 5505 Shaganappi Trail NW, Calgary, AB T3A 1Z6 -->
         <iframe
           src="https://www.google.com/maps?q=Unit%207%2C%205505%20Shaganappi%20Trail%20NW%2C%20Calgary%2C%20AB%20T3A%201Z6&output=embed"
           width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"
