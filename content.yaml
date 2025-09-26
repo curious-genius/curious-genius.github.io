@@ -41,7 +41,7 @@ en:
   portalTitle: "Parent & Student Portal"
   portalIntro: "Log in to manage your account or sign up to enroll and add students."
   portalLoginTitle: "Login"
-  portalSignupTitle: "Sign Up / Enroll (1 parent • many students)"
+  portalSignupTitle: "Sign Up"
 
   # Contact & footer
   contactTitle: "Contact & Location"
@@ -88,7 +88,7 @@ fr:
   portalTitle: "Portail Parents & Élèves"
   portalIntro: "Connectez-vous pour gérer votre compte ou inscrivez-vous pour ajouter des élèves."
   portalLoginTitle: "Connexion"
-  portalSignupTitle: "Inscription / Enrôlement (1 parent • plusieurs élèves)"
+  portalSignupTitle: "Inscription"
 
   contactTitle: "Contact & Adresse"
   emailLabel: "Courriel :"
@@ -134,7 +134,7 @@ es:
   portalTitle: "Portal para Familias y Estudiantes"
   portalIntro: "Inicia sesión para gestionar tu cuenta o inscríbete para añadir estudiantes."
   portalLoginTitle: "Iniciar sesión"
-  portalSignupTitle: "Inscribirse / Matricular (1 padre • varios estudiantes)"
+  portalSignupTitle: "Inscribirse"
 
   contactTitle: "Contacto y Ubicación"
   emailLabel: "Correo:"
@@ -180,7 +180,7 @@ ar:
   portalTitle: "بوابة أولياء الأمور والطلاب"
   portalIntro: "سجّل الدخول لإدارة حسابك أو سجّل للالتحاق وإضافة الطلاب."
   portalLoginTitle: "تسجيل الدخول"
-  portalSignupTitle: "التسجيل / الالتحاق (ولي واحد • عدة طلاب)"
+  portalSignupTitle: "التسجيل"
 
   contactTitle: "التواصل والموقع"
   emailLabel: "البريد الإلكتروني:"
@@ -226,7 +226,7 @@ pa:
   portalTitle: "ਮਾਪਿਆਂ ਅਤੇ ਵਿਦਿਆਰਥੀਆਂ ਲਈ ਪੋਰਟਲ"
   portalIntro: "ਖਾਤਾ ਸੰਭਾਲਣ ਲਈ ਲਾਗਇਨ ਕਰੋ ਜਾਂ ਦਾਖ਼ਲਾ/ਵਿਦਿਆਰਥੀ ਜੋੜਣ ਲਈ ਸਾਈਨ ਅੱਪ ਕਰੋ।"
   portalLoginTitle: "ਲਾਗਇਨ"
-  portalSignupTitle: "ਸਾਈਨ ਅੱਪ / ਦਾਖ਼ਲਾ (1 ਮਾਪੇ • ਕਈ ਵਿਦਿਆਰਥੀ)"
+  portalSignupTitle: "ਸਾਈਨ ਅੱਪ"
 
   contactTitle: "ਸੰਪਰਕ ਅਤੇ ਸਥਾਨ"
   emailLabel: "ਈਮੇਲ:"
