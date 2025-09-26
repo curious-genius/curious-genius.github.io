@@ -2,21 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title id="pageTitle"></title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 
-  <!-- Fonts: Orbitron (headings), Rubik (body), Cairo (Arabic), Noto Sans Gurmukhi (Punjabi) -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;500;700&family=Cairo:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;500;700&family=Cairo:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&display=swap" rel="stylesheet"/>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css"/>
 
   <!-- Minimal RTL helper -->
   <style>
@@ -37,13 +31,13 @@
     let currentLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
 
     let yamlMain = null;   // content.yaml (single document with en/fr/es/ar/pa)
-    let yamlRealms = null; // realms_<lang>.yaml (per language)
+    let yamlRealms = null; // realms_<lang>.yaml
 
     async function fetchYaml(path) {
       const res = await fetch(path, { cache: 'no-store' });
       if (!res.ok) throw new Error(`Failed to load ${path} (HTTP ${res.status})`);
       const text = await res.text();
-      return jsyaml.load(text); // single-doc YAML
+      return jsyaml.load(text);
     }
 
     function applyDirectionAndFonts(lang) {
@@ -68,7 +62,7 @@
     }
 
     function renderContent(content) {
-      /* Head & header */
+      /* Head & hero */
       document.title = content.title || 'Curious Genius';
       t('pageTitle', content.title);
       const h1 = document.querySelector('.hero h1');
@@ -85,7 +79,7 @@
       t('navLearn', content.navLearn, 'Learn');
 
       /* Hero CTAs */
-      t('ctaPrimary', content.ctaPrimary, 'Book Free Trial');
+      t('ctaPrimary', content.ctaPrimary, 'Sign Up / Enroll');
       t('ctaSecondary', content.ctaSecondary, 'See Programs');
 
       /* Value props */
@@ -113,10 +107,9 @@
       } else {
         list.innerHTML = '';
       }
-
       t('btnCurriculum', content.btnCurriculum, 'Explore Curriculum');
 
-      /* Approach (how it works) */
+      /* Approach */
       t('approachTitle', content.approachTitle, 'How it works');
       t('step1Title', content.step1Title, '1) Free Trial');
       t('step1Body',  content.step1Body,  'A 30–45 minute session so your child can try it out.');
@@ -125,23 +118,19 @@
       t('step3Title', content.step3Title, '3) Build & Celebrate');
       t('step3Body',  content.step3Body,  'Weekly classes, visible progress, and showcase days.');
 
-      /* Portal (TutorBird) */
+      /* Portal (just headings, no vendor name) */
       t('portalTitle', content.portalTitle, 'Parent & Student Portal');
-      t('portalIntro', content.portalIntro, 'Manage your account with TutorBird—login, sign up/add students, book from the calendar, and contact us.');
+      t('portalIntro', content.portalIntro, 'Log in to manage your account or sign up to enroll and add students.');
+
       t('portalLoginTitle', content.portalLoginTitle, 'Login');
       t('portalSignupTitle', content.portalSignupTitle, 'Sign Up / Enroll (1 parent • many students)');
-      t('portalCalendarTitle', content.portalCalendarTitle, 'Book from Calendar');
-      t('portalContactTitle', content.portalContactTitle, 'Contact');
 
       /* Contact */
       t('contactTitle', content.contactTitle || 'Contact & Location');
-      t('emailLabel', content.emailLabel || 'Email:');
-      t('phoneLabel', content.phoneLabel || 'Phone:');
-      t('locationLabel', content.locationLabel || 'Location:');
       t('mapNote', content.mapNote || '');
-
       /* Footer */
       t('footerNote', content.footer || '');
+      // Phone & Email are displayed in the footer (static links below)
     }
 
     async function loadContent(lang = currentLang) {
@@ -178,7 +167,7 @@
   <!-- NAVBAR -->
   <header class="topbar">
     <a class="brand" href="#">
-      <img src="curious-genius-logo.png" alt="Curious Genius Logo" />
+      <img src="curious-genius-logo.png" alt="Curious Genius Logo"/>
       <span>Curious Genius</span>
     </a>
     <nav class="mainnav">
@@ -269,13 +258,13 @@
     </ul>
   </section>
 
-  <!-- PORTAL (TutorBird essential widgets only) -->
+  <!-- PORTAL (Login + Sign Up only) -->
   <section class="section" id="portal">
     <h2 id="portalTitle"></h2>
     <p id="portalIntro" class="muted"></p>
 
     <div class="grid grid--2">
-      <!-- Login -->
+      <!-- Login (parents log in, then select/book sessions inside the portal) -->
       <div class="card card--widget">
         <h3 id="portalLoginTitle"></h3>
         <div class="widget">
@@ -283,52 +272,42 @@
         </div>
       </div>
 
-      <!-- Sign Up / Enroll (1 parent • many students) -->
+      <!-- Sign Up / Enroll (your working script) -->
       <div class="card card--widget">
         <h3 id="portalSignupTitle"></h3>
         <div class="widget">
-          <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQnNKUSJ9"></script>
-        </div>
-      </div>
-
-      <!-- Book from Calendar -->
-      <div class="card card--widget">
-        <h3 id="portalCalendarTitle"></h3>
-        <div class="widget">
-          <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQkhKYyJ9"></script>
-        </div>
-      </div>
-
-      <!-- Contact -->
-      <div class="card card--widget">
-        <h3 id="portalContactTitle"></h3>
-        <div class="widget">
-          <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQkRKSCJ9"></script>
+          <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjJKTSJ9"></script>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT (single section: contact form + map; phone/email moved to footer) -->
   <section class="section" id="contact">
     <h2 id="contactTitle"></h2>
     <div class="contact-grid">
-      <div class="contact-info">
-        <p><strong id="emailLabel">Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a></p>
-        <p><strong id="phoneLabel">Phone:</strong> <a href="tel:14038301013">403-830-1013</a></p>
-        <p><strong id="locationLabel">Location:</strong> Unit 5, 5505 Shaganappi Trail NW, Calgary AB, T3A 1Z6 (Inside CO-OP Dalhousie)</p>
-        <p class="muted" id="mapNote"></p>
+      <div class="card card--widget">
+        <!-- Contact form widget -->
+        <div class="widget">
+          <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQkRKSCJ9"></script>
+        </div>
       </div>
       <div class="map">
+        <!-- Updated address: Unit 7, 5505 Shaganappi Trail NW, Calgary, AB T3A 1Z6 -->
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.413880785179!2d-114.15838952332478!3d51.10137294251151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716f0c76c1f86b%3A0x5f0f9b6fce0b1cd!2sCalgary%20Co-op%20Dalhousie%20Centre!5e0!3m2!1sen!2sca!4v1692730000000"
+          src="https://www.google.com/maps?q=Unit%207%2C%205505%20Shaganappi%20Trail%20NW%2C%20Calgary%2C%20AB%20T3A%201Z6&output=embed"
           width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p class="muted" id="mapNote"></p>
       </div>
     </div>
   </section>
 
   <footer>
+    <p>
+      <strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a> &nbsp;|&nbsp;
+      <strong>Phone:</strong> <a href="tel:14038301013">403-830-1013</a>
+    </p>
     <p id="footerNote"></p>
   </footer>
 </body>
