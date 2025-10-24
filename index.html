@@ -1,18 +1,45 @@
+<!-- =========================
+Curious Genius — Updated Site Bundle (Oct 2025)
+Files in this document:
+1) index.html  (drop-in replacement)
+2) styles.css  (drop-in replacement)
+
+Notes:
+- Keeps your YAML-driven i18n (content.yaml + realms_*.yaml)
+- Improves SEO, accessibility, mobile nav (hamburger), RTL handling, and widget resilience
+- Adds language persistence, better error handling, and LocalBusiness schema
+========================= -->
+
+<!-- =========================
+= 1) index.html (updated)
+========================= -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title id="pageTitle"></title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Curious Genius | Learn to Code — Classes for Ages 5–18</title>
+  <meta name="description" content="Curious Genius offers small-group coding classes for ages 5–18 in NW Calgary. Project‑based learning aligned with Code.org. Try a free trial session." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://curious-genius.github.io/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Curious Genius | Learn to Code — Classes for Ages 5–18" />
+  <meta property="og:description" content="Small classes. Big projects. Real skills. In-person coding education in NW Calgary." />
+  <meta property="og:image" content="https://curious-genius.github.io/curious-genius-logo.png" />
+  <meta property="og:url" content="https://curious-genius.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;500;700&family=Cairo:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;500;700&family=Cairo:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=20250926"/>
+  <link rel="stylesheet" href="styles.css?v=20251023" />
 
-  <!-- Minimal RTL helper -->
+  <!-- Minimal RTL helper (kept) -->
   <style>
     body.rtl { direction: rtl; }
     body.rtl nav { direction: rtl; }
@@ -21,19 +48,44 @@
   </style>
 
   <!-- YAML parser -->
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" defer></script>
+
+  <!-- JSON-LD: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Curious Genius",
+    "url": "https://curious-genius.github.io/",
+    "logo": "https://curious-genius.github.io/curious-genius-logo.png",
+    "email": "learn@curiousgenius.ca",
+    "telephone": "+1-403-830-1013",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Unit 7, 5505 Shaganappi Trail NW",
+      "addressLocality": "Calgary",
+      "addressRegion": "AB",
+      "postalCode": "T3A 1Z6",
+      "addressCountry": "CA"
+    },
+    "sameAs": [
+      "https://curiousgenius.moodlecloud.com/login/index.php"
+    ]
+  }
+  </script>
 
   <script>
-    /* ---------------- Language + content loader ---------------- */
+    // ================= Language + content loader (enhanced) =================
     const supportedLangs = ['en', 'fr', 'es', 'ar', 'pa'];
+    const stored = localStorage.getItem('cg_lang');
     const rawLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
     const browserLang = rawLang.slice(0, 2);
-    let currentLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+    let currentLang = supportedLangs.includes(stored || '') ? stored : (supportedLangs.includes(browserLang) ? browserLang : 'en');
 
     let yamlMain = null;   // content.yaml (single document with en/fr/es/ar/pa)
 
     async function fetchYaml(path) {
-      const res = await fetch(path, { cache: 'no-store' });
+      const res = await fetch(path + `?v=${encodeURIComponent('20251023')}`, { cache: 'no-store' });
       if (!res.ok) throw new Error(`Failed to load ${path} (HTTP ${res.status})`);
       const text = await res.text();
       return jsyaml.load(text);
@@ -53,6 +105,13 @@
       } else {
         body.style.fontFamily = "'Rubik', sans-serif";
       }
+      // Update lang toggle state
+      document.querySelectorAll('.lang-toggle button').forEach(btn => {
+        const l = btn.dataset.lang;
+        const on = l === lang;
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        btn.classList.toggle('is-active', on);
+      });
     }
 
     function t(id, value, fallback='') {
@@ -95,11 +154,11 @@
       const list = document.getElementById('realmsList');
       if (Array.isArray(content.realms)) {
         list.innerHTML = content.realms.map(
-          r => `<li class="card">
-                  <div class="card-icon">${r.icon}</div>
+          r => `<li class="card" role="listitem">
+                  <div class="card-icon" aria-hidden="true">${r.icon || '📚'}</div>
                   <div class="card-body">
-                    <h4>${r.name}</h4>
-                    <p>${r.description}</p>
+                    <h4>${r.name || ''}</h4>
+                    <p>${r.description || ''}</p>
                   </div>
                 </li>`
         ).join('');
@@ -122,6 +181,7 @@
       t('portalIntro', content.portalIntro, 'Sign up (parent first), add your student, then log in anytime to manage your schedule.');
       t('portalLoginTitle', content.portalLoginTitle, 'Login');
       t('portalSignupTitle', content.portalSignupTitle, 'Sign Up');
+
       /* Contact */
       t('contactTitle', content.contactTitle || 'Contact & Location');
       t('mapNote', content.mapNote || '');
@@ -135,6 +195,7 @@
         if (!yamlMain) yamlMain = await fetchYaml('content.yaml');
         if (!yamlMain[lang]) lang = 'en';
         currentLang = lang;
+        localStorage.setItem('cg_lang', lang);
 
         // Load realms_<lang>.yaml with fallback to en
         const realmsPath = `realms_${lang}.yaml`;
@@ -157,17 +218,59 @@
     }
 
     window.loadContent = loadContent;
+
+    // =============== Mobile nav, accessibility, and widget helpers ===============
+    document.addEventListener('DOMContentLoaded', () => {
+      // Skip-link focus
+      const skip = document.querySelector('.skip-link');
+      if (skip) {
+        skip.addEventListener('click', () => {
+          const main = document.querySelector('main');
+          if (main) main.setAttribute('tabindex', '-1'), main.focus();
+        });
+      }
+
+      // Mobile nav toggle
+      const burger = document.getElementById('hamburger');
+      const nav = document.querySelector('.mainnav');
+      if (burger && nav) {
+        burger.addEventListener('click', () => {
+          const expanded = burger.getAttribute('aria-expanded') === 'true';
+          burger.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('open');
+        });
+        // Close on nav click (small screens)
+        nav.addEventListener('click', (e) => {
+          if (e.target.matches('a')) {
+            nav.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // Language buttons
+      document.querySelectorAll('.lang-toggle button').forEach(btn => {
+        btn.addEventListener('click', () => loadContent(btn.dataset.lang));
+      });
+    });
   </script>
 </head>
 
-<body onload="loadContent()">
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- NAVBAR -->
-  <header class="topbar">
-    <a class="brand" href="#">
-      <img src="curious-genius-logo.png" alt="Curious Genius Logo"/>
+  <header class="topbar" role="banner">
+    <a class="brand" href="#" aria-label="Curious Genius home">
+      <img src="curious-genius-logo.png" alt="Curious Genius Logo" loading="lazy" />
       <span>Curious Genius</span>
     </a>
-    <nav class="mainnav">
+
+    <button id="hamburger" class="hamburger" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
+      <span class="hamburger-box" aria-hidden="true"></span>
+    </button>
+
+    <nav class="mainnav" id="primary-navigation" aria-label="Primary" role="navigation">
       <a id="navAbout" href="#about"></a>
       <a id="navPrograms" href="#programs"></a>
       <a id="navApproach" href="#approach"></a>
@@ -175,218 +278,359 @@
       <a id="navContact" href="#contact"></a>
       <a id="navLearn" class="btn btn--ghost" href="https://curiousgenius.moodlecloud.com/login/index.php" target="_blank" rel="noopener"></a>
     </nav>
-    <div class="lang-toggle">
-      <button onclick="loadContent('en')">EN</button>
-      <button onclick="loadContent('fr')">FR</button>
-      <button onclick="loadContent('es')">ES</button>
-      <button onclick="loadContent('ar')">AR</button>
-      <button onclick="loadContent('pa')">PA</button>
+
+    <div class="lang-toggle" role="group" aria-label="Language switcher">
+      <button data-lang="en" aria-pressed="false">EN</button>
+      <button data-lang="fr" aria-pressed="false">FR</button>
+      <button data-lang="es" aria-pressed="false">ES</button>
+      <button data-lang="ar" aria-pressed="false">AR</button>
+      <button data-lang="pa" aria-pressed="false">PA</button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero__content">
-      <h1></h1>
-      <p></p>
-      <div class="hero__actions">
-        <a href="#portal" class="btn" id="ctaPrimary"></a>
-        <a href="#programs" class="btn btn--ghost" id="ctaSecondary"></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- VALUE PROPS -->
-  <section class="section" id="about">
-    <h2 id="propsTitle"></h2>
-    <ul class="grid grid--3">
-      <li class="card">
-        <div class="card-icon">👩‍🏫</div>
-        <h3 id="prop1Title"></h3>
-        <p id="prop1Body"></p>
-      </li>
-      <li class="card">
-        <div class="card-icon">🎮</div>
-        <h3 id="prop2Title"></h3>
-        <p id="prop2Body"></p>
-      </li>
-      <li class="card">
-        <div class="card-icon">✅</div>
-        <h3 id="prop3Title"></h3>
-        <p id="prop3Body"></p>
-      </li>
-    </ul>
-  </section>
-
-  <!-- PROGRAMS -->
-  <section class="section" id="programs">
-    <h2 id="programsTitle"></h2>
-    <ul id="realmsList" class="grid grid--2 grid--cards"></ul>
-    <div class="center">
-      <a href="#portal" class="btn" id="btnCurriculum"></a>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="section section--alt" id="approach">
-    <h2 id="approachTitle"></h2>
-    <ul class="steps">
-      <li class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <h4 id="step1Title"></h4>
-          <p id="step1Body"></p>
-        </div>
-      </li>
-      <li class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <h4 id="step2Title"></h4>
-          <p id="step2Body"></p>
-        </div>
-      </li>
-      <li class="step">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <h4 id="step3Title"></h4>
-          <p id="step3Body"></p>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <!-- PORTAL (Login + Sign Up) -->
-  <section class="section" id="portal">
-    <h2 id="portalTitle"></h2>
-    <p id="portalIntro" class="muted"></p>
-
-    <div class="grid grid--2">
-      <!-- Login (parents log in, then book sessions inside the portal) -->
-      <div class="card card--widget">
-        <h3 id="portalLoginTitle"></h3>
-        <div class="widget">
-          <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjNKeSJ9"></script>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__content">
+        <h1></h1>
+        <p></p>
+        <div class="hero__actions">
+          <a href="#portal" class="btn" id="ctaPrimary"></a>
+          <a href="#programs" class="btn btn--ghost" id="ctaSecondary"></a>
         </div>
       </div>
+    </section>
 
-      <!-- Sign Up (Parent first; single student) -->
-      <div class="card card--widget">
-        <h3 id="portalSignupTitle"></h3>
-        <div class="widget" id="signupWidget">
-          <!-- Your Sign Up widget -->
-          <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjJKTSJ9"></script>
+    <!-- VALUE PROPS -->
+    <section class="section" id="about">
+      <h2 id="propsTitle"></h2>
+      <ul class="grid grid--3" role="list">
+        <li class="card" role="listitem">
+          <div class="card-icon" aria-hidden="true">👩‍🏫</div>
+          <h3 id="prop1Title"></h3>
+          <p id="prop1Body"></p>
+        </li>
+        <li class="card" role="listitem">
+          <div class="card-icon" aria-hidden="true">🎮</div>
+          <h3 id="prop2Title"></h3>
+          <p id="prop2Body"></p>
+        </li>
+        <li class="card" role="listitem">
+          <div class="card-icon" aria-hidden="true">✅</div>
+          <h3 id="prop3Title"></h3>
+          <p id="prop3Body"></p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section class="section" id="programs">
+      <h2 id="programsTitle"></h2>
+      <ul id="realmsList" class="grid grid--2 grid--cards" role="list"></ul>
+      <div class="center">
+        <a href="#portal" class="btn" id="btnCurriculum"></a>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section--alt" id="approach">
+      <h2 id="approachTitle"></h2>
+      <ul class="steps" role="list">
+        <li class="step" role="listitem">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4 id="step1Title"></h4>
+            <p id="step1Body"></p>
+          </div>
+        </li>
+        <li class="step" role="listitem">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4 id="step2Title"></h4>
+            <p id="step2Body"></p>
+          </div>
+        </li>
+        <li class="step" role="listitem">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4 id="step3Title"></h4>
+            <p id="step3Body"></p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PORTAL (Login + Sign Up) -->
+    <section class="section" id="portal">
+      <h2 id="portalTitle"></h2>
+      <p id="portalIntro" class="muted"></p>
+
+      <div class="grid grid--2">
+        <!-- Login (parents log in, then book sessions inside the portal) -->
+        <div class="card card--widget">
+          <h3 id="portalLoginTitle"></h3>
+          <div class="widget">
+            <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjNKeSJ9"></script>
+          </div>
         </div>
-        <!-- Post-load tweaks (only works if widget is NOT in an iframe) -->
-        <script>
-          (function () {
-            const container = document.getElementById('signupWidget');
-            if (!container) return;
 
-            const dalhousieSchools = [
-              '', // placeholder
-              'Dalhousie School (CBE K–5)',
-              'H.D. Cartwright School (CBE 7–9)',
-              'Sir Winston Churchill High School (CBE 10–12)',
-              'St. Dominic School (CCSD K–6)'
-            ];
+        <!-- Sign Up (Parent first; single student) -->
+        <div class="card card--widget">
+          <h3 id="portalSignupTitle"></h3>
+          <div class="widget" id="signupWidget">
+            <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjJKTSJ9"></script>
+          </div>
+          <noscript><p class="muted">JavaScript is required to load the sign‑up form.</p></noscript>
+          <script>
+            (function () {
+              const container = document.getElementById('signupWidget');
+              if (!container) return;
 
-            const obs = new MutationObserver(() => {
-              try {
-                // If it’s an iframe, we can’t modify inside.
-                if (container.querySelector('iframe')) { obs.disconnect(); return; }
+              const dalhousieSchools = [
+                '',
+                'Dalhousie School (CBE K–5)',
+                'H.D. Cartwright School (CBE 7–9)',
+                'Sir Winston Churchill High School (CBE 10–12)',
+                'St. Dominic School (CCSD K–6)'
+              ];
 
-                const form = container.querySelector('form') || container;
-                if (!form) return;
+              const obs = new MutationObserver(() => {
+                try {
+                  if (container.querySelector('iframe')) { obs.disconnect(); return; }
+                  const form = container.querySelector('form') || container;
+                  if (!form) return;
 
-                // --- Reorder: Parent/Guardian above Student ---
-                const findHeading = (rx) => Array.from(form.querySelectorAll('h1,h2,h3,h4,h5,h6'))
-                  .find(h => rx.test(h.textContent.trim()));
-                const parentH = findHeading(/parent|guardian/i);
-                const studentH = findHeading(/student/i);
-                if (parentH && studentH) {
-                  const parentBlock = parentH.nextElementSibling;
-                  if (studentH.compareDocumentPosition(parentH) & Node.DOCUMENT_POSITION_FOLLOWING) {
-                    form.insertBefore(parentH, studentH);
-                    if (parentBlock) form.insertBefore(parentBlock, studentH);
-                  }
-                }
-
-                // --- Hide Student Phone + Skill Level ---
-                const hideByLabel = (rx) => {
-                  const labels = form.querySelectorAll('label, .field-label, .mdc-floating-label, .mat-mdc-floating-label');
-                  labels.forEach(l => {
-                    if (rx.test(l.textContent.trim())) {
-                      const field = l.closest('.field, .form-group, .mat-mdc-form-field, .tb-field, li, div');
-                      if (field) field.style.display = 'none';
+                  // Reorder: Parent/Guardian above Student
+                  const findHeading = (rx) => Array.from(form.querySelectorAll('h1,h2,h3,h4,h5,h6'))
+                    .find(h => rx.test(h.textContent.trim()));
+                  const parentH = findHeading(/parent|guardian/i);
+                  const studentH = findHeading(/student/i);
+                  if (parentH && studentH) {
+                    const parentBlock = parentH.nextElementSibling;
+                    if (studentH.compareDocumentPosition(parentH) & Node.DOCUMENT_POSITION_FOLLOWING) {
+                      form.insertBefore(parentH, studentH);
+                      if (parentBlock) form.insertBefore(parentBlock, studentH);
                     }
-                  });
-                };
-                hideByLabel(/student\s*phone/i);
-                hideByLabel(/skill\s*level/i);
-
-                // --- Convert "Current School" to a dropdown with Dalhousie options ---
-                const labels = Array.from(form.querySelectorAll('label, .field-label, .mdc-floating-label, .mat-mdc-floating-label'));
-                const schoolLabel = labels.find(l => /current\s*school/i.test(l.textContent.trim()));
-                if (schoolLabel) {
-                  const fieldWrap = schoolLabel.closest('.field, .form-group, .mat-mdc-form-field, .tb-field, div');
-                  const input = fieldWrap && fieldWrap.querySelector('input[type="text"], input:not([type]), textarea');
-                  if (input) {
-                    const select = document.createElement('select');
-                    select.name = input.name || 'currentSchool';
-                    select.required = input.required || false;
-                    select.style.width = '100%';
-                    dalhousieSchools.forEach(v => {
-                      const o = document.createElement('option');
-                      o.value = v;
-                      o.textContent = v || 'Select your school';
-                      select.appendChild(o);
-                    });
-                    input.replaceWith(select);
                   }
+
+                  // Hide Student Phone + Skill Level
+                  const hideByLabel = (rx) => {
+                    const labels = form.querySelectorAll('label, .field-label, .mdc-floating-label, .mat-mdc-floating-label');
+                    labels.forEach(l => {
+                      if (rx.test(l.textContent.trim())) {
+                        const field = l.closest('.field, .form-group, .mat-mdc-form-field, .tb-field, li, div');
+                        if (field) field.style.display = 'none';
+                      }
+                    });
+                  };
+                  hideByLabel(/student\s*phone/i);
+                  hideByLabel(/skill\s*level/i);
+
+                  // Convert "Current School" to a dropdown with Dalhousie options
+                  const labels = Array.from(form.querySelectorAll('label, .field-label, .mdc-floating-label, .mat-mdc-floating-label'));
+                  const schoolLabel = labels.find(l => /current\s*school/i.test(l.textContent.trim()));
+                  if (schoolLabel) {
+                    const fieldWrap = schoolLabel.closest('.field, .form-group, .mat-mdc-form-field, .tb-field, div');
+                    const input = fieldWrap && fieldWrap.querySelector('input[type="text"], input:not([type]), textarea');
+                    if (input) {
+                      const select = document.createElement('select');
+                      select.name = input.name || 'currentSchool';
+                      select.required = input.required || false;
+                      select.style.width = '100%';
+                      dalhousieSchools.forEach(v => {
+                        const o = document.createElement('option');
+                        o.value = v;
+                        o.textContent = v || 'Select your school';
+                        select.appendChild(o);
+                      });
+                      input.replaceWith(select);
+                    }
+                  }
+
+                  obs.disconnect();
+                } catch (e) {
+                  console.warn('Sign-up tweak warning:', e);
                 }
+              });
 
-                obs.disconnect();
-              } catch (e) {
-                console.warn('Sign-up tweak warning:', e);
-              }
-            });
-
-            obs.observe(container, { childList: true, subtree: true });
-          })();
-        </script>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT (form + map; phone/email in footer) -->
-  <section class="section" id="contact">
-    <h2 id="contactTitle"></h2>
-    <div class="contact-grid">
-      <div class="card card--widget">
-        <div class="widget">
-          <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQkRKSCJ9"></script>
+              obs.observe(container, { childList: true, subtree: true });
+            })();
+          </script>
         </div>
       </div>
-      <div class="map">
-        <iframe
-          src="https://www.google.com/maps?q=Unit%207%2C%205505%20Shaganappi%20Trail%20NW%2C%20Calgary%2C%20AB%20T3A%201Z6&output=embed"
-          width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <p class="muted" id="mapNote"></p>
+    </section>
+
+    <!-- CONTACT (form + map; phone/email in footer) -->
+    <section class="section" id="contact">
+      <h2 id="contactTitle"></h2>
+      <div class="contact-grid">
+        <div class="card card--widget">
+          <div class="widget">
+            <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQkRKSCJ9"></script>
+          </div>
+        </div>
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps?q=Unit%207%2C%205505%20Shaganappi%20Trail%20NW%2C%20Calgary%2C%20AB%20T3A%201Z6&output=embed"
+            width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Curious Genius location map"></iframe>
+          <p class="muted" id="mapNote"></p>
+        </div>
       </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="contact">
+        <strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <strong>Phone:</strong> <a href="tel:14038301013">403-830-1013</a>
+      </p>
+      <p id="footerNote"></p>
     </div>
-  </section>
+  </footer>
 
-<footer>
-  <div class="footer-inner">
-    <p class="contact">
-      <strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a>
-      <span class="sep">|</span>
-      <strong>Phone:</strong> <a href="tel:14038301013">403-830-1013</a>
-    </p>
-    <p id="footerNote"></p>
-  </div>
-</footer>
+  <noscript>
+    <div style="padding:12px; background:#fff3cd; color:#6b5600; text-align:center;">
+      This site uses JavaScript to load content and booking widgets. Please enable JavaScript for the full experience.
+    </div>
+  </noscript>
 
+  <!-- Kick off i18n once YAML parser has loaded -->
+  <script>
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => loadContent());
+    } else {
+      loadContent();
+    }
+  </script>
 </body>
 </html>
+
+
+<!-- =========================
+= 2) styles.css (updated)
+========================= -->
+:root{
+  /* Brand palette */
+  --primary:#0077cc;
+  --secondary:#fca311;
+  --bg:#ffffff;
+  --bg-alt:#f7fbff;
+  --ink:#1a1a1a;
+  --muted:#5b5b5b;
+  --card:#fff;
+  --ring:rgba(0,119,204,0.15);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Rubik',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.6;
+}
+
+/* Accessibility helpers */
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:8px;top:8px;width:auto;height:auto;padding:.5rem .75rem;background:#fff;border:2px solid var(--primary);border-radius:8px;z-index:999}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+
+/* Topbar */
+.topbar{
+  position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee;
+  display:flex;align-items:center;gap:1rem;justify-content:space-between;padding:.75rem 1rem;
+}
+.brand{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:inherit;font-weight:700}
+.brand img{width:38px;height:38px;object-fit:contain}
+
+/* Hamburger */
+.hamburger{display:none;position:relative;width:44px;height:38px;border:1px solid #e5e7eb;border-radius:10px;background:#fff}
+.hamburger-box, .hamburger-box:before, .hamburger-box:after{position:absolute;left:8px;right:8px;height:2px;background:#111;border-radius:2px;content:""}
+.hamburger-box{top:18px}
+.hamburger-box:before{top:10px}
+.hamburger-box:after{top:26px}
+
+.mainnav{display:flex;gap:1rem;align-items:center}
+.mainnav a{font-weight:600;text-decoration:none;color:#222}
+.mainnav a:hover{color:var(--primary)}
+
+.lang-toggle{display:flex;gap:.25rem}
+.lang-toggle button{
+  background:var(--secondary);border:1px solid #e19300;color:#fff;font-weight:700;
+  padding:.4rem .6rem;border-radius:6px;cursor:pointer
+}
+.lang-toggle button.is-active{box-shadow:0 0 0 3px var(--ring)}
+
+/* Hero */
+.hero{
+  background: radial-gradient(1000px 400px at 20% -10%, #e6f3ff 0%, transparent 55%) , linear-gradient(180deg,#fff 0%,#f8fbff 100%);
+  border-bottom:1px solid #eee;
+}
+.hero__content{max-width:1100px;margin:0 auto;padding:64px 16px;text-align:center}
+.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(28px,4vw,44px);letter-spacing:.02em;margin-bottom:.5rem}
+.hero p{color:var(--muted);font-size:clamp(16px,2.2vw,20px)}
+.hero__actions{margin-top:1rem;display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+
+/* Sections */
+.section{max-width:1100px;margin:0 auto;padding:56px 16px}
+.section h2{font-family:'Orbitron',sans-serif;font-size:clamp(22px,3vw,32px);color:var(--primary);margin-bottom:16px;letter-spacing:.02em}
+.section--alt{background:var(--bg-alt);border-top:1px solid #eef2f7;border-bottom:1px solid #eef2f7}
+
+/* Buttons */
+.btn{background:var(--secondary);color:#fff;font-weight:800;text-decoration:none;padding:.8rem 1.1rem;border-radius:10px;display:inline-block;box-shadow:0 2px 0 #e19300;transition:transform .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn--ghost{background:#fff;border:1px solid #ddd;color:#222;box-shadow:none}
+
+/* Grids & cards */
+.grid{list-style:none;display:grid;gap:16px}
+.grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid--cards .card{display:flex;gap:12px;align-items:flex-start}
+
+.card{background:var(--card);border:1px solid #eee;border-radius:14px;padding:16px;box-shadow:0 6px 20px rgba(0,0,0,.04)}
+.card-icon{font-size:28px;line-height:1}
+.card-body h4{margin:.25rem 0 .35rem;font-size:18px}
+.card-body p{color:var(--muted)}
+
+/* Steps */
+.steps{list-style:none;display:grid;gap:14px}
+.step{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #eee;border-radius:12px;padding:14px}
+.step-num{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#fff;background:var(--primary);box-shadow:0 6px 16px var(--ring)}
+.step-body h4{margin:.1rem 0 .25rem}
+
+/* Portal widgets */
+.card--widget h3{margin-bottom:.5rem}
+.widget{border:1px dashed #e6e6e6;border-radius:12px;padding:10px;background:#fff}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+.map iframe{width:100%;height:100%;min-height:300px;border-radius:12px}
+
+/* Helpers */
+.center{text-align:center;margin-top:12px}
+.muted{color:var(--muted)}
+
+/* Footer */
+footer{background:#0f172a;color:#e5e7eb;padding:24px 16px;margin-top:40px}
+footer a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+footer .footer-inner{max-width:1000px;margin:0 auto;display:flex;gap:8px 24px;align-items:center;justify-content:space-between;flex-wrap:wrap;text-align:center}
+footer .contact{margin:0;font-size:.95rem}
+footer #footerNote{margin:0;font-size:.9rem;opacity:.9}
+footer .sep{display:inline-block;padding:0 10px;opacity:.7}
+
+/* Responsive */
+@media (max-width: 980px){
+  .grid--3{grid-template-columns:1fr}
+  .grid--2{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+
+  .hamburger{display:block}
+  .mainnav{position:absolute;inset:60px 12px auto 12px;display:none;flex-direction:column;background:#fff;border:1px solid #eee;border-radius:12px;padding:10px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+  .mainnav.open{display:flex}
+}
+
+/* Motion preferences */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important}
+}
