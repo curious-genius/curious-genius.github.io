@@ -1,13 +1,24 @@
 realms:
-  - icon: "🧭"
+  - icon: "🧮"
     name: "Exploradores (K–3)"
-    description: "CS Fundamentals: Cursos A–B • 1–3 meses por curso (tú eliges) • Certificado: “Certificado Exploradores” (completar Curso A o B; imprimible en el panel del docente de Code.org)"
+    description: >
+      Fundamentos de Matemáticas y Programación — aprendizaje divertido con números, lógica y creatividad.
+      Los estudiantes desarrollan habilidades tempranas de resolución de problemas con juegos matemáticos,
+      programación por bloques (Code.org Cursos A–B) y conceptos básicos de IA como el reconocimiento de patrones.
+      Certificado: “Certificado de Exploradores” (completar unidades introductorias de matemáticas y programación).
+
   - icon: "🧱"
-    name: "Constructores (Grados 4–6)"
-    description: "CS Fundamentals: Cursos C–E (Express opcional) • 1 trimestre a 1 año total • Certificado: “Certificado Constructores” (terminar C y D o C–E; certificados por sección en Code.org)"
-  - icon: "🛠"
-    name: "Creadores (Grados 7–9)"
-    description: "Unidades de CS Discoveries (Game Lab, Web Lab, App Lab; AI Lab opcional) • ~1 semestre (o 2–3 unidades en un trimestre) • Certificado: “Certificado Creadores” (unidades elegidas completadas; exportar CSV de progreso)"
+    name: "Innovadores (Grados 4–8)"
+    description: >
+      Programación aplicada + lógica matemática — los estudiantes fortalecen la fluidez matemática
+      y exploran la programación del mundo real. Incluye Cursos C–F de Code.org, Game Lab y resolución de problemas matemáticos.
+      Se introducen conceptos de IA (árboles de decisión, chatbots, datos) mediante proyectos divertidos.
+      Certificado: “Certificado de Innovadores” (retos integrados de matemáticas y programación).
+
   - icon: "🚀"
-    name: "Innovadores (Grados 10–12)"
-    description: "CS Principles (AP CSA opcional después) • 1 año escolar (o vía semestral) • Certificado: “Certificado Innovadores” (finalización de CSP + portafolio/día de demostración)"
+    name: "Creadores (Grados 9–12)"
+    description: >
+      Programación, matemáticas e IA avanzadas — programa basado en proyectos que conecta álgebra, datos y algoritmos.
+      Los estudiantes crean sitios web, aplicaciones y prototipos de IA con Python, JavaScript o App Lab.
+      Preparación ideal para AP CSP, competencias de IA y portafolios tecnológicos.
+      Certificado: “Certificado de Creadores” (proyecto final + finalización del curso).
