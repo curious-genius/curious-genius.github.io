@@ -1,13 +1,25 @@
 realms:
-  - icon: "🧭"
-    name: "Explorateurs (M–3e)"
-    description: "CS Fundamentals : Cours A–B • 1–3 mois par cours (au choix) • Certificat : « Certificat Explorateurs » (terminer le cours A ou B ; imprimable dans le tableau de bord enseignant Code.org)"
+  - icon: "🧮"
+    name: "Explorateurs (M–3)"
+    description: >
+      Bases en mathématiques et en codage — apprentissage ludique des nombres, de la logique et de la créativité.
+      Les élèves développent leurs premières compétences en résolution de problèmes à travers des jeux mathématiques,
+      le codage par blocs (Code.org Cours A–B) et des notions d’IA comme la reconnaissance de formes.
+      Certificat : « Certificat des explorateurs » (modules d’introduction en math et codage).
+
   - icon: "🧱"
-    name: "Bâtisseurs (4e–6e)"
-    description: "CS Fundamentals : Cours C–E (Express en option) • 1 trimestre à 1 an au total • Certificat : « Certificat Bâtisseurs » (terminer C & D ou C–E ; certificats Code.org par section)"
-  - icon: "🛠"
-    name: "Fabricants (7e–9e)"
-    description: "Unités CS Discoveries (Game Lab, Web Lab, App Lab ; AI Lab en option) • ~1 semestre (ou 2–3 unités sur un trimestre) • Certificat : « Certificat Fabricants » (unités choisies terminées ; exporter le CSV d’avancement de la classe)"
+    name: "Innovateurs (4ᵉ–8ᵉ années)"
+    description: >
+      Codage appliqué + logique mathématique — les élèves renforcent leur aisance en mathématiques
+      tout en explorant le codage concret. Le programme inclut Code.org (Cours C–F), Game Lab
+      et la résolution de problèmes mathématiques. Les concepts d’IA (arbres de décision,
+      chatbots, données) sont introduits à travers des projets amusants.
+      Certificat : « Certificat des innovateurs » (défis intégrés de math et de codage).
+
   - icon: "🚀"
-    name: "Créateurs (10e–12e)"
-    description: "CS Principles (AP CSA ultérieure en option) • 1 année scolaire (ou parcours semestriel) • Certificat : « Certificat Créateurs » (CSP complété + portfolio/journée de démo)"
+    name: "Créateurs (9ᵉ–12ᵉ années)"
+    description: >
+      Codage, math et IA avancés — un programme par projets reliant algèbre, données et algorithmes.
+      Les élèves conçoivent des sites web, applications et prototypes d’IA en Python, JavaScript ou App Lab.
+      Préparation idéale pour le cours AP CSP, les compétitions d’IA et le portfolio technologique.
+      Certificat : « Certificat des créateurs » (présentation finale + réussite du cours).
