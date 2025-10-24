@@ -1,13 +1,24 @@
 realms:
-  - icon: "🧭"
+  - icon: "🧮"
     name: "Explorers (K–3)"
-    description: "CS Fundamentals: Courses A–B • 1–3 months per course (you choose) • Certificate: “Explorers Certificate” (complete Course A or B; printable in Code.org teacher dashboard)"
+    description: >
+      Math & Coding Foundations — playful learning through numbers, logic, and creativity.
+      Students build early problem-solving skills with interactive math games, block coding
+      (Code.org Courses A–B), and beginner AI concepts like pattern recognition.
+      Certificate: “Explorers Certificate” (completion of introductory math & coding units).
+
   - icon: "🧱"
-    name: "Builders (Grades 4–6)"
-    description: "CS Fundamentals: Courses C–E (optionally Express) • 1 quarter to 1 year total • Certificate: “Builders Certificate” (finish C & D or C–E; Code.org certificates by section)"
-  - icon: "🛠"
-    name: "Makers (Grades 7–9)"
-    description: "CS Discoveries units (Game Lab, Web Lab, App Lab; optional AI Lab) • ~1 semester (or 2–3 units in a quarter) • Certificate: “Makers Certificate” (completion of selected units; export class progress CSV as evidence)"
+    name: "Innovators (Grades 4–8)"
+    description: >
+      Applied Coding + Math Logic — students strengthen math fluency and explore real-world coding.
+      Curriculum includes Code.org Courses C–F, Game Lab, and core math problem solving.
+      AI concepts (decision trees, chatbots, data) are introduced through fun projects.
+      Certificate: “Innovators Certificate” (completion of integrated coding & math challenges).
+
   - icon: "🚀"
-    name: "Creators (Grades 10–12)"
-    description: "CS Principles (optionally AP CSA later) • 1 school year (or semester track) • Certificate: “Creators Certificate” (CSP completion + portfolio/demo day)"
+    name: "Creators (Grades 9–12)"
+    description: >
+      Advanced Coding, Math & AI — a project-based program connecting algebra, data, and algorithms.
+      Students develop websites, apps, and AI prototypes using Python, JavaScript, or App Lab.
+      Ideal preparation for AP CSP, AI competitions, and tech portfolios.
+      Certificate: “Creators Certificate” (final project showcase + course completion).
