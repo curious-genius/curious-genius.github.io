@@ -35,29 +35,9 @@
   <!-- YAML parser -->
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" defer></script>
 
-  <!-- JSON-LD: LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "Curious Genius",
-    "url": "https://curious-genius.github.io/",
-    "logo": "https://curious-genius.github.io/curious-genius-logo.png",
-    "email": "learn@curiousgenius.ca",
-    "telephone": "587-291-2906",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Unit 6, 5505 Shaganappi Trail NW",
-      "addressLocality": "Calgary",
-      "addressRegion": "AB",
-      "postalCode": "T3A 1Z6",
-      "addressCountry": "CA"
-    },
-    "sameAs": [
-      "https://curiousgenius.moodlecloud.com/login/index.php"
-    ]
-  }
-  </script>
+ <!-- JSON-LD holder (will be filled from business.yaml) -->
+ <script type="application/ld+json" id="orgSchema"></script>
+
 
   <script>
     // ================= Language + content loader (enhanced) =================
@@ -68,7 +48,7 @@
     let currentLang = supportedLangs.includes(stored || '') ? stored : (supportedLangs.includes(browserLang) ? browserLang : 'en');
 
     let yamlMain = null;   // content.yaml (single document with en/fr/es/ar/pa)
-
+    let orgData = null;         // business.yaml → org object
     async function fetchYaml(path) {
       const res = await fetch(path + `?v=${encodeURIComponent('20251023')}`, { cache: 'no-store' });
       if (!res.ok) throw new Error(`Failed to load ${path} (HTTP ${res.status})`);
@@ -176,30 +156,62 @@
     }
 
     async function loadContent(lang = currentLang) {
-      try {
-        if (!yamlMain) yamlMain = await fetchYaml('content.yaml');
-        if (!yamlMain[lang]) lang = 'en';
-        currentLang = lang;
-        localStorage.setItem('cg_lang', lang);
+  try {
+    if (!yamlMain) yamlMain = await fetchYaml('content.yaml');
+    if (!yamlMain[lang]) lang = 'en';
+    currentLang = lang;
 
-        // Load realms_<lang>.yaml with fallback to en
-        const realmsPath = `realms_${lang}.yaml`;
-        let realmsDoc = {};
-        try {
-          realmsDoc = await fetchYaml(realmsPath);
-          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) throw new Error('Invalid realms format');
-        } catch {
-          realmsDoc = await fetchYaml('realms_en.yaml').catch(() => ({ realms: [] }));
-          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) realmsDoc = { realms: [] };
-        }
+    // Load realms (as you already do)...
+    const realmsPath = `realms_${lang}.yaml`;
+    let realmsDoc = {};
+    try {
+      realmsDoc = await fetchYaml(realmsPath);
+      if (!realmsDoc || !Array.isArray(realmsDoc.realms)) throw new Error('Invalid realms format');
+    } catch {
+      realmsDoc = await fetchYaml('realms_en.yaml').catch(() => ({ realms: [] }));
+      if (!realmsDoc || !Array.isArray(realmsDoc.realms)) realmsDoc = { realms: [] };
+    }
 
-        const content = { ...yamlMain[lang], ...realmsDoc };
-        applyDirectionAndFonts(lang);
-        renderContent(content);
-      } catch (e) {
-        console.error(e);
-        alert('Failed to load localized content. Check console for details.');
-      }
+    // NEW: load org data from YAML
+    const org = await loadOrgYaml();
+
+    // Compose page content
+    const content = { ...yamlMain[lang], ...realmsDoc };
+    applyDirectionAndFonts(lang);
+    renderContent(content);
+
+    // === Fill JSON-LD from org YAML ===
+    const schemaEl = document.getElementById('orgSchema');
+    if (schemaEl && org) {
+      schemaEl.textContent = JSON.stringify(org);
+    }
+
+    // === Update footer phone/email from org YAML ===
+    const emailLink = document.querySelector('footer a[href^="mailto:"]');
+    if (emailLink && org.email) {
+      emailLink.href = `mailto:${org.email}`;
+      emailLink.textContent = org.email;
+    }
+
+    const phoneLink = document.getElementById('footerPhone') || document.querySelector('footer a[href^="tel:"]');
+    if (phoneLink && org.telephone) {
+      const e164 = org.telephone.replace(/[^+0-9]/g, '').replace(/^1?(\d{10})$/, '+1$1'); // quick sanitize
+      phoneLink.href = `tel:${e164}`;
+      phoneLink.textContent = org.telephone;
+    }
+
+  } catch (e) {
+    console.error(e);
+    alert('Failed to load localized content. Check console for details.');
+  }
+}
+
+    async function loadOrgYaml() {
+      if (orgData) return orgData;
+      const doc = await fetchYaml('business.yaml'); // uses your existing fetchYaml()
+      if (!doc || !doc.org) throw new Error('business.yaml missing `org` root');
+      orgData = doc.org;
+      return orgData;
     }
 
     window.loadContent = loadContent;
@@ -470,7 +482,7 @@
       <p class="contact">
         <strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a>
         <span class="sep" aria-hidden="true">|</span>
-        <strong>Phone:</strong> <a href="tel:14038301013">403-830-1013</a>
+        <strong>Phone:</strong> <a id="footerPhone" href="tel:+15872912906">587-291-2906</a>
       </p>
       <p id="footerNote"></p>
     </div>
