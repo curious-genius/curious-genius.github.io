@@ -378,81 +378,115 @@
             <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjJKTSJ9"></script>
           </div>
           <noscript><p class="muted">JavaScript is required to load the sign‑up form.</p></noscript>
-          <script>
-            (function () {
-              const container = document.getElementById('signupWidget');
-              if (!container) return;
+         <script>
+  (function () {
+    const container = document.getElementById('signupWidget');
+    if (!container) return;
 
-              const dalhousieSchools = [
-                '',
-                'Dalhousie School (CBE K–5)',
-                'H.D. Cartwright School (CBE 7–9)',
-                'Sir Winston Churchill High School (CBE 10–12)',
-                'St. Dominic School (CCSD K–6)'
-              ];
+    const dalhousieSchools = [
+      '',
+      'Dalhousie School (CBE K–5)',
+      'H.D. Cartwright School (CBE 7–9)',
+      'Sir Winston Churchill High School (CBE 10–12)',
+      'St. Dominic School (CCSD K–6)'
+    ];
 
-              const obs = new MutationObserver(() => {
-                try {
-                  if (container.querySelector('iframe')) { obs.disconnect(); return; }
-                  const form = container.querySelector('form') || container;
-                  if (!form) return;
+    const obs = new MutationObserver(() => {
+      try {
+        // If TutorBird renders inside an iframe, we can’t touch inside it (cross-origin).
+        // In that case, stop observing to avoid loops.
+        if (container.querySelector('iframe')) { obs.disconnect(); return; }
 
-                  // Reorder: Parent/Guardian above Student
-                  const findHeading = (rx) => Array.from(form.querySelectorAll('h1,h2,h3,h4,h5,h6'))
-                    .find(h => rx.test(h.textContent.trim()));
-                  const parentH = findHeading(/parent|guardian/i);
-                  const studentH = findHeading(/student/i);
-                  if (parentH && studentH) {
-                    const parentBlock = parentH.nextElementSibling;
-                    if (studentH.compareDocumentPosition(parentH) & Node.DOCUMENT_POSITION_FOLLOWING) {
-                      form.insertBefore(parentH, studentH);
-                      if (parentBlock) form.insertBefore(parentBlock, studentH);
-                    }
-                  }
+        const form = container.querySelector('form') || container.querySelector('tb-form') || container;
+        if (!form) return;
 
-                  // Hide Student Phone + Skill Level
-                  const hideByLabel = (rx) => {
-                    const labels = form.querySelectorAll('label, .field-label, .mdc-floating-label, .mat-mdc-floating-label');
-                    labels.forEach(l => {
-                      if (rx.test(l.textContent.trim())) {
-                        const field = l.closest('.field, .form-group, .mat-mdc-form-field, .tb-field, li, div');
-                        if (field) field.style.display = 'none';
-                      }
-                    });
-                  };
-                  hideByLabel(/student\s*phone/i);
-                  hideByLabel(/skill\s*level/i);
+        // Reorder: Parent/Guardian above Student
+        const findHeading = (rx) => Array.from(form.querySelectorAll('h1,h2,h3,h4,h5,h6'))
+          .find(h => rx.test((h.textContent || '').trim()));
+        const parentH = findHeading(/parent|guardian/i);
+        const studentH = findHeading(/student/i);
+        if (parentH && studentH) {
+          const parentBlock = parentH.nextElementSibling;
+          if (studentH.compareDocumentPosition(parentH) & Node.DOCUMENT_POSITION_FOLLOWING) {
+            form.insertBefore(parentH, studentH);
+            if (parentBlock) form.insertBefore(parentBlock, studentH);
+          }
+        }
 
-                  // Convert "Current School" to a dropdown with Dalhousie options
-                  const labels = Array.from(form.querySelectorAll('label, .field-label, .mdc-floating-label, .mat-mdc-floating-label'));
-                  const schoolLabel = labels.find(l => /current\s*school/i.test(l.textContent.trim()));
-                  if (schoolLabel) {
-                    const fieldWrap = schoolLabel.closest('.field, .form-group, .mat-mdc-form-field, .tb-field, div');
-                    const input = fieldWrap && fieldWrap.querySelector('input[type="text"], input:not([type]), textarea');
-                    if (input) {
-                      const select = document.createElement('select');
-                      select.name = input.name || 'currentSchool';
-                      select.required = input.required || false;
-                      select.style.width = '100%';
-                      dalhousieSchools.forEach(v => {
-                        const o = document.createElement('option');
-                        o.value = v;
-                        o.textContent = v || 'Select your school';
-                        select.appendChild(o);
-                      });
-                      input.replaceWith(select);
-                    }
-                  }
+        // Hide Student Phone + Skill Level (keep form short)
+        const hideByLabel = (rx) => {
+          const labels = form.querySelectorAll('label, .field-label, .mdc-floating-label, .mat-mdc-floating-label, .tb-label');
+          labels.forEach(l => {
+            if (rx.test((l.textContent || '').trim())) {
+              const field = l.closest('.field, .form-group, .mat-mdc-form-field, .tb-field, li, div');
+              if (field) field.style.display = 'none';
+            }
+          });
+        };
+        hideByLabel(/student\s*phone/i);
+        hideByLabel(/skill\s*level/i);
 
-                  obs.disconnect();
-                } catch (e) {
-                  console.warn('Sign-up tweak warning:', e);
-                }
-              });
+        // Convert "Current School" to a dropdown with Dalhousie options
+        const labels = Array.from(form.querySelectorAll('label, .field-label, .mdc-floating-label, .mat-mdc-floating-label'));
+        const schoolLabel = labels.find(l => /current\s*school/i.test((l.textContent || '').trim()));
+        if (schoolLabel) {
+          const fieldWrap = schoolLabel.closest('.field, .form-group, .mat-mdc-form-field, .tb-field, div');
+          const input = fieldWrap && fieldWrap.querySelector('input[type="text"], input:not([type]), textarea');
+          if (input) {
+            const select = document.createElement('select');
+            select.name = input.name || 'currentSchool';
+            select.required = input.required || false;
+            select.style.width = '100%';
+            dalhousieSchools.forEach(v => {
+              const o = document.createElement('option');
+              o.value = v;
+              o.textContent = v || 'Select your school';
+              select.appendChild(o);
+            });
+            input.replaceWith(select);
+          }
+        }
 
-              obs.observe(container, { childList: true, subtree: true });
-            })();
-          </script>
+        // Rename Submit button → "Reserve My Free Week"
+        const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+        if (submitBtn) {
+          submitBtn.textContent = 'Reserve My Free Week';
+          if (submitBtn.value) submitBtn.value = 'Reserve My Free Week';
+        }
+
+        // Add a tiny trust note below the submit button (once)
+        if (!form.querySelector('.trust-note')) {
+          const trust = document.createElement('div');
+          trust.className = 'trust-note';
+          trust.style.fontSize = '0.875rem';
+          trust.style.opacity = '0.8';
+          trust.style.marginTop = '0.5rem';
+          trust.textContent = 'No fees today. We’ll confirm your free-week schedule by text/email.';
+          // place near button
+          if (submitBtn && submitBtn.parentElement) {
+            submitBtn.parentElement.appendChild(trust);
+          } else {
+            form.appendChild(trust);
+          }
+        }
+
+        // If "How did you hear about us?" exists, hint value for ad tracking
+        const hearLabel = labels.find(l => /how.*hear|referr|where.*find/i.test((l.textContent || '').trim()));
+        if (hearLabel) {
+          const wrap = hearLabel.closest('.field, .form-group, .tb-field, div');
+          const input = wrap && wrap.querySelector('input, textarea, select');
+          if (input && !input.value) input.placeholder = 'e.g., Facebook Ad';
+        }
+
+        obs.disconnect();
+      } catch (e) {
+        console.warn('Sign-up tweak warning:', e);
+      }
+    });
+
+    obs.observe(container, { childList: true, subtree: true });
+  })();
+</script>
         </div>
       </div>
     </section>
