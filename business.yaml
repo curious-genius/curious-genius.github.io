@@ -1,0 +1,17 @@
+org:
+  "@context": "https://schema.org"
+  "@type": "EducationalOrganization"
+  name: "Curious Genius"
+  url: "https://curious-genius.github.io/"
+  logo: "https://curious-genius.github.io/curious-genius-logo.png"
+  email: "learn@curiousgenius.ca"
+  telephone: "587-291-2906"
+  address:
+    "@type": "PostalAddress"
+    streetAddress: "Unit 6, 5505 Shaganappi Trail NW"
+    addressLocality: "Calgary"
+    addressRegion: "AB"
+    postalCode: "T3A 1Z6"
+    addressCountry: "CA"
+  sameAs:
+    - "https://curiousgenius.moodlecloud.com/login/index.php"
