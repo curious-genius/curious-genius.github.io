@@ -120,3 +120,9 @@ footer .sep{display:inline-block;padding:0 10px;opacity:.7}
 @media (prefers-reduced-motion: reduce){
   *{animation:none !important;transition:none !important}
 }
+.btn--primary {
+  transform: translateZ(0);
+  border-radius: 12px;
+  font-weight: 700;
+}
+.btn--primary:hover { transform: translateY(-1px); }
