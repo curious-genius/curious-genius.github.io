@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title id="pageTitle">Curious Genius | Learn to Code — Classes for Ages 5–18</title>
- <meta name="description" content="Curious Genius offers small-group Math, Coding & Robotics for ages 5–18 in NW Calgary. 🎁 First week FREE. Alberta-aligned, Code.org powered." />
+  <meta name="description" content="Curious Genius offers small-group Math, Coding & Robotics for ages 5–18 in NW Calgary. 🎁 First week FREE. Alberta-aligned, Code.org powered." />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="canonical" href="https://curious-genius.github.io/" />
 
@@ -24,7 +24,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css?v=20251023" />
 
-  <!-- Minimal RTL helper (kept) -->
+  <!-- Minimal RTL helper -->
   <style>
     body.rtl { direction: rtl; }
     body.rtl nav { direction: rtl; }
@@ -35,9 +35,8 @@
   <!-- YAML parser -->
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" defer></script>
 
- <!-- JSON-LD holder (will be filled from business.yaml) -->
- <script type="application/ld+json" id="orgSchema"></script>
-
+  <!-- JSON-LD holder (will be filled from business.yaml) -->
+  <script type="application/ld+json" id="orgSchema"></script>
 
   <script>
     // ================= Language + content loader (enhanced) =================
@@ -47,13 +46,22 @@
     const browserLang = rawLang.slice(0, 2);
     let currentLang = supportedLangs.includes(stored || '') ? stored : (supportedLangs.includes(browserLang) ? browserLang : 'en');
 
-    let yamlMain = null;   // content.yaml (single document with en/fr/es/ar/pa)
+    let yamlMain = null;        // content.yaml (multi-lingual)
     let orgData = null;         // business.yaml → org object
+
     async function fetchYaml(path) {
       const res = await fetch(path + `?v=${encodeURIComponent('20251023')}`, { cache: 'no-store' });
       if (!res.ok) throw new Error(`Failed to load ${path} (HTTP ${res.status})`);
       const text = await res.text();
       return jsyaml.load(text);
+    }
+
+    async function loadOrgYaml() {
+      if (orgData) return orgData;
+      const doc = await fetchYaml('business.yaml');
+      if (!doc || !doc.org) throw new Error('business.yaml missing `org` root');
+      orgData = doc.org;
+      return orgData;
     }
 
     function applyDirectionAndFonts(lang) {
@@ -70,7 +78,6 @@
       } else {
         body.style.fontFamily = "'Rubik', sans-serif";
       }
-      // Update lang toggle state
       document.querySelectorAll('.lang-toggle button').forEach(btn => {
         const l = btn.dataset.lang;
         const on = l === lang;
@@ -99,23 +106,19 @@
       t('navApproach', content.navApproach, 'How It Works');
       t('navPortal', content.navPortal, 'Portal');
       t('navContact', content.navContact, 'Contact');
+      // Offers replaces Learn
       t('navOffers', content.navOffers, 'Offers');
 
-  // Facebook Post
-  const FB_POST_EMBED =
-    "https://www.facebook.com/plugins/post.php?href=" +
-    encodeURIComponent("https://www.facebook.com/curiousgeniuslearning/posts/pfbid0tFvEJAZDJKj8FLZEjgzW8Arau5r5nSxw2u2gkfQmvBmSkStAqPwVNkwBZjTECqTgl") +
-    "&show_text=true&width=500";
-
- 
-  const offers = document.getElementById('navOffers');
-  if (offers) {
-    offers.textContent = content.navOffers || 'Offers';
-    offers.href = FB_POST_EMBED;
-    offers.target = '_blank';
-    offers.rel = 'noopener';
-    offers.setAttribute('aria-label', 'View our latest Facebook offer');
-  }
+      // === Offers button wiring ===
+      const FB_POST_URL = "https://www.facebook.com/curiousgeniuslearning/posts/pfbid0tFvEJAZDJKj8FLZEjgzW8Arau5r5nSxw2u2gkfQmvBmSkStAqPwVNkwBZjTECqTgl";
+      const FB_POST_EMBED = "https://www.facebook.com/plugins/post.php?href=" + encodeURIComponent(FB_POST_URL) + "&show_text=true&width=500";
+      const offersBtn = document.getElementById('navOffers');
+      if (offersBtn) {
+        offersBtn.href = FB_POST_EMBED;
+        offersBtn.target = '_blank';
+        offersBtn.rel = 'noopener';
+        offersBtn.setAttribute('aria-label', 'View our latest Facebook offer');
+      }
 
       /* Hero CTAs */
       t('ctaPrimary', content.ctaPrimary, 'Start Your Free Week');
@@ -151,7 +154,7 @@
       /* Approach */
       t('approachTitle', content.approachTitle, 'How it works');
       t('step1Title', content.step1Title, '1) Free Week');
-t('step1Body',  content.step1Body,  'Your child joins for one week — no fees, no commitment.');
+      t('step1Body',  content.step1Body,  'Your child joins for one week — no fees, no commitment.');
       t('step2Title', content.step2Title, '2) Personalized Plan');
       t('step2Body',  content.step2Body,  'Placement by age and experience, with clear next steps.');
       t('step3Title', content.step3Title, '3) Build & Celebrate');
@@ -163,7 +166,6 @@ t('step1Body',  content.step1Body,  'Your child joins for one week — no fees, 
       t('portalLoginTitle', content.portalLoginTitle, 'Login');
       t('portalSignupTitle', content.portalSignupTitle, 'Start Your Free Week');
 
-
       /* Contact */
       t('contactTitle', content.contactTitle || 'Contact & Location');
       t('mapNote', content.mapNote || '');
@@ -173,69 +175,77 @@ t('step1Body',  content.step1Body,  'Your child joins for one week — no fees, 
     }
 
     async function loadContent(lang = currentLang) {
-  try {
-    if (!yamlMain) yamlMain = await fetchYaml('content.yaml');
-    if (!yamlMain[lang]) lang = 'en';
-    currentLang = lang;
+      try {
+        if (!yamlMain) yamlMain = await fetchYaml('content.yaml');
+        if (!yamlMain[lang]) lang = 'en';
+        currentLang = lang;
 
-    // Load realms (as you already do)...
-    const realmsPath = `realms_${lang}.yaml`;
-    let realmsDoc = {};
-    try {
-      realmsDoc = await fetchYaml(realmsPath);
-      if (!realmsDoc || !Array.isArray(realmsDoc.realms)) throw new Error('Invalid realms format');
-    } catch {
-      realmsDoc = await fetchYaml('realms_en.yaml').catch(() => ({ realms: [] }));
-      if (!realmsDoc || !Array.isArray(realmsDoc.realms)) realmsDoc = { realms: [] };
-    }
+        // Realms
+        const realmsPath = `realms_${lang}.yaml`;
+        let realmsDoc = {};
+        try {
+          realmsDoc = await fetchYaml(realmsPath);
+          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) throw new Error('Invalid realms format');
+        } catch {
+          realmsDoc = await fetchYaml('realms_en.yaml').catch(() => ({ realms: [] }));
+          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) realmsDoc = { realms: [] };
+        }
 
-    // NEW: load org data from YAML
-    const org = await loadOrgYaml();
+        // Org YAML
+        const org = await loadOrgYaml();
 
-    // Compose page content
-    const content = { ...yamlMain[lang], ...realmsDoc };
-    applyDirectionAndFonts(lang);
-    renderContent(content);
+        // Compose
+        const content = { ...yamlMain[lang], ...realmsDoc };
+        applyDirectionAndFonts(lang);
+        renderContent(content);
 
-    // === Fill JSON-LD from org YAML ===
-    const schemaEl = document.getElementById('orgSchema');
-    if (schemaEl && org) {
-      schemaEl.textContent = JSON.stringify(org);
-    }
+        // JSON-LD from YAML
+        const schemaEl = document.getElementById('orgSchema');
+        if (schemaEl && org) schemaEl.textContent = JSON.stringify(org);
 
-    // === Update footer phone/email from org YAML ===
-    const emailLink = document.querySelector('footer a[href^="mailto:"]');
-    if (emailLink && org.email) {
-      emailLink.href = `mailto:${org.email}`;
-      emailLink.textContent = org.email;
-    }
+        // Footer phone/email from YAML
+        const emailLink = document.querySelector('footer a[href^="mailto:"]');
+        if (emailLink && org.email) { emailLink.href = `mailto:${org.email}`; emailLink.textContent = org.email; }
+        const phoneLink = document.getElementById('footerPhone') || document.querySelector('footer a[href^="tel:"]');
+        if (phoneLink && org.telephone) {
+          const e164 = org.telephone.replace(/[^+0-9]/g, '').replace(/^1?(\d{10})$/, '+1$1');
+          phoneLink.href = `tel:${e164}`;
+          phoneLink.textContent = org.telephone;
+        }
 
-    const phoneLink = document.getElementById('footerPhone') || document.querySelector('footer a[href^="tel:"]');
-    if (phoneLink && org.telephone) {
-      const e164 = org.telephone.replace(/[^+0-9]/g, '').replace(/^1?(\d{10})$/, '+1$1'); // quick sanitize
-      phoneLink.href = `tel:${e164}`;
-      phoneLink.textContent = org.telephone;
-    }
+        // ===== Offers fallback detection =====
+        // If Facebook is blocked or slow, point Offers to the in-page #offers section.
+        const offersIframe = document.getElementById('offersEmbed');
+        const offersBtn = document.getElementById('navOffers');
+        let fallbackTimer = setTimeout(() => {
+          if (offersBtn) {
+            offersBtn.href = '#offers';
+            offersBtn.removeAttribute('target');
+            offersBtn.removeAttribute('rel');
+            offersBtn.setAttribute('aria-label', 'View current offers on this page');
+          }
+          const fbWrap = document.querySelector('#offers .fb-embed');
+          if (fbWrap) fbWrap.classList.add('is-fallback');
+        }, 4500);
 
-  } catch (e) {
-    console.error(e);
-    alert('Failed to load localized content. Check console for details.');
-  }
-}
+        if (offersIframe) {
+          offersIframe.onload = () => { clearTimeout(fallbackTimer); };
+          offersIframe.onerror = () => {
+            clearTimeout(fallbackTimer);
+            if (offersBtn) { offersBtn.href = '#offers'; offersBtn.removeAttribute('target'); offersBtn.removeAttribute('rel'); }
+          };
+        }
 
-    async function loadOrgYaml() {
-      if (orgData) return orgData;
-      const doc = await fetchYaml('business.yaml'); // uses your existing fetchYaml()
-      if (!doc || !doc.org) throw new Error('business.yaml missing `org` root');
-      orgData = doc.org;
-      return orgData;
+      } catch (e) {
+        console.error(e);
+        alert('Failed to load localized content. Check console for details.');
+      }
     }
 
     window.loadContent = loadContent;
 
     // =============== Mobile nav, accessibility, and widget helpers ===============
     document.addEventListener('DOMContentLoaded', () => {
-      // Skip-link focus
       const skip = document.querySelector('.skip-link');
       if (skip) {
         skip.addEventListener('click', () => {
@@ -244,7 +254,6 @@ t('step1Body',  content.step1Body,  'Your child joins for one week — no fees, 
         });
       }
 
-      // Mobile nav toggle
       const burger = document.getElementById('hamburger');
       const nav = document.querySelector('.mainnav');
       if (burger && nav) {
@@ -253,16 +262,11 @@ t('step1Body',  content.step1Body,  'Your child joins for one week — no fees, 
           burger.setAttribute('aria-expanded', String(!expanded));
           nav.classList.toggle('open');
         });
-        // Close on nav click (small screens)
         nav.addEventListener('click', (e) => {
-          if (e.target.matches('a')) {
-            nav.classList.remove('open');
-            burger.setAttribute('aria-expanded', 'false');
-          }
+          if (e.target.matches('a')) { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }
         });
       }
 
-      // Language buttons
       document.querySelectorAll('.lang-toggle button').forEach(btn => {
         btn.addEventListener('click', () => loadContent(btn.dataset.lang));
       });
@@ -290,7 +294,7 @@ t('step1Body',  content.step1Body,  'Your child joins for one week — no fees, 
       <a id="navApproach" href="#approach"></a>
       <a id="navPortal" href="#portal"></a>
       <a id="navContact" href="#contact"></a>
-     <a id="navOffers" class="btn btn--ghost" href="" target="_blank" rel="noopener"></a> 
+      <a id="navOffers" class="btn btn--ghost" href="" target="_blank" rel="noopener"></a>
     </nav>
 
     <div class="lang-toggle" role="group" aria-label="Language switcher">
@@ -395,115 +399,29 @@ t('step1Body',  content.step1Body,  'Your child joins for one week — no fees, 
             <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjJKTSJ9"></script>
           </div>
           <noscript><p class="muted">JavaScript is required to load the sign‑up form.</p></noscript>
-         <script>
-  (function () {
-    const container = document.getElementById('signupWidget');
-    if (!container) return;
+        </div>
+      </div>
+    </section>
 
-    const dalhousieSchools = [
-      '',
-      'Dalhousie School (CBE K–5)',
-      'H.D. Cartwright School (CBE 7–9)',
-      'Sir Winston Churchill High School (CBE 10–12)',
-      'St. Dominic School (CCSD K–6)'
-    ];
-
-    const obs = new MutationObserver(() => {
-      try {
-        // If TutorBird renders inside an iframe, we can’t touch inside it (cross-origin).
-        // In that case, stop observing to avoid loops.
-        if (container.querySelector('iframe')) { obs.disconnect(); return; }
-
-        const form = container.querySelector('form') || container.querySelector('tb-form') || container;
-        if (!form) return;
-
-        // Reorder: Parent/Guardian above Student
-        const findHeading = (rx) => Array.from(form.querySelectorAll('h1,h2,h3,h4,h5,h6'))
-          .find(h => rx.test((h.textContent || '').trim()));
-        const parentH = findHeading(/parent|guardian/i);
-        const studentH = findHeading(/student/i);
-        if (parentH && studentH) {
-          const parentBlock = parentH.nextElementSibling;
-          if (studentH.compareDocumentPosition(parentH) & Node.DOCUMENT_POSITION_FOLLOWING) {
-            form.insertBefore(parentH, studentH);
-            if (parentBlock) form.insertBefore(parentBlock, studentH);
-          }
-        }
-
-        // Hide Student Phone + Skill Level (keep form short)
-        const hideByLabel = (rx) => {
-          const labels = form.querySelectorAll('label, .field-label, .mdc-floating-label, .mat-mdc-floating-label, .tb-label');
-          labels.forEach(l => {
-            if (rx.test((l.textContent || '').trim())) {
-              const field = l.closest('.field, .form-group, .mat-mdc-form-field, .tb-field, li, div');
-              if (field) field.style.display = 'none';
-            }
-          });
-        };
-        hideByLabel(/student\s*phone/i);
-        hideByLabel(/skill\s*level/i);
-
-        // Convert "Current School" to a dropdown with Dalhousie options
-        const labels = Array.from(form.querySelectorAll('label, .field-label, .mdc-floating-label, .mat-mdc-floating-label'));
-        const schoolLabel = labels.find(l => /current\s*school/i.test((l.textContent || '').trim()));
-        if (schoolLabel) {
-          const fieldWrap = schoolLabel.closest('.field, .form-group, .mat-mdc-form-field, .tb-field, div');
-          const input = fieldWrap && fieldWrap.querySelector('input[type="text"], input:not([type]), textarea');
-          if (input) {
-            const select = document.createElement('select');
-            select.name = input.name || 'currentSchool';
-            select.required = input.required || false;
-            select.style.width = '100%';
-            dalhousieSchools.forEach(v => {
-              const o = document.createElement('option');
-              o.value = v;
-              o.textContent = v || 'Select your school';
-              select.appendChild(o);
-            });
-            input.replaceWith(select);
-          }
-        }
-
-        // Rename Submit button → "Reserve My Free Week"
-        const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
-        if (submitBtn) {
-          submitBtn.textContent = 'Reserve My Free Week';
-          if (submitBtn.value) submitBtn.value = 'Reserve My Free Week';
-        }
-
-        // Add a tiny trust note below the submit button (once)
-        if (!form.querySelector('.trust-note')) {
-          const trust = document.createElement('div');
-          trust.className = 'trust-note';
-          trust.style.fontSize = '0.875rem';
-          trust.style.opacity = '0.8';
-          trust.style.marginTop = '0.5rem';
-          trust.textContent = 'No fees today. We’ll confirm your free-week schedule by text/email.';
-          // place near button
-          if (submitBtn && submitBtn.parentElement) {
-            submitBtn.parentElement.appendChild(trust);
-          } else {
-            form.appendChild(trust);
-          }
-        }
-
-        // If "How did you hear about us?" exists, hint value for ad tracking
-        const hearLabel = labels.find(l => /how.*hear|referr|where.*find/i.test((l.textContent || '').trim()));
-        if (hearLabel) {
-          const wrap = hearLabel.closest('.field, .form-group, .tb-field, div');
-          const input = wrap && wrap.querySelector('input, textarea, select');
-          if (input && !input.value) input.placeholder = 'e.g., Facebook Ad';
-        }
-
-        obs.disconnect();
-      } catch (e) {
-        console.warn('Sign-up tweak warning:', e);
-      }
-    });
-
-    obs.observe(container, { childList: true, subtree: true });
-  })();
-</script>
+    <!-- OFFERS (fallback section) -->
+    <section class="section section--alt" id="offers">
+      <h2>Offers</h2>
+      <div class="grid grid--2">
+        <div class="card fb-embed">
+          <h3 style="margin-bottom:.5rem">Facebook Post</h3>
+          <iframe id="offersEmbed" style="width:100%;max-width:520px;height:420px;border:0;border-radius:12px;overflow:hidden"
+            scrolling="no" allow="encrypted-media"
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcuriousgeniuslearning%2Fposts%2Fpfbid0tFvEJAZDJKj8FLZEjgzW8Arau5r5nSxw2u2gkfQmvBmSkStAqPwVNkwBZjTECqTgl&show_text=true&width=500"></iframe>
+          <p class="muted" style="margin-top:.5rem">If the post doesn’t load, try the <a href="https://www.facebook.com/curiousgeniuslearning/posts/pfbid0tFvEJAZDJKj8FLZEjgzW8Arau5r5nSxw2u2gkfQmvBmSkStAqPwVNkwBZjTECqTgl" target="_blank" rel="noopener">direct Facebook link</a>.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:.5rem">Current Promotions</h3>
+          <ul class="muted" style="list-style:disc;padding-left:1.2rem">
+            <li><strong>First Week FREE</strong> — try any program in your level (K–3, 4–8, 9–12).</li>
+            <li><strong>Sibling Save</strong> — 10% off additional siblings enrolled together.</li>
+            <li><strong>Refer a Friend</strong> — both families get a $25 credit.</li>
+          </ul>
+          <p style="margin-top:.75rem"><a class="btn" href="#portal">Reserve My Free Week</a></p>
         </div>
       </div>
     </section>
@@ -519,10 +437,9 @@ t('step1Body',  content.step1Body,  'Your child joins for one week — no fees, 
         </div>
         <div class="map">
           <iframe
-  src="https://www.google.com/maps?q=Unit%206%2C%205505%20Shaganappi%20Trail%20NW%2C%20Calgary%2C%20AB%20T3A%201Z6&output=embed"
-  width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade" title="Curious Genius location map"></iframe>
-
+            src="https://www.google.com/maps?q=Unit%206%2C%205505%20Shaganappi%20Trail%20NW%2C%20Calgary%2C%20AB%20T3A%201Z6&output=embed"
+            width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Curious Genius location map"></iframe>
           <p class="muted" id="mapNote"></p>
         </div>
       </div>
