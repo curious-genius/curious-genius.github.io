@@ -99,7 +99,23 @@
       t('navApproach', content.navApproach, 'How It Works');
       t('navPortal', content.navPortal, 'Portal');
       t('navContact', content.navContact, 'Contact');
-      t('navLearn', content.navLearn, 'Learn');
+      t('navOffers', content.navOffers, 'Offers');
+
+  // Facebook Post
+  const FB_POST_EMBED =
+    "https://www.facebook.com/plugins/post.php?href=" +
+    encodeURIComponent("https://www.facebook.com/curiousgeniuslearning/posts/pfbid0tFvEJAZDJKj8FLZEjgzW8Arau5r5nSxw2u2gkfQmvBmSkStAqPwVNkwBZjTECqTgl") +
+    "&show_text=true&width=500";
+
+ 
+  const offers = document.getElementById('navOffers');
+  if (offers) {
+    offers.textContent = content.navOffers || 'Offers';
+    offers.href = FB_POST_EMBED;
+    offers.target = '_blank';
+    offers.rel = 'noopener';
+    offers.setAttribute('aria-label', 'View our latest Facebook offer');
+  }
 
       /* Hero CTAs */
       t('ctaPrimary', content.ctaPrimary, 'Start Your Free Week');
@@ -274,7 +290,7 @@ t('step1Body',  content.step1Body,  'Your child joins for one week — no fees, 
       <a id="navApproach" href="#approach"></a>
       <a id="navPortal" href="#portal"></a>
       <a id="navContact" href="#contact"></a>
-     <!-- <a id="navLearn" class="btn btn--ghost" href="" target="_blank" rel="noopener"></a> -->
+     <a id="navOffers" class="btn btn--ghost" href="" target="_blank" rel="noopener"></a> 
     </nav>
 
     <div class="lang-toggle" role="group" aria-label="Language switcher">
