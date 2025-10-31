@@ -1,24 +1,25 @@
 realms:
-  - icon: "🧮"
-    name: "Explorers (K–3)"
+  - icon: "🔢"
+    name: "Math Program (K–6)"
     description: >
-      Math & Coding Foundations — playful learning through numbers, logic, and creativity.
-      Students build early problem-solving skills with interactive math games, block coding
-      (Code.org Courses A–B), and beginner AI concepts like pattern recognition.
-      Certificate: “Explorers Certificate” (completion of introductory math & coding units).
+      Focuses on building strong foundations in mathematics through fun, hands-on activities.
+      Covers basic arithmetic, shapes, and problem-solving, aligned with the Alberta school curriculum
+      to boost your child's confidence in math.
 
-  - icon: "🧱"
-    name: "Innovators (Grades 4–8)"
+  - icon: "🤖"
+    name: "Coding & Robotics Program (K–6)"
     description: >
-      Applied Coding + Math Logic — students strengthen math fluency and explore real-world coding.
-      Curriculum includes Code.org Courses C–F, Game Lab, and core math problem solving.
-      AI concepts (decision trees, chatbots, data) are introduced through fun projects.
-      Certificate: “Innovators Certificate” (completion of integrated coding & math challenges).
+      Introduces kids to coding with visual block-based programming and simple robotics projects.
+      Students create games and animations, and explore basic robotics, sparking curiosity and creativity in technology.
 
-  - icon: "🚀"
-    name: "Creators (Grades 9–12)"
+  - icon: "📘"
+    name: "Math Program (7–12)"
     description: >
-      Advanced Coding, Math & AI — a project-based program connecting algebra, data, and algorithms.
-      Students develop websites, apps, and AI prototypes using Python, JavaScript, or App Lab.
-      Ideal preparation for AP CSP, AI competitions, and tech portfolios.
-      Certificate: “Creators Certificate” (final project showcase + course completion).
+      Covers advanced math topics like algebra, geometry, trigonometry, and introduces pre-calculus concepts.
+      Reinforces school material and challenges students with problem-solving to prepare them for high school and university-level math.
+
+  - icon: "💻"
+    name: "Coding, Robotics & AI Program (7–12)"
+    description: >
+      Engages teens with text-based programming (e.g., Python), robotics challenges, and introductory AI projects.
+      Students build apps and games, program robots to solve tasks, and explore emerging technology like artificial intelligence.
