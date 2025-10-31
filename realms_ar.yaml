@@ -1,25 +1,25 @@
 realms:
   - icon: "🔢"
-    name: "Programme de mathématiques (K–6)"
+    name: "برنامج الرياضيات (K–6)"
     description: >
-      Met l’accent sur le développement de bases solides en mathématiques grâce à des activités ludiques et pratiques.
-      Couvre l’arithmétique, les formes et la résolution de problèmes, conformément au programme scolaire de l’Alberta,
-      afin de renforcer la confiance de l’enfant en mathématiques.
+      يركّز على بناء أساس قوي في الرياضيات من خلال أنشطة ممتعة وتطبيقية.
+      يشمل الحسابات الأساسية، الأشكال، وحلّ المشكلات، وفقًا لمنهج ألبرتا المدرسي
+      لتعزيز ثقة الطفل في مادة الرياضيات.
 
   - icon: "🤖"
-    name: "Programme de codage et robotique (K–6)"
+    name: "برنامج البرمجة والروبوتات (K–6)"
     description: >
-      Initie les enfants au codage avec une programmation visuelle par blocs et des projets de robotique simples.
-      Les élèves créent des jeux et des animations et explorent la robotique de base pour éveiller curiosité et créativité.
+      يعرّف الأطفال على البرمجة باستخدام البرمجة البصرية القائمة على الكتل ومشروعات روبوتية بسيطة.
+      ينشئ الطلاب ألعابًا ورسومًا متحركة ويستكشفون أساسيات الروبوتات مما يعزز الفضول والإبداع في التكنولوجيا.
 
   - icon: "📘"
-    name: "Programme de mathématiques (7–12)"
+    name: "برنامج الرياضيات (7–12)"
     description: >
-      Traite des sujets avancés tels que l’algèbre, la géométrie et la trigonométrie, et introduit les notions de pré-calcul.
-      Renforce la matière scolaire et encourage la résolution de problèmes pour préparer les élèves au secondaire et à l’université.
+      يتناول مواضيع رياضية متقدمة مثل الجبر والهندسة وحساب المثلثات، ويقدّم مفاهيم ما قبل حساب التفاضل والتكامل.
+      يعزّز المادة المدرسية ويطوّر مهارات حلّ المشكلات استعدادًا للمدرسة الثانوية والجامعة.
 
   - icon: "💻"
-    name: "Programme de codage, robotique et IA (7–12)"
+    name: "برنامج البرمجة والروبوتات والذكاء الاصطناعي (7–12)"
     description: >
-      Engage les adolescents avec la programmation textuelle (par ex. : Python), des défis de robotique et des projets d’intelligence artificielle.
-      Les élèves conçoivent des applications et des jeux et explorent les technologies émergentes.
+      يشرك المراهقين في البرمجة النصّية (مثل Python) والتحديات الروبوتية ومشروعات الذكاء الاصطناعي التمهيدية.
+      يطوّر الطلاب تطبيقات وألعابًا ويستكشفون تقنيات حديثة بطريقة مناسبة لأعمارهم.
