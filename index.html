@@ -46,8 +46,8 @@
     const browserLang = rawLang.slice(0, 2);
     let currentLang = supportedLangs.includes(stored || '') ? stored : (supportedLangs.includes(browserLang) ? browserLang : 'en');
 
-    let yamlMain = null;        // content.yaml (multi-lingual)
-    let orgData = null;         // business.yaml → org object
+    let yamlMain = null;
+    let orgData = null;
 
     async function fetchYaml(path) {
       const res = await fetch(path + `?v=${encodeURIComponent('20251023')}`, { cache: 'no-store' });
@@ -103,9 +103,11 @@
       /* Nav */
       t('navAbout', content.navAbout, 'About');
       t('navPrograms', content.navPrograms, 'Programs');
+      t('navFAQ', content.navFAQ, 'FAQ');
       t('navApproach', content.navApproach, 'How It Works');
       t('navPortal', content.navPortal, 'Portal');
       t('navContact', content.navContact, 'Contact');
+      t('navPolicy', content.navPolicy, 'Policy');
       // Offers replaces Learn
       t('navOffers', content.navOffers, 'Offers');
 
@@ -134,9 +136,9 @@
       t('prop3Body', content.prop3Body, 'Aligned to Code.org pathways and industry best practices.');
 
       /* Programs (realms) */
-      t('programsTitle', content.programsTitle || 'Programs by Level');
+      t('programsTitle', content.programsTitle || 'Our Programs');
       const list = document.getElementById('realmsList');
-      if (Array.isArray(content.realms)) {
+      if (list && Array.isArray(content.realms)) {
         list.innerHTML = content.realms.map(
           r => `<li class="card" role="listitem">
                   <div class="card-icon" aria-hidden="true">${r.icon || '📚'}</div>
@@ -146,7 +148,7 @@
                   </div>
                 </li>`
         ).join('');
-      } else {
+      } else if (list) {
         list.innerHTML = '';
       }
       t('btnCurriculum', content.btnCurriculum, 'Explore Curriculum');
@@ -213,8 +215,7 @@
           phoneLink.textContent = org.telephone;
         }
 
-        // ===== Offers fallback detection =====
-        // If Facebook is blocked or slow, point Offers to the in-page #offers section.
+        // Offers fallback detection
         const offersIframe = document.getElementById('offersEmbed');
         const offersBtn = document.getElementById('navOffers');
         let fallbackTimer = setTimeout(() => {
@@ -232,7 +233,11 @@
           offersIframe.onload = () => { clearTimeout(fallbackTimer); };
           offersIframe.onerror = () => {
             clearTimeout(fallbackTimer);
-            if (offersBtn) { offersBtn.href = '#offers'; offersBtn.removeAttribute('target'); offersBtn.removeAttribute('rel'); }
+            if (offersBtn) {
+              offersBtn.href = '#offers';
+              offersBtn.removeAttribute('target');
+              offersBtn.removeAttribute('rel');
+            }
           };
         }
 
@@ -263,7 +268,10 @@
           nav.classList.toggle('open');
         });
         nav.addEventListener('click', (e) => {
-          if (e.target.matches('a')) { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }
+          if (e.target.matches('a')) {
+            nav.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+          }
         });
       }
 
@@ -291,9 +299,11 @@
     <nav class="mainnav" id="primary-navigation" aria-label="Primary" role="navigation">
       <a id="navAbout" href="#about"></a>
       <a id="navPrograms" href="#programs"></a>
+      <a id="navFAQ" href="#faq"></a>
       <a id="navApproach" href="#approach"></a>
       <a id="navPortal" href="#portal"></a>
       <a id="navContact" href="#contact"></a>
+      <a id="navPolicy" href="#policy"></a>
       <a id="navOffers" class="btn btn--ghost" href="" target="_blank" rel="noopener"></a>
     </nav>
 
@@ -344,10 +354,48 @@
     <!-- PROGRAMS -->
     <section class="section" id="programs">
       <h2 id="programsTitle"></h2>
-      <ul id="realmsList" class="grid grid--2 grid--cards" role="list"></ul>
+      <ul class="grid grid--2 grid--cards" role="list">
+        <li class="card" role="listitem">
+          <h3>Grades K–6</h3>
+          <p>We offer two core programs for elementary students (Grades K–6): one for Math and one for Coding & Robotics. Each curriculum is tailored to the age and skill level of the child.</p>
+          <ul style="list-style:disc; padding-left:1.2rem">
+            <li><strong>Math Program (K–6):</strong> Focuses on building strong foundations in mathematics through fun, hands-on activities. Covers basic arithmetic, shapes, and problem-solving, aligned with the Alberta school curriculum to boost your child's confidence in math.</li>
+            <li><strong>Coding & Robotics Program (K–6):</strong> Introduces kids to coding with visual block-based programming and simple robotics projects. Students create games and animations, and explore basic robotics, sparking their curiosity and creativity in technology.</li>
+          </ul>
+        </li>
+        <li class="card" role="listitem">
+          <h3>Grades 7–12</h3>
+          <p>For older students (Grades 7–12), we offer more advanced programs in Math and Technology. These courses deepen understanding and prepare students for higher-level challenges.</p>
+          <ul style="list-style:disc; padding-left:1.2rem">
+            <li><strong>Math Program (7–12):</strong> Covers advanced math topics like algebra, geometry, trigonometry, and introduces pre-calculus concepts. This program reinforces school material and challenges students with problem-solving to prepare them for high school and university-level math.</li>
+            <li><strong>Coding, Robotics & AI Program (7–12):</strong> Engages teens with text-based programming (e.g., Python), more complex robotics challenges, and introductory AI projects. Students build apps and games, program robots to solve tasks, and explore emerging tech like artificial intelligence in an age-appropriate way.</li>
+          </ul>
+        </li>
+      </ul>
       <div class="center">
         <a href="#portal" class="btn" id="btnCurriculum"></a>
       </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>What programs do you offer?</summary>
+        <p>Curious Genius offers two core programs: a Math program and a Coding & Robotics program (which also includes AI projects for older students). Both programs are available for Grades K–6 and 7–12, with curriculum and projects tailored to the appropriate age group.</p>
+      </details>
+      <details>
+        <summary>Is the first week really free?</summary>
+        <p>Yes! Every new student can try one full week of classes at no cost, with no commitment. This free trial includes a complimentary skill assessment and no registration fees. It's a risk-free way to experience our classes and see if they're the right fit for your child.</p>
+      </details>
+      <details>
+        <summary>How much do the classes cost?</summary>
+        <p>After the free trial week, we offer flexible month-to-month enrollment. Tuition is billed monthly for weekly classes (contact us for current rates). We offer a 10% sibling discount for additional children, and there are no long-term contracts—you can cancel anytime.</p>
+      </details>
+      <details>
+        <summary>When and where are the classes held?</summary>
+        <p>Classes are held once a week at our learning centre in NW Calgary (Dalhousie CO-OP). We offer multiple class times in the evenings and on weekends to fit your schedule. You can choose a convenient weekly time slot, and if you ever need to miss a class, let us know in advance to arrange a makeup session.</p>
+      </details>
     </section>
 
     <!-- HOW IT WORKS -->
@@ -384,7 +432,7 @@
       <p id="portalIntro" class="muted"></p>
 
       <div class="grid grid--2">
-        <!-- Login (parents log in, then book sessions inside the portal) -->
+        <!-- Login -->
         <div class="card card--widget">
           <h3 id="portalLoginTitle"></h3>
           <div class="widget">
@@ -392,7 +440,7 @@
           </div>
         </div>
 
-        <!-- Sign Up (Parent first; single student) -->
+        <!-- Sign Up -->
         <div class="card card--widget">
           <h3 id="portalSignupTitle"></h3>
           <div class="widget" id="signupWidget">
@@ -426,7 +474,7 @@
       </div>
     </section>
 
-    <!-- CONTACT (form + map; phone/email in footer) -->
+    <!-- CONTACT (form + map) -->
     <section class="section" id="contact">
       <h2 id="contactTitle"></h2>
       <div class="contact-grid">
@@ -443,6 +491,17 @@
           <p class="muted" id="mapNote"></p>
         </div>
       </div>
+    </section>
+
+    <!-- POLICIES -->
+    <section class="section section--alt" id="policy">
+      <h2>Policies</h2>
+      <ul style="list-style:disc; padding-left:1.2rem">
+        <li><strong>Free Trial Week:</strong> New students can try one week of classes for free, with no payment (no registration fees) or commitment required. (Limit one free trial per student.)</li>
+        <li><strong>Enrollment & Billing:</strong> Enrollment is on a month-to-month basis. Tuition is billed at the start of each month for that month’s weekly classes. No long-term contracts — you may cancel your enrollment effective the next month at any time.</li>
+        <li><strong>Scheduling & Attendance:</strong> Students attend one class per week per program enrolled. You can choose a consistent weekly time slot that suits you. If you need to miss a class, please inform us in advance; we will do our best to offer a makeup class or provide materials to catch up.</li>
+        <li><strong>Discounts:</strong> We offer a 10% sibling discount for additional siblings enrolled together. We also have a referral program — if you refer a friend who enrolls, both families receive a $25 credit.</li>
+      </ul>
     </section>
   </main>
 
