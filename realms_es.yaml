@@ -1,24 +1,25 @@
 realms:
-  - icon: "🧮"
-    name: "Exploradores (K–3)"
+  - icon: "🔢"
+    name: "Programa de Matemáticas (K–6)"
     description: >
-      Fundamentos de Matemáticas y Programación — aprendizaje divertido con números, lógica y creatividad.
-      Los estudiantes desarrollan habilidades tempranas de resolución de problemas con juegos matemáticos,
-      programación por bloques (Code.org Cursos A–B) y conceptos básicos de IA como el reconocimiento de patrones.
-      Certificado: “Certificado de Exploradores” (completar unidades introductorias de matemáticas y programación).
+      Se centra en construir bases sólidas en matemáticas mediante actividades prácticas y divertidas.
+      Cubre aritmética básica, figuras y resolución de problemas, alineado con el plan de estudios de Alberta
+      para aumentar la confianza del niño en matemáticas.
 
-  - icon: "🧱"
-    name: "Innovadores (Grados 4–8)"
+  - icon: "🤖"
+    name: "Programa de Codificación y Robótica (K–6)"
     description: >
-      Programación aplicada + lógica matemática — los estudiantes fortalecen la fluidez matemática
-      y exploran la programación del mundo real. Incluye Cursos C–F de Code.org, Game Lab y resolución de problemas matemáticos.
-      Se introducen conceptos de IA (árboles de decisión, chatbots, datos) mediante proyectos divertidos.
-      Certificado: “Certificado de Innovadores” (retos integrados de matemáticas y programación).
+      Introduce a los niños en la programación con bloques visuales y proyectos simples de robótica.
+      Los estudiantes crean juegos y animaciones y exploran la robótica básica, fomentando la curiosidad y la creatividad tecnológica.
 
-  - icon: "🚀"
-    name: "Creadores (Grados 9–12)"
+  - icon: "📘"
+    name: "Programa de Matemáticas (7–12)"
     description: >
-      Programación, matemáticas e IA avanzadas — programa basado en proyectos que conecta álgebra, datos y algoritmos.
-      Los estudiantes crean sitios web, aplicaciones y prototipos de IA con Python, JavaScript o App Lab.
-      Preparación ideal para AP CSP, competencias de IA y portafolios tecnológicos.
-      Certificado: “Certificado de Creadores” (proyecto final + finalización del curso).
+      Cubre temas avanzados como álgebra, geometría y trigonometría, e introduce conceptos de pre-cálculo.
+      Refuerza el aprendizaje escolar y desafía a los estudiantes con resolución de problemas para prepararlos para niveles superiores.
+
+  - icon: "💻"
+    name: "Programa de Codificación, Robótica e IA (7–12)"
+    description: >
+      Involucra a los adolescentes con programación basada en texto (por ejemplo, Python), retos de robótica
+      y proyectos introductorios de inteligencia artificial. Los alumnos crean aplicaciones y juegos y exploran la tecnología emergente.
