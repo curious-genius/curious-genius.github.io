@@ -1,24 +1,25 @@
 realms:
-  - icon: "🧮"
-    name: "المستكشفون (K–3)"
+  - icon: "🔢"
+    name: "Programme de mathématiques (K–6)"
     description: >
-      أساسيات الرياضيات والبرمجة — تعلم ممتع من خلال الأرقام والمنطق والإبداع.
-      يطوّر الطلاب مهارات مبكرة في حل المشكلات عبر ألعاب الرياضيات التفاعلية والبرمجة بالكتل
-      (دورات Code.org A–B) ومفاهيم الذكاء الاصطناعي الأولى مثل التعرف على الأنماط.
-      الشهادة: «شهادة المستكشفين» (إكمال وحدات الرياضيات والبرمجة التمهيدية).
+      Met l’accent sur le développement de bases solides en mathématiques grâce à des activités ludiques et pratiques.
+      Couvre l’arithmétique, les formes et la résolution de problèmes, conformément au programme scolaire de l’Alberta,
+      afin de renforcer la confiance de l’enfant en mathématiques.
 
-  - icon: "🧱"
-    name: "المبتكرون (الصفوف 4–8)"
+  - icon: "🤖"
+    name: "Programme de codage et robotique (K–6)"
     description: >
-      البرمجة التطبيقية + المنطق الرياضي — يعزّز الطلاب طلاقتهم في الرياضيات ويستكشفون البرمجة الواقعية.
-      يشمل المنهاج دورات Code.org C–F و Game Lab وحل المشكلات الرياضية.
-      تُقدَّم مفاهيم الذكاء الاصطناعي (أشجار القرار، الدردشة الآلية، البيانات) من خلال مشاريع ممتعة.
-      الشهادة: «شهادة المبتكرين» (إتمام تحديات البرمجة والرياضيات المدمجة).
+      Initie les enfants au codage avec une programmation visuelle par blocs et des projets de robotique simples.
+      Les élèves créent des jeux et des animations et explorent la robotique de base pour éveiller curiosité et créativité.
 
-  - icon: "🚀"
-    name: "المبدعون (الصفوف 9–12)"
+  - icon: "📘"
+    name: "Programme de mathématiques (7–12)"
     description: >
-      البرمجة والرياضيات والذكاء الاصطناعي المتقدّمة — برنامج قائم على المشاريع يربط بين الجبر والبيانات والخوارزميات.
-      يصمّم الطلاب مواقع ويب وتطبيقات ونماذج أولية للذكاء الاصطناعي باستخدام Python و JavaScript و App Lab.
-      إعداد مثالي لدورات AP CSP ومسابقات الذكاء الاصطناعي وبناء ملف تقني قوي.
-      الشهادة: «شهادة المبدعين» (عرض المشروع النهائي + إتمام البرنامج).
+      Traite des sujets avancés tels que l’algèbre, la géométrie et la trigonométrie, et introduit les notions de pré-calcul.
+      Renforce la matière scolaire et encourage la résolution de problèmes pour préparer les élèves au secondaire et à l’université.
+
+  - icon: "💻"
+    name: "Programme de codage, robotique et IA (7–12)"
+    description: >
+      Engage les adolescents avec la programmation textuelle (par ex. : Python), des défis de robotique et des projets d’intelligence artificielle.
+      Les élèves conçoivent des applications et des jeux et explorent les technologies émergentes.
