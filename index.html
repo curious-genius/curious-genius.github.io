@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title id="pageTitle">Curious Genius | Learn to Code — Classes for Ages 5–18</title>
-  <meta name="description" content="Curious Genius offers small-group Math, Coding & Robotics for ages 5–18 in NW Calgary. 🎁 First week FREE. Alberta-aligned, Code.org powered." />
+  <meta name="description" content="Curious Genius offers small-group Math, Coding & Robotics for ages 5–18 in NW Calgary. All November classes are free with no commitment. Alberta-aligned, Code.org powered." />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="canonical" href="https://curious-genius.github.io/" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Curious Genius — STEM for Ages 5–18 | First Week FREE" />
-  <meta property="og:description" content="Small classes. Big projects. Real skills — and your first week is FREE. In-person STEM in Dalhousie CO-OP" />
+  <meta property="og:title" content="Curious Genius — STEM for Ages 5–18 | Free Classes All November" />
+  <meta property="og:description" content="Small classes. Big projects. Real skills — and all November classes are free with no commitment. In-person STEM in Dalhousie CO-OP." />
   <meta property="og:image" content="https://curious-genius.github.io/curious-genius-logo.png" />
   <meta property="og:url" content="https://curious-genius.github.io/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -22,7 +22,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;500;700&family=Cairo:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=20251023" />
+  <link rel="stylesheet" href="styles.css?v=20251104" />
 
   <!-- Minimal RTL helper -->
   <style>
@@ -50,7 +50,7 @@
     let orgData = null;
 
     async function fetchYaml(path) {
-      const res = await fetch(path + `?v=${encodeURIComponent('20251023')}`, { cache: 'no-store' });
+      const res = await fetch(path + `?v=${encodeURIComponent('20251104')}`, { cache: 'no-store' });
       if (!res.ok) throw new Error(`Failed to load ${path} (HTTP ${res.status})`);
       const text = await res.text();
       return jsyaml.load(text);
@@ -122,9 +122,11 @@
         offersBtn.setAttribute('aria-label', 'View our latest Facebook offer');
       }
 
-      /* Hero CTAs */
-      t('ctaPrimary', content.ctaPrimary, 'Start Your Free Week');
+      /* Hero CTAs (fallbacks if YAML not loaded yet) */
+      t('ctaPrimary', content.ctaPrimary, 'All November Classes Are Free');
       t('ctaSecondary', content.ctaSecondary, 'See Programs');
+      const ctaPrimaryEl = document.getElementById('ctaPrimary');
+      if (ctaPrimaryEl) ctaPrimaryEl.setAttribute('aria-label', 'Join free classes in November at Curious Genius');
 
       /* Value props */
       t('propsTitle', content.propsTitle, 'Why families choose Curious Genius');
@@ -155,8 +157,8 @@
 
       /* Approach */
       t('approachTitle', content.approachTitle, 'How it works');
-      t('step1Title', content.step1Title, '1) Free Week');
-      t('step1Body',  content.step1Body,  'Your child joins for one week — no fees, no commitment.');
+      t('step1Title', content.step1Title, '1) Free November Classes');
+      t('step1Body',  content.step1Body,  'All November classes are free with no commitment. Try any program and see the difference.');
       t('step2Title', content.step2Title, '2) Personalized Plan');
       t('step2Body',  content.step2Body,  'Placement by age and experience, with clear next steps.');
       t('step3Title', content.step3Title, '3) Build & Celebrate');
@@ -164,9 +166,9 @@
 
       /* Portal */
       t('portalTitle', content.portalTitle, 'Parent & Student Portal');
-      t('portalIntro', content.portalIntro, 'Sign up (parent first), add your student, then log in anytime to manage your schedule.');
+      t('portalIntro', content.portalIntro, 'Register below. We’ll contact you to schedule your child’s free November classes — no commitment required.');
       t('portalLoginTitle', content.portalLoginTitle, 'Login');
-      t('portalSignupTitle', content.portalSignupTitle, 'Start Your Free Week');
+      t('portalSignupTitle', content.portalSignupTitle, 'Join Free Classes in November');
 
       /* Contact */
       t('contactTitle', content.contactTitle || 'Contact & Location');
@@ -323,7 +325,7 @@
         <h1></h1>
         <p></p>
         <div class="hero__actions">
-          <a href="#portal" class="btn" id="ctaPrimary" aria-label="Start your free week at Curious Genius"></a>
+          <a href="#portal" class="btn" id="ctaPrimary" aria-label="Join free classes in November at Curious Genius"></a>
           <a href="#programs" class="btn btn--ghost" id="ctaSecondary"></a>
         </div>
       </div>
@@ -385,16 +387,16 @@
         <p>Curious Genius offers two core programs: a Math program and a Coding & Robotics program (which also includes AI projects for older students). Both programs are available for Grades K–6 and 7–12, with curriculum and projects tailored to the appropriate age group.</p>
       </details>
       <details>
-        <summary>Is the first week really free?</summary>
-        <p>Yes! Every new student can try one full week of classes at no cost, with no commitment. This free trial includes a complimentary skill assessment and no registration fees. It's a risk-free way to experience our classes and see if they're the right fit for your child.</p>
+        <summary>Are November classes really free?</summary>
+        <p>Yes. All November classes are free with no commitment for new students. This promotion includes a complimentary skill assessment and no registration fees. It’s a risk-free way to experience our classes and see if they’re the right fit for your child.</p>
       </details>
       <details>
-        <summary>How much do the classes cost?</summary>
-        <p>After the free trial week, we offer flexible month-to-month enrollment. Tuition is billed monthly for weekly classes (contact us for current rates). We offer a 10% sibling discount for additional children, and there are no long-term contracts—you can cancel anytime.</p>
+        <summary>How much do the classes cost after November?</summary>
+        <p>We offer flexible month-to-month enrollment. Tuition is billed monthly for weekly classes (contact us for current rates). We offer a 10% sibling discount for additional children, and there are no long-term contracts—you can cancel anytime.</p>
       </details>
       <details>
         <summary>When and where are the classes held?</summary>
-        <p>Classes are held once a week at our learning centre in NW Calgary (Dalhousie CO-OP). We offer multiple class times in the evenings and on weekends to fit your schedule. You can choose a convenient weekly time slot, and if you ever need to miss a class, let us know in advance to arrange a makeup session.</p>
+        <p>Classes are held once a week at our learning centre in NW Calgary (Dalhousie CO-OP). We offer multiple class times in the evenings and on weekends to fit your schedule. If you need to miss a class, let us know in advance to arrange a makeup session where possible.</p>
       </details>
     </section>
 
@@ -446,7 +448,7 @@
           <div class="widget" id="signupWidget">
             <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjJKTSJ9"></script>
           </div>
-          <noscript><p class="muted">JavaScript is required to load the sign‑up form.</p></noscript>
+          <noscript><p class="muted">JavaScript is required to load the sign-up form.</p></noscript>
         </div>
       </div>
     </section>
@@ -457,17 +459,17 @@
       <div class="grid grid--2">
         <div class="card fb-embed">
           <h3 style="margin-bottom:.5rem">Facebook Post</h3>
-          <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcuriousgeniuslearning%2Fposts%2Fpfbid02A5wd4ucdjLV9XrQkqP8kuaJR39RbdLMJASSeXphQHzmrgVjzc65ds5QhxhZ4gj4Ql&show_text=true&width=500" width="500" height="950" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+          <iframe id="offersEmbed" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcuriousgeniuslearning%2Fposts%2Fpfbid02A5wd4ucdjLV9XrQkqP8kuaJR39RbdLMJASSeXphQHzmrgVjzc65ds5QhxhZ4gj4Ql&show_text=true&width=500" width="500" height="950" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
           <p class="muted" style="margin-top:.5rem">If the post doesn’t load, try the <a href="https://www.facebook.com/curiousgeniuslearning/posts/pfbid0tFvEJAZDJKj8FLZEjgzW8Arau5r5nSxw2u2gkfQmvBmSkStAqPwVNkwBZjTECqTgl" target="_blank" rel="noopener">direct Facebook link</a>.</p>
         </div>
         <div class="card">
-          <h3 style="margin-bottom:.5rem">Current Promotions</h3>
+          <h3 style="margin-bottom:.5rem">November Offer</h3>
           <ul class="muted" style="list-style:disc;padding-left:1.2rem">
-            <li><strong>First Week FREE</strong> — try any program in your level (K–3, 4–8, 9–12).</li>
+            <li><strong>All November classes are free</strong> — no commitment required.</li>
             <li><strong>Sibling Save</strong> — 10% off additional siblings enrolled together.</li>
             <li><strong>Refer a Friend</strong> — both families get a $25 credit.</li>
           </ul>
-          <p style="margin-top:.75rem"><a class="btn" href="#portal">Reserve My Free Week</a></p>
+          <p style="margin-top:.75rem"><a class="btn" href="#portal" id="joinFreeNovemberBtn">Join Free Classes in November</a></p>
         </div>
       </div>
     </section>
@@ -495,8 +497,8 @@
     <section class="section section--alt" id="policy">
       <h2>Policies</h2>
       <ul style="list-style:disc; padding-left:1.2rem">
-        <li><strong>Free Trial Week:</strong> New students can try one week of classes for free, with no payment (no registration fees) or commitment required. (Limit one free trial per student.)</li>
-        <li><strong>Enrollment & Billing:</strong> Enrollment is on a month-to-month basis. Tuition is billed at the start of each month for that month’s weekly classes. No long-term contracts — you may cancel your enrollment effective the next month at any time.</li>
+        <li><strong>November Free Classes:</strong> For November, new students can attend classes free of charge with no commitment. (Limit one promotional period per student.)</li>
+        <li><strong>Enrollment & Billing:</strong> Enrollment is month-to-month. Tuition is billed at the start of each month for that month’s weekly classes. No long-term contracts — you may cancel your enrollment effective the next month at any time.</li>
         <li><strong>Scheduling & Attendance:</strong> Students attend one class per week per program enrolled. You can choose a consistent weekly time slot that suits you. If you need to miss a class, please inform us in advance; we will do our best to offer a makeup class or provide materials to catch up.</li>
         <li><strong>Discounts:</strong> We offer a 10% sibling discount for additional siblings enrolled together. We also have a referral program — if you refer a friend who enrolls, both families receive a $25 credit.</li>
       </ul>
