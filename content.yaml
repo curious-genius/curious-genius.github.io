@@ -10,7 +10,7 @@ en:
   navContact: "Contact"
   navLearn: "Learn"
 
-  ctaPrimary: "Claim Your Free Week"
+  ctaPrimary: "All November Classes Are Free"
   ctaSecondary: "See Programs"
 
   propsTitle: "Why families choose Curious Genius"
@@ -25,17 +25,17 @@ en:
   btnCurriculum: "Explore Curriculum"
 
   approachTitle: "How it works"
-  step1Title: "1) Free Week"
-  step1Body: "Your child joins for one week — no fees, no commitment."
+  step1Title: "1) Free November Classes"
+  step1Body: "All November classes are free with no commitment. Try any program and see the difference."
   step2Title: "2) Personalized Plan"
   step2Body: "Placement by age and experience, with clear next steps."
   step3Title: "3) Build & Celebrate"
   step3Body: "Weekly classes, visible progress, and showcase days."
 
   portalTitle: "Parent & Student Portal"
-  portalIntro: "Register below in about a minute. We’ll text or call to confirm and schedule a free assessment—then your child’s free week begins."
+  portalIntro: "Register below in about a minute. We’ll contact you to confirm and schedule your child’s free November classes — no commitment required."
   portalLoginTitle: "Login"
-  portalSignupTitle: "Start Your Free Week"
+  portalSignupTitle: "Join Free Classes in November"
 
   contactTitle: "Contact & Location"
   emailLabel: "Email:"
@@ -57,7 +57,7 @@ fr:
   navContact: "Contact"
   navLearn: "Apprendre"
 
-  ctaPrimary: "Obtenez votre semaine gratuite"
+  ctaPrimary: "Cours gratuits tout novembre"
   ctaSecondary: "Voir les programmes"
 
   propsTitle: "Pourquoi les familles choisissent Curious Genius"
@@ -72,17 +72,17 @@ fr:
   btnCurriculum: "Découvrir le programme"
 
   approachTitle: "Comment ça marche"
-  step1Title: "1) Semaine gratuite"
-  step1Body: "Votre enfant essaie une semaine — sans frais ni engagement."
+  step1Title: "1) Cours gratuits en novembre"
+  step1Body: "Tous les cours de novembre sont gratuits et sans engagement. Essayez un programme et voyez la différence."
   step2Title: "2) Parcours personnalisé"
   step2Body: "Placement selon l’âge et l’expérience, avec étapes claires."
   step3Title: "3) Créer & célébrer"
   step3Body: "Cours hebdomadaires, progression visible et journées vitrine."
 
   portalTitle: "Portail Parents & Élèves"
-  portalIntro: "Inscription ci-dessous en environ une minute. Nous vous contacterons (SMS/appel) pour confirmer et planifier une évaluation gratuite — puis la semaine gratuite de votre enfant commence."
+  portalIntro: "Inscrivez-vous ci-dessous en une minute. Nous vous contacterons pour planifier les cours gratuits de novembre — sans engagement."
   portalLoginTitle: "Connexion"
-  portalSignupTitle: "Commencer ma semaine gratuite"
+  portalSignupTitle: "Rejoindre les cours gratuits de novembre"
 
   contactTitle: "Contact & Adresse"
   emailLabel: "Courriel :"
@@ -94,140 +94,4 @@ fr:
 
 es:
   title: "Curious Genius | Aprende a programar — Clases para 5–18 años"
-  brand: "Curious Genius"
-  tagline: "Grupos pequeños. Grandes proyectos. Habilidades reales."
-
-  navAbout: "Acerca de"
-  navPrograms: "Programas"
-  navApproach: "Cómo funciona"
-  navPortal: "Portal"
-  navContact: "Contacto"
-  navLearn: "Aprender"
-
-  ctaPrimary: "Reclama tu semana gratis"
-  ctaSecondary: "Ver programas"
-
-  propsTitle: "Por qué las familias eligen Curious Genius"
-  prop1Title: "Clases pequeñas"
-  prop1Body: "6–8 estudiantes por grupo para una atención enfocada."
-  prop2Title: "Aprendizaje por proyectos"
-  prop2Body: "Crean juegos, apps y sitios web reales para mostrar."
-  prop3Title: "Currículo confiable"
-  prop3Body: "Alineado con Code.org y los estándares de Alberta."
-
-  programsTitle: "Programas por nivel"
-  btnCurriculum: "Explorar plan de estudios"
-
-  approachTitle: "Cómo funciona"
-  step1Title: "1) Semana gratis"
-  step1Body: "Tu hijo participa una semana — sin costo ni compromiso."
-  step2Title: "2) Plan personalizado"
-  step2Body: "Ubicación por edad y experiencia, con próximos pasos claros."
-  step3Title: "3) Crear y celebrar"
-  step3Body: "Clases semanales, progreso visible y días de presentación."
-
-  portalTitle: "Portal para Familias y Estudiantes"
-  portalIntro: "Regístrate abajo en aproximadamente un minuto. Te enviaremos un mensaje o llamaremos para confirmar y programar una evaluación gratuita; después empieza la semana gratis de tu hijo/a."
-  portalLoginTitle: "Iniciar sesión"
-  portalSignupTitle: "Comenzar semana gratis"
-
-  contactTitle: "Contacto y Ubicación"
-  emailLabel: "Correo:"
-  phoneLabel: "Teléfono:"
-  locationLabel: "Ubicación:"
-  mapNote: "Estamos en Unidad 6, 5505 Shaganappi Trail NW (cerca de la entrada del centro comercial)."
-  footer: "© 2025 Curious Genius. Reinos de código para mentes curiosas."
-
-
-ar:
-  title: "كيريوس جينيوس | تعلّم البرمجة — صفوف للأعمار 5–18"
-  brand: "كيريوس جينيوس"
-  tagline: "صفوف صغيرة. مشاريع كبيرة. مهارات حقيقية."
-
-  navAbout: "من نحن"
-  navPrograms: "البرامج"
-  navApproach: "كيف نعمل"
-  navPortal: "البوابة"
-  navContact: "تواصل"
-  navLearn: "التعلّم"
-
-  ctaPrimary: "احجز أسبوعك المجاني"
-  ctaSecondary: "عرض البرامج"
-
-  propsTitle: "لماذا تختار العائلات كيريوس جينيوس"
-  prop1Title: "صفوف صغيرة"
-  prop1Body: "6–8 طلاب في المجموعة لضمان اهتمام فردي فعّال."
-  prop2Title: "تعلّم قائم على المشاريع"
-  prop2Body: "يصنع الأطفال ألعابًا وتطبيقات ومواقع حقيقية يفخرون بها."
-  prop3Title: "منهج موثوق"
-  prop3Body: "يتماشى مع معايير Alberta ومسارات Code.org."
-
-  programsTitle: "البرامج حسب المستوى"
-  btnCurriculum: "استكشف المنهج"
-
-  approachTitle: "آلية العمل"
-  step1Title: "1) أسبوع مجاني"
-  step1Body: "أسبوع كامل من التجربة دون أي رسوم أو التزام."
-  step2Title: "2) خطة مخصصة"
-  step2Body: "تحديد المستوى حسب العمر والخبرة مع خطوات واضحة."
-  step3Title: "3) نبني ونحتفل"
-  step3Body: "صفوف أسبوعية وتقدّم ملموس وعروض للمشاريع."
-
-  portalTitle: "بوابة أولياء الأمور والطلاب"
-  portalIntro: "أكمل التسجيل أدناه في حوالي دقيقة واحدة. سنتواصل معك عبر رسالة نصية أو اتصال لتأكيد الموعد وتحديد تقييم مجاني، ثم يبدأ أسبوع طفلك المجاني."
-  portalLoginTitle: "تسجيل الدخول"
-  portalSignupTitle: "ابدأ أسبوعك المجاني"
-
-  contactTitle: "التواصل والموقع"
-  emailLabel: "البريد الإلكتروني:"
-  phoneLabel: "الهاتف:"
-  locationLabel: "العنوان:"
-  mapNote: "نحن في الوحدة 6، 5505 Shaganappi Trail NW (قرب مدخل المركز التجاري)."
-  footer: "© 2025 كيريوس جينيوس. عوالم برمجة لعقول فضولية."
-
-
-pa:
-  title: "Curious Genius | ਕੋਡ ਸਿੱਖੋ — 5–18 ਸਾਲਾਂ ਲਈ ਕਲਾਸਾਂ"
-  brand: "Curious Genius"
-  tagline: "ਛੋਟੀਆਂ ਕਲਾਸਾਂ। ਵੱਡੇ ਪ੍ਰੋਜੈਕਟ। ਅਸਲੀ ਹੁਨਰ।"
-
-  navAbout: "ਸਾਡੇ ਬਾਰੇ"
-  navPrograms: "ਕਾਰਜਕ੍ਰਮ"
-  navApproach: "ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ"
-  navPortal: "ਪੋਰਟਲ"
-  navContact: "ਸੰਪਰਕ"
-  navLearn: "ਸਿੱਖੋ"
-
-  ctaPrimary: "ਆਪਣਾ ਮੁਫ਼ਤ ਹਫ਼ਤਾ ਸ਼ੁਰੂ ਕਰੋ"
-  ctaSecondary: "ਪ੍ਰੋਗਰਾਮ ਵੇਖੋ"
-
-  propsTitle: "ਪਰਿਵਾਰ Curious Genius ਕਿਉਂ ਚੁਣਦੇ ਹਨ"
-  prop1Title: "ਛੋਟੀਆਂ ਕਲਾਸਾਂ"
-  prop1Body: "ਹਰ ਗਰੁੱਪ ਵਿੱਚ 6–8 ਸਿਖਿਆਰਥੀ — ਵੱਧ ਧਿਆਨ ਅਤੇ ਮਦਦ।"
-  prop2Title: "ਪ੍ਰੋਜੈਕਟ-ਅਧਾਰਿਤ ਸਿੱਖਿਆ"
-  prop2Body: "ਬੱਚੇ ਅਸਲੀ ਗੇਮ, ਐਪਸ ਅਤੇ ਵੈਬਸਾਈਟ ਬਣਾਉਂਦੇ ਹਨ।"
-  prop3Title: "ਭਰੋਸੇਯੋਗ ਕੋਰਿਕੁਲਮ"
-  prop3Body: "Code.org ਅਤੇ Alberta ਮਿਆਰਾਂ ਨਾਲ ਤਾਲਮੇਲ।"
-
-  programsTitle: "ਲੇਵਲ ਮੁਤਾਬਕ ਪ੍ਰੋਗਰਾਮ"
-  btnCurriculum: "ਪਾਠਕ੍ਰਮ ਵੇਖੋ"
-
-  approachTitle: "ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ"
-  step1Title: "1) ਮੁਫ਼ਤ ਹਫ਼ਤਾ"
-  step1Body: "ਇੱਕ ਹਫ਼ਤਾ ਬਿਨਾਂ ਕਿਸੇ ਫੀਸ ਜਾਂ ਬਾਧਤਾ ਦੇ।"
-  step2Title: "2) ਨਿੱਜੀ ਯੋਜਨਾ"
-  step2Body: "ਉਮਰ ਅਤੇ ਤਜਰਬੇ ਅਨੁਸਾਰ ਪਲੇਸਮੈਂਟ, ਸਪਸ਼ਟ ਕਦਮਾਂ ਨਾਲ।"
-  step3Title: "3) ਬਣਾਓ ਅਤੇ ਮਨਾਓ"
-  step3Body: "ਹਫ਼ਤਾਵਾਰੀ ਕਲਾਸਾਂ, ਦਿੱਖਣਯੋਗ ਤਰੱਕੀ ਅਤੇ ਪ੍ਰਦਰਸ਼ਨ ਦਿਨ।"
-
-  portalTitle: "ਮਾਪਿਆਂ ਅਤੇ ਵਿਦਿਆਰਥੀਆਂ ਲਈ ਪੋਰਟਲ"
-  portalIntro: "ਹੇਠਾਂ ਇੱਕ ਮਿੰਟ ਵਿੱਚ ਰਜਿਸਟਰ ਕਰੋ। ਅਸੀਂ SMS/ਕਾਲ ਰਾਹੀਂ ਪੁਸ਼ਟੀ ਕਰਕੇ ਮੁਫ਼ਤ ਮੁਲਾਂਕਣ ਸ਼ੈਡਿਊਲ ਕਰਾਂਗੇ — ਫਿਰ ਤੁਹਾਡੇ ਬੱਚੇ ਦਾ ਮੁਫ਼ਤ ਹਫ਼ਤਾ ਸ਼ੁਰੂ ਹੋਵੇਗਾ।"
-  portalLoginTitle: "ਲਾਗਇਨ"
-  portalSignupTitle: "ਆਪਣਾ ਮੁਫ਼ਤ ਹਫ਼ਤਾ ਸ਼ੁਰੂ ਕਰੋ"
-
-  contactTitle: "ਸੰਪਰਕ ਅਤੇ ਸਥਾਨ"
-  emailLabel: "ਈਮੇਲ:"
-  phoneLabel: "ਫੋਨ:"
-  locationLabel: "ਪਤਾ:"
-  mapNote: "ਅਸੀਂ ਯੂਨਿਟ 6, 5505 Shaganappi Trail NW (ਮਾਲ ਦੇ ਦਰਵਾਜ਼ੇ ਨੇੜੇ) ਵਿੱਚ ਹਾਂ।"
-  footer: "© 2025 Curious Genius. ਉਤਸੁਕ ਮਨਾਂ ਲਈ ਕੋਡਿੰਗ ਦੇ ਰੀਅਲਮ।"
+  brand:
