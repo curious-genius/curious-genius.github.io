@@ -4,11 +4,12 @@ en:
   tagline: "Small classes. Big projects. Real skills."
 
   navAbout: "About"
-  navPrograms: "Programs"
+  navPrograms: "Programs & Pricing"
   navApproach: "How It Works"
   navPortal: "Portal"
   navContact: "Contact"
-  navLearn: "Learn"
+  navPolicy: "Policy"
+  navOffers: "Offers"
 
   ctaPrimary: "All November Classes Are Free"
   ctaSecondary: "See Programs"
@@ -17,23 +18,23 @@ en:
   prop1Title: "Small Classes"
   prop1Body: "6–8 learners per cohort for focused, individualized attention."
   prop2Title: "Project-Based Learning"
-  prop2Body: "Kids build real games, apps, and websites they’re proud to show."
+  prop2Body: "Kids build real games, robots, and AI projects they’re proud to show."
   prop3Title: "Trusted Curriculum"
-  prop3Body: "Aligned to Code.org pathways and Alberta Education standards."
+  prop3Body: "Aligned with Alberta Education and Code.org standards."
 
-  programsTitle: "Programs by Level"
+  programsTitle: "Programs & Pricing"
   btnCurriculum: "Explore Curriculum"
 
-  approachTitle: "How it works"
+  approachTitle: "How It Works"
   step1Title: "1) Free November Classes"
-  step1Body: "All November classes are free with no commitment. Try any program and see the difference."
+  step1Body: "All November classes are free — no fees or commitment. Try any program!"
   step2Title: "2) Personalized Plan"
-  step2Body: "Placement by age and experience, with clear next steps."
+  step2Body: "Placement by age and skill level with clear learning milestones."
   step3Title: "3) Build & Celebrate"
-  step3Body: "Weekly classes, visible progress, and showcase days."
+  step3Body: "Hands-on projects, steady progress, and student showcases."
 
   portalTitle: "Parent & Student Portal"
-  portalIntro: "Register below in about a minute. We’ll contact you to confirm and schedule your child’s free November classes — no commitment required."
+  portalIntro: "Register below in one minute. We’ll contact you to confirm your free November sessions."
   portalLoginTitle: "Login"
   portalSignupTitle: "Join Free Classes in November"
 
@@ -41,21 +42,22 @@ en:
   emailLabel: "Email:"
   phoneLabel: "Phone:"
   locationLabel: "Location:"
-  mapNote: "We’re located at Unit 6, 5505 Shaganappi Trail NW (near the mall entrance)."
-  footer: "© 2025 Curious Genius. Coding realms built for curious minds."
+  mapNote: "We’re inside CO-OP Plaza, Unit 6 — 5505 Shaganappi Trail NW, Calgary."
+  footer: "© 2025 Curious Genius. Be a creator, not just a user of technology."
 
 
 fr:
-  title: "Curious Genius | Apprendre à coder — Cours pour 5–18 ans"
+  title: "Curious Genius | Apprendre à coder — Cours pour 5 à 18 ans"
   brand: "Curious Genius"
   tagline: "Petits groupes. Grands projets. Vraies compétences."
 
   navAbout: "À propos"
-  navPrograms: "Programmes"
+  navPrograms: "Programmes et Tarifs"
   navApproach: "Notre méthode"
   navPortal: "Portail"
   navContact: "Contact"
-  navLearn: "Apprendre"
+  navPolicy: "Politique"
+  navOffers: "Offres"
 
   ctaPrimary: "Cours gratuits tout novembre"
   ctaSecondary: "Voir les programmes"
@@ -63,24 +65,24 @@ fr:
   propsTitle: "Pourquoi les familles choisissent Curious Genius"
   prop1Title: "Petites classes"
   prop1Body: "6 à 8 élèves par groupe pour un suivi personnalisé."
-  prop2Title: "Pédagogie par projets"
-  prop2Body: "Les enfants créent de vrais jeux, applis et sites web."
+  prop2Title: "Apprentissage par projets"
+  prop2Body: "Les enfants construisent de vrais jeux, robots et projets d’IA."
   prop3Title: "Programme reconnu"
-  prop3Body: "Aligné aux parcours Code.org et aux normes de l’Alberta."
+  prop3Body: "Aligné aux normes de l’Alberta et à Code.org."
 
-  programsTitle: "Programmes par niveau"
+  programsTitle: "Programmes et Tarifs"
   btnCurriculum: "Découvrir le programme"
 
   approachTitle: "Comment ça marche"
   step1Title: "1) Cours gratuits en novembre"
-  step1Body: "Tous les cours de novembre sont gratuits et sans engagement. Essayez un programme et voyez la différence."
-  step2Title: "2) Parcours personnalisé"
-  step2Body: "Placement selon l’âge et l’expérience, avec étapes claires."
-  step3Title: "3) Créer & célébrer"
-  step3Body: "Cours hebdomadaires, progression visible et journées vitrine."
+  step1Body: "Tous les cours de novembre sont gratuits et sans engagement."
+  step2Title: "2) Plan personnalisé"
+  step2Body: "Placement selon l’âge et le niveau, avec des étapes claires."
+  step3Title: "3) Construire et célébrer"
+  step3Body: "Projets pratiques, progrès constants et présentations des élèves."
 
   portalTitle: "Portail Parents & Élèves"
-  portalIntro: "Inscrivez-vous ci-dessous en une minute. Nous vous contacterons pour planifier les cours gratuits de novembre — sans engagement."
+  portalIntro: "Inscrivez-vous ci-dessous en une minute. Nous confirmerons vos séances gratuites de novembre."
   portalLoginTitle: "Connexion"
   portalSignupTitle: "Rejoindre les cours gratuits de novembre"
 
@@ -88,10 +90,58 @@ fr:
   emailLabel: "Courriel :"
   phoneLabel: "Téléphone :"
   locationLabel: "Adresse :"
-  mapNote: "Nous sommes au local 6, 5505 Shaganappi Trail NW (près de l’entrée du centre commercial)."
-  footer: "© 2025 Curious Genius. Des royaumes de code pour les esprits curieux."
+  mapNote: "Nous sommes dans le CO-OP Plaza, local 6 — 5505 Shaganappi Trail NW, Calgary."
+  footer: "© 2025 Curious Genius. Deviens créateur, pas simple utilisateur de la technologie."
 
 
 es:
-  title: "Curious Genius | Aprende a programar — Clases para 5–18 años"
-  brand:
+  title: "Curious Genius | Aprende a programar — Clases para edades 5–18"
+  brand: "Curious Genius"
+  tagline: "Clases pequeñas. Grandes proyectos. Habilidades reales."
+
+  navAbout: "Acerca de"
+  navPrograms: "Programas y Precios"
+  navApproach: "Cómo funciona"
+  navPortal: "Portal"
+  navContact: "Contacto"
+  navPolicy: "Política"
+  navOffers: "Ofertas"
+
+  ctaPrimary: "¡Todas las clases de noviembre son gratis!"
+  ctaSecondary: "Ver programas"
+
+  propsTitle: "Por qué las familias eligen Curious Genius"
+  prop1Title: "Clases pequeñas"
+  prop1Body: "6–8 estudiantes por grupo para atención personalizada."
+  prop2Title: "Aprendizaje basado en proyectos"
+  prop2Body: "Los niños crean juegos, robots y proyectos de IA reales."
+  prop3Title: "Currículo confiable"
+  prop3Body: "Alineado con los estándares de Alberta y Code.org."
+
+  programsTitle: "Programas y Precios"
+  btnCurriculum: "Explorar programas"
+
+  approachTitle: "Cómo funciona"
+  step1Title: "1) Clases gratis en noviembre"
+  step1Body: "Todas las clases de noviembre son gratuitas y sin compromiso."
+  step2Title: "2) Plan personalizado"
+  step2Body: "Ubicación por edad y nivel con objetivos claros."
+  step3Title: "3) Construir y celebrar"
+  step3Body: "Proyectos prácticos, progreso constante y exhibiciones de estudiantes."
+
+  portalTitle: "Portal para Padres y Estudiantes"
+  portalIntro: "Regístrate a continuación en un minuto. Confirmaremos tus sesiones gratuitas de noviembre."
+  portalLoginTitle: "Iniciar sesión"
+  portalSignupTitle: "Unirse a clases gratis en noviembre"
+
+  contactTitle: "Contacto y Ubicación"
+  emailLabel: "Correo:"
+  phoneLabel: "Teléfono:"
+  locationLabel: "Ubicación:"
+  mapNote: "Estamos en CO-OP Plaza, Unidad 6 — 5505 Shaganappi Trail NW, Calgary."
+  footer: "© 2025 Curious Genius. Sé un creador, no solo un usuario de la tecnología."
+
+
+ar:
+  title: "كيريوس جينيوس | تعلّم البرمجة — دروس للأطفال من 5 إلى 18 سنة"
+  brand: "كيريوس جينيوس"
