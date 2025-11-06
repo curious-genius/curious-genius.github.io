@@ -1,25 +1,25 @@
 realms:
-  - icon: "🔢"
-    name: "Math Program (K–6)"
+  - icon: "🧭"
+    name: "Curious Explorer — Technology Club"
     description: >
-      Focuses on building strong foundations in mathematics through fun, hands-on activities.
-      Covers basic arithmetic, shapes, and problem-solving, aligned with the Alberta school curriculum
-      to boost your child's confidence in math.
+      <strong>$99/month</strong> · <strong>2 sessions/week</strong><br>
+      <em>November Special: $0 (regular $99)</em><br>
+      Ideal for steady, hands-on growth in coding, robotics & STEM.<br>
+      • Create coding, robotics & AI projects<br>
+      • Daily projects — endless creativity
 
-  - icon: "🤖"
-    name: "Coding & Robotics Program (K–6)"
+  - icon: "💡"
+    name: "Genius Creator — Technology Club"
     description: >
-      Introduces kids to coding with visual block-based programming and simple robotics projects.
-      Students create games and animations, and explore basic robotics, sparking curiosity and creativity in technology.
+      <strong>$149/month</strong> · <strong>up to 6 sessions/week</strong><br>
+      Designed for young innovators who love to build, tinker & create.<br>
+      • Bigger builds, team challenges & showcases<br>
+      • Build, code & create — every single day!
 
-  - icon: "📘"
-    name: "Math Program (7–12)"
+  - icon: "➗"
+    name: "Solo Math — 1:1 Tutoring"
     description: >
-      Covers advanced math topics like algebra, geometry, trigonometry, and introduces pre-calculus concepts.
-      Reinforces school material and challenges students with problem-solving to prepare them for high school and university-level math.
-
-  - icon: "💻"
-    name: "Coding, Robotics & AI Program (7–12)"
-    description: >
-      Engages teens with text-based programming (e.g., Python), robotics challenges, and introductory AI projects.
-      Students build apps and games, program robots to solve tasks, and explore emerging technology like artificial intelligence.
+      <strong>$60/hour</strong> · <strong>personalized one-on-one</strong><br>
+      Focused coaching to boost math confidence & mastery.<br>
+      • Flexible scheduling & custom goals<br>
+      • Great for catch-up or getting ahead
