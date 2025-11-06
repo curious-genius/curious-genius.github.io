@@ -1,25 +1,25 @@
 realms:
-  - icon: "🔢"
-    name: "Programa de Matemáticas (K–6)"
+  - icon: "🧭"
+    name: "Explorador Curioso — Club de Tecnología"
     description: >
-      Se centra en construir bases sólidas en matemáticas mediante actividades prácticas y divertidas.
-      Cubre aritmética básica, figuras y resolución de problemas, alineado con el plan de estudios de Alberta
-      para aumentar la confianza del niño en matemáticas.
+      <strong>$99/mes</strong> · <strong>2 sesiones/semana</strong><br>
+      <em>Oferta de noviembre: $0 (regular $99)</em><br>
+      Ideal para un crecimiento constante en programación, robótica y STEM.<br>
+      • Crea proyectos de código, robótica e IA<br>
+      • Proyectos diarios — ¡creatividad sin límites!
 
-  - icon: "🤖"
-    name: "Programa de Codificación y Robótica (K–6)"
+  - icon: "💡"
+    name: "Creador Genio — Club de Tecnología"
     description: >
-      Introduce a los niños en la programación con bloques visuales y proyectos simples de robótica.
-      Los estudiantes crean juegos y animaciones y exploran la robótica básica, fomentando la curiosidad y la creatividad tecnológica.
+      <strong>$149/mes</strong> · <strong>hasta 6 sesiones/semana</strong><br>
+      Diseñado para jóvenes innovadores que aman construir y crear.<br>
+      • Proyectos más grandes, retos en equipo y exhibiciones<br>
+      • ¡Construye, programa y crea todos los días!
 
-  - icon: "📘"
-    name: "Programa de Matemáticas (7–12)"
+  - icon: "➗"
+    name: "Solo Math — Tutoría 1:1"
     description: >
-      Cubre temas avanzados como álgebra, geometría y trigonometría, e introduce conceptos de pre-cálculo.
-      Refuerza el aprendizaje escolar y desafía a los estudiantes con resolución de problemas para prepararlos para niveles superiores.
-
-  - icon: "💻"
-    name: "Programa de Codificación, Robótica e IA (7–12)"
-    description: >
-      Involucra a los adolescentes con programación basada en texto (por ejemplo, Python), retos de robótica
-      y proyectos introductorios de inteligencia artificial. Los alumnos crean aplicaciones y juegos y exploran la tecnología emergente.
+      <strong>$60/hora</strong> · <strong>atención personalizada</strong><br>
+      Apoyo enfocado para ganar confianza y dominio en matemáticas.<br>
+      • Horarios flexibles y metas personalizadas<br>
+      • Ideal para ponerse al día o adelantarse
