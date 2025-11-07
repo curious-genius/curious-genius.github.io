@@ -55,6 +55,7 @@ en:
   offersL1: "All November classes are free — no commitment required."
   offersL2: "Sibling Save — 10% off additional siblings enrolled together."
   offersL3: "Refer a Friend — both families get a $25 credit."
+
   # Policies
   policyTitle: "Policies"
   policyL1: "November Free Classes: In November, new students may attend classes free with no commitment (one promotional period per student)."
@@ -128,6 +129,7 @@ fr:
   offersL1: "Tous les cours de novembre sont gratuits — sans engagement."
   offersL2: "Réduction fratrie — 10 % pour les frères et sœurs inscrits ensemble."
   offersL3: "Parrainage — les deux familles reçoivent un crédit de 25 $."
+
   # Policies
   policyTitle: "Politique"
   policyL1: "Cours gratuits en novembre : les nouveaux élèves peuvent assister gratuitement aux cours en novembre (une période promotionnelle par élève)."
@@ -200,7 +202,8 @@ es:
   joinFreeNovemberBtn: "Unirse a clases gratis en noviembre"
   offersL1: "Todas las clases de noviembre son gratis — sin compromiso."
   offersL2: "Descuento para hermanos — 10% para hermanos inscritos juntos."
-  offersL3: "Programa de referidos — ambas familias reciben un crédito de $25.
+  offersL3: "Programa de referidos — ambas familias reciben un crédito de $25."
+
   # Policies
   policyTitle: "Política"
   policyL1: "Clases gratis en noviembre: los estudiantes nuevos pueden asistir gratis en noviembre (una promoción por estudiante)."
@@ -274,6 +277,7 @@ ar:
   offersL1: "جميع دروس نوفمبر مجانية — دون أي التزام."
   offersL2: "خصم الأشقاء — 10٪ عند تسجيل الأشقاء معًا."
   offersL3: "برنامج الإحالة — تحصل الأُسرتان على رصيد بقيمة 25$."
+
   # Policies
   policyTitle: "السياسات"
   policyL1: "دروس نوفمبر المجانية: في نوفمبر يمكن للطلاب الجدد حضور الدروس مجانًا وبدون التزام (مرة واحدة لكل طالب)."
@@ -344,9 +348,10 @@ pa:
   offersFbLinkText: "ਫੇਸਬੁੱਕ ਡਾਇਰੈਕਟ ਲਿੰਕ"
   offersNovemberTitle: "ਨਵੰਬਰ ਆਫਰ"
   joinFreeNovemberBtn: "ਨਵੰਬਰ ਮੁਫ਼ਤ ਕਲਾਸਾਂ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ"
-offersL1: "ਨਵੰਬਰ ਦੀਆਂ ਸਾਰੀਆਂ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ — ਕਿਸੇ ਕਮੀਟਮੈਂਟ ਤੋਂ ਬਿਨਾ।"
+  offersL1: "ਨਵੰਬਰ ਦੀਆਂ ਸਾਰੀਆਂ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ — ਕਿਸੇ ਕਮੀਟਮੈਂਟ ਤੋਂ ਬਿਨਾ।"
   offersL2: "ਭੈਣ-ਭਰਾ ਛੂਟ — ਇਕੱਠੇ ਦਾਖ਼ਲੇ ’ਤੇ 10% ਛੂਟ।"
   offersL3: "ਰੇਫਰਲ — ਦੋਸਤ ਦਾਖ਼ਲ ਹੋਣ ’ਤੇ ਦੋਵੇਂ ਪਰਿਵਾਰਾਂ ਨੂੰ $25 ਕ੍ਰੇਡਿਟ।"
+
   # Policies
   policyTitle: "ਨੀਤੀਆਂ"
   policyL1: "ਨਵੰਬਰ ਮੁਫ਼ਤ ਕਲਾਸਾਂ: ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਨਵੰਬਰ ਵਿੱਚ ਬਿਨਾ ਕਮੀਟਮੈਂਟ ਕਲਾਸਾਂ ਵਿੱਚ ਮੁਫ਼ਤ ਆ ਸਕਦੇ ਹਨ (ਹਰ ਵਿਦਿਆਰਥੀ ਲਈ ਇੱਕ ਵਾਰ)।"
