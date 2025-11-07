@@ -33,15 +33,14 @@
   </style>
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17680952488">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17680952488"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17680952488');
+  </script>
 
-  gtag('config', 'AW-17680952488');
-</script>
   <!-- YAML parser -->
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" defer></script>
 
@@ -60,7 +59,8 @@
     let orgData = null;
 
     async function fetchYaml(path) {
-      const res = await fetch(path + `?v=${encodeURIComponent('20251104')}`, { cache: 'no-store' });
+      // bump this when you update YAML files to defeat caches
+      const res = await fetch(path + `?v=${encodeURIComponent('20251106')}`, { cache: 'no-store' });
       if (!res.ok) throw new Error(`Failed to load ${path} (HTTP ${res.status})`);
       const text = await res.text();
       return jsyaml.load(text);
@@ -118,21 +118,9 @@
       t('navPortal', content.navPortal, 'Portal');
       t('navContact', content.navContact, 'Contact');
       t('navPolicy', content.navPolicy, 'Policy');
-      // Offers replaces Learn
       t('navOffers', content.navOffers, 'Offers');
 
-      // === Offers button wiring ===
-      const FB_POST_URL = "https://www.facebook.com/curiousgeniuslearning/posts/pfbid02A5wd4ucdjLV9XrQkqP8kuaJR39RbdLMJASSeXphQHzmrgVjzc65ds5QhxhZ4gj4Ql";
-      const FB_POST_EMBED = "https://www.facebook.com/plugins/post.php?href=" + encodeURIComponent(FB_POST_URL) + "&show_text=true&width=500";
-      const offersBtn = document.getElementById('navOffers');
-      if (offersBtn) {
-        offersBtn.href = FB_POST_EMBED;
-        offersBtn.target = '_blank';
-        offersBtn.rel = 'noopener';
-        offersBtn.setAttribute('aria-label', 'View our latest Facebook offer');
-      }
-
-      /* Hero CTAs (fallbacks if YAML not loaded yet) */
+      /* Hero CTAs */
       t('ctaPrimary', content.ctaPrimary, 'All November Classes Are Free');
       t('ctaSecondary', content.ctaSecondary, 'See Programs');
       const ctaPrimaryEl = document.getElementById('ctaPrimary');
@@ -363,27 +351,10 @@
       </ul>
     </section>
 
-    <!-- PROGRAMS -->
+    <!-- PROGRAMS (DATA-DRIVEN) -->
     <section class="section" id="programs">
       <h2 id="programsTitle"></h2>
-      <ul class="grid grid--2 grid--cards" role="list">
-        <li class="card" role="listitem">
-          <h3>Grades K–6</h3>
-          <p>We offer two core programs for elementary students (Grades K–6): one for Math and one for Coding & Robotics. Each curriculum is tailored to the age and skill level of the child.</p>
-          <ul style="list-style:disc; padding-left:1.2rem">
-            <li><strong>Math Program (K–6):</strong> Focuses on building strong foundations in mathematics through fun, hands-on activities. Covers basic arithmetic, shapes, and problem-solving, aligned with the Alberta school curriculum to boost your child's confidence in math.</li>
-            <li><strong>Coding & Robotics Program (K–6):</strong> Introduces kids to coding with visual block-based programming and simple robotics projects. Students create games and animations, and explore basic robotics, sparking their curiosity and creativity in technology.</li>
-          </ul>
-        </li>
-        <li class="card" role="listitem">
-          <h3>Grades 7–12</h3>
-          <p>For older students (Grades 7–12), we offer more advanced programs in Math and Technology. These courses deepen understanding and prepare students for higher-level challenges.</p>
-          <ul style="list-style:disc; padding-left:1.2rem">
-            <li><strong>Math Program (7–12):</strong> Covers advanced math topics like algebra, geometry, trigonometry, and introduces pre-calculus concepts. This program reinforces school material and challenges students with problem-solving to prepare them for high school and university-level math.</li>
-            <li><strong>Coding, Robotics & AI Program (7–12):</strong> Engages teens with text-based programming (e.g., Python), more complex robotics challenges, and introductory AI projects. Students build apps and games, program robots to solve tasks, and explore emerging tech like artificial intelligence in an age-appropriate way.</li>
-          </ul>
-        </li>
-      </ul>
+      <ul class="grid grid--3 grid--cards" id="realmsList" role="list"></ul>
       <div class="center">
         <a href="#portal" class="btn" id="btnCurriculum"></a>
       </div>
