@@ -182,6 +182,9 @@
       t('offersNovemberTitle', content.offersNovemberTitle, 'November Offer');
       const joinBtn = document.getElementById('joinFreeNovemberBtn');
       if (joinBtn) joinBtn.textContent = content.joinFreeNovemberBtn || 'Join Free Classes in November';
+t('offersL1', content.offersL1, 'All November classes are free — no commitment required.');
+t('offersL2', content.offersL2, 'Sibling Save — 10% off additional siblings enrolled together.');
+t('offersL3', content.offersL3, 'Refer a Friend — both families get a $25 credit.');
 
       /* Policies */
       t('policyTitle', content.policyTitle, 'Policies');
@@ -462,29 +465,30 @@
       </div>
     </section>
 
-    <!-- OFFERS (fallback section) -->
-    <section class="section section--alt" id="offers">
-      <h2 id="offersTitle"></h2>
-      <div class="grid grid--2">
-        <div class="card fb-embed">
-          <h3 id="offersFacebookTitle" style="margin-bottom:.5rem"></h3>
-          <iframe id="offersEmbed" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcuriousgeniuslearning%2Fposts%2Fpfbid02A5wd4ucdjLV9XrQkqP8kuaJR39RbdLMJASSeXphQHzmrgVjzc65ds5QhxhZ4gj4Ql&show_text=true&width=500" width="500" height="950" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-          <p class="muted" style="margin-top:.5rem">
-            <span id="offersFbFallbackText"></span>
-            <a href="https://www.facebook.com/curiousgeniuslearning/posts/pfbid0tFvEJAZDJKj8FLZEjgzW8Arau5r5nSxw2u2gkfQmvBmSkStAqPwVNkwBZjTECqTgl" id="offersFbLinkText" target="_blank" rel="noopener"></a>.
-          </p>
-        </div>
-        <div class="card">
-          <h3 id="offersNovemberTitle" style="margin-bottom:.5rem"></h3>
-          <ul class="muted" style="list-style:disc;padding-left:1.2rem">
-            <li id="policyL1"></li>
-            <li id="policyL4"></li>
-            <li><strong>Refer a Friend</strong> — both families get a $25 credit.</li>
-          </ul>
-          <p style="margin-top:.75rem"><a class="btn" href="#portal" id="joinFreeNovemberBtn"></a></p>
-        </div>
-      </div>
-    </section>
+   <!-- OFFERS (fallback section) -->
+<section class="section section--alt" id="offers">
+  <h2 id="offersTitle"></h2>
+  <div class="grid grid--2">
+    <div class="card fb-embed">
+      <h3 id="offersFacebookTitle" style="margin-bottom:.5rem"></h3>
+      <iframe id="offersEmbed" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcuriousgeniuslearning%2Fposts%2Fpfbid02A5wd4ucdjLV9XrQkqP8kuaJR39RbdLMJASSeXphQHzmrgVjzc65ds5QhxhZ4gj4Ql&show_text=true&width=500" width="500" height="950" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      <p class="muted" style="margin-top:.5rem">
+        <span id="offersFbFallbackText"></span>
+        <a href="https://www.facebook.com/curiousgeniuslearning/posts/pfbid0tFvEJAZDJKj8FLZEjgzW8Arau5r5nSxw2u2gkfQmvBmSkStAqPwVNkwBZjTECqTgl" id="offersFbLinkText" target="_blank" rel="noopener"></a>.
+      </p>
+    </div>
+    <div class="card">
+      <h3 id="offersNovemberTitle" style="margin-bottom:.5rem"></h3>
+      <ul class="muted" style="list-style:disc;padding-left:1.2rem">
+        <li id="offersL1"></li>
+        <li id="offersL2"></li>
+        <li id="offersL3"></li>
+      </ul>
+      <p style="margin-top:.75rem"><a class="btn" href="#portal" id="joinFreeNovemberBtn"></a></p>
+    </div>
+  </div>
+</section>
+
 
     <!-- CONTACT (form + map) -->
     <section class="section" id="contact">
