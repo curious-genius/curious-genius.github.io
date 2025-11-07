@@ -153,6 +153,17 @@
       }
       t('btnCurriculum', content.btnCurriculum, 'Explore Curriculum');
 
+      /* FAQ */
+      t('faqTitle', content.faqTitle, 'Frequently Asked Questions');
+      t('faqQ1', content.faqQ1, 'What programs do you offer?');
+      t('faqA1', content.faqA1, 'Curious Genius offers two core programs...');
+      t('faqQ2', content.faqQ2, 'Are November classes really free?');
+      t('faqA2', content.faqA2, 'Yes. All November classes are free...');
+      t('faqQ3', content.faqQ3, 'How much do the classes cost after November?');
+      t('faqA3', content.faqA3, 'We offer flexible month-to-month enrollment...');
+      t('faqQ4', content.faqQ4, 'When and where are the classes held?');
+      t('faqA4', content.faqA4, 'Classes are held once a week...');
+
       /* Approach */
       t('approachTitle', content.approachTitle, 'How it works');
       t('step1Title', content.step1Title, '1) Free November Classes');
@@ -161,6 +172,23 @@
       t('step2Body',  content.step2Body,  'Placement by age and experience, with clear next steps.');
       t('step3Title', content.step3Title, '3) Build & Celebrate');
       t('step3Body',  content.step3Body,  'Weekly classes, visible progress, and showcase days.');
+
+      /* Offers */
+      t('offersTitle', content.offersTitle, 'Offers');
+      t('offersFacebookTitle', content.offersFacebookTitle, 'Facebook Post');
+      t('offersFbFallbackText', content.offersFbFallbackText, 'If the post doesn’t load, try the ');
+      const fbLink = document.getElementById('offersFbLinkText');
+      if (fbLink) fbLink.textContent = content.offersFbLinkText || 'direct Facebook link';
+      t('offersNovemberTitle', content.offersNovemberTitle, 'November Offer');
+      const joinBtn = document.getElementById('joinFreeNovemberBtn');
+      if (joinBtn) joinBtn.textContent = content.joinFreeNovemberBtn || 'Join Free Classes in November';
+
+      /* Policies */
+      t('policyTitle', content.policyTitle, 'Policies');
+      t('policyL1', content.policyL1);
+      t('policyL2', content.policyL2);
+      t('policyL3', content.policyL3);
+      t('policyL4', content.policyL4);
 
       /* Portal */
       t('portalTitle', content.portalTitle, 'Parent & Student Portal');
@@ -362,22 +390,22 @@
 
     <!-- FAQ -->
     <section class="section" id="faq">
-      <h2>Frequently Asked Questions</h2>
+      <h2 id="faqTitle"></h2>
       <details>
-        <summary>What programs do you offer?</summary>
-        <p>Curious Genius offers two core programs: a Math program and a Coding & Robotics program (which also includes AI projects for older students). Both programs are available for Grades K–6 and 7–12, with curriculum and projects tailored to the appropriate age group.</p>
+        <summary id="faqQ1"></summary>
+        <p id="faqA1"></p>
       </details>
       <details>
-        <summary>Are November classes really free?</summary>
-        <p>Yes. All November classes are free with no commitment for new students. This promotion includes a complimentary skill assessment and no registration fees. It’s a risk-free way to experience our classes and see if they’re the right fit for your child.</p>
+        <summary id="faqQ2"></summary>
+        <p id="faqA2"></p>
       </details>
       <details>
-        <summary>How much do the classes cost after November?</summary>
-        <p>We offer flexible month-to-month enrollment. Tuition is billed monthly for weekly classes (contact us for current rates). We offer a 10% sibling discount for additional children, and there are no long-term contracts—you can cancel anytime.</p>
+        <summary id="faqQ3"></summary>
+        <p id="faqA3"></p>
       </details>
       <details>
-        <summary>When and where are the classes held?</summary>
-        <p>Classes are held once a week at our learning centre in NW Calgary (Dalhousie CO-OP). We offer multiple class times in the evenings and on weekends to fit your schedule. If you need to miss a class, let us know in advance to arrange a makeup session where possible.</p>
+        <summary id="faqQ4"></summary>
+        <p id="faqA4"></p>
       </details>
     </section>
 
@@ -436,21 +464,24 @@
 
     <!-- OFFERS (fallback section) -->
     <section class="section section--alt" id="offers">
-      <h2>Offers</h2>
+      <h2 id="offersTitle"></h2>
       <div class="grid grid--2">
         <div class="card fb-embed">
-          <h3 style="margin-bottom:.5rem">Facebook Post</h3>
+          <h3 id="offersFacebookTitle" style="margin-bottom:.5rem"></h3>
           <iframe id="offersEmbed" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcuriousgeniuslearning%2Fposts%2Fpfbid02A5wd4ucdjLV9XrQkqP8kuaJR39RbdLMJASSeXphQHzmrgVjzc65ds5QhxhZ4gj4Ql&show_text=true&width=500" width="500" height="950" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-          <p class="muted" style="margin-top:.5rem">If the post doesn’t load, try the <a href="https://www.facebook.com/curiousgeniuslearning/posts/pfbid0tFvEJAZDJKj8FLZEjgzW8Arau5r5nSxw2u2gkfQmvBmSkStAqPwVNkwBZjTECqTgl" target="_blank" rel="noopener">direct Facebook link</a>.</p>
+          <p class="muted" style="margin-top:.5rem">
+            <span id="offersFbFallbackText"></span>
+            <a href="https://www.facebook.com/curiousgeniuslearning/posts/pfbid0tFvEJAZDJKj8FLZEjgzW8Arau5r5nSxw2u2gkfQmvBmSkStAqPwVNkwBZjTECqTgl" id="offersFbLinkText" target="_blank" rel="noopener"></a>.
+          </p>
         </div>
         <div class="card">
-          <h3 style="margin-bottom:.5rem">November Offer</h3>
+          <h3 id="offersNovemberTitle" style="margin-bottom:.5rem"></h3>
           <ul class="muted" style="list-style:disc;padding-left:1.2rem">
-            <li><strong>All November classes are free</strong> — no commitment required.</li>
-            <li><strong>Sibling Save</strong> — 10% off additional siblings enrolled together.</li>
+            <li id="policyL1"></li>
+            <li id="policyL4"></li>
             <li><strong>Refer a Friend</strong> — both families get a $25 credit.</li>
           </ul>
-          <p style="margin-top:.75rem"><a class="btn" href="#portal" id="joinFreeNovemberBtn">Join Free Classes in November</a></p>
+          <p style="margin-top:.75rem"><a class="btn" href="#portal" id="joinFreeNovemberBtn"></a></p>
         </div>
       </div>
     </section>
@@ -476,12 +507,12 @@
 
     <!-- POLICIES -->
     <section class="section section--alt" id="policy">
-      <h2>Policies</h2>
+      <h2 id="policyTitle"></h2>
       <ul style="list-style:disc; padding-left:1.2rem">
-        <li><strong>November Free Classes:</strong> For November, new students can attend classes free of charge with no commitment. (Limit one promotional period per student.)</li>
-        <li><strong>Enrollment & Billing:</strong> Enrollment is month-to-month. Tuition is billed at the start of each month for that month’s weekly classes. No long-term contracts — you may cancel your enrollment effective the next month at any time.</li>
-        <li><strong>Scheduling & Attendance:</strong> Students attend one class per week per program enrolled. You can choose a consistent weekly time slot that suits you. If you need to miss a class, please inform us in advance; we will do our best to offer a makeup class or provide materials to catch up.</li>
-        <li><strong>Discounts:</strong> We offer a 10% sibling discount for additional siblings enrolled together. We also have a referral program — if you refer a friend who enrolls, both families receive a $25 credit.</li>
+        <li id="policyL1"></li>
+        <li id="policyL2"></li>
+        <li id="policyL3"></li>
+        <li id="policyL4"></li>
       </ul>
     </section>
   </main>
