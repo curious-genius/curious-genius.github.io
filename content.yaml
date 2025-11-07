@@ -5,6 +5,7 @@ en:
 
   navAbout: "About"
   navPrograms: "Programs & Pricing"
+  navFAQ: "FAQ"
   navApproach: "How It Works"
   navPortal: "Portal"
   navContact: "Contact"
@@ -33,11 +34,33 @@ en:
   step3Title: "3) Build & Celebrate"
   step3Body: "Hands-on projects, steady progress, and student showcases."
 
-  portalTitle: "Parent & Student Portal"
-  portalIntro: "Register below in one minute. We’ll contact you to confirm your free November sessions."
-  portalLoginTitle: "Login"
-  portalSignupTitle: "Join Free Classes in November"
+  # FAQ
+  faqTitle: "Frequently Asked Questions"
+  faqQ1: "What programs do you offer?"
+  faqA1: "Curious Genius offers two core programs: a Math program and a Coding & Robotics program (with age-appropriate AI projects for older students). Both are available for elementary and junior/senior high, tailored by age and experience."
+  faqQ2: "Are November classes really free?"
+  faqA2: "Yes. All November classes are free for new students with no registration fees or commitment — a risk-free way to try our classes."
+  faqQ3: "How much do the classes cost after November?"
+  faqA3: "Enrollment is flexible and month-to-month. Tuition is billed at the start of each month for weekly classes. We offer a 10% sibling discount and no long-term contracts — cancel any time for the next month."
+  faqQ4: "When and where are the classes held?"
+  faqA4: "Classes run at our NW Calgary centre (Dalhousie CO-OP) with evening and weekend options. Tell us in advance if you’ll miss a class and we’ll try to arrange a makeup."
 
+  # Offers
+  offersTitle: "Offers"
+  offersFacebookTitle: "Facebook Post"
+  offersFbFallbackText: "If the post doesn’t load, try the "
+  offersFbLinkText: "direct Facebook link"
+  offersNovemberTitle: "November Offer"
+  joinFreeNovemberBtn: "Join Free Classes in November"
+
+  # Policies
+  policyTitle: "Policies"
+  policyL1: "November Free Classes: In November, new students may attend classes free with no commitment (one promotional period per student)."
+  policyL2: "Enrollment & Billing: Month-to-month enrollment. Tuition is billed at the start of each month for that month’s weekly classes."
+  policyL3: "Scheduling & Attendance: Students attend one weekly class per enrolled program. Choose a consistent time slot; notify us in advance for makeup options."
+  policyL4: "Discounts: 10% sibling discount for additional children enrolled together. Referral program: if a friend enrolls, both families receive a $25 credit."
+
+  # Contact & footer
   contactTitle: "Contact & Location"
   emailLabel: "Email:"
   phoneLabel: "Phone:"
@@ -53,6 +76,7 @@ fr:
 
   navAbout: "À propos"
   navPrograms: "Programmes et Tarifs"
+  navFAQ: "FAQ"
   navApproach: "Notre méthode"
   navPortal: "Portail"
   navContact: "Contact"
@@ -66,7 +90,7 @@ fr:
   prop1Title: "Petites classes"
   prop1Body: "6 à 8 élèves par groupe pour un suivi personnalisé."
   prop2Title: "Apprentissage par projets"
-  prop2Body: "Les enfants construisent de vrais jeux, robots et projets d’IA."
+  prop2Body: "Les enfants construisent de vrais jeux, robots et projets d’IA dont ils sont fiers."
   prop3Title: "Programme reconnu"
   prop3Body: "Aligné aux normes de l’Alberta et à Code.org."
 
@@ -75,17 +99,39 @@ fr:
 
   approachTitle: "Comment ça marche"
   step1Title: "1) Cours gratuits en novembre"
-  step1Body: "Tous les cours de novembre sont gratuits et sans engagement."
+  step1Body: "Tous les cours de novembre sont gratuits et sans engagement. Essayez le programme de votre choix !"
   step2Title: "2) Plan personnalisé"
-  step2Body: "Placement selon l’âge et le niveau, avec des étapes claires."
+  step2Body: "Placement selon l’âge et le niveau, avec des étapes d’apprentissage claires."
   step3Title: "3) Construire et célébrer"
-  step3Body: "Projets pratiques, progrès constants et présentations des élèves."
+  step3Body: "Projets pratiques, progression régulière et présentations des élèves."
 
-  portalTitle: "Portail Parents & Élèves"
-  portalIntro: "Inscrivez-vous ci-dessous en une minute. Nous confirmerons vos séances gratuites de novembre."
-  portalLoginTitle: "Connexion"
-  portalSignupTitle: "Rejoindre les cours gratuits de novembre"
+  # FAQ
+  faqTitle: "Questions fréquentes"
+  faqQ1: "Quels programmes proposez-vous ?"
+  faqA1: "Nous proposons un programme de Mathématiques et un programme de Codage & Robotique (avec des projets d’IA adaptés aux plus grands). Disponibles pour le primaire et le secondaire, avec contenu adapté à l’âge et à l’expérience."
+  faqQ2: "Les cours de novembre sont-ils vraiment gratuits ?"
+  faqA2: "Oui. Tous les cours de novembre sont gratuits pour les nouveaux élèves, sans frais d’inscription ni engagement — une façon sans risque d’essayer nos cours."
+  faqQ3: "Quel est le coût après novembre ?"
+  faqA3: "Inscription mensuelle flexible. La facturation se fait au début de chaque mois pour les cours hebdomadaires. Réduction de 10 % pour les frères et sœurs, sans engagement à long terme."
+  faqQ4: "Quand et où ont lieu les cours ?"
+  faqA4: "Les cours se déroulent dans notre centre du NW de Calgary (Dalhousie CO-OP), en soirée et le week-end. Prévenez-nous à l’avance pour organiser une séance de rattrapage si possible."
 
+  # Offers
+  offersTitle: "Offres"
+  offersFacebookTitle: "Publication Facebook"
+  offersFbFallbackText: "Si la publication ne s’affiche pas, essayez le "
+  offersFbLinkText: "lien Facebook direct"
+  offersNovemberTitle: "Offre de novembre"
+  joinFreeNovemberBtn: "Rejoindre les cours gratuits de novembre"
+
+  # Policies
+  policyTitle: "Politique"
+  policyL1: "Cours gratuits en novembre : les nouveaux élèves peuvent assister gratuitement aux cours en novembre (une période promotionnelle par élève)."
+  policyL2: "Inscription & Facturation : inscription au mois. Facturation au début de chaque mois pour les cours hebdomadaires."
+  policyL3: "Planification & Présence : une séance hebdomadaire par programme. Choisissez un créneau fixe ; prévenez à l’avance pour un rattrapage."
+  policyL4: "Réductions : 10 % pour les frères et sœurs inscrits ensemble. Parrainage : si un ami s’inscrit, les deux familles reçoivent un crédit de 25 $."
+
+  # Contact & footer
   contactTitle: "Contact & Adresse"
   emailLabel: "Courriel :"
   phoneLabel: "Téléphone :"
@@ -101,6 +147,7 @@ es:
 
   navAbout: "Acerca de"
   navPrograms: "Programas y Precios"
+  navFAQ: "Preguntas frecuentes"
   navApproach: "Cómo funciona"
   navPortal: "Portal"
   navContact: "Contacto"
@@ -123,17 +170,39 @@ es:
 
   approachTitle: "Cómo funciona"
   step1Title: "1) Clases gratis en noviembre"
-  step1Body: "Todas las clases de noviembre son gratuitas y sin compromiso."
+  step1Body: "Todas las clases de noviembre son gratuitas y sin compromiso. ¡Prueba cualquier programa!"
   step2Title: "2) Plan personalizado"
-  step2Body: "Ubicación por edad y nivel con objetivos claros."
+  step2Body: "Ubicación por edad y nivel, con metas claras de aprendizaje."
   step3Title: "3) Construir y celebrar"
   step3Body: "Proyectos prácticos, progreso constante y exhibiciones de estudiantes."
 
-  portalTitle: "Portal para Padres y Estudiantes"
-  portalIntro: "Regístrate a continuación en un minuto. Confirmaremos tus sesiones gratuitas de noviembre."
-  portalLoginTitle: "Iniciar sesión"
-  portalSignupTitle: "Unirse a clases gratis en noviembre"
+  # FAQ
+  faqTitle: "Preguntas frecuentes"
+  faqQ1: "¿Qué programas ofrecen?"
+  faqA1: "Ofrecemos un programa de Matemáticas y un programa de Programación y Robótica (con proyectos de IA apropiados para mayores). Ambos están disponibles para primaria y secundaria, adaptados por edad y experiencia."
+  faqQ2: "¿Las clases de noviembre son realmente gratis?"
+  faqA2: "Sí. Todas las clases de noviembre son gratuitas para estudiantes nuevos, sin tarifas de inscripción ni compromiso: una forma segura de probar nuestras clases."
+  faqQ3: "¿Cuál es el costo después de noviembre?"
+  faqA3: "La inscripción es mensual y flexible. La colegiatura se cobra al inicio de cada mes para las clases semanales. Ofrecemos 10% de descuento para hermanos y no hay contratos a largo plazo."
+  faqQ4: "¿Cuándo y dónde se imparten las clases?"
+  faqA4: "Las clases son presenciales en nuestro centro del NW de Calgary (Dalhousie CO-OP), con horarios vespertinos y de fin de semana. Avísanos con anticipación para intentar reprogramar si faltas."
 
+  # Offers
+  offersTitle: "Ofertas"
+  offersFacebookTitle: "Publicación de Facebook"
+  offersFbFallbackText: "Si la publicación no se carga, prueba el "
+  offersFbLinkText: "enlace directo de Facebook"
+  offersNovemberTitle: "Oferta de noviembre"
+  joinFreeNovemberBtn: "Unirse a clases gratis en noviembre"
+
+  # Policies
+  policyTitle: "Política"
+  policyL1: "Clases gratis en noviembre: los estudiantes nuevos pueden asistir gratis en noviembre (una promoción por estudiante)."
+  policyL2: "Inscripción y facturación: inscripción mensual. La colegiatura se cobra al inicio de cada mes para las clases semanales."
+  policyL3: "Horarios y asistencia: una clase semanal por programa. Elige un horario fijo; avísanos con anticipación para opciones de reposición."
+  policyL4: "Descuentos: 10% de descuento para hermanos inscritos juntos. Programa de referidos: si un amigo se inscribe, ambas familias reciben $25 de crédito."
+
+  # Contact & footer
   contactTitle: "Contacto y Ubicación"
   emailLabel: "Correo:"
   phoneLabel: "Teléfono:"
@@ -145,3 +214,140 @@ es:
 ar:
   title: "كيريوس جينيوس | تعلّم البرمجة — دروس للأطفال من 5 إلى 18 سنة"
   brand: "كيريوس جينيوس"
+  tagline: "صفوف صغيرة. مشاريع كبيرة. مهارات حقيقية."
+
+  navAbout: "حول"
+  navPrograms: "البرامج والأسعار"
+  navFAQ: "الأسئلة الشائعة"
+  navApproach: "كيف نعمل"
+  navPortal: "البوابة"
+  navContact: "اتصال"
+  navPolicy: "السياسات"
+  navOffers: "العروض"
+
+  ctaPrimary: "كل دروس نوفمبر مجانية"
+  ctaSecondary: "استعرض البرامج"
+
+  propsTitle: "لماذا تختار العائلات كيريوس جينيوس"
+  prop1Title: "صفوف صغيرة"
+  prop1Body: "6 إلى 8 طلاب في كل مجموعة لضمان متابعة فردية."
+  prop2Title: "تعلّم بالمشاريع"
+  prop2Body: "الأطفال يصنعون ألعابًا وروبوتات ومشاريع ذكاء اصطناعي يفتخرون بها."
+  prop3Title: "منهج موثوق"
+  prop3Body: "متوافق مع معايير ألبرتا ومسارات Code.org."
+
+  programsTitle: "البرامج والأسعار"
+  btnCurriculum: "استكشف المنهج"
+
+  approachTitle: "كيف نعمل"
+  step1Title: "1) دروس نوفمبر المجانية"
+  step1Body: "طوال نوفمبر الدروس مجانية وبدون التزام — جرّب أي برنامج!"
+  step2Title: "2) خطة تعليمية شخصية"
+  step2Body: "تحديد المستوى حسب العمر والمهارة مع أهداف تعلم واضحة."
+  step3Title: "3) نبني ونحتفل"
+  step3Body: "مشاريع عملية، تقدّم مستمر، وعروض لإنجازات الطلاب."
+
+  # FAQ
+  faqTitle: "الأسئلة الشائعة"
+  faqQ1: "ما هي البرامج التي تقدّمونها؟"
+  faqA1: "نقدّم برنامج الرياضيات وبرنامج البرمجة والروبوتات (مع مشاريع ذكاء اصطناعي للمراحل الأكبر). كلاهما متاح للمرحلة الابتدائية والمتوسطة/الثانوية، مع تكييف المحتوى حسب العمر والخبرة."
+  faqQ2: "هل دروس نوفمبر مجانية فعلاً؟"
+  faqA2: "نعم، جميع دروس نوفمبر مجانية للطلاب الجدد دون رسوم تسجيل أو التزام — طريقة آمنة لتجربة دروسنا."
+  faqQ3: "كم التكلفة بعد نوفمبر؟"
+  faqA3: "الاشتراك شهري ومرن. تُحصّل الرسوم في بداية كل شهر للدروس الأسبوعية. يوجد خصم 10٪ للأشقاء ولا عقود طويلة — يمكنك الإلغاء للشهر التالي في أي وقت."
+  faqQ4: "متى وأين تُقام الدروس؟"
+  faqA4: "الدروس حضورية في مركزنا بشمال غرب كالغاري (Dalhousie CO-OP) مع مواعيد مسائية وعطلة نهاية الأسبوع. أخبرونا مسبقًا عند الغياب لمحاولة ترتيب حصة تعويضية."
+
+  # Offers
+  offersTitle: "العروض"
+  offersFacebookTitle: "منشور فيسبوك"
+  offersFbFallbackText: "إذا لم يظهر المنشور، جرّب "
+  offersFbLinkText: "رابط فيسبوك المباشر"
+  offersNovemberTitle: "عرض نوفمبر"
+  joinFreeNovemberBtn: "انضم إلى دروس نوفمبر المجانية"
+
+  # Policies
+  policyTitle: "السياسات"
+  policyL1: "دروس نوفمبر المجانية: في نوفمبر يمكن للطلاب الجدد حضور الدروس مجانًا وبدون التزام (مرة واحدة لكل طالب)."
+  policyL2: "التسجيل والفوترة: اشتراك شهري قابل للإلغاء. تُحصّل الرسوم في بداية كل شهر للدروس الأسبوعية."
+  policyL3: "الجدولة والحضور: حصة أسبوعية واحدة لكل برنامج. اختر موعدًا ثابتًا؛ وأبلغنا مسبقًا لمحاولة توفير تعويض."
+  policyL4: "الخصومات: خصم 10٪ للأشقاء المسجّلين معًا. برنامج الإحالة: عند تسجيل صديق، تحصل الأسرتان على رصيد 25$."
+
+  # Contact & footer
+  contactTitle: "اتصل بنا والموقع"
+  emailLabel: "البريد الإلكتروني:"
+  phoneLabel: "الهاتف:"
+  locationLabel: "العنوان:"
+  mapNote: "نحن داخل CO-OP Plaza، الوحدة 6 — 5505 Shaganappi Trail NW، كالجاري."
+  footer: "© 2025 كيريوس جينيوس. كن مُبدعًا لا مجرد مستخدم للتقنية."
+
+
+pa:
+  title: "Curious Genius | ਕੋਡ ਸਿੱਖੋ — ਉਮਰ 5–18 ਲਈ ਕਲਾਸਾਂ"
+  brand: "Curious Genius"
+  tagline: "ਛੋਟੀਆਂ ਕਲਾਸਾਂ। ਵੱਡੇ ਪ੍ਰਾਜੈਕਟ। ਅਸਲੀ ਹੁਨਰ।"
+
+  navAbout: "ਬਾਰੇ"
+  navPrograms: "ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੀਮਤਾਂ"
+  navFAQ: "ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ"
+  navApproach: "ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ"
+  navPortal: "ਪੋਰਟਲ"
+  navContact: "ਸੰਪਰਕ"
+  navPolicy: "ਨੀਤੀਆਂ"
+  navOffers: "ਆਫਰਾਂ"
+
+  ctaPrimary: "ਨਵੰਬਰ ਦੀਆਂ ਸਭ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ"
+  ctaSecondary: "ਪ੍ਰੋਗਰਾਮ ਵੇਖੋ"
+
+  propsTitle: "ਪਰਿਵਾਰ Curious Genius ਕਿਉਂ ਚੁਣਦੇ ਹਨ"
+  prop1Title: "ਛੋਟੀਆਂ ਕਲਾਸਾਂ"
+  prop1Body: "ਹਰ ਗਰੁੱਪ ਵਿੱਚ 6–8 ਵਿਦਿਆਰਥੀ — ਨਿੱਜੀ ਧਿਆਨ ਲਈ।"
+  prop2Title: "ਪ੍ਰੋਜੈਕਟ ਅਧਾਰਤ ਸਿੱਖਿਆ"
+  prop2Body: "ਬੱਚੇ ਖੇਡਾਂ, ਰੋਬੋਟ ਅਤੇ AI ਪ੍ਰੋਜੈਕਟ ਬਣਾਉਂਦੇ ਹਨ।"
+  prop3Title: "ਭਰੋਸੇਯੋਗ ਕਰਿਕੁਲਮ"
+  prop3Body: "Alberta ਸਿੱਖਿਆ ਅਤੇ Code.org ਮਾਪਦੰਡਾਂ ਅਨੁਸਾਰ।"
+
+  programsTitle: "ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੀਮਤਾਂ"
+  btnCurriculum: "ਕਰਿਕੁਲਮ ਦੇਖੋ"
+
+  approachTitle: "ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ"
+  step1Title: "1) ਨਵੰਬਰ ਮੁਫ਼ਤ ਕਲਾਸਾਂ"
+  step1Body: "ਸਾਰੇ ਨਵੰਬਰ ਵਿੱਚ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ — ਕੋਈ ਫੀਸ ਜਾਂ ਕਮੀਟਮੈਂਟ ਨਹੀਂ। ਕਿਸੇ ਵੀ ਪ੍ਰੋਗਰਾਮ ਨਾਲ ਸ਼ੁਰੂ ਕਰੋ!"
+  step2Title: "2) ਵਿਅਕਤੀਗਤ ਯੋਜਨਾ"
+  step2Body: "ਉਮਰ ਅਤੇ ਹੁਨਰ ਅਨੁਸਾਰ ਪਲੇਸਮੈਂਟ, ਸਪਸ਼ਟ ਸਿਖਲਾਈ ਟੀਚਿਆਂ ਨਾਲ।"
+  step3Title: "3) ਬਣਾਓ ਅਤੇ ਮਨਾਓ"
+  step3Body: "ਹੱਥ-ਓਨ ਪ੍ਰੋਜੈਕਟ, ਲਗਾਤਾਰ ਪ੍ਰਗਤੀ ਅਤੇ ਵਿਦਿਆਰਥੀ ਪ੍ਰਦਰਸ਼ਨ।"
+
+  # FAQ
+  faqTitle: "ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ"
+  faqQ1: "ਤੁਸੀਂ ਕਿਹੜੇ ਪ੍ਰੋਗਰਾਮ ਦਿੰਦੇ ਹੋ?"
+  faqA1: "ਅਸੀਂ ਗਣਿਤ ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੋਡਿੰਗ-ਰੋਬੋਟਿਕਸ ਪ੍ਰੋਗਰਾਮ ਦਿੰਦੇ ਹਾਂ (ਵੱਡਿਆਂ ਲਈ ਉਚਿਤ AI ਪ੍ਰੋਜੈਕਟਾਂ ਸਮੇਤ)। ਦੋਵੇਂ ਪ੍ਰਾਇਮਰੀ ਅਤੇ ਸੈਕੰਡਰੀ ਲਈ ਉਪਲਬਧ ਹਨ, ਉਮਰ ਅਤੇ ਅਨੁਭਵ ਮੁਤਾਬਕ।"
+  faqQ2: "ਕੀ ਨਵੰਬਰ ਦੀਆਂ ਕਲਾਸਾਂ ਸੱਚਮੁਚ ਮੁਫ਼ਤ ਹਨ?"
+  faqA2: "ਹਾਂ। ਨਵੇਂ ਵਿਦਿਆਰਥੀਆਂ ਲਈ ਸਾਰੇ ਨਵੰਬਰ ਵਿੱਚ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ — ਕੋਈ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਫੀਸ ਜਾਂ ਕਮੀਟਮੈਂਟ ਨਹੀਂ।"
+  faqQ3: "ਨਵੰਬਰ ਤੋਂ ਬਾਅਦ ਕੀ ਲਾਗਤ ਰਹੇਗੀ?"
+  faqA3: "ਦਾਖ਼ਲਾ ਮਹੀਨਾ-ਦਰ-ਮਹੀਨਾ ਅਤੇ ਲਚਕੀਲਾ ਹੈ। ਹਫ਼ਤਾਵਾਰੀ ਕਲਾਸਾਂ ਲਈ ਫੀਸ ਹਰ ਮਹੀਨੇ ਦੇ ਸ਼ੁਰੂ ਵਿੱਚ ਲੱਗਦੀ ਹੈ। ਭੈਣ-ਭਰਾ ਲਈ 10% ਛੂਟ, ਅਤੇ ਕੋਈ ਲੰਮਾ ਕਾਂਟਰੈਕਟ ਨਹੀਂ।"
+  faqQ4: "ਕਲਾਸਾਂ ਕਦੋਂ ਅਤੇ ਕਿੱਥੇ ਹੁੰਦੀਆਂ ਹਨ?"
+  faqA4: "ਸਾਡਾ ਕੇਂਦਰ NW ਕੈਲਗਰੀ (Dalhousie CO-OP) ਵਿੱਚ ਹੈ, ਸ਼ਾਮ ਅਤੇ ਵੀਕਐਂਡ ਸਮਿਆਂ ਨਾਲ। ਗ਼ੈਰਹਾਜ਼ਰੀ ਤੋਂ ਪਹਿਲਾਂ ਦੱਸੋ, ਅਸੀਂ ਮੇਕਅਪ ਦਾ ਯਤਨ ਕਰਾਂਗੇ।"
+
+  # Offers
+  offersTitle: "ਆਫਰਾਂ"
+  offersFacebookTitle: "Facebook ਪੋਸਟ"
+  offersFbFallbackText: "ਜੇ ਪੋਸਟ ਨਾ ਲੋਡ ਹੋਵੇ ਤਾਂ "
+  offersFbLinkText: "ਫੇਸਬੁੱਕ ਡਾਇਰੈਕਟ ਲਿੰਕ"
+  offersNovemberTitle: "ਨਵੰਬਰ ਆਫਰ"
+  joinFreeNovemberBtn: "ਨਵੰਬਰ ਮੁਫ਼ਤ ਕਲਾਸਾਂ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ"
+
+  # Policies
+  policyTitle: "ਨੀਤੀਆਂ"
+  policyL1: "ਨਵੰਬਰ ਮੁਫ਼ਤ ਕਲਾਸਾਂ: ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਨਵੰਬਰ ਵਿੱਚ ਬਿਨਾ ਕਮੀਟਮੈਂਟ ਕਲਾਸਾਂ ਵਿੱਚ ਮੁਫ਼ਤ ਆ ਸਕਦੇ ਹਨ (ਹਰ ਵਿਦਿਆਰਥੀ ਲਈ ਇੱਕ ਵਾਰ)।"
+  policyL2: "ਦਾਖ਼ਲਾ ਅਤੇ ਬਿਲਿੰਗ: ਮਹੀਨਾ-ਦਰ-ਮਹੀਨਾ ਦਾਖ਼ਲਾ। ਹਫ਼ਤਾਵਾਰੀ ਕਲਾਸਾਂ ਲਈ ਫੀਸ ਮਹੀਨੇ ਦੀ ਸ਼ੁਰੂਆਤ ਵਿੱਚ।"
+  policyL3: "ਸ਼ਡਿਊਲ ਅਤੇ ਹਾਜ਼ਰੀ: ਹਰ ਪ੍ਰੋਗਰਾਮ ਲਈ ਹਫ਼ਤੇ ਵਿੱਚ ਇੱਕ ਕਲਾਸ। ਨਿਯਮਿਤ ਸਮਾਂ ਚੁਣੋ; ਪਹਿਲਾਂ ਦੱਸਣ ’ਤੇ ਮੇਕਅਪ ਵਿਕਲਪ ਮਿਲ ਸਕਦੇ ਹਨ।"
+  policyL4: "ਛੂਟ: ਇੱਕਠੇ ਦਾਖ਼ਲੇ ’ਤੇ ਭੈਣ-ਭਰਾ ਲਈ 10% ਛੂਟ। ਰੈਫਰਲ ਪ੍ਰੋਗਰਾਮ: ਦੋਸਤ ਦਾਖ਼ਲ ਹੋਣ ’ਤੇ ਦੋਵੇਂ ਪਰਿਵਾਰਾਂ ਨੂੰ $25 ਕ੍ਰੇਡਿਟ।"
+
+  # Contact & footer
+  contactTitle: "ਸੰਪਰਕ ਅਤੇ ਸਥਾਨ"
+  emailLabel: "ਈਮੇਲ:"
+  phoneLabel: "ਫ਼ੋਨ:"
+  locationLabel: "ਪਤਾ:"
+  mapNote: "ਅਸੀਂ CO-OP Plaza ਦੇ ਅੰਦਰ ਹਾਂ, ਯੂਨਿਟ 6 — 5505 Shaganappi Trail NW, ਕੈਲਗਰੀ।"
+  footer: "© 2025 Curious Genius. ਟੈਕਨੋਲੋਜੀ ਦੇ ਵਰਤੋਂਕਾਰ ਨਹੀਂ, ਬਣਾਉਣ ਵਾਲੇ ਬਣੋ।"
