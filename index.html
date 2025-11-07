@@ -48,7 +48,7 @@
   <script type="application/ld+json" id="orgSchema"></script>
 
   <script>
-    // ================= Language + content loader (enhanced) =================
+    // ================= Language + content loader (resilient) =================
     const supportedLangs = ['en', 'fr', 'es', 'ar', 'pa'];
     const stored = localStorage.getItem('cg_lang');
     const rawLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
@@ -58,20 +58,31 @@
     let yamlMain = null;
     let orgData = null;
 
+    const YAML_VERSION = '20251108'; // bump to defeat caches
+
     async function fetchYaml(path) {
-      // bump this when you update YAML files to defeat caches
-      const res = await fetch(path + `?v=${encodeURIComponent('20251106')}`, { cache: 'no-store' });
-      if (!res.ok) throw new Error(`Failed to load ${path} (HTTP ${res.status})`);
-      const text = await res.text();
-      return jsyaml.load(text);
+      try {
+        const res = await fetch(path + `?v=${encodeURIComponent(YAML_VERSION)}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status} for ${path}`);
+        const text = await res.text();
+        try {
+          return jsyaml.load(text);
+        } catch (yamlErr) {
+          throw new Error(`YAML parse error in ${path}: ${yamlErr.message}`);
+        }
+      } catch (e) {
+        console.error('[fetchYaml] Failed:', e);
+        return null; // let caller decide a fallback
+      }
     }
 
     async function loadOrgYaml() {
-      if (orgData) return orgData;
       const doc = await fetchYaml('business.yaml');
-      if (!doc || !doc.org) throw new Error('business.yaml missing `org` root');
-      orgData = doc.org;
-      return orgData;
+      if (!doc || !doc.org) {
+        console.warn('business.yaml missing `org` root or not loaded; continuing without schema/footer overrides.');
+        return null;
+      }
+      return doc.org;
     }
 
     function applyDirectionAndFonts(lang) {
@@ -112,7 +123,7 @@
 
       /* Nav */
       t('navAbout', content.navAbout, 'About');
-      t('navPrograms', content.navPrograms, 'Programs');
+      t('navPrograms', content.navPrograms, 'Programs & Pricing');
       t('navFAQ', content.navFAQ, 'FAQ');
       t('navApproach', content.navApproach, 'How It Works');
       t('navPortal', content.navPortal, 'Portal');
@@ -120,11 +131,16 @@
       t('navPolicy', content.navPolicy, 'Policy');
       t('navOffers', content.navOffers, 'Offers');
 
-      /* Hero CTAs */
-      t('ctaPrimary', content.ctaPrimary, 'All November Classes Are Free');
-      t('ctaSecondary', content.ctaSecondary, 'See Programs');
-      const ctaPrimaryEl = document.getElementById('ctaPrimary');
-      if (ctaPrimaryEl) ctaPrimaryEl.setAttribute('aria-label', 'Join free classes in November at Curious Genius');
+      // Offers button wiring (Facebook embed)
+      const FB_POST_URL = "https://www.facebook.com/curiousgeniuslearning/posts/pfbid02A5wd4ucdjLV9XrQkqP8kuaJR39RbdLMJASSeXphQHzmrgVjzc65ds5QhxhZ4gj4Ql";
+      const FB_POST_EMBED = "https://www.facebook.com/plugins/post.php?href=" + encodeURIComponent(FB_POST_URL) + "&show_text=true&width=500";
+      const offersBtn = document.getElementById('navOffers');
+      if (offersBtn) {
+        offersBtn.href = FB_POST_EMBED;
+        offersBtn.target = '_blank';
+        offersBtn.rel = 'noopener';
+        offersBtn.setAttribute('aria-label', 'View our latest Facebook offer');
+      }
 
       /* Value props */
       t('propsTitle', content.propsTitle, 'Why families choose Curious Genius');
@@ -136,7 +152,7 @@
       t('prop3Body', content.prop3Body, 'Aligned to Code.org pathways and industry best practices.');
 
       /* Programs (realms) */
-      t('programsTitle', content.programsTitle || 'Our Programs');
+      t('programsTitle', content.programsTitle || 'Programs & Pricing');
       const list = document.getElementById('realmsList');
       if (list && Array.isArray(content.realms)) {
         list.innerHTML = content.realms.map(
@@ -165,7 +181,7 @@
       t('faqA4', content.faqA4, 'Classes are held once a week...');
 
       /* Approach */
-      t('approachTitle', content.approachTitle, 'How it works');
+      t('approachTitle', content.approachTitle, 'How It Works');
       t('step1Title', content.step1Title, '1) Free November Classes');
       t('step1Body',  content.step1Body,  'All November classes are free with no commitment. Try any program and see the difference.');
       t('step2Title', content.step2Title, '2) Personalized Plan');
@@ -182,9 +198,9 @@
       t('offersNovemberTitle', content.offersNovemberTitle, 'November Offer');
       const joinBtn = document.getElementById('joinFreeNovemberBtn');
       if (joinBtn) joinBtn.textContent = content.joinFreeNovemberBtn || 'Join Free Classes in November';
-t('offersL1', content.offersL1, 'All November classes are free — no commitment required.');
-t('offersL2', content.offersL2, 'Sibling Save — 10% off additional siblings enrolled together.');
-t('offersL3', content.offersL3, 'Refer a Friend — both families get a $25 credit.');
+      t('offersL1', content.offersL1, 'All November classes are free — no commitment required.');
+      t('offersL2', content.offersL2, 'Sibling Save — 10% off additional siblings enrolled together.');
+      t('offersL3', content.offersL3, 'Refer a Friend — both families get a $25 credit.');
 
       /* Policies */
       t('policyTitle', content.policyTitle, 'Policies');
@@ -209,25 +225,28 @@ t('offersL3', content.offersL3, 'Refer a Friend — both families get a $25 cred
 
     async function loadContent(lang = currentLang) {
       try {
-        if (!yamlMain) yamlMain = await fetchYaml('content.yaml');
+        if (!yamlMain) {
+          yamlMain = await fetchYaml('content.yaml');
+          if (!yamlMain) throw new Error('content.yaml failed to load or parse');
+        }
         if (!yamlMain[lang]) lang = 'en';
         currentLang = lang;
 
-        // Realms
+        // Realms per language with fallback
         const realmsPath = `realms_${lang}.yaml`;
-        let realmsDoc = {};
-        try {
-          realmsDoc = await fetchYaml(realmsPath);
-          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) throw new Error('Invalid realms format');
-        } catch {
-          realmsDoc = await fetchYaml('realms_en.yaml').catch(() => ({ realms: [] }));
-          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) realmsDoc = { realms: [] };
+        let realmsDoc = await fetchYaml(realmsPath);
+        if (!realmsDoc || !Array.isArray(realmsDoc.realms)) {
+          console.warn(`${realmsPath} missing/invalid, falling back to realms_en.yaml`);
+          realmsDoc = await fetchYaml('realms_en.yaml');
+          if (!realmsDoc || !Array.isArray(realmsDoc.realms)) {
+            realmsDoc = { realms: [] };
+          }
         }
 
         // Org YAML
         const org = await loadOrgYaml();
 
-        // Compose
+        // Compose content
         const content = { ...yamlMain[lang], ...realmsDoc };
         applyDirectionAndFonts(lang);
         renderContent(content);
@@ -237,16 +256,18 @@ t('offersL3', content.offersL3, 'Refer a Friend — both families get a $25 cred
         if (schemaEl && org) schemaEl.textContent = JSON.stringify(org);
 
         // Footer phone/email from YAML
-        const emailLink = document.querySelector('footer a[href^="mailto:"]');
-        if (emailLink && org.email) { emailLink.href = `mailto:${org.email}`; emailLink.textContent = org.email; }
-        const phoneLink = document.getElementById('footerPhone') || document.querySelector('footer a[href^="tel:"]');
-        if (phoneLink && org.telephone) {
-          const e164 = org.telephone.replace(/[^+0-9]/g, '').replace(/^1?(\d{10})$/, '+1$1');
-          phoneLink.href = `tel:${e164}`;
-          phoneLink.textContent = org.telephone;
+        if (org) {
+          const emailLink = document.querySelector('footer a[href^="mailto:"]');
+          if (emailLink && org.email) { emailLink.href = `mailto:${org.email}`; emailLink.textContent = org.email; }
+          const phoneLink = document.getElementById('footerPhone') || document.querySelector('footer a[href^="tel:"]');
+          if (phoneLink && org.telephone) {
+            const e164 = org.telephone.replace(/[^+0-9]/g, '').replace(/^1?(\d{10})$/, '+1$1');
+            phoneLink.href = `tel:${e164}`;
+            phoneLink.textContent = org.telephone;
+          }
         }
 
-        // Offers fallback detection
+        // Offers fallback detection (embed may be blocked)
         const offersIframe = document.getElementById('offersEmbed');
         const offersBtn = document.getElementById('navOffers');
         let fallbackTimer = setTimeout(() => {
@@ -273,8 +294,8 @@ t('offersL3', content.offersL3, 'Refer a Friend — both families get a $25 cred
         }
 
       } catch (e) {
-        console.error(e);
-        alert('Failed to load localized content. Check console for details.');
+        console.error('loadContent() failed:', e);
+        // Do not alert; site stays usable.
       }
     }
 
@@ -465,30 +486,29 @@ t('offersL3', content.offersL3, 'Refer a Friend — both families get a $25 cred
       </div>
     </section>
 
-   <!-- OFFERS (fallback section) -->
-<section class="section section--alt" id="offers">
-  <h2 id="offersTitle"></h2>
-  <div class="grid grid--2">
-    <div class="card fb-embed">
-      <h3 id="offersFacebookTitle" style="margin-bottom:.5rem"></h3>
-      <iframe id="offersEmbed" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcuriousgeniuslearning%2Fposts%2Fpfbid02A5wd4ucdjLV9XrQkqP8kuaJR39RbdLMJASSeXphQHzmrgVjzc65ds5QhxhZ4gj4Ql&show_text=true&width=500" width="500" height="950" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-      <p class="muted" style="margin-top:.5rem">
-        <span id="offersFbFallbackText"></span>
-        <a href="https://www.facebook.com/curiousgeniuslearning/posts/pfbid0tFvEJAZDJKj8FLZEjgzW8Arau5r5nSxw2u2gkfQmvBmSkStAqPwVNkwBZjTECqTgl" id="offersFbLinkText" target="_blank" rel="noopener"></a>.
-      </p>
-    </div>
-    <div class="card">
-      <h3 id="offersNovemberTitle" style="margin-bottom:.5rem"></h3>
-      <ul class="muted" style="list-style:disc;padding-left:1.2rem">
-        <li id="offersL1"></li>
-        <li id="offersL2"></li>
-        <li id="offersL3"></li>
-      </ul>
-      <p style="margin-top:.75rem"><a class="btn" href="#portal" id="joinFreeNovemberBtn"></a></p>
-    </div>
-  </div>
-</section>
-
+    <!-- OFFERS (fallback section) -->
+    <section class="section section--alt" id="offers">
+      <h2 id="offersTitle"></h2>
+      <div class="grid grid--2">
+        <div class="card fb-embed">
+          <h3 id="offersFacebookTitle" style="margin-bottom:.5rem"></h3>
+          <iframe id="offersEmbed" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcuriousgeniuslearning%2Fposts%2Fpfbid02A5wd4ucdjLV9XrQkqP8kuaJR39RbdLMJASSeXphQHzmrgVjzc65ds5QhxhZ4gj4Ql&show_text=true&width=500" width="500" height="950" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+          <p class="muted" style="margin-top:.5rem">
+            <span id="offersFbFallbackText"></span>
+            <a href="https://www.facebook.com/curiousgeniuslearning/posts/pfbid0tFvEJAZDJKj8FLZEjgzW8Arau5r5nSxw2u2gkfQmvBmSkStAqPwVNkwBZjTECqTgl" id="offersFbLinkText" target="_blank" rel="noopener"></a>.
+          </p>
+        </div>
+        <div class="card">
+          <h3 id="offersNovemberTitle" style="margin-bottom:.5rem"></h3>
+          <ul class="muted" style="list-style:disc;padding-left:1.2rem">
+            <li id="offersL1"></li>
+            <li id="offersL2"></li>
+            <li id="offersL3"></li>
+          </ul>
+          <p style="margin-top:.75rem"><a class="btn" href="#portal" id="joinFreeNovemberBtn"></a></p>
+        </div>
+      </div>
+    </section>
 
     <!-- CONTACT (form + map) -->
     <section class="section" id="contact">
