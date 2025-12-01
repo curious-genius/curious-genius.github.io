@@ -1,0 +1,97 @@
+en:
+  title: "Curious Genius | K–12 Computer Science Curriculum"
+  heroTitle: "K–12 Computer Science & Digital Literacy Curriculum"
+  heroSubtitle: "Project-based 90-minute workshops for curious kids and teens."
+
+  intro:
+    lead: "Curious Genius runs 90-minute, project-based workshops that build computer science and digital literacy skills from Kindergarten to Grade 12."
+    bullets:
+      - "Aligned with CSTA K–12 CS Standards, Alberta Education CTS Computing Science, Code.org CS Fundamentals, and ISTE Standards for Students."
+      - "Focus on algorithms, programming, data, networks, cybersecurity, digital citizenship, and design thinking."
+      - "Hands-on projects with small groups (6–8 learners), real tools, and authentic artifacts."
+      - "Every grade has clear objectives, key competencies, and workshop themes that spiral concepts over time."
+
+  grades:
+    - id: "k"
+      heading: "Kindergarten (Age 5)"
+      band: "Early Years · Foundations"
+      tags:
+        - "Device basics"
+        - "Algorithms"
+        - "Digital citizenship"
+      summary: "Play-based introduction to technology, sequencing, and safe use of devices through simple robots, drawing apps, and story-based activities."
+      objectives:
+        - "Recognize and name common computing devices and basic hardware parts (screen, mouse, keyboard, tablet)."
+        - "Follow and create simple step-by-step instructions (algorithms) for everyday tasks and classroom games."
+        - "Use age-appropriate apps to draw, move a character, or tell a short story with help from the instructor."
+        - "Explain, in simple language, why passwords are used and practice keeping login information private."
+        - "Work kindly and cooperatively when sharing devices and completing technology activities in pairs or small groups."
+      competencies:
+        - "Basic technology handling skills: gentle use, correct hand position on mouse/touchscreen, starting and closing an app."
+        - "Foundational computational thinking: understanding sequence and cause-and-effect (one instruction leads to one action)."
+        - "Early programming concepts: expressing a path or dance as a series of moves; relating those moves to on-screen or robot behavior."
+        - "Digital citizenship foundations: knowing that some information is private and that we must follow rules when using devices."
+        - "Collaboration: taking turns and communicating simple ideas while working with classmates on tech-related tasks."
+      workshops:
+        - "Tech Exploration & Computer Care – Meet the classroom computers/tablets, name hardware parts, and learn gentle-hands rules."
+        - "Story Sequencing as Algorithms – Put picture cards of a story in order, then act it out as a ‘program’ the class can follow."
+        - "Robot Paths – Use Bee-Bots or similar robots with arrow buttons to reach a picture, then debug when the robot takes a wrong turn."
+        - "Digital Drawing – Use a drawing app to create simple shape art and practice selecting tools, undoing mistakes, and saving work."
+        - "Safe Online Adventures – Unplugged lesson on ‘Going Places Safely’ online: ask an adult, keep passwords secret, be kind."
+        - "My First Mini-Program – Build a tiny animation in ScratchJr or Code.org where a character moves and celebrates; share with the class."
+
+    - id: "g1"
+      heading: "Grade 1 (Age 6)"
+      band: "K–2 · CS Fundamentals"
+      tags:
+        - "Sequencing & loops"
+        - "Events"
+        - "Intro data"
+      summary: "Students move from exploration to creation: writing simple programs with sequences and loops, and creating digital stories while deepening safe and kind technology habits."
+      objectives:
+        - "Operate a computer or tablet more independently: log in with support, open assigned apps, and navigate between simple windows or tabs."
+        - "Write and follow algorithms with 3–5 clear steps for classroom tasks, games, and simple coding challenges."
+        - "Create simple block-based programs that use sequences, events (when clicked/pressed), and introductory loops."
+        - "Describe, in their own words, what a program is supposed to do and identify when it does not match their intent."
+        - "Explain simple rules for safe online behavior and what personal information should not be shared."
+      competencies:
+        - "Technical fluency: improved mouse/trackpad control and beginning keyboard use (typing name and short words)."
+        - "Computational thinking: decomposing a small problem (like drawing a picture or solving a maze) into ordered steps."
+        - "Programming: using block-based tools (Code.org Course B or ScratchJr) to build scenes, animations, or tiny games with events and loops."
+        - "Debugging: identifying where a set of instructions went wrong and adjusting steps one at a time."
+        - "Digital citizenship: recognizing examples of kind vs. unkind digital behavior and practicing respectful language when commenting or sharing."
+      workshops:
+        - "Treasure Map Algorithms – Create and swap ‘treasure maps’ with arrow instructions; follow a partner’s algorithm and debug when needed."
+        - "Loops Dance Party – Design a dance sequence on paper, then add a ‘repeat’ loop block in Code.org puzzles to perform it more efficiently."
+        - "ScratchJr Talking Scenes – Build a two-character scene where each sprite moves and speaks when tapped, using event blocks."
+        - "Mini-Game Challenge – As a class or in pairs, design a super-simple maze or obstacle game and implement it using basic blocks."
+        - "Favorite Things Survey – Collect class data (e.g., favorite fruit), tally results, and view a simple bar chart created on the computer."
+        - "Digital Citizens’ Pledge – Create and sign a class poster that lists technology rules: ask before going online, be kind, keep secrets safe."
+
+    - id: "g2"
+      heading: "Grade 2 (Age 7)"
+      band: "K–2 · Transition to 3–5"
+      tags:
+        - "Conditionals"
+        - "Variables (concept)"
+        - "Robotics"
+      summary: "Students become more independent digital creators, using conditionals, loops, and simple variables in block-based programming, plus collecting and visualizing data in cross-curricular projects."
+      objectives:
+        - "Break down a slightly larger task (story animation, simple game, or science model) into smaller steps and plan them before coding."
+        - "Use sequences, loops, events, and basic conditionals (if/then) in block-based programs to control characters and simple game logic."
+        - "Manipulate at least one simple variable in a project (e.g., score counter or timer) and explain that it holds a changing number."
+        - "Collect and organize small sets of data (class surveys, measurements) and view them as a simple graph or chart on the computer."
+        - "Describe at least two ways that computers and robots are used to help people in real life, including assistive technologies."
+      competencies:
+        - "Systems understanding: recognizing that computers, networks, and simple robots work together to send, receive, and act on information."
+        - "Algorithmic thinking: using conditional language (if…, then…) in unplugged activities and then translating it into code blocks."
+        - "Block-based programming: creating projects in Scratch or Code.org Courses C/D that combine loops, conditionals, and events."
+        - "Data literacy: reading a basic bar chart or pictograph and using it to answer questions or make simple predictions."
+        - "Cybersecurity & ethics: understanding that copying work without credit is not okay and that personal data must be protected."
+      workshops:
+        - "Conditional Simon Says – Play unplugged ‘if…then…’ games (if wearing red, jump; else, clap) and then solve Code.org puzzles with if-blocks."
+        - "Scratch Story with Choices – Build a ‘Choose Your Own Adventure’ Scratch project using broadcasts or conditionals for multiple endings."
+        - "Life Cycle Animation – Animate a life cycle (e.g., butterfly or frog) across backdrops, using events and loops to move through stages."
+        - "Robot Engineers – Use Dash, Bee-Bot, WeDo, or similar kits to design and program a simple solution to a classroom challenge."
+        - "Data Detectives – Run a short survey, enter results into a simple spreadsheet with the teacher, and generate a chart to discuss patterns."
+        - "Class Blog or Portfolio – Help update a shared digital space (slides, blog, or portfolio page) with screenshots or photos of coding projects and reflections."
