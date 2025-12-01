@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curious Genius | K–12 Computer Science Curriculum</title>
+  <meta name="description" content="K–12 project-based computer science and digital literacy curriculum at Curious Genius Learning Centre in NW Calgary." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Curious Genius — K–12 Computer Science Curriculum" />
+  <meta property="og:description" content="Grade-by-grade computer science & digital literacy curriculum with 90-minute project-based workshops." />
+  <meta property="og:image" content="https://curious-genius.github.io/curious-genius-logo.png" />
+  <meta property="og:url" content="https://curious-genius.github.io/curriculum.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;500;700&family=Cairo:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css?v=20251110" />
+
+  <!-- YAML parser -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" defer></script>
+
+  <style>
+    body {
+      background: radial-gradient(circle at top, rgba(125,249,255,0.05), transparent 55%) #050813;
+    }
+    .hero--subtle {
+      padding: 4rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .hero--subtle h1 {
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      margin-bottom: 0.5rem;
+    }
+    .hero--subtle p {
+      max-width: 720px;
+      margin: 0 auto 1.5rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: rgba(125, 249, 255, 0.12);
+      border: 1px solid rgba(125, 249, 255, 0.4);
+      margin-bottom: 0.75rem;
+    }
+    .grade-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .grade-meta {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.4rem 0 0.6rem;
+    }
+    .chip {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 0.15rem 0.6rem;
+      font-size: 0.75rem;
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+    .grade-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 800px) {
+      .grade-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .list-tight {
+      padding-left: 1.1rem;
+      margin: 0.35rem 0;
+    }
+    .list-tight li {
+      margin: 0.1rem 0;
+    }
+  </style>
+
+  <script>
+    const YAML_VERSION = '20251110';
+    let curriculum = null;
+
+    async function fetchYaml(path) {
+      try {
+        const res = await fetch(path + `?v=${encodeURIComponent(YAML_VERSION)}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+        return jsyaml.load(text);
+      } catch (e) {
+        console.error('[curriculum fetchYaml]', e);
+        return null;
+      }
+    }
+
+    function renderCurriculum(data) {
+      const lang = 'en'; // you can localize later if you like
+      const t = data[lang];
+      if (!t) return;
+
+      document.title = t.title || document.title;
+
+      const heroTitle = document.getElementById('heroTitle');
+      const heroSubtitle = document.getElementById('heroSubtitle');
+      const introLead = document.getElementById('introLead');
+      const introList = document.getElementById('introList');
+      const gradesContainer = document.getElementById('gradesContainer');
+
+      if (heroTitle) heroTitle.textContent = t.heroTitle;
+      if (heroSubtitle) heroSubtitle.textContent = t.heroSubtitle;
+      if (introLead) introLead.textContent = t.intro.lead || '';
+
+      if (introList && Array.isArray(t.intro.bullets)) {
+        introList.innerHTML = '';
+        t.intro.bullets.forEach(b => {
+          const li = document.createElement('li');
+          li.textContent = b;
+          introList.appendChild(li);
+        });
+      }
+
+      if (gradesContainer && Array.isArray(t.grades)) {
+        gradesContainer.innerHTML = '';
+        t.grades.forEach(g => {
+          const section = document.createElement('section');
+          section.className = 'section';
+          section.id = g.id;
+
+          const chipsHtml = (g.tags || []).map(tag => `<span class="chip">${tag}</span>`).join('');
+
+          const objectivesHtml = (g.objectives || []).map(o => `<li>${o}</li>`).join('');
+          const competenciesHtml = (g.competencies || []).map(c => `<li>${c}</li>`).join('');
+          const workshopsHtml = (g.workshops || []).map(w => `<li>${w}</li>`).join('');
+
+          section.innerHTML = `
+            <div class="card">
+              <div class="grade-heading">
+                <div>
+                  <h2>${g.heading}</h2>
+                  <p class="muted">${g.summary || ''}</p>
+                </div>
+                <div class="grade-meta">
+                  ${g.band ? `<div>${g.band}</div>` : ''}
+                  <div class="chips">${chipsHtml}</div>
+                </div>
+              </div>
+              <div class="grade-layout">
+                <div>
+                  <h3>Lesson Objectives</h3>
+                  <ul class="list-tight">${objectivesHtml}</ul>
+                  <h3 style="margin-top:0.75rem;">Key Competencies</h3>
+                  <ul class="list-tight">${competenciesHtml}</ul>
+                </div>
+                <div>
+                  <h3>90-Minute Workshop Themes</h3>
+                  <ul class="list-tight">${workshopsHtml}</ul>
+                </div>
+              </div>
+            </div>
+          `;
+          gradesContainer.appendChild(section);
+        });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const data = await fetchYaml('curriculum.yaml');
+      if (!data) return;
+      curriculum = data;
+      renderCurriculum(curriculum);
+    });
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Simple header with link back to home -->
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img src="curious-genius-logo.png" alt="Curious Genius Logo" loading="lazy" />
+      <span>Curious Genius</span>
+    </a>
+    <nav class="mainnav">
+      <a href="index.html">Home</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="index.html#trial">Trial</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero hero--subtle">
+      <div class="pill">Curriculum · K–12 · Project-Based</div>
+      <h1 id="heroTitle">K–12 Computer Science & Digital Literacy Curriculum</h1>
+      <p id="heroSubtitle">Grade-by-grade learning plan aligned with CSTA, Alberta Education CTS, Code.org, and ISTE standards.</p>
+      <div class="hero__actions">
+        <a href="index.html" class="btn btn--ghost">← Back to main site</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>Curriculum Overview</h2>
+        <p id="introLead">
+          Curious Genius runs 90-minute, project-based workshops that build computer science and digital literacy skills from Kindergarten to Grade 12.
+        </p>
+        <ul id="introList" style="list-style:disc; padding-left:1.2rem; margin-top:0.5rem;">
+          <li>Built on CSTA, Alberta CTS, Code.org, and ISTE standards.</li>
+          <li>Focus on algorithms, programming, data, networks, digital citizenship, and design thinking.</li>
+          <li>Hands-on projects with small groups (6–8 learners) and real-world artifacts.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div id="gradesContainer"></div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p><strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a> |
+      <strong>Phone:</strong> <a href="tel:+15872912906">587-291-2906</a></p>
+      <p class="muted">© 2025 Curious Genius Learning Centre — Inside CO-OP Dalhousie, Calgary AB</p>
+    </div>
+  </footer>
+</body>
+</html>
