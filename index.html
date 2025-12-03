@@ -272,5 +272,19 @@
       <p class="muted">© 2025 Curious Genius Learning Centre — Inside CO-OP Dalhousie, Calgary AB</p>
     </div>
   </footer>
+
+  <!-- Google Ads conversion event: Book a Free Trial click -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var trialBtn = document.getElementById('ctaTrial');
+      if (trialBtn && typeof gtag === 'function') {
+        trialBtn.addEventListener('click', function () {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17680952488/NX18CP_uocsbEKjZ9-5B'
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html>
