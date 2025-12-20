@@ -2,8 +2,8 @@ org:
   "@context": "https://schema.org"
   "@type": "EducationalOrganization"
   name: "Curious Genius"
-  url: "https://curious-genius.github.io/"
-  logo: "https://curious-genius.github.io/curious-genius-logo.png"
+  url: "https://curiousgenius.ca/"
+  logo: "https://curiousgenius.ca/curious-genius-logo.png"
   email: "learn@curiousgenius.ca"
   telephone: "587-291-2906"
   address:
@@ -14,4 +14,21 @@ org:
     postalCode: "T3A 1Z6"
     addressCountry: "CA"
   sameAs:
-    - "https://curiousgenius.moodlecloud.com/login/index.php"
+    - "https://facebook.com/curiousgeniuslearning"
+    - "https://instagram.com/curiousgeniuscentre"
+
+# Social
+social:
+  facebook: "https://facebook.com/curiousgeniuslearning"
+  instagram: "https://instagram.com/curiousgeniuscentre"
+
+# Meta
+meta:
+  description: "Curious Genius offers small-group Math, Coding & Robotics classes for K–12 in NW Calgary. Book a free trial and get a full week of classes free—no commitment."
+
+# Images
+images:
+  hero_image_1: "hero_image_1"
+  testimonial_img_1: "testimonial_img_1"
+  testimonial_img_2: "testimonial_img_2"
+  testimonial_img_3: "testimonial_img_3"
