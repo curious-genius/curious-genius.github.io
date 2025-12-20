@@ -1,60 +1,368 @@
 en:
-  title: "Curious Genius | Learn to Code"
-  metaDescription: "Fun, small-group classes in coding, robotics, and STEM for ages 5–18. Aligned with Alberta Curriculum."
-
+  title: "Curious Genius | Learn to Code — Classes for Ages 5–18"
   brand: "Curious Genius"
-  tagline: "STEM & Coding Classes in Calgary for Ages 5–18"
-  ctaPrimary: "Book a Free Trial"
-  ctaSecondary: "View Programs"
+  tagline: "Small classes. Big projects. Real skills."
 
-  navAbout: "Why Us"
-  navPrograms: "Programs"
-  navTrial: "Free Trial"
-  navFAQ: "FAQs"
+  navAbout: "About"
+  navPrograms: "Programs & Pricing"
+  navFAQ: "FAQ"
   navApproach: "How It Works"
+  navPortal: "Portal"
   navContact: "Contact"
+  navPolicy: "Policy"
+  navOffers: "Offers"
 
-  heroTitle: "Inspire Your Child to Build, Create & Code"
+  ctaPrimary: "All November Classes Are Free"
+  ctaSecondary: "See Programs"
 
-  aboutTitle: "Why Curious Genius?"
-  aboutPoint1Title: "Expert Instructors"
-  aboutPoint1Desc: "Our team includes engineers, teachers, and real-world coders."
-  aboutPoint2Title: "Project-Based Learning"
-  aboutPoint2Desc: "Students build games, apps, and robots — and have fun doing it."
-  aboutPoint3Title: "Curriculum-Aligned"
-  aboutPoint3Desc: "Programs mapped to Alberta Education and real-world STEM skills."
+  propsTitle: "Why families choose Curious Genius"
+  prop1Title: "Small Classes"
+  prop1Body: "6–8 learners per cohort for focused, individualized attention."
+  prop2Title: "Project-Based Learning"
+  prop2Body: "Kids build real games, robots, and AI projects they’re proud to show."
+  prop3Title: "Trusted Curriculum"
+  prop3Body: "Aligned with Alberta Education and Code.org standards."
 
-  programsTitle: "Our Programs"
+  programsTitle: "Programs & Pricing"
+  btnCurriculum: "Explore Curriculum"
 
-  trialTitle: "Try a Free Class"
-  trialL1: "Meet our instructors and explore the learning environment."
-  trialL2: "Test our coding and robotics platforms."
-  trialL3: "Get placement advice for your child's level."
+  approachTitle: "How It Works"
+  step1Title: "1) Free November Classes"
+  step1Body: "All November classes are free — no fees or commitment. Try any program!"
+  step2Title: "2) Personalized Plan"
+  step2Body: "Placement by age and skill level with clear learning milestones."
+  step3Title: "3) Build & Celebrate"
+  step3Body: "Hands-on projects, steady progress, and student showcases."
 
+  # FAQ
   faqTitle: "Frequently Asked Questions"
-  faqQ1: "What ages do you teach?"
-  faqA1: "We teach kids aged 5 to 18."
-  faqQ2: "Where are you located?"
-  faqA2: "Inside Northland Mall, NW Calgary."
-  faqQ3: "Do you offer free trials?"
-  faqA3: "Yes, your first class is always free."
-  faqQ4: "What should students bring?"
-  faqA4: "Just curiosity — we provide all materials."
+  faqQ1: "What programs do you offer?"
+  faqA1: "Curious Genius offers two core programs: a Math program and a Coding & Robotics program (with age-appropriate AI projects for older students). Both are available for elementary and junior/senior high, tailored by age and experience."
+  faqQ2: "Are November classes really free?"
+  faqA2: "Yes. All November classes are free for new students with no registration fees or commitment — a risk-free way to try our classes."
+  faqQ3: "How much do the classes cost after November?"
+  faqA3: "Enrollment is flexible and month-to-month. Tuition is billed at the start of each month for weekly classes. We offer a 10% sibling discount and no long-term contracts — cancel any time for the next month."
+  faqQ4: "When and where are the classes held?"
+  faqA4: "Classes run at our NW Calgary centre (Dalhousie CO-OP) with evening and weekend options. Tell us in advance if you’ll miss a class and we’ll try to arrange a makeup."
 
-  approachTitle: "Our Learning Journey"
-  step1Title: "Step 1: Trial"
-  step1Body: "Attend a trial class to explore our teaching approach."
-  step2Title: "Step 2: Placement"
-  step2Body: "We assess and recommend the right level for your child."
-  step3Title: "Step 3: Learn & Grow"
-  step3Body: "Track progress, earn certificates, and level up."
+  # Offers
+  offersTitle: "Offers"
+  offersFacebookTitle: "Facebook Post"
+  offersFbFallbackText: "If the post doesn’t load, try the "
+  offersFbLinkText: "direct Facebook link"
+  offersNovemberTitle: "November Offer"
+  joinFreeNovemberBtn: "Join Free Classes in November"
+  offersL1: "All November classes are free — no commitment required."
+  offersL2: "Sibling Save — 10% off additional siblings enrolled together."
+  offersL3: "Refer a Friend — both families get a $25 credit."
 
-  contactTitle: "Contact Us"
+  # Policies
+  policyTitle: "Policies"
+  policyL1: "November Free Classes: In November, new students may attend classes free with no commitment (one promotional period per student)."
+  policyL2: "Enrollment & Billing: Month-to-month enrollment. Tuition is billed at the start of each month for that month’s weekly classes."
+  policyL3: "Scheduling & Attendance: Students attend one weekly class per enrolled program. Choose a consistent time slot; notify us in advance for makeup options."
+  policyL4: "Discounts: 10% sibling discount for additional children enrolled together. Referral program: if a friend enrolls, both families receive a $25 credit."
+
+  # Contact & footer
+  contactTitle: "Contact & Location"
   emailLabel: "Email:"
   phoneLabel: "Phone:"
-  locationLabel: "Unit 6, 5505 Shaganappi Trail NW, Calgary AB"
+  locationLabel: "Location:"
+  mapNote: "We’re inside CO-OP Plaza, Unit 6 — 5505 Shaganappi Trail NW, Calgary."
+  footer: "© 2025 Curious Genius. Be a creator, not just a user of technology."
 
-fr: {}
-ar: {}
-hi: {}
-es: {}
+
+fr:
+  title: "Curious Genius | Apprendre à coder — Cours pour 5 à 18 ans"
+  brand: "Curious Genius"
+  tagline: "Petits groupes. Grands projets. Vraies compétences."
+
+  navAbout: "À propos"
+  navPrograms: "Programmes et Tarifs"
+  navFAQ: "FAQ"
+  navApproach: "Notre méthode"
+  navPortal: "Portail"
+  navContact: "Contact"
+  navPolicy: "Politique"
+  navOffers: "Offres"
+
+  ctaPrimary: "Cours gratuits tout novembre"
+  ctaSecondary: "Voir les programmes"
+
+  propsTitle: "Pourquoi les familles choisissent Curious Genius"
+  prop1Title: "Petites classes"
+  prop1Body: "6 à 8 élèves par groupe pour un suivi personnalisé."
+  prop2Title: "Apprentissage par projets"
+  prop2Body: "Les enfants construisent de vrais jeux, robots et projets d’IA dont ils sont fiers."
+  prop3Title: "Programme reconnu"
+  prop3Body: "Aligné aux normes de l’Alberta et à Code.org."
+
+  programsTitle: "Programmes et Tarifs"
+  btnCurriculum: "Découvrir le programme"
+
+  approachTitle: "Comment ça marche"
+  step1Title: "1) Cours gratuits en novembre"
+  step1Body: "Tous les cours de novembre sont gratuits et sans engagement. Essayez le programme de votre choix !"
+  step2Title: "2) Plan personnalisé"
+  step2Body: "Placement selon l’âge et le niveau, avec des étapes d’apprentissage claires."
+  step3Title: "3) Construire et célébrer"
+  step3Body: "Projets pratiques, progression régulière et présentations des élèves."
+
+  # FAQ
+  faqTitle: "Questions fréquentes"
+  faqQ1: "Quels programmes proposez-vous ?"
+  faqA1: "Nous proposons un programme de Mathématiques et un programme de Codage & Robotique (avec des projets d’IA adaptés aux plus grands). Disponibles pour le primaire et le secondaire, avec contenu adapté à l’âge et à l’expérience."
+  faqQ2: "Les cours de novembre sont-ils vraiment gratuits ?"
+  faqA2: "Oui. Tous les cours de novembre sont gratuits pour les nouveaux élèves, sans frais d’inscription ni engagement — une façon sans risque d’essayer nos cours."
+  faqQ3: "Quel est le coût après novembre ?"
+  faqA3: "Inscription mensuelle flexible. La facturation se fait au début de chaque mois pour les cours hebdomadaires. Réduction de 10 % pour les frères et sœurs, sans engagement à long terme."
+  faqQ4: "Quand et où ont lieu les cours ?"
+  faqA4: "Les cours se déroulent dans notre centre du NW de Calgary (Dalhousie CO-OP), en soirée et le week-end. Prévenez-nous à l’avance pour organiser une séance de rattrapage si possible."
+
+  # Offers
+  offersTitle: "Offres"
+  offersFacebookTitle: "Publication Facebook"
+  offersFbFallbackText: "Si la publication ne s’affiche pas, essayez le "
+  offersFbLinkText: "lien Facebook direct"
+  offersNovemberTitle: "Offre de novembre"
+  joinFreeNovemberBtn: "Rejoindre les cours gratuits de novembre"
+  offersL1: "Tous les cours de novembre sont gratuits — sans engagement."
+  offersL2: "Réduction fratrie — 10 % pour les frères et sœurs inscrits ensemble."
+  offersL3: "Parrainage — les deux familles reçoivent un crédit de 25 $."
+
+  # Policies
+  policyTitle: "Politique"
+  policyL1: "Cours gratuits en novembre : les nouveaux élèves peuvent assister gratuitement aux cours en novembre (une période promotionnelle par élève)."
+  policyL2: "Inscription & Facturation : inscription au mois. Facturation au début de chaque mois pour les cours hebdomadaires."
+  policyL3: "Planification & Présence : une séance hebdomadaire par programme. Choisissez un créneau fixe ; prévenez à l’avance pour un rattrapage."
+  policyL4: "Réductions : 10 % pour les frères et sœurs inscrits ensemble. Parrainage : si un ami s’inscrit, les deux familles reçoivent un crédit de 25 $."
+
+  # Contact & footer
+  contactTitle: "Contact & Adresse"
+  emailLabel: "Courriel :"
+  phoneLabel: "Téléphone :"
+  locationLabel: "Adresse :"
+  mapNote: "Nous sommes dans le CO-OP Plaza, local 6 — 5505 Shaganappi Trail NW, Calgary."
+  footer: "© 2025 Curious Genius. Deviens créateur, pas simple utilisateur de la technologie."
+
+
+es:
+  title: "Curious Genius | Aprende a programar — Clases para edades 5–18"
+  brand: "Curious Genius"
+  tagline: "Clases pequeñas. Grandes proyectos. Habilidades reales."
+
+  navAbout: "Acerca de"
+  navPrograms: "Programas y Precios"
+  navFAQ: "Preguntas frecuentes"
+  navApproach: "Cómo funciona"
+  navPortal: "Portal"
+  navContact: "Contacto"
+  navPolicy: "Política"
+  navOffers: "Ofertas"
+
+  ctaPrimary: "¡Todas las clases de noviembre son gratis!"
+  ctaSecondary: "Ver programas"
+
+  propsTitle: "Por qué las familias eligen Curious Genius"
+  prop1Title: "Clases pequeñas"
+  prop1Body: "6–8 estudiantes por grupo para atención personalizada."
+  prop2Title: "Aprendizaje basado en proyectos"
+  prop2Body: "Los niños crean juegos, robots y proyectos de IA reales."
+  prop3Title: "Currículo confiable"
+  prop3Body: "Alineado con los estándares de Alberta y Code.org."
+
+  programsTitle: "Programas y Precios"
+  btnCurriculum: "Explorar programas"
+
+  approachTitle: "Cómo funciona"
+  step1Title: "1) Clases gratis en noviembre"
+  step1Body: "Todas las clases de noviembre son gratuitas y sin compromiso. ¡Prueba cualquier programa!"
+  step2Title: "2) Plan personalizado"
+  step2Body: "Ubicación por edad y nivel, con metas claras de aprendizaje."
+  step3Title: "3) Construir y celebrar"
+  step3Body: "Proyectos prácticos, progreso constante y exhibiciones de estudiantes."
+
+  # FAQ
+  faqTitle: "Preguntas frecuentes"
+  faqQ1: "¿Qué programas ofrecen?"
+  faqA1: "Ofrecemos un programa de Matemáticas y un programa de Programación y Robótica (con proyectos de IA apropiados para mayores). Ambos están disponibles para primaria y secundaria, adaptados por edad y experiencia."
+  faqQ2: "¿Las clases de noviembre son realmente gratis?"
+  faqA2: "Sí. Todas las clases de noviembre son gratuitas para estudiantes nuevos, sin tarifas de inscripción ni compromiso: una forma segura de probar nuestras clases."
+  faqQ3: "¿Cuál es el costo después de noviembre?"
+  faqA3: "La inscripción es mensual y flexible. La colegiatura se cobra al inicio de cada mes para las clases semanales. Ofrecemos 10% de descuento para hermanos y no hay contratos a largo plazo."
+  faqQ4: "¿Cuándo y dónde se imparten las clases?"
+  faqA4: "Las clases son presenciales en nuestro centro del NW de Calgary (Dalhousie CO-OP), con horarios vespertinos y de fin de semana. Avísanos con anticipación para intentar reprogramar si faltas."
+
+  # Offers
+  offersTitle: "Ofertas"
+  offersFacebookTitle: "Publicación de Facebook"
+  offersFbFallbackText: "Si la publicación no se carga, prueba el "
+  offersFbLinkText: "enlace directo de Facebook"
+  offersNovemberTitle: "Oferta de noviembre"
+  joinFreeNovemberBtn: "Unirse a clases gratis en noviembre"
+  offersL1: "Todas las clases de noviembre son gratis — sin compromiso."
+  offersL2: "Descuento para hermanos — 10% para hermanos inscritos juntos."
+  offersL3: "Programa de referidos — ambas familias reciben un crédito de $25."
+
+  # Policies
+  policyTitle: "Política"
+  policyL1: "Clases gratis en noviembre: los estudiantes nuevos pueden asistir gratis en noviembre (una promoción por estudiante)."
+  policyL2: "Inscripción y facturación: inscripción mensual. La colegiatura se cobra al inicio de cada mes para las clases semanales."
+  policyL3: "Horarios y asistencia: una clase semanal por programa. Elige un horario fijo; avísanos con anticipación para opciones de reposición."
+  policyL4: "Descuentos: 10% de descuento para hermanos inscritos juntos. Programa de referidos: si un amigo se inscribe, ambas familias reciben $25 de crédito."
+
+  # Contact & footer
+  contactTitle: "Contacto y Ubicación"
+  emailLabel: "Correo:"
+  phoneLabel: "Teléfono:"
+  locationLabel: "Ubicación:"
+  mapNote: "Estamos en CO-OP Plaza, Unidad 6 — 5505 Shaganappi Trail NW, Calgary."
+  footer: "© 2025 Curious Genius. Sé un creador, no solo un usuario de la tecnología."
+
+
+ar:
+  title: "كيريوس جينيوس | تعلّم البرمجة — دروس للأطفال من 5 إلى 18 سنة"
+  brand: "كيريوس جينيوس"
+  tagline: "صفوف صغيرة. مشاريع كبيرة. مهارات حقيقية."
+
+  navAbout: "حول"
+  navPrograms: "البرامج والأسعار"
+  navFAQ: "الأسئلة الشائعة"
+  navApproach: "كيف نعمل"
+  navPortal: "البوابة"
+  navContact: "اتصال"
+  navPolicy: "السياسات"
+  navOffers: "العروض"
+
+  ctaPrimary: "كل دروس نوفمبر مجانية"
+  ctaSecondary: "استعرض البرامج"
+
+  propsTitle: "لماذا تختار العائلات كيريوس جينيوس"
+  prop1Title: "صفوف صغيرة"
+  prop1Body: "6 إلى 8 طلاب في كل مجموعة لضمان متابعة فردية."
+  prop2Title: "تعلّم بالمشاريع"
+  prop2Body: "الأطفال يصنعون ألعابًا وروبوتات ومشاريع ذكاء اصطناعي يفتخرون بها."
+  prop3Title: "منهج موثوق"
+  prop3Body: "متوافق مع معايير ألبرتا ومسارات Code.org."
+
+  programsTitle: "البرامج والأسعار"
+  btnCurriculum: "استكشف المنهج"
+
+  approachTitle: "كيف نعمل"
+  step1Title: "1) دروس نوفمبر المجانية"
+  step1Body: "طوال نوفمبر الدروس مجانية وبدون التزام — جرّب أي برنامج!"
+  step2Title: "2) خطة تعليمية شخصية"
+  step2Body: "تحديد المستوى حسب العمر والمهارة مع أهداف تعلم واضحة."
+  step3Title: "3) نبني ونحتفل"
+  step3Body: "مشاريع عملية، تقدّم مستمر، وعروض لإنجازات الطلاب."
+
+  # FAQ
+  faqTitle: "الأسئلة الشائعة"
+  faqQ1: "ما هي البرامج التي تقدّمونها؟"
+  faqA1: "نقدّم برنامج الرياضيات وبرنامج البرمجة والروبوتات (مع مشاريع ذكاء اصطناعي للمراحل الأكبر). كلاهما متاح للمرحلة الابتدائية والمتوسطة/الثانوية، مع تكييف المحتوى حسب العمر والخبرة."
+  faqQ2: "هل دروس نوفمبر مجانية فعلاً؟"
+  faqA2: "نعم، جميع دروس نوفمبر مجانية للطلاب الجدد دون رسوم تسجيل أو التزام — طريقة آمنة لتجربة دروسنا."
+  faqQ3: "كم التكلفة بعد نوفمبر؟"
+  faqA3: "الاشتراك شهري ومرن. تُحصّل الرسوم في بداية كل شهر للدروس الأسبوعية. يوجد خصم 10٪ للأشقاء ولا عقود طويلة — يمكنك الإلغاء للشهر التالي في أي وقت."
+  faqQ4: "متى وأين تُقام الدروس؟"
+  faqA4: "الدروس حضورية في مركزنا بشمال غرب كالغاري (Dalhousie CO-OP) مع مواعيد مسائية وعطلة نهاية الأسبوع. أخبرونا مسبقًا عند الغياب لمحاولة ترتيب حصة تعويضية."
+
+  # Offers
+  offersTitle: "العروض"
+  offersFacebookTitle: "منشور فيسبوك"
+  offersFbFallbackText: "إذا لم يظهر المنشور، جرّب "
+  offersFbLinkText: "رابط فيسبوك المباشر"
+  offersNovemberTitle: "عرض نوفمبر"
+  joinFreeNovemberBtn: "انضم إلى دروس نوفمبر المجانية"
+  offersL1: "جميع دروس نوفمبر مجانية — دون أي التزام."
+  offersL2: "خصم الأشقاء — 10٪ عند تسجيل الأشقاء معًا."
+  offersL3: "برنامج الإحالة — تحصل الأُسرتان على رصيد بقيمة 25$."
+
+  # Policies
+  policyTitle: "السياسات"
+  policyL1: "دروس نوفمبر المجانية: في نوفمبر يمكن للطلاب الجدد حضور الدروس مجانًا وبدون التزام (مرة واحدة لكل طالب)."
+  policyL2: "التسجيل والفوترة: اشتراك شهري قابل للإلغاء. تُحصّل الرسوم في بداية كل شهر للدروس الأسبوعية."
+  policyL3: "الجدولة والحضور: حصة أسبوعية واحدة لكل برنامج. اختر موعدًا ثابتًا؛ وأبلغنا مسبقًا لمحاولة توفير تعويض."
+  policyL4: "الخصومات: خصم 10٪ للأشقاء المسجّلين معًا. برنامج الإحالة: عند تسجيل صديق، تحصل الأسرتان على رصيد 25$."
+
+  # Contact & footer
+  contactTitle: "اتصل بنا والموقع"
+  emailLabel: "البريد الإلكتروني:"
+  phoneLabel: "الهاتف:"
+  locationLabel: "العنوان:"
+  mapNote: "نحن داخل CO-OP Plaza، الوحدة 6 — 5505 Shaganappi Trail NW، كالجاري."
+  footer: "© 2025 كيريوس جينيوس. كن مُبدعًا لا مجرد مستخدم للتقنية."
+
+
+pa:
+  title: "Curious Genius | ਕੋਡ ਸਿੱਖੋ — ਉਮਰ 5–18 ਲਈ ਕਲਾਸਾਂ"
+  brand: "Curious Genius"
+  tagline: "ਛੋਟੀਆਂ ਕਲਾਸਾਂ। ਵੱਡੇ ਪ੍ਰਾਜੈਕਟ। ਅਸਲੀ ਹੁਨਰ।"
+
+  navAbout: "ਬਾਰੇ"
+  navPrograms: "ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੀਮਤਾਂ"
+  navFAQ: "ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ"
+  navApproach: "ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ"
+  navPortal: "ਪੋਰਟਲ"
+  navContact: "ਸੰਪਰਕ"
+  navPolicy: "ਨੀਤੀਆਂ"
+  navOffers: "ਆਫਰਾਂ"
+
+  ctaPrimary: "ਨਵੰਬਰ ਦੀਆਂ ਸਭ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ"
+  ctaSecondary: "ਪ੍ਰੋਗਰਾਮ ਵੇਖੋ"
+
+  propsTitle: "ਪਰਿਵਾਰ Curious Genius ਕਿਉਂ ਚੁਣਦੇ ਹਨ"
+  prop1Title: "ਛੋਟੀਆਂ ਕਲਾਸਾਂ"
+  prop1Body: "ਹਰ ਗਰੁੱਪ ਵਿੱਚ 6–8 ਵਿਦਿਆਰਥੀ — ਨਿੱਜੀ ਧਿਆਨ ਲਈ।"
+  prop2Title: "ਪ੍ਰੋਜੈਕਟ ਅਧਾਰਤ ਸਿੱਖਿਆ"
+  prop2Body: "ਬੱਚੇ ਖੇਡਾਂ, ਰੋਬੋਟ ਅਤੇ AI ਪ੍ਰੋਜੈਕਟ ਬਣਾਉਂਦੇ ਹਨ।"
+  prop3Title: "ਭਰੋਸੇਯੋਗ ਕਰਿਕੁਲਮ"
+  prop3Body: "Alberta ਸਿੱਖਿਆ ਅਤੇ Code.org ਮਾਪਦੰਡਾਂ ਅਨੁਸਾਰ।"
+
+  programsTitle: "ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੀਮਤਾਂ"
+  btnCurriculum: "ਕਰਿਕੁਲਮ ਦੇਖੋ"
+
+  approachTitle: "ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ"
+  step1Title: "1) ਨਵੰਬਰ ਮੁਫ਼ਤ ਕਲਾਸਾਂ"
+  step1Body: "ਸਾਰੇ ਨਵੰਬਰ ਵਿੱਚ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ — ਕੋਈ ਫੀਸ ਜਾਂ ਕਮੀਟਮੈਂਟ ਨਹੀਂ। ਕਿਸੇ ਵੀ ਪ੍ਰੋਗਰਾਮ ਨਾਲ ਸ਼ੁਰੂ ਕਰੋ!"
+  step2Title: "2) ਵਿਅਕਤੀਗਤ ਯੋਜਨਾ"
+  step2Body: "ਉਮਰ ਅਤੇ ਹੁਨਰ ਅਨੁਸਾਰ ਪਲੇਸਮੈਂਟ, ਸਪਸ਼ਟ ਸਿਖਲਾਈ ਟੀਚਿਆਂ ਨਾਲ।"
+  step3Title: "3) ਬਣਾਓ ਅਤੇ ਮਨਾਓ"
+  step3Body: "ਹੱਥ-ਓਨ ਪ੍ਰੋਜੈਕਟ, ਲਗਾਤਾਰ ਪ੍ਰਗਤੀ ਅਤੇ ਵਿਦਿਆਰਥੀ ਪ੍ਰਦਰਸ਼ਨ।"
+
+  # FAQ
+  faqTitle: "ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ"
+  faqQ1: "ਤੁਸੀਂ ਕਿਹੜੇ ਪ੍ਰੋਗਰਾਮ ਦਿੰਦੇ ਹੋ?"
+  faqA1: "ਅਸੀਂ ਗਣਿਤ ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੋਡਿੰਗ-ਰੋਬੋਟਿਕਸ ਪ੍ਰੋਗਰਾਮ ਦਿੰਦੇ ਹਾਂ (ਵੱਡਿਆਂ ਲਈ ਉਚਿਤ AI ਪ੍ਰੋਜੈਕਟਾਂ ਸਮੇਤ)। ਦੋਵੇਂ ਪ੍ਰਾਇਮਰੀ ਅਤੇ ਸੈਕੰਡਰੀ ਲਈ ਉਪਲਬਧ ਹਨ, ਉਮਰ ਅਤੇ ਅਨੁਭਵ ਮੁਤਾਬਕ।"
+  faqQ2: "ਕੀ ਨਵੰਬਰ ਦੀਆਂ ਕਲਾਸਾਂ ਸੱਚਮੁਚ ਮੁਫ਼ਤ ਹਨ?"
+  faqA2: "ਹਾਂ। ਨਵੇਂ ਵਿਦਿਆਰਥੀਆਂ ਲਈ ਸਾਰੇ ਨਵੰਬਰ ਵਿੱਚ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ — ਕੋਈ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਫੀਸ ਜਾਂ ਕਮੀਟਮੈਂਟ ਨਹੀਂ।"
+  faqQ3: "ਨਵੰਬਰ ਤੋਂ ਬਾਅਦ ਕੀ ਲਾਗਤ ਰਹੇਗੀ?"
+  faqA3: "ਦਾਖ਼ਲਾ ਮਹੀਨਾ-ਦਰ-ਮਹੀਨਾ ਅਤੇ ਲਚਕੀਲਾ ਹੈ। ਹਫ਼ਤਾਵਾਰੀ ਕਲਾਸਾਂ ਲਈ ਫੀਸ ਹਰ ਮਹੀਨੇ ਦੇ ਸ਼ੁਰੂ ਵਿੱਚ ਲੱਗਦੀ ਹੈ। ਭੈਣ-ਭਰਾ ਲਈ 10% ਛੂਟ, ਅਤੇ ਕੋਈ ਲੰਮਾ ਕਾਂਟਰੈਕਟ ਨਹੀਂ।"
+  faqQ4: "ਕਲਾਸਾਂ ਕਦੋਂ ਅਤੇ ਕਿੱਥੇ ਹੁੰਦੀਆਂ ਹਨ?"
+  faqA4: "ਸਾਡਾ ਕੇਂਦਰ NW ਕੈਲਗਰੀ (Dalhousie CO-OP) ਵਿੱਚ ਹੈ, ਸ਼ਾਮ ਅਤੇ ਵੀਕਐਂਡ ਸਮਿਆਂ ਨਾਲ। ਗ਼ੈਰਹਾਜ਼ਰੀ ਤੋਂ ਪਹਿਲਾਂ ਦੱਸੋ, ਅਸੀਂ ਮੇਕਅਪ ਦਾ ਯਤਨ ਕਰਾਂਗੇ।"
+
+  # Offers
+  offersTitle: "ਆਫਰਾਂ"
+  offersFacebookTitle: "Facebook ਪੋਸਟ"
+  offersFbFallbackText: "ਜੇ ਪੋਸਟ ਨਾ ਲੋਡ ਹੋਵੇ ਤਾਂ "
+  offersFbLinkText: "ਫੇਸਬੁੱਕ ਡਾਇਰੈਕਟ ਲਿੰਕ"
+  offersNovemberTitle: "ਨਵੰਬਰ ਆਫਰ"
+  joinFreeNovemberBtn: "ਨਵੰਬਰ ਮੁਫ਼ਤ ਕਲਾਸਾਂ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ"
+  offersL1: "ਨਵੰਬਰ ਦੀਆਂ ਸਾਰੀਆਂ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ — ਕਿਸੇ ਕਮੀਟਮੈਂਟ ਤੋਂ ਬਿਨਾ।"
+  offersL2: "ਭੈਣ-ਭਰਾ ਛੂਟ — ਇਕੱਠੇ ਦਾਖ਼ਲੇ ’ਤੇ 10% ਛੂਟ।"
+  offersL3: "ਰੇਫਰਲ — ਦੋਸਤ ਦਾਖ਼ਲ ਹੋਣ ’ਤੇ ਦੋਵੇਂ ਪਰਿਵਾਰਾਂ ਨੂੰ $25 ਕ੍ਰੇਡਿਟ।"
+
+  # Policies
+  policyTitle: "ਨੀਤੀਆਂ"
+  policyL1: "ਨਵੰਬਰ ਮੁਫ਼ਤ ਕਲਾਸਾਂ: ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਨਵੰਬਰ ਵਿੱਚ ਬਿਨਾ ਕਮੀਟਮੈਂਟ ਕਲਾਸਾਂ ਵਿੱਚ ਮੁਫ਼ਤ ਆ ਸਕਦੇ ਹਨ (ਹਰ ਵਿਦਿਆਰਥੀ ਲਈ ਇੱਕ ਵਾਰ)।"
+  policyL2: "ਦਾਖ਼ਲਾ ਅਤੇ ਬਿਲਿੰਗ: ਮਹੀਨਾ-ਦਰ-ਮਹੀਨਾ ਦਾਖ਼ਲਾ। ਹਫ਼ਤਾਵਾਰੀ ਕਲਾਸਾਂ ਲਈ ਫੀਸ ਮਹੀਨੇ ਦੀ ਸ਼ੁਰੂਆਤ ਵਿੱਚ।"
+  policyL3: "ਸ਼ਡਿਊਲ ਅਤੇ ਹਾਜ਼ਰੀ: ਹਰ ਪ੍ਰੋਗਰਾਮ ਲਈ ਹਫ਼ਤੇ ਵਿੱਚ ਇੱਕ ਕਲਾਸ। ਨਿਯਮਿਤ ਸਮਾਂ ਚੁਣੋ; ਪਹਿਲਾਂ ਦੱਸਣ ’ਤੇ ਮੇਕਅਪ ਵਿਕਲਪ ਮਿਲ ਸਕਦੇ ਹਨ।"
+  policyL4: "ਛੂਟ: ਇੱਕਠੇ ਦਾਖ਼ਲੇ ’ਤੇ ਭੈਣ-ਭਰਾ ਲਈ 10% ਛੂਟ। ਰੈਫਰਲ ਪ੍ਰੋਗਰਾਮ: ਦੋਸਤ ਦਾਖ਼ਲ ਹੋਣ ’ਤੇ ਦੋਵੇਂ ਪਰਿਵਾਰਾਂ ਨੂੰ $25 ਕ੍ਰੇਡਿਟ।"
+
+  # Contact & footer
+  contactTitle: "ਸੰਪਰਕ ਅਤੇ ਸਥਾਨ"
+  emailLabel: "ਈਮੇਲ:"
+  phoneLabel: "ਫ਼ੋਨ:"
+  locationLabel: "ਪਤਾ:"
+  mapNote: "ਅਸੀਂ CO-OP Plaza ਦੇ ਅੰਦਰ ਹਾਂ, ਯੂਨਿਟ 6 — 5505 Shaganappi Trail NW, ਕੈਲਗਰੀ।"
+  footer: "© 2025 Curious Genius. ਟੈਕਨੋਲੋਜੀ ਦੇ ਵਰਤੋਂਕਾਰ ਨਹੀਂ, ਬਣਾਉਣ ਵਾਲੇ ਬਣੋ।"
