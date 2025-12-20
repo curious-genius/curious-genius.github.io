@@ -1,4 +1,7 @@
-// main.js (improved version with safe fallback and diagnostics)
+// main.js
+
+const TRANSLATE_API_KEY = 'YOUR_GOOGLE_TRANSLATE_API_KEY'; // Replace this with your real API key
+const DEFAULT_LANG = 'en';
 
 window.addEventListener("DOMContentLoaded", async () => {
   const contentUrl = 'content.yaml';
@@ -6,19 +9,12 @@ window.addEventListener("DOMContentLoaded", async () => {
   const productUrl = 'product.yaml';
 
   const loadYaml = async (url) => {
-    try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`Failed to fetch ${url}`);
-      const text = await res.text();
-      return jsyaml.load(text);
-    } catch (e) {
-      console.error(`Error loading YAML from ${url}:`, e);
-      return {};
-    }
+    const res = await fetch(url);
+    const text = await res.text();
+    return jsyaml.load(text);
   };
 
   const applyText = (id, value, attr = 'innerText') => {
-    if (!value) return;
     const el = document.getElementById(id);
     if (el) {
       if (attr === 'href' || attr === 'src') {
@@ -26,27 +22,63 @@ window.addEventListener("DOMContentLoaded", async () => {
       } else {
         el.innerText = value;
       }
-    } else {
-      console.warn(`Missing element with ID: ${id}`);
     }
   };
 
+  const translateText = async (text, targetLang) => {
+    if (targetLang === DEFAULT_LANG) return text;
+    const res = await fetch(`https://translation.googleapis.com/language/translate/v2?key=${TRANSLATE_API_KEY}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ q: text, target: targetLang, format: 'text', source: DEFAULT_LANG })
+    });
+    const data = await res.json();
+    return data.data.translations[0].translatedText;
+  };
+
+  const translateContentObject = async (contentObj, targetLang) => {
+    const entries = Object.entries(contentObj);
+    const translated = {};
+    for (const [key, value] of entries) {
+      translated[key] = await translateText(value, targetLang);
+    }
+    return translated;
+  };
+
   try {
-    const [content, business, product] = await Promise.all([
+    const [contentRaw, business, product] = await Promise.all([
       loadYaml(contentUrl),
       loadYaml(businessUrl),
       loadYaml(productUrl)
     ]);
 
-    // Fill static text content
+    const userLang = navigator.language.slice(0, 2);
+    const supportedLangs = Object.keys(contentRaw);
+    const targetLang = supportedLangs.includes(userLang) ? userLang : DEFAULT_LANG;
+
+    const content = contentRaw[targetLang] || await translateContentObject(contentRaw[DEFAULT_LANG], targetLang);
+
     Object.entries(content).forEach(([key, value]) => applyText(key, value));
 
-    // Contact and meta info
     applyText('emailValue', `mailto:${business.email}`, 'href');
     applyText('emailValue', business.email);
     applyText('phoneValue', `tel:${business.phone}`, 'href');
     applyText('phoneValue', business.phone);
     applyText('locationLabel', business.address);
+
+    const programList = document.getElementById('programList');
+    if (programList && Array.isArray(product.programs)) {
+      product.programs.forEach(program => {
+        const li = document.createElement('li');
+        li.className = 'card';
+        li.innerHTML = `
+          <h3>${program.title}</h3>
+          <p>${program.description}</p>
+          <p><strong>${program.price}</strong></p>
+        `;
+        programList.appendChild(li);
+      });
+    }
 
     document.title = content.title || document.title;
     const metaDesc = document.querySelector('meta[name="description"]');
@@ -54,38 +86,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       metaDesc.setAttribute('content', content.metaDescription);
     }
 
-    // Render dynamic programs
-    const programList = document.getElementById('programList');
-    if (programList && Array.isArray(product.programs)) {
-      programList.innerHTML = '';
-      product.programs.forEach(({ title, description, price }) => {
-        const li = document.createElement('li');
-        li.className = 'card';
-        li.innerHTML = `
-          <h3>${title || '(Untitled Program)'}</h3>
-          <p>${description || ''}</p>
-          <p><strong>${price || ''}</strong></p>
-        `;
-        programList.appendChild(li);
-      });
-    }
-
-    // Widget placeholders
-    const widgetFallback = {
-      trialWidget: 'Book your free trial here.',
-      loginWidget: 'Login coming soon.',
-      signupWidget: 'Create a parent account.',
-      contactWidget: 'Use our contact form or email us directly.'
-    };
-
-    Object.entries(widgetFallback).forEach(([id, defaultText]) => {
-      const el = document.getElementById(id);
-      if (el && el.innerHTML.trim().length === 0) {
-        el.innerHTML = `<p class="muted">${defaultText}</p>`;
-      }
-    });
-
   } catch (err) {
-    console.error("Initialization error:", err);
+    console.error("Error loading or translating content:", err);
   }
 });
