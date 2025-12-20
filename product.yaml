@@ -1,0 +1,23 @@
+# Programs & Pricing (Plans)
+programs:
+  - name: "Technology Explorer"
+    price: 99
+    unit: "month"
+    sessions_per_month: 8
+    description: "Includes 8 sessions/month. Choose Coding, Robotics, or AI projects."
+  - name: "Technology Builder"
+    price: 149
+    unit: "month"
+    sessions_per_month: 24
+    description: "Up to 24 sessions/month for deeper exploration."
+    featured: true  # Most popular
+  - name: "Math Mastery"
+    price: 99
+    unit: "month"
+    sessions_per_month: 4
+    description: "Weekly sessions to build strong foundations using Alberta & Singapore Math methods."
+
+# Discounts
+discounts:
+  sibling: "10% off additional siblings enrolled together."
+  referral: "$25 referral credit for both families when you refer a friend."
