@@ -52,9 +52,18 @@ window.addEventListener("DOMContentLoaded", async () => {
       loadYaml(productUrl)
     ]);
 
-    const userLang = navigator.language.slice(0, 2);
+    const storedLang = localStorage.getItem('preferredLang');
+    const browserLang = navigator.language.slice(0, 2);
+    const userLang = storedLang || browserLang;
     const supportedLangs = Object.keys(contentRaw);
     const targetLang = supportedLangs.includes(userLang) ? userLang : DEFAULT_LANG;
+
+    // Set direction if Arabic
+    if (targetLang === 'ar') {
+      document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+      document.documentElement.setAttribute('dir', 'ltr');
+    }
 
     const content = contentRaw[targetLang] || await translateContentObject(contentRaw[DEFAULT_LANG], targetLang);
 
@@ -68,6 +77,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     const programList = document.getElementById('programList');
     if (programList && Array.isArray(product.programs)) {
+      programList.innerHTML = ''; // Clear any existing content
       product.programs.forEach(program => {
         const li = document.createElement('li');
         li.className = 'card';
@@ -84,6 +94,17 @@ window.addEventListener("DOMContentLoaded", async () => {
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc && content.metaDescription) {
       metaDesc.setAttribute('content', content.metaDescription);
+    }
+
+    // Add listener for language change
+    const langSelect = document.getElementById('languageSelector');
+    if (langSelect) {
+      langSelect.value = targetLang;
+      langSelect.addEventListener('change', (e) => {
+        const selectedLang = e.target.value;
+        localStorage.setItem('preferredLang', selectedLang);
+        location.reload();
+      });
     }
 
   } catch (err) {
