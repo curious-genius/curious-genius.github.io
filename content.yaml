@@ -1,431 +1,69 @@
-en:
-  title: "Curious Genius | Learn to Code — Classes for Ages 5–18"
-  brand: "Curious Genius"
-  tagline: "Small classes. Big projects. Real coding, robotics, and math skills."
+title: "Curious Genius | Learn to Code — Classes for Ages 5–18"
+metaDescription: "Small-group Math, Coding & Robotics for kids aged 5–18 in Calgary. Aligned to Alberta Curriculum. Free Trial."
 
-  # Navigation
-  navAbout: "About"
-  navPrograms: "Programs"
-  navTrial: "Trial"
-  navFAQ: "FAQ"
-  navApproach: "How It Works"
-  navPortal: "Portal"
-  navContact: "Contact"
-  navPolicy: "Policy"
+brand: "Curious Genius"
+tagline: "STEM & Coding Classes in NW Calgary — Ages 5 to 18"
+ctaPrimary: "Book a Free Trial"
+ctaSecondary: "View Programs"
 
-  # Call-to-Action
-  ctaPrimary: "Book a Free Trial"
-  ctaSecondary: "See Programs"
+navAbout: "Why Us"
+navPrograms: "Programs"
+navTrial: "Free Trial"
+navFAQ: "FAQs"
+navApproach: "How It Works"
+navPortal: "Parent Portal"
+navContact: "Contact"
+navPolicy: "Policies"
 
-  # Value Proposition (Why families choose Curious Genius)
-  propsTitle: "Why families choose Curious Genius"
-  prop1Title: "Small Classes"
-  prop1Body: "6–8 learners per cohort for focused, individualized attention."
-  prop2Title: "Project-Based Learning"
-  prop2Body: "Kids build real games, robots, and AI projects they’re proud to show."
-  prop3Title: "Trusted Curriculum"
-  prop3Body: "Aligned with Alberta Education and Code.org standards."
+heroTitle: "Curious Genius"
+aboutTitle: "Why Parents Choose Us"
+aboutPoint1Title: "Expert Teachers"
+aboutPoint1Desc: "Instructors with strong academic and industry backgrounds."
+aboutPoint2Title: "Fun & Hands-On"
+aboutPoint2Desc: "Game-based learning keeps students motivated."
+aboutPoint3Title: "Curriculum-Aligned"
+aboutPoint3Desc: "Mapped to Alberta Education with strong outcomes."
 
-  # Programs & Pricing
-  programsTitle: "Programs & Pricing"
-  btnCurriculum: "Explore Curriculum"
+programsTitle: "Our Programs"
 
-  # Trial
-  trialTitle: "Trial Private Session (Parent + Child)"
-  trialExpectTitle: "What to Expect"
-  trialBookTitle: "Book Your Trial"
-  trialL1: "60 minutes · Free"
-  trialL2: "Parents attend and observe learning style"
-  trialL3: "Personalized track recommendation"
+trialTitle: "Try a Free Class"
+trialExpectTitle: "What to Expect"
+trialL1: "Meet instructors and see the classroom"
+trialL2: "Experience our coding tools and activities"
+trialL3: "Get personalized placement advice"
+trialBookTitle: "Book Your Trial"
 
-  # Frequently Asked Questions
-  faqTitle: "Frequently Asked Questions"
-  faqQ1: "Are the trial sessions really free?"
-  faqA1: "Yes! The trial is completely free — no commitment required."
-  faqQ2: "Where are you located?"
-  faqA2: "Inside Calgary Co-op Dalhousie (NW Calgary) — Unit 6, 5505 Shaganappi Trail NW."
-  faqQ3: "What age groups do you teach?"
-  faqA3: "We welcome students ages 5–18, divided by age and skill level."
-  faqQ4: "Can parents watch the sessions?"
-  faqA4: "Yes! Parents are encouraged to observe and give feedback during the trial."
+faqTitle: "Frequently Asked Questions"
+faqQ1: "What ages do you teach?"
+faqA1: "We offer classes for ages 5 to 18."
+faqQ2: "What is your curriculum based on?"
+faqA2: "Our content is aligned with Alberta Education outcomes."
+faqQ3: "How do I register?"
+faqA3: "You can book a trial or sign up via our Parent Portal."
+faqQ4: "Do you offer in-person classes?"
+faqA4: "Yes! All sessions are held at our NW Calgary location."
 
-  # How It Works
-  approachTitle: "How It Works"
-  step1Title: "Free Trial"
-  step1Body: "Book your private session and experience our approach firsthand."
-  step2Title: "Free Week of Workshops"
-  step2Body: "If you enjoyed your trial, enjoy a full week of free group workshops!"
-  step3Title: "Enroll Anytime"
-  step3Body: "Choose the monthly plan that fits your schedule — no long-term commitment."
+approachTitle: "Our Approach"
+step1Title: "Discover"
+step1Body: "Start with a trial to explore our style and curriculum."
+step2Title: "Place"
+step2Body: "We assess your child's level and goals."
+step3Title: "Grow"
+step3Body: "Track progress and build long-term skills."
 
-  # Portal
-  portalTitle: "Parent & Student Portal"
-  portalSubtitle: "Already tried a class? Login or sign up to manage your ongoing sessions below."
-  loginTitle: "Login"
-  signupTitle: "Sign Up"
+portalTitle: "Parent Portal"
+portalSubtitle: "Manage your child's classes and billing"
+loginTitle: "Log In"
+signupTitle: "Sign Up"
 
-  # Contact & Location
-  contactTitle: "Contact & Location"
-  emailLabel: "Email:"
-  phoneLabel: "Phone:"
-  locationLabel: "Location:"
-  mapNote: "Located inside Dalhousie CO-OP mall (Unit 6, beside the pharmacy)."
+contactTitle: "Contact Us"
+mapNote: "Our studio is located inside Northland Mall."
 
-  # Policies
-  policyTitle: "Policies"
-  policyL1: "Parents must accompany children during the first trial session."
-  policyL2: "Missed workshops can be rescheduled if notice is given 24 hours in advance."
-  policyL3: "No long-term contracts. Month-to-month plans only."
+policyTitle: "Our Policies"
+policyL1: "Cancel with 24 hours' notice"
+policyL2: "Monthly billing, cancel anytime"
+policyL3: "Sibling discount available"
 
-  # Testimonials
-  testimonialsTitle: "What Parents Are Saying"
-  testimonials:
-    - name: "Jane D., Parent of an 8-year-old"
-      quote: |-
-        "My child loves the classes and the instructors are amazing!"
-      image: "testimonial_img_1"
-    - name: "Michael L., Parent of a 12-year-old"
-      quote: |-
-        "We've seen a huge boost in our son's confidence and skills."
-      image: "testimonial_img_2"
-    - name: "Sara K., Parent of a 7-year-old"
-      quote: |-
-        "The projects are fun and educational - my daughter can't wait for class each week."
-      image: "testimonial_img_3"
-  labelMostPopular: "Most Popular"
-
-fr:
-  title: "Curious Genius | Apprendre à coder — Cours pour 5 à 18 ans"
-  brand: "Curious Genius"
-  tagline: "Petits groupes. Grands projets. Vraies compétences en codage, robotique et mathématiques."
-
-  # Navigation
-  navAbout: "À propos"
-  navPrograms: "Programmes"
-  navTrial: "Essai gratuit"
-  navFAQ: "FAQ"
-  navApproach: "Notre méthode"
-  navPortal: "Portail"
-  navContact: "Contact"
-  navPolicy: "Politique"
-
-  # Call-to-Action
-  ctaPrimary: "Réserver une séance d'essai gratuite"
-  ctaSecondary: "Voir les programmes"
-
-  # Value Proposition (Pourquoi les familles choisissent Curious Genius)
-  propsTitle: "Pourquoi les familles choisissent Curious Genius"
-  prop1Title: "Petites classes"
-  prop1Body: "6 à 8 élèves par groupe pour un suivi personnalisé."
-  prop2Title: "Apprentissage par projets"
-  prop2Body: "Les enfants construisent de vrais jeux, robots et projets d’IA dont ils sont fiers."
-  prop3Title: "Programme reconnu"
-  prop3Body: "Aligné aux normes de l’Alberta et à Code.org."
-
-  # Programmes et Tarifs
-  programsTitle: "Programmes et Tarifs"
-  btnCurriculum: "Découvrir le programme"
-
-  # Trial
-  trialTitle: "Séance d’essai privée (Parent + enfant)"
-  trialExpectTitle: "Ce qui vous attend"
-  trialBookTitle: "Réservez votre séance"
-  trialL1: "60 minutes · Gratuit"
-  trialL2: "Les parents assistent et observent le style d'apprentissage"
-  trialL3: "Recommandation personnalisée de parcours"
-
-  # Questions fréquentes
-  faqTitle: "Questions fréquentes"
-  faqQ1: "Les séances d'essai sont-elles vraiment gratuites ?"
-  faqA1: "Oui ! La séance d’essai est entièrement gratuite, sans engagement."
-  faqQ2: "Où êtes-vous situés ?"
-  faqA2: "Notre centre se trouve à l’intérieur du CO-OP Dalhousie (NW Calgary) — unité 6, 5505 Shaganappi Trail NW."
-  faqQ3: "Vos cours s’adressent à quels âges ?"
-  faqA3: "Nous accueillons les élèves de 5 à 18 ans, regroupés par âge et niveau."
-  faqQ4: "Les parents peuvent-ils assister aux séances ?"
-  faqA4: "Oui ! Nous encourageons les parents à observer et à donner leur avis pendant la séance d’essai."
-
-  # Comment ça marche
-  approachTitle: "Comment ça marche"
-  step1Title: "Séance d'essai gratuite"
-  step1Body: "Réservez une séance privée parent-enfant et découvrez notre méthode par vous-même."
-  step2Title: "Semaine d'ateliers gratuite"
-  step2Body: "Si la séance vous a plu, profitez d'une semaine complète d'ateliers gratuits en groupe !"
-  step3Title: "Inscription à tout moment"
-  step3Body: "Choisissez le forfait mensuel adapté à votre emploi du temps — sans engagement à long terme."
-
-  # Portail
-  portalTitle: "Portail Parents & Élèves"
-  portalSubtitle: "Vous avez déjà essayé un cours ? Connectez-vous ou inscrivez-vous pour gérer vos sessions en cours ci-dessous."
-  loginTitle: "Connexion"
-  signupTitle: "Inscription"
-
-  # Contact & Adresse
-  contactTitle: "Contact & Adresse"
-  emailLabel: "Courriel :"
-  phoneLabel: "Téléphone :"
-  locationLabel: "Adresse :"
-  mapNote: "Situé à l’intérieur du centre commercial CO-OP Dalhousie (local 6, à côté de la pharmacie)."
-
-  # Politique
-  policyTitle: "Politique"
-  policyL1: "Les parents doivent accompagner les enfants lors de la première séance d’essai."
-  policyL2: "Les ateliers manqués peuvent être reprogrammés si un préavis de 24h est donné."
-  policyL3: "Pas de contrat à long terme. Abonnement mensuel uniquement."
-
-  # Testimonials
-  testimonialsTitle: "Ce que disent les parents"
-  testimonials: []
-  labelMostPopular: "Le plus populaire"
-
-es:
-  title: "Curious Genius | Aprende a programar — Clases para edades 5–18"
-  brand: "Curious Genius"
-  tagline: "Clases pequeñas. Grandes proyectos. Habilidades reales de programación, robótica y matemáticas."
-
-  # Navigation
-  navAbout: "Acerca de"
-  navPrograms: "Programas"
-  navTrial: "Prueba gratis"
-  navFAQ: "Preguntas frecuentes"
-  navApproach: "Cómo funciona"
-  navPortal: "Portal"
-  navContact: "Contacto"
-  navPolicy: "Política"
-
-  # Call-to-Action
-  ctaPrimary: "Reservar una sesión de prueba gratuita"
-  ctaSecondary: "Ver programas"
-
-  # Por qué las familias eligen Curious Genius
-  propsTitle: "Por qué las familias eligen Curious Genius"
-  prop1Title: "Clases pequeñas"
-  prop1Body: "6–8 estudiantes por grupo para atención personalizada."
-  prop2Title: "Aprendizaje basado en proyectos"
-  prop2Body: "Los niños crean juegos, robots y proyectos de IA reales."
-  prop3Title: "Currículo confiable"
-  prop3Body: "Alineado con los estándares de Alberta y Code.org."
-
-  # Programas y Precios
-  programsTitle: "Programas y Precios"
-  btnCurriculum: "Explorar programas"
-
-  # Trial
-  trialTitle: "Sesión de prueba privada (Padre + Hijo)"
-  trialExpectTitle: "Qué esperar"
-  trialBookTitle: "Reserva tu sesión"
-  trialL1: "60 minutos · Gratis"
-  trialL2: "Los padres asisten y observan el estilo de aprendizaje"
-  trialL3: "Recomendación personalizada de programa"
-
-  # Preguntas frecuentes
-  faqTitle: "Preguntas frecuentes"
-  faqQ1: "¿Las sesiones de prueba son realmente gratis?"
-  faqA1: "¡Sí! La sesión de prueba es completamente gratuita, sin compromiso."
-  faqQ2: "¿Dónde están ubicados?"
-  faqA2: "Estamos dentro del centro comercial CO-OP Dalhousie (NW de Calgary), Unidad 6, 5505 Shaganappi Trail NW."
-  faqQ3: "¿Para qué edades son sus clases?"
-  faqA3: "Aceptamos estudiantes de 5 a 18 años, divididos por edad y nivel."
-  faqQ4: "¿Pueden los padres observar las sesiones?"
-  faqA4: "¡Sí! Animamos a los padres a observar y dar sus comentarios durante la sesión de prueba."
-
-  # Cómo funciona
-  approachTitle: "Cómo funciona"
-  step1Title: "Clase de prueba gratuita"
-  step1Body: "Reserva una sesión privada (padre e hijo) y experimenta nuestro enfoque de primera mano."
-  step2Title: "Semana gratuita de talleres"
-  step2Body: "Si disfrutaste la sesión de prueba, ¡aprovecha una semana completa de talleres grupales gratis!"
-  step3Title: "Inscríbete en cualquier momento"
-  step3Body: "Elige el plan mensual que se adapte a tu horario — sin compromiso a largo plazo."
-
-  # Portal
-  portalTitle: "Portal de Padres y Estudiantes"
-  portalSubtitle: "¿Ya probaste una clase? Inicia sesión o regístrate para administrar tus sesiones a continuación."
-  loginTitle: "Iniciar sesión"
-  signupTitle: "Regístrate"
-
-  # Contacto y Ubicación
-  contactTitle: "Contacto y Ubicación"
-  emailLabel: "Correo:"
-  phoneLabel: "Teléfono:"
-  locationLabel: "Ubicación:"
-  mapNote: "Estamos dentro del centro comercial CO-OP Dalhousie, Unidad 6 (al lado de la farmacia)."
-
-  # Política
-  policyTitle: "Política"
-  policyL1: "Los padres deben acompañar a los niños durante la primera sesión de prueba."
-  policyL2: "Los talleres perdidos se pueden reprogramar si se avisa con 24 horas de anticipación."
-  policyL3: "Sin contratos a largo plazo. Planes mensuales únicamente."
-
-  # Testimonials
-  testimonialsTitle: "Lo que dicen los padres"
-  testimonials: []
-  labelMostPopular: "Más popular"
-
-ar:
-  title: "كيريوس جينيوس | تعلّم البرمجة — دروس للأطفال من 5 إلى 18 سنة"
-  brand: "كيريوس جينيوس"
-  tagline: "صفوف صغيرة. مشاريع كبيرة. مهارات حقيقية في البرمجة والروبوتات والرياضيات."
-
-  # Navigation
-  navAbout: "حول"
-  navPrograms: "البرامج والأسعار"
-  navTrial: "تجربة مجانية"
-  navFAQ: "الأسئلة الشائعة"
-  navApproach: "كيف نعمل"
-  navPortal: "البوابة"
-  navContact: "اتصال"
-  navPolicy: "السياسات"
-
-  # Call-to-Action
-  ctaPrimary: "احجز جلسة تجريبية مجانية"
-  ctaSecondary: "استعرض البرامج"
-
-  # لماذا تختار العائلات كيريوس جينيوس
-  propsTitle: "لماذا تختار العائلات كيريوس جينيوس"
-  prop1Title: "صفوف صغيرة"
-  prop1Body: "6 إلى 8 طلاب في كل مجموعة لضمان متابعة فردية."
-  prop2Title: "تعلّم بالمشاريع"
-  prop2Body: "الأطفال يصنعون ألعابًا وروبوتات ومشاريع ذكاء اصطناعي يفتخرون بها."
-  prop3Title: "منهج موثوق"
-  prop3Body: "متوافق مع معايير ألبرتا ومسارات Code.org."
-
-  # البرامج والأسعار
-  programsTitle: "البرامج والأسعار"
-  btnCurriculum: "استكشف المنهج"
-
-  # Trial
-  trialTitle: "جلسة تجريبية خاصة (ولي الأمر + الطفل)"
-  trialExpectTitle: "ما الذي تتوقعه"
-  trialBookTitle: "احجز جلسة التجربة"
-  trialL1: "60 دقيقة · مجانًا"
-  trialL2: "يحضر الوالدان ويلاحظان أسلوب التعلم"
-  trialL3: "توصية مخصصة بالمسار المناسب"
-
-  # الأسئلة الشائعة
-  faqTitle: "الأسئلة الشائعة"
-  faqQ1: "هل الجلسات التجريبية مجانية حقًا؟"
-  faqA1: "نعم! الجلسة التجريبية مجانية تمامًا — بدون أي التزام."
-  faqQ2: "أين موقعكم؟"
-  faqA2: "نحن داخل مركز تسوق CO-OP Dalhousie في شمال غرب كالجاري — الوحدة 6، 5505 Shaganappi Trail NW."
-  faqQ3: "ما الفئات العمرية التي تدرسونها؟"
-  faqA3: "نرحب بالطلاب من عمر 5 إلى 18 سنة، مقسمين حسب العمر والمستوى."
-  faqQ4: "هل يمكن للأهل حضور الجلسات؟"
-  faqA4: "نعم! نشجع الأهالي على الحضور وإبداء آرائهم خلال الجلسة التجريبية."
-
-  # كيف نعمل
-  approachTitle: "كيف نعمل"
-  step1Title: "جلسة تجريبية مجانية"
-  step1Body: "احجز جلسة خاصة (ولي الأمر + الطفل) لتجربة طريقتنا بشكل مباشر."
-  step2Title: "أسبوع مجاني من الورش"
-  step2Body: "إذا استمتعت بجلسة التجربة، تمتع بأسبوع كامل من ورش العمل الجماعية المجانية!"
-  step3Title: "التسجيل في أي وقت"
-  step3Body: "اختر الخطة الشهرية التي تناسب جدولك — بدون أي التزام طويل الأمد."
-
-  # البوابة
-  portalTitle: "بوابة أولياء الأمور والطلاب"
-  portalSubtitle: "هل جربت صفاً من قبل؟ قم بتسجيل الدخول أو التسجيل لإدارة جلساتك الحالية أدناه."
-  loginTitle: "تسجيل الدخول"
-  signupTitle: "إنشاء حساب"
-
-  # اتصل بنا والموقع
-  contactTitle: "اتصل بنا والموقع"
-  emailLabel: "البريد الإلكتروني:"
-  phoneLabel: "الهاتف:"
-  locationLabel: "العنوان:"
-  mapNote: "داخل مركز CO-OP Dalhousie التجاري (الوحدة 6، بجانب الصيدلية)."
-
-  # السياسات
-  policyTitle: "السياسات"
-  policyL1: "يجب أن يصحب الوالدان الأطفال خلال أول جلسة تجريبية."
-  policyL2: "يمكن إعادة جدولة الورش الفائتة إذا تم الإبلاغ قبل 24 ساعة."
-  policyL3: "لا عقود طويلة الأمد. اشتراك شهري فقط."
-
-  # Testimonials
-  testimonialsTitle: "ماذا يقول الأهالي"
-  testimonials: []
-  labelMostPopular: "الأكثر شعبية"
-
-pa:
-  title: "Curious Genius | ਕੋਡ ਸਿੱਖੋ — ਉਮਰ 5–18 ਲਈ ਕਲਾਸਾਂ"
-  brand: "Curious Genius"
-  tagline: "ਛੋਟੀਆਂ ਕਲਾਸਾਂ। ਵੱਡੇ ਪ੍ਰਾਜੈਕਟ। ਕੋਡਿੰਗ, ਰੋਬੋਟਿਕਸ ਅਤੇ ਗਣਿਤ ਦੇ ਅਸਲੀ ਹੁਨਰ।"
-
-  # Navigation
-  navAbout: "ਬਾਰੇ"
-  navPrograms: "ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੀਮਤਾਂ"
-  navTrial: "ਮੁਫ਼ਤ ਅਜ਼ਮਾਇਸ਼"
-  navFAQ: "ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ"
-  navApproach: "ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ"
-  navPortal: "ਪੋਰਟਲ"
-  navContact: "ਸੰਪਰਕ"
-  navPolicy: "ਨੀਤੀਆਂ"
-
-  # Call-to-Action
-  ctaPrimary: "ਮੁਫ਼ਤ ਅਜ਼ਮਾਇਸ਼ੀ ਸੈਸ਼ਨ ਬੁੱਕ ਕਰੋ"
-  ctaSecondary: "ਪ੍ਰੋਗਰਾਮ ਵੇਖੋ"
-
-  # ਪਰਿਵਾਰ ਕਿਉਂ ਚੁਣਦੇ ਹਨ Curious Genius
-  propsTitle: "ਪਰਿਵਾਰ Curious Genius ਕਿਉਂ ਚੁਣਦੇ ਹਨ"
-  prop1Title: "ਛੋਟੀਆਂ ਕਲਾਸਾਂ"
-  prop1Body: "ਹਰ ਗਰੁੱਪ ਵਿੱਚ 6–8 ਵਿਦਿਆਰਥੀ — ਨਿੱਜੀ ਧਿਆਨ ਲਈ।"
-  prop2Title: "ਪ੍ਰੋਜੈਕਟ ਅਧਾਰਤ ਸਿੱਖਿਆ"
-  prop2Body: "ਬੱਚੇ ਖੇਡਾਂ, ਰੋਬੋਟ ਅਤੇ AI ਪ੍ਰੋਜੈਕਟ ਬਣਾਉਂਦੇ ਹਨ।"
-  prop3Title: "ਭਰੋਸੇਯੋਗ ਕਰਿਕੁਲਮ"
-  prop3Body: "Alberta ਸਿੱਖਿਆ ਅਤੇ Code.org ਮਾਪਦੰਡਾਂ ਅਨੁਸਾਰ।"
-
-  # ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੀਮਤਾਂ
-  programsTitle: "ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੀਮਤਾਂ"
-  btnCurriculum: "ਕਰਿਕੁਲਮ ਦੇਖੋ"
-
-  # Trial
-  trialTitle: "ਨਿੱਜੀ ਅਜ਼ਮਾਇਸ਼ੀ ਸੈਸ਼ਨ (ਮਾਤਾ-ਪਿਤਾ + ਬੱਚਾ)"
-  trialExpectTitle: "ਕੀ ਉਮੀਦ ਕਰਨੀ ਹੈ"
-  trialBookTitle: "ਆਪਣਾ ਅਜ਼ਮਾਇਸ਼ ਬੁੱਕ ਕਰੋ"
-  trialL1: "60 ਮਿੰਟ · ਮੁਫ਼ਤ"
-  trialL2: "ਮਾਪੇ ਹਾਜ਼ਰ ਹੁੰਦੇ ਹਨ ਅਤੇ ਸਿੱਖਣ ਦੇ ਢੰਗ ਦਾ ਨਿਰਿਖਣ ਕਰਦੇ ਹਨ"
-  trialL3: "ਨਿੱਜੀਕ੍ਰਿਤ ਟ੍ਰੈਕ ਦੀ ਸਿਫਾਰਸ਼"
-
-  # ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ
-  faqTitle: "ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ"
-  faqQ1: "ਕੀ ਟ੍ਰਾਇਲ ਸੈਸ਼ਨ ਸੱਚਮੁੱਚ ਮੁਫ਼ਤ ਹਨ?"
-  faqA1: "ਹਾਂ! ਟ੍ਰਾਇਲ ਪੂਰੀ ਤਰ੍ਹਾਂ ਮੁਫ਼ਤ ਹੈ — ਕਿਸੇ ਵੀ ਕਮੀਟਮੈਂਟ ਤੋਂ ਬਿਨਾ।"
-  faqQ2: "ਤੁਹਾਡਾ ਸਥਾਨ ਕਿੱਥੇ ਹੈ?"
-  faqA2: "ਅਸੀਂ NW ਕੈਲਗਰੀ ਦੇ CO-OP Dalhousie ਮਾਲ ਦੇ ਅੰਦਰ ਸਥਿਤ ਹਾਂ — ਯੂਨਿਟ 6, 5505 Shaganappi Trail NW."
-  faqQ3: "ਤੁਸੀਂ ਕਿਹੜੀਆਂ ਉਮਰਾਂ ਦੇ ਬੱਚਿਆਂ ਨੂੰ ਪੜ੍ਹਾਉਂਦੇ ਹੋ?"
-  faqA3: "ਅਸੀਂ 5 ਤੋਂ 18 ਸਾਲ ਦੀ ਉਮਰ ਦੇ ਵਿਦਿਆਰਥੀਆਂ ਦਾ ਸਵਾਗਤ ਕਰਦੇ ਹਾਂ, ਜਿਨ੍ਹਾਂ ਨੂੰ ਉਮਰ ਅਤੇ ਕੌਸ਼ਲ ਅਨੁਸਾਰ ਵੰਡਿਆ ਗਿਆ ਹੈ।"
-  faqQ4: "ਕੀ ਮਾਪੇ ਸੈਸ਼ਨਾਂ ਦੇਖ ਸਕਦੇ ਹਨ?"
-  faqA4: "ਹਾਂ! ਅਸੀਂ ਮਾਪਿਆਂ ਨੂੰ ਟ੍ਰਾਇਲ ਦੌਰਾਨ ਹਾਜ਼ਰ ਰਹਿਣ ਅਤੇ ਆਪਣੀ ਪ੍ਰਤੀਕਿਰਿਆ ਦੇਣ ਲਈ ਪ੍ਰੋਤਸਾਹਿਤ ਕਰਦੇ ਹਾਂ."
-
-  # ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ
-  approachTitle: "ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ"
-  step1Title: "ਮੁਫ਼ਤ ਅਜ਼ਮਾਇਸ਼ੀ ਸੈਸ਼ਨ"
-  step1Body: "ਇੱਕ ਨਿੱਜੀ ਕਲਾਸ (ਮਾਤਾ-ਪਿਤਾ + ਬੱਚਾ) ਬੁੱਕ ਕਰੋ ਅਤੇ ਸਾਡੇ ਤਰੀਕੇ ਨੂੰ ਖੁਦ ਅਨੁਭਵ ਕਰੋ।"
-  step2Title: "ਮੁਫ਼ਤ ਵਰਕਸ਼ਾਪਾਂ ਦਾ ਹਫ਼ਤਾ"
-  step2Body: "ਜੇ ਤੁਹਾਨੂੰ ਤੁਹਾਡੀ ਅਜ਼ਮਾਇਸ਼ੀ ਕਲਾਸ ਚੰਗੀ ਲੱਗੀ, ਤਾਂ ਇੱਕ ਪੂਰਾ ਹਫ਼ਤਾ ਮੁਫ਼ਤ ਸਮੂਹ ਵਰਕਸ਼ਾਪਾਂ ਦਾ ਅਨੰਦ ਲਓ!"
-  step3Title: "ਕਦੇ ਵੀ ਦਾਖਲਾ ਕਰੋ"
-  step3Body: "ਆਪਣੇ ਸਮੇਂ ਅਨੁਸਾਰ ਮਾਸਿਕ ਯੋਜਨਾ ਚੁਣੋ — ਕੋਈ ਲੰਮੇ ਸਮੇਂ ਦੀ ਵਚਨਬੱਧਤਾ ਨਹੀਂ ਹੈ।"
-
-  # ਪੋਰਟਲ
-  portalTitle: "ਮਾਪੇ ਅਤੇ ਵਿਦਿਆਰਥੀ ਪੋਰਟਲ"
-  portalSubtitle: "ਕੀ ਤੁਸੀਂ ਪਹਿਲਾਂ ਹੀ ਇੱਕ ਕਲਾਸ ਅਜ਼ਮਾਈ ਹੈ? ਹੇਠਾਂ ਆਪਣੀਆਂ ਚਾਲੂ ਸੈਸ਼ਨਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਨ ਲਈ ਲਾਗਇਨ ਕਰੋ ਜਾਂ ਸਾਇਨ ਅਪ ਕਰੋ।"
-  loginTitle: "ਲਾਗਇਨ"
-  signupTitle: "ਸਾਈਨ ਅਪ"
-
-  # ਸੰਪਰਕ ਅਤੇ ਸਥਾਨ
-  contactTitle: "ਸੰਪਰਕ ਅਤੇ ਸਥਾਨ"
-  emailLabel: "ਈਮੇਲ:"
-  phoneLabel: "ਫ਼ੋਨ:"
-  locationLabel: "ਪਤਾ:"
-  mapNote: "ਅਸੀਂ CO-OP Dalhousie ਮਾਲ ਦੇ ਅੰਦਰ ਹਾਂ (ਯੂਨਿਟ 6, ਫਾਰਮੇਸੀ ਦੇ ਕੋਲ)."
-
-  # ਨੀਤੀਆਂ
-  policyTitle: "ਨੀਤੀਆਂ"
-  policyL1: "ਮਾਪੇ ਪਹਿਲੀ ਅਜ਼ਮਾਇਸ਼ੀ ਕਲਾਸ ਦੌਰਾਨ ਬੱਚਿਆਂ ਨਾਲ ਹੋਣੇ ਚਾਹੀਦੇ ਹਨ।"
-  policyL2: "ਗੈਰਹਾਜ਼ਰ ਵਰਕਸ਼ਾਪਾਂ ਨੂੰ 24 ਘੰਟੇ ਪਹਿਲਾਂ ਸੁਚਨਾ ਤੇ ਦੁਬਾਰਾ ਤਹਿ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।"
-  policyL3: "ਕੋਈ ਲੰਬੇ ਸਮੇਂ ਦੇ ਕਾਂਟਰੈਕਟ ਨਹੀਂ। ਸਿਰਫ਼ ਮਹੀਨਾ-ਦਰ-ਮਹੀਨਾ ਯੋਜਨਾਵਾਂ ਹੀ ਹਨ।"
-
-  # Testimonials
-  testimonialsTitle: "ਮਾਤਾ-ਪਿਤਾ ਕੀ ਕਹਿੰਦੇ ਹਨ"
-  testimonials: []
-  labelMostPopular: "ਸਭ ਤੋਂ ਲੋਕਪ੍ਰਿਯ"
+emailLabel: "Email:"
+phoneLabel: "Phone:"
+locationLabel: "Unit 6, 5505 Shaganappi Trail NW, Calgary AB"
