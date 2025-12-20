@@ -1,174 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="title">Loading...</title>
-  <meta name="description" id="metaDescription" content="">
-  <link rel="stylesheet" href="styles.css?v=20251219">
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" defer></script>
-  <script defer src="main.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="title">Loading...</title>
+<meta name="description" id="metaDescription" content="">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" defer></script>
+<script defer src="main.js"></script>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#">
-      <img src="hero_image_1.png" alt="Curious Genius Logo">
-      <span id="brand"></span>
-    </a>
-    <nav class="mainnav">
-      <a id="navAbout" href="#about"></a>
-      <a id="navPrograms" href="#programs"></a>
-      <a id="navTrial" href="#trial"></a>
-      <a id="navFAQ" href="#faq"></a>
-      <a id="navApproach" href="#approach"></a>
-      <a id="navPortal" href="#portal"></a>
-      <a id="navContact" href="#contact"></a>
-      <a id="navPolicy" href="#policy"></a>
-    </nav>
-    <select id="languageSelector" class="lang-selector">
-      <option value="en">🇬🇧 English</option>
-      <option value="fr">🇫🇷 Français</option>
-      <option value="ar">🇸🇦 العربية</option>
-      <option value="hi">🇮🇳 हिन्दी</option>
-      <option value="es">🇪🇸 Español</option>
-    </select>
-  </header>
+<header class="topbar">
+<a class="brand" href="#">
+<img src="hero_image_1.png" alt="Curious Genius Logo">
+<span id="brand"></span>
+</a>
+<nav class="mainnav">
+<a id="navAbout" href="#about"></a>
+<a id="navPrograms" href="#programs"></a>
+<a id="navTrial" href="#trial"></a>
+<a id="navFAQ" href="#faq"></a>
+<a id="navApproach" href="#approach"></a>
+<a id="navContact" href="#contact"></a>
+<select id="languageSelector">
+<option value="en">English</option>
+<option value="fr">Français</option>
+<option value="ar">العربية</option>
+<option value="hi">हिन्दी</option>
+<option value="es">Español</option>
+</select>
+</nav>
+</header>
 
-  <main id="main">
-    <section class="hero">
-      <div class="hero__content">
-        <h1 id="heroTitle"></h1>
-        <p id="tagline"></p>
-        <div class="hero__actions">
-          <a href="#trial" class="btn" id="ctaPrimary"></a>
-          <a href="#programs" class="btn btn--ghost" id="ctaSecondary"></a>
-        </div>
-      </div>
-    </section>
 
-    <section class="section" id="about">
-      <h2 id="aboutTitle"></h2>
-      <ul class="grid grid--3">
-        <li class="card">
-          <div class="card-icon">👩‍🏫</div>
-          <h3 id="aboutPoint1Title"></h3>
-          <p id="aboutPoint1Desc"></p>
-        </li>
-        <li class="card">
-          <div class="card-icon">🎮</div>
-          <h3 id="aboutPoint2Title"></h3>
-          <p id="aboutPoint2Desc"></p>
-        </li>
-        <li class="card">
-          <div class="card-icon">✅</div>
-          <h3 id="aboutPoint3Title"></h3>
-          <p id="aboutPoint3Desc"></p>
-        </li>
-      </ul>
-    </section>
+<main>
+<section class="hero">
+<h1 id="heroTitle"></h1>
+<p id="tagline"></p>
+<div class="hero__actions">
+<a href="#trial" class="btn" id="ctaPrimary"></a>
+<a href="#programs" class="btn btn--ghost" id="ctaSecondary"></a>
+</div>
+</section>
 
-    <section class="section" id="programs">
-      <h2 id="programsTitle"></h2>
-      <ul class="grid grid--3 grid--cards" id="programList"></ul>
-    </section>
 
-    <section class="section section--alt" id="trial">
-      <h2 id="trialTitle"></h2>
-      <div class="grid grid--2">
-        <div class="card">
-          <h3 id="trialExpectTitle"></h3>
-          <ul>
-            <li id="trialL1"></li>
-            <li id="trialL2"></li>
-            <li id="trialL3"></li>
-          </ul>
-        </div>
-        <div class="card card--widget">
-          <h3 id="trialBookTitle"></h3>
-          <div class="widget" id="trialWidget"></div>
-        </div>
-      </div>
-    </section>
+<section id="about">
+<h2 id="aboutTitle"></h2>
+<ul class="features">
+<li>
+<h3 id="aboutPoint1Title"></h3>
+<p id="aboutPoint1Desc"></p>
+</li>
+<li>
+<h3 id="aboutPoint2Title"></h3>
+<p id="aboutPoint2Desc"></p>
+</li>
+<li>
+<h3 id="aboutPoint3Title"></h3>
+<p id="aboutPoint3Desc"></p>
+</li>
+</ul>
+</section>
 
-    <section class="section" id="faq">
-      <h2 id="faqTitle"></h2>
-      <details><summary id="faqQ1"></summary><p id="faqA1"></p></details>
-      <details><summary id="faqQ2"></summary><p id="faqA2"></p></details>
-      <details><summary id="faqQ3"></summary><p id="faqA3"></p></details>
-      <details><summary id="faqQ4"></summary><p id="faqA4"></p></details>
-    </section>
 
-    <section class="section section--alt" id="approach">
-      <h2 id="approachTitle"></h2>
-      <ul class="steps">
-        <li class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <h4 id="step1Title"></h4>
-            <p id="step1Body"></p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <h4 id="step2Title"></h4>
-            <p id="step2Body"></p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <h4 id="step3Title"></h4>
-            <p id="step3Body"></p>
-          </div>
-        </li>
-      </ul>
-    </section>
+<section id="programs">
+<h2 id="programsTitle"></h2>
+<ul id="programList" class="card-list"></ul>
+</section>
 
-    <section class="section" id="portal">
-      <h2 id="portalTitle"></h2>
-      <p class="muted" id="portalSubtitle"></p>
-      <div class="grid grid--2">
-        <div class="card card--widget">
-          <h3 id="loginTitle"></h3>
-          <div class="widget" id="loginWidget"></div>
-        </div>
-        <div class="card card--widget">
-          <h3 id="signupTitle"></h3>
-          <div class="widget" id="signupWidget"></div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section" id="contact">
-      <h2 id="contactTitle"></h2>
-      <div class="contact-grid">
-        <div class="card card--widget">
-          <div class="widget" id="contactWidget"></div>
-        </div>
-        <div class="map">
-          <iframe id="mapFrame" loading="lazy"></iframe>
-          <p class="muted" id="mapNote"></p>
-        </div>
-      </div>
-    </section>
+<section id="trial">
+<h2 id="trialTitle"></h2>
+<ul>
+<li id="trialL1"></li>
+<li id="trialL2"></li>
+<li id="trialL3"></li>
+</ul>
+</section>
 
-    <section class="section section--alt" id="policy">
-      <h2 id="policyTitle"></h2>
-      <ul>
-        <li id="policyL1"></li>
-        <li id="policyL2"></li>
-        <li id="policyL3"></li>
-      </ul>
-    </section>
-  </main>
 
-  <footer>
-    <div class="footer-inner">
-      <p><strong id="emailLabel"></strong> <a id="emailValue" href="mailto:"></a> |
-      <strong id="phoneLabel"></strong> <a id="phoneValue" href="tel:"></a></p>
-      <p class="muted" id="locationLabel"></p>
-    </div>
-  </footer>
-</body>
+<section id="faq">
+<h2 id="faqTitle"></h2>
+<details><summary id="faqQ1"></summary><p id="faqA1"></p></details>
 </html>
