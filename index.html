@@ -1,85 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="title">Loading...</title>
-<meta name="description" id="metaDescription" content="">
-<link rel="stylesheet" href="styles.css">
-<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" defer></script>
-<script defer src="main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Curious Genius | Learn to Code — Classes for Ages 5–18</title>
+  <meta name="description" content="Curious Genius offers small-group Math, Coding & Robotics for ages 5–18 in NW Calgary. All November classes are free with no commitment. Alberta-aligned, Code.org powered." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://curiousgenius.ca/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Curious Genius — STEM for Ages 5–18 | Free Classes All November" />
+  <meta property="og:description" content="Small classes. Big projects. Real skills — and all November classes are free with no commitment. In-person STEM in Dalhousie CO-OP." />
+  <meta property="og:image" content="https://curious-genius.github.io/curious-genius-logo.png" />
+  <meta property="og:url" content="https://curiousgenius.ca/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;500;700&family=Cairo:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css?v=20251110" />
+
+  <!-- Minimal RTL -->
+  <style>
+    body.rtl { direction: rtl; }
+    body.rtl nav { direction: rtl; }
+    body.rtl .btn { letter-spacing: 0; }
+    body.rtl ul { padding-inline-start: 0; }
+  </style>
+
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17680952488"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17680952488');
+  </script>
+
+  <!-- YAML parser -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" defer></script>
+  <script type="application/ld+json" id="orgSchema"></script>
+
+  <script>
+    const supportedLangs = ['en', 'fr', 'es', 'ar', 'pa'];
+    const stored = localStorage.getItem('cg_lang');
+    const rawLang = (navigator.language || 'en').toLowerCase();
+    const browserLang = rawLang.slice(0, 2);
+    let currentLang = supportedLangs.includes(stored || '') ? stored : (supportedLangs.includes(browserLang) ? browserLang : 'en');
+
+    let yamlMain = null;
+    const YAML_VERSION = '20251110';
+
+    async function fetchYaml(path) {
+      try {
+        const res = await fetch(path + `?v=${encodeURIComponent(YAML_VERSION)}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+        return jsyaml.load(text);
+      } catch (e) {
+        console.error('[fetchYaml]', e);
+        return null;
+      }
+    }
+
+    async function loadContent(lang = currentLang) {
+      yamlMain = await fetchYaml('content.yaml');
+      if (!yamlMain || !yamlMain[lang]) lang = 'en';
+      document.title = yamlMain[lang].title || 'Curious Genius';
+    }
+    document.addEventListener('DOMContentLoaded', loadContent);
+  </script>
 </head>
+
 <body>
-<header class="topbar">
-<a class="brand" href="#">
-<img src="hero_image_1.png" alt="Curious Genius Logo">
-<span id="brand"></span>
-</a>
-<nav class="mainnav">
-<a id="navAbout" href="#about"></a>
-<a id="navPrograms" href="#programs"></a>
-<a id="navTrial" href="#trial"></a>
-<a id="navFAQ" href="#faq"></a>
-<a id="navApproach" href="#approach"></a>
-<a id="navContact" href="#contact"></a>
-<select id="languageSelector">
-<option value="en">English</option>
-<option value="fr">Français</option>
-<option value="ar">العربية</option>
-<option value="hi">हिन्दी</option>
-<option value="es">Español</option>
-</select>
-</nav>
-</header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- NAV -->
+  <header class="topbar">
+    <a class="brand" href="#">
+      <img src="curious-genius-logo.png" alt="Curious Genius Logo" loading="lazy" />
+      <span>Curious Genius</span>
+    </a>
 
-<main>
-<section class="hero">
-<h1 id="heroTitle"></h1>
-<p id="tagline"></p>
-<div class="hero__actions">
-<a href="#trial" class="btn" id="ctaPrimary"></a>
-<a href="#programs" class="btn btn--ghost" id="ctaSecondary"></a>
-</div>
-</section>
+    <button id="hamburger" class="hamburger" aria-label="Toggle navigation">
+      <span class="hamburger-box"></span>
+    </button>
 
+    <nav class="mainnav">
+      <a id="navAbout" href="#about">About</a>
+      <a id="navPrograms" href="#programs">Programs</a>
+      <a id="navTrial" href="#trial">Trial</a>
+      <a id="navFAQ" href="#faq">FAQ</a>
+      <a id="navApproach" href="#approach">How It Works</a>
+      <a id="navPortal" href="#portal">Portal</a>
+      <a id="navContact" href="#contact">Contact</a>
+      <a id="navPolicy" href="#policy">Policy</a>
+      <a id="navOffers" href="#offers" class="btn btn--ghost">Offers</a>
+    </nav>
+  </header>
 
-<section id="about">
-<h2 id="aboutTitle"></h2>
-<ul class="features">
-<li>
-<h3 id="aboutPoint1Title"></h3>
-<p id="aboutPoint1Desc"></p>
-</li>
-<li>
-<h3 id="aboutPoint2Title"></h3>
-<p id="aboutPoint2Desc"></p>
-</li>
-<li>
-<h3 id="aboutPoint3Title"></h3>
-<p id="aboutPoint3Desc"></p>
-</li>
-</ul>
-</section>
+  <main id="main">
 
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__content">
+        <h1>Curious Genius</h1>
+        <p>Small classes. Big projects. Real skills.</p>
+        <div class="hero__actions">
+          <a href="#trial" class="btn" id="ctaTrial">Book a Free Trial</a>
+          <a href="#programs" class="btn btn--ghost" id="ctaSecondary">See Programs</a>
+        </div>
+      </div>
+    </section>
 
-<section id="programs">
-<h2 id="programsTitle"></h2>
-<ul id="programList" class="card-list"></ul>
-</section>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <h2>Why families choose Curious Genius</h2>
+      <ul class="grid grid--3">
+        <li class="card">
+          <div class="card-icon">👩‍🏫</div>
+          <h3>Small Classes</h3>
+          <p>6–8 learners per cohort for focused, individualized attention.</p>
+        </li>
+        <li class="card">
+          <div class="card-icon">🎮</div>
+          <h3>Project-Based Learning</h3>
+          <p>Kids build real games, robots, and AI projects they’re proud to show.</p>
+        </li>
+        <li class="card">
+          <div class="card-icon">✅</div>
+          <h3>Trusted Curriculum</h3>
+          <p>Aligned with Alberta Education and Code.org standards.</p>
+        </li>
+      </ul>
+    </section>
 
+    <!-- PROGRAMS -->
+    <section class="section" id="programs">
+      <h2>Programs & Pricing</h2>
+      <ul class="grid grid--3 grid--cards" id="realmsList">
+        <li class="card">
+          <h4>Technology Explorer — $99/month</h4>
+          <p>Includes 8 sessions/month. Choose Coding, Robotics, or AI projects.</p>
+        </li>
+        <li class="card">
+          <h4>Technology Builder — $149/month</h4>
+          <p>Up to 24 sessions/month for deeper exploration.</p>
+        </li>
+        <li class="card">
+          <h4>Math Mastery — $99/month</h4>
+          <p>Build strong foundations using Alberta & Singapore Math methods.</p>
+        </li>
+      </ul>
+    </section>
 
-<section id="trial">
-<h2 id="trialTitle"></h2>
-<ul>
-<li id="trialL1"></li>
-<li id="trialL2"></li>
-<li id="trialL3"></li>
-</ul>
-</section>
+    <!-- TRIAL -->
+    <section class="section section--alt" id="trial">
+      <h2>Trial Private Session (Parent + Child)</h2>
+      <div class="grid grid--2">
+        <div class="card">
+          <h3>What to Expect</h3>
+          <p>
+            Experience our approach in a relaxed one-on-one session for parent and child.
+            Meet our instructors, see our space inside Dalhousie CO-OP, and explore Coding, Robotics, AI, or Math.
+          </p>
+          <ul style="list-style:disc; padding-left:1.2rem">
+            <li>60 minutes · Free</li>
+            <li>Parents attend and observe learning style</li>
+            <li>Personalized track recommendation</li>
+          </ul>
+          <p class="muted" style="margin-top:.5rem">
+            If you see “requires make-up credit,” pick another time or contact us—we’ll open a trial slot for you.
+          </p>
+        </div>
+        <div class="card card--widget">
+          <h3>Book Your Trial</h3>
+          <div class="widget">
+            <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQnNKUSJ9"></script>
+          </div>
+          <noscript><p>Please enable JavaScript to book a trial session.</p></noscript>
+        </div>
+      </div>
+    </section>
 
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>Are the trial sessions really free?</summary>
+        <p>Yes! The trial is completely free — no commitment required.</p>
+      </details>
+      <details>
+        <summary>Where are you located?</summary>
+        <p>Inside Calgary Co-op Dalhousie (NW Calgary) — Unit 6, 5505 Shaganappi Trail NW.</p>
+      </details>
+      <details>
+        <summary>What age groups do you teach?</summary>
+        <p>We welcome students ages 5–18, divided by age and skill level.</p>
+      </details>
+      <details>
+        <summary>Can parents watch the sessions?</summary>
+        <p>Yes! Parents are encouraged to observe and give feedback during the trial.</p>
+      </details>
+    </section>
 
-<section id="faq">
-<h2 id="faqTitle"></h2>
-<details><summary id="faqQ1"></summary><p id="faqA1"></p></details>
+    <!-- HOW IT WORKS -->
+    <section class="section section--alt" id="approach">
+      <h2>How It Works</h2>
+      <ul class="steps">
+        <li class="step"><div class="step-num">1</div><div class="step-body"><h4>Free Trial</h4><p>Book your private session and experience our approach firsthand.</p></div></li>
+        <li class="step"><div class="step-num">2</div><div class="step-body"><h4>Free Week of Workshops</h4><p>If you enjoyed your trial, enjoy a full week of free group workshops!</p></div></li>
+        <li class="step"><div class="step-num">3</div><div class="step-body"><h4>Enroll Anytime</h4><p>Choose the monthly plan that fits your schedule — no long-term commitment.</p></div></li>
+      </ul>
+    </section>
+
+    <!-- PORTAL -->
+    <section class="section" id="portal">
+      <h2>Parent & Student Portal</h2>
+      <p class="muted">Already tried a class? Login or sign up to manage your ongoing sessions below.</p>
+      <div class="grid grid--2">
+        <div class="card card--widget">
+          <h3>Login</h3>
+          <div class="widget">
+            <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjNKeSJ9"></script>
+          </div>
+        </div>
+        <div class="card card--widget">
+          <h3>Sign Up</h3>
+          <div class="widget">
+            <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjJKTSJ9"></script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <h2>Contact & Location</h2>
+      <div class="contact-grid">
+        <div class="card card--widget">
+          <div class="widget">
+            <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQkRKSCJ9"></script>
+          </div>
+        </div>
+        <div class="map">
+          <iframe src="https://www.google.com/maps?q=Unit%206%2C%205505%20Shaganappi%20Trail%20NW%2C%20Calgary%2C%20AB%20T3A%201Z6&output=embed" width="100%" height="350" style="border:0;border-radius:12px;" allowfullscreen loading="lazy"></iframe>
+          <p class="muted">Located inside Dalhousie CO-OP mall (Unit 6, beside the pharmacy).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLICY -->
+    <section class="section section--alt" id="policy">
+      <h2>Policies</h2>
+      <ul style="list-style:disc; padding-left:1.2rem">
+        <li>Parents must accompany children during the first trial session.</li>
+        <li>Missed workshops can be rescheduled if notice is given 24 hours in advance.</li>
+        <li>No long-term contracts. Month-to-month plans only.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p><strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a> |
+      <strong>Phone:</strong> <a href="tel:+15872912906">587-291-2906</a></p>
+      <p class="muted">© 2025 Curious Genius Learning Centre — Inside CO-OP Dalhousie, Calgary AB</p>
+    </div>
+  </footer>
+
+  <!-- Google Ads conversion event: Book a Free Trial click -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var trialBtn = document.getElementById('ctaTrial');
+      if (trialBtn && typeof gtag === 'function') {
+        trialBtn.addEventListener('click', function () {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17680952488/NX18CP_uocsbEKjZ9-5B'
+          });
+        });
+      }
+    });
+  </script>
+</body>
 </html>
