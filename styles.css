@@ -126,3 +126,10 @@ footer .sep{display:inline-block;padding:0 10px;opacity:.7}
   font-weight: 700;
 }
 .btn--primary:hover { transform: translateY(-1px); }
+
+.lang-selector {
+  margin-left: auto;
+  padding: 0.25em;
+  font-size: 0.9em;
+}
+
