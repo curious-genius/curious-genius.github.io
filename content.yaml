@@ -1,20 +1,23 @@
 en:
   title: "Curious Genius | Learn to Code — Classes for Ages 5–18"
   brand: "Curious Genius"
-  tagline: "Small classes. Big projects. Real skills."
+  tagline: "Small classes. Big projects. Real coding, robotics, and math skills."
 
+  # Navigation
   navAbout: "About"
-  navPrograms: "Programs & Pricing"
+  navPrograms: "Programs"
+  navTrial: "Trial"
   navFAQ: "FAQ"
   navApproach: "How It Works"
   navPortal: "Portal"
   navContact: "Contact"
   navPolicy: "Policy"
-  navOffers: "Offers"
 
-  ctaPrimary: "All November Classes Are Free"
+  # Call-to-Action
+  ctaPrimary: "Book a Free Trial"
   ctaSecondary: "See Programs"
 
+  # Value Proposition (Why families choose Curious Genius)
   propsTitle: "Why families choose Curious Genius"
   prop1Title: "Small Classes"
   prop1Body: "6–8 learners per cohort for focused, individualized attention."
@@ -23,72 +26,94 @@ en:
   prop3Title: "Trusted Curriculum"
   prop3Body: "Aligned with Alberta Education and Code.org standards."
 
+  # Programs & Pricing
   programsTitle: "Programs & Pricing"
   btnCurriculum: "Explore Curriculum"
 
-  approachTitle: "How It Works"
-  step1Title: "1) Free November Classes"
-  step1Body: "All November classes are free — no fees or commitment. Try any program!"
-  step2Title: "2) Personalized Plan"
-  step2Body: "Placement by age and skill level with clear learning milestones."
-  step3Title: "3) Build & Celebrate"
-  step3Body: "Hands-on projects, steady progress, and student showcases."
+  # Trial
+  trialTitle: "Trial Private Session (Parent + Child)"
+  trialExpectTitle: "What to Expect"
+  trialBookTitle: "Book Your Trial"
+  trialL1: "60 minutes · Free"
+  trialL2: "Parents attend and observe learning style"
+  trialL3: "Personalized track recommendation"
 
-  # FAQ
+  # Frequently Asked Questions
   faqTitle: "Frequently Asked Questions"
-  faqQ1: "What programs do you offer?"
-  faqA1: "Curious Genius offers two core programs: a Math program and a Coding & Robotics program (with age-appropriate AI projects for older students). Both are available for elementary and junior/senior high, tailored by age and experience."
-  faqQ2: "Are November classes really free?"
-  faqA2: "Yes. All November classes are free for new students with no registration fees or commitment — a risk-free way to try our classes."
-  faqQ3: "How much do the classes cost after November?"
-  faqA3: "Enrollment is flexible and month-to-month. Tuition is billed at the start of each month for weekly classes. We offer a 10% sibling discount and no long-term contracts — cancel any time for the next month."
-  faqQ4: "When and where are the classes held?"
-  faqA4: "Classes run at our NW Calgary centre (Dalhousie CO-OP) with evening and weekend options. Tell us in advance if you’ll miss a class and we’ll try to arrange a makeup."
+  faqQ1: "Are the trial sessions really free?"
+  faqA1: "Yes! The trial is completely free — no commitment required."
+  faqQ2: "Where are you located?"
+  faqA2: "Inside Calgary Co-op Dalhousie (NW Calgary) — Unit 6, 5505 Shaganappi Trail NW."
+  faqQ3: "What age groups do you teach?"
+  faqA3: "We welcome students ages 5–18, divided by age and skill level."
+  faqQ4: "Can parents watch the sessions?"
+  faqA4: "Yes! Parents are encouraged to observe and give feedback during the trial."
 
-  # Offers
-  offersTitle: "Offers"
-  offersFacebookTitle: "Facebook Post"
-  offersFbFallbackText: "If the post doesn’t load, try the "
-  offersFbLinkText: "direct Facebook link"
-  offersNovemberTitle: "November Offer"
-  joinFreeNovemberBtn: "Join Free Classes in November"
-  offersL1: "All November classes are free — no commitment required."
-  offersL2: "Sibling Save — 10% off additional siblings enrolled together."
-  offersL3: "Refer a Friend — both families get a $25 credit."
+  # How It Works
+  approachTitle: "How It Works"
+  step1Title: "Free Trial"
+  step1Body: "Book your private session and experience our approach firsthand."
+  step2Title: "Free Week of Workshops"
+  step2Body: "If you enjoyed your trial, enjoy a full week of free group workshops!"
+  step3Title: "Enroll Anytime"
+  step3Body: "Choose the monthly plan that fits your schedule — no long-term commitment."
 
-  # Policies
-  policyTitle: "Policies"
-  policyL1: "November Free Classes: In November, new students may attend classes free with no commitment (one promotional period per student)."
-  policyL2: "Enrollment & Billing: Month-to-month enrollment. Tuition is billed at the start of each month for that month’s weekly classes."
-  policyL3: "Scheduling & Attendance: Students attend one weekly class per enrolled program. Choose a consistent time slot; notify us in advance for makeup options."
-  policyL4: "Discounts: 10% sibling discount for additional children enrolled together. Referral program: if a friend enrolls, both families receive a $25 credit."
+  # Portal
+  portalTitle: "Parent & Student Portal"
+  portalSubtitle: "Already tried a class? Login or sign up to manage your ongoing sessions below."
+  loginTitle: "Login"
+  signupTitle: "Sign Up"
 
-  # Contact & footer
+  # Contact & Location
   contactTitle: "Contact & Location"
   emailLabel: "Email:"
   phoneLabel: "Phone:"
   locationLabel: "Location:"
-  mapNote: "We’re inside CO-OP Plaza, Unit 6 — 5505 Shaganappi Trail NW, Calgary."
-  footer: "© 2025 Curious Genius. Be a creator, not just a user of technology."
+  mapNote: "Located inside Dalhousie CO-OP mall (Unit 6, beside the pharmacy)."
 
+  # Policies
+  policyTitle: "Policies"
+  policyL1: "Parents must accompany children during the first trial session."
+  policyL2: "Missed workshops can be rescheduled if notice is given 24 hours in advance."
+  policyL3: "No long-term contracts. Month-to-month plans only."
+
+  # Testimonials
+  testimonialsTitle: "What Parents Are Saying"
+  testimonials:
+    - name: "Jane D., Parent of an 8-year-old"
+      quote: |-
+        "My child loves the classes and the instructors are amazing!"
+      image: "testimonial_img_1"
+    - name: "Michael L., Parent of a 12-year-old"
+      quote: |-
+        "We've seen a huge boost in our son's confidence and skills."
+      image: "testimonial_img_2"
+    - name: "Sara K., Parent of a 7-year-old"
+      quote: |-
+        "The projects are fun and educational - my daughter can't wait for class each week."
+      image: "testimonial_img_3"
+  labelMostPopular: "Most Popular"
 
 fr:
   title: "Curious Genius | Apprendre à coder — Cours pour 5 à 18 ans"
   brand: "Curious Genius"
-  tagline: "Petits groupes. Grands projets. Vraies compétences."
+  tagline: "Petits groupes. Grands projets. Vraies compétences en codage, robotique et mathématiques."
 
+  # Navigation
   navAbout: "À propos"
-  navPrograms: "Programmes et Tarifs"
+  navPrograms: "Programmes"
+  navTrial: "Essai gratuit"
   navFAQ: "FAQ"
   navApproach: "Notre méthode"
   navPortal: "Portail"
   navContact: "Contact"
   navPolicy: "Politique"
-  navOffers: "Offres"
 
-  ctaPrimary: "Cours gratuits tout novembre"
+  # Call-to-Action
+  ctaPrimary: "Réserver une séance d'essai gratuite"
   ctaSecondary: "Voir les programmes"
 
+  # Value Proposition (Pourquoi les familles choisissent Curious Genius)
   propsTitle: "Pourquoi les familles choisissent Curious Genius"
   prop1Title: "Petites classes"
   prop1Body: "6 à 8 élèves par groupe pour un suivi personnalisé."
@@ -97,72 +122,82 @@ fr:
   prop3Title: "Programme reconnu"
   prop3Body: "Aligné aux normes de l’Alberta et à Code.org."
 
+  # Programmes et Tarifs
   programsTitle: "Programmes et Tarifs"
   btnCurriculum: "Découvrir le programme"
 
-  approachTitle: "Comment ça marche"
-  step1Title: "1) Cours gratuits en novembre"
-  step1Body: "Tous les cours de novembre sont gratuits et sans engagement. Essayez le programme de votre choix !"
-  step2Title: "2) Plan personnalisé"
-  step2Body: "Placement selon l’âge et le niveau, avec des étapes d’apprentissage claires."
-  step3Title: "3) Construire et célébrer"
-  step3Body: "Projets pratiques, progression régulière et présentations des élèves."
+  # Trial
+  trialTitle: "Séance d’essai privée (Parent + enfant)"
+  trialExpectTitle: "Ce qui vous attend"
+  trialBookTitle: "Réservez votre séance"
+  trialL1: "60 minutes · Gratuit"
+  trialL2: "Les parents assistent et observent le style d'apprentissage"
+  trialL3: "Recommandation personnalisée de parcours"
 
-  # FAQ
+  # Questions fréquentes
   faqTitle: "Questions fréquentes"
-  faqQ1: "Quels programmes proposez-vous ?"
-  faqA1: "Nous proposons un programme de Mathématiques et un programme de Codage & Robotique (avec des projets d’IA adaptés aux plus grands). Disponibles pour le primaire et le secondaire, avec contenu adapté à l’âge et à l’expérience."
-  faqQ2: "Les cours de novembre sont-ils vraiment gratuits ?"
-  faqA2: "Oui. Tous les cours de novembre sont gratuits pour les nouveaux élèves, sans frais d’inscription ni engagement — une façon sans risque d’essayer nos cours."
-  faqQ3: "Quel est le coût après novembre ?"
-  faqA3: "Inscription mensuelle flexible. La facturation se fait au début de chaque mois pour les cours hebdomadaires. Réduction de 10 % pour les frères et sœurs, sans engagement à long terme."
-  faqQ4: "Quand et où ont lieu les cours ?"
-  faqA4: "Les cours se déroulent dans notre centre du NW de Calgary (Dalhousie CO-OP), en soirée et le week-end. Prévenez-nous à l’avance pour organiser une séance de rattrapage si possible."
+  faqQ1: "Les séances d'essai sont-elles vraiment gratuites ?"
+  faqA1: "Oui ! La séance d’essai est entièrement gratuite, sans engagement."
+  faqQ2: "Où êtes-vous situés ?"
+  faqA2: "Notre centre se trouve à l’intérieur du CO-OP Dalhousie (NW Calgary) — unité 6, 5505 Shaganappi Trail NW."
+  faqQ3: "Vos cours s’adressent à quels âges ?"
+  faqA3: "Nous accueillons les élèves de 5 à 18 ans, regroupés par âge et niveau."
+  faqQ4: "Les parents peuvent-ils assister aux séances ?"
+  faqA4: "Oui ! Nous encourageons les parents à observer et à donner leur avis pendant la séance d’essai."
 
-  # Offers
-  offersTitle: "Offres"
-  offersFacebookTitle: "Publication Facebook"
-  offersFbFallbackText: "Si la publication ne s’affiche pas, essayez le "
-  offersFbLinkText: "lien Facebook direct"
-  offersNovemberTitle: "Offre de novembre"
-  joinFreeNovemberBtn: "Rejoindre les cours gratuits de novembre"
-  offersL1: "Tous les cours de novembre sont gratuits — sans engagement."
-  offersL2: "Réduction fratrie — 10 % pour les frères et sœurs inscrits ensemble."
-  offersL3: "Parrainage — les deux familles reçoivent un crédit de 25 $."
+  # Comment ça marche
+  approachTitle: "Comment ça marche"
+  step1Title: "Séance d'essai gratuite"
+  step1Body: "Réservez une séance privée parent-enfant et découvrez notre méthode par vous-même."
+  step2Title: "Semaine d'ateliers gratuite"
+  step2Body: "Si la séance vous a plu, profitez d'une semaine complète d'ateliers gratuits en groupe !"
+  step3Title: "Inscription à tout moment"
+  step3Body: "Choisissez le forfait mensuel adapté à votre emploi du temps — sans engagement à long terme."
 
-  # Policies
-  policyTitle: "Politique"
-  policyL1: "Cours gratuits en novembre : les nouveaux élèves peuvent assister gratuitement aux cours en novembre (une période promotionnelle par élève)."
-  policyL2: "Inscription & Facturation : inscription au mois. Facturation au début de chaque mois pour les cours hebdomadaires."
-  policyL3: "Planification & Présence : une séance hebdomadaire par programme. Choisissez un créneau fixe ; prévenez à l’avance pour un rattrapage."
-  policyL4: "Réductions : 10 % pour les frères et sœurs inscrits ensemble. Parrainage : si un ami s’inscrit, les deux familles reçoivent un crédit de 25 $."
+  # Portail
+  portalTitle: "Portail Parents & Élèves"
+  portalSubtitle: "Vous avez déjà essayé un cours ? Connectez-vous ou inscrivez-vous pour gérer vos sessions en cours ci-dessous."
+  loginTitle: "Connexion"
+  signupTitle: "Inscription"
 
-  # Contact & footer
+  # Contact & Adresse
   contactTitle: "Contact & Adresse"
   emailLabel: "Courriel :"
   phoneLabel: "Téléphone :"
   locationLabel: "Adresse :"
-  mapNote: "Nous sommes dans le CO-OP Plaza, local 6 — 5505 Shaganappi Trail NW, Calgary."
-  footer: "© 2025 Curious Genius. Deviens créateur, pas simple utilisateur de la technologie."
+  mapNote: "Situé à l’intérieur du centre commercial CO-OP Dalhousie (local 6, à côté de la pharmacie)."
 
+  # Politique
+  policyTitle: "Politique"
+  policyL1: "Les parents doivent accompagner les enfants lors de la première séance d’essai."
+  policyL2: "Les ateliers manqués peuvent être reprogrammés si un préavis de 24h est donné."
+  policyL3: "Pas de contrat à long terme. Abonnement mensuel uniquement."
+
+  # Testimonials
+  testimonialsTitle: "Ce que disent les parents"
+  testimonials: []
+  labelMostPopular: "Le plus populaire"
 
 es:
   title: "Curious Genius | Aprende a programar — Clases para edades 5–18"
   brand: "Curious Genius"
-  tagline: "Clases pequeñas. Grandes proyectos. Habilidades reales."
+  tagline: "Clases pequeñas. Grandes proyectos. Habilidades reales de programación, robótica y matemáticas."
 
+  # Navigation
   navAbout: "Acerca de"
-  navPrograms: "Programas y Precios"
+  navPrograms: "Programas"
+  navTrial: "Prueba gratis"
   navFAQ: "Preguntas frecuentes"
   navApproach: "Cómo funciona"
   navPortal: "Portal"
   navContact: "Contacto"
   navPolicy: "Política"
-  navOffers: "Ofertas"
 
-  ctaPrimary: "¡Todas las clases de noviembre son gratis!"
+  # Call-to-Action
+  ctaPrimary: "Reservar una sesión de prueba gratuita"
   ctaSecondary: "Ver programas"
 
+  # Por qué las familias eligen Curious Genius
   propsTitle: "Por qué las familias eligen Curious Genius"
   prop1Title: "Clases pequeñas"
   prop1Body: "6–8 estudiantes por grupo para atención personalizada."
@@ -171,72 +206,82 @@ es:
   prop3Title: "Currículo confiable"
   prop3Body: "Alineado con los estándares de Alberta y Code.org."
 
+  # Programas y Precios
   programsTitle: "Programas y Precios"
   btnCurriculum: "Explorar programas"
 
-  approachTitle: "Cómo funciona"
-  step1Title: "1) Clases gratis en noviembre"
-  step1Body: "Todas las clases de noviembre son gratuitas y sin compromiso. ¡Prueba cualquier programa!"
-  step2Title: "2) Plan personalizado"
-  step2Body: "Ubicación por edad y nivel, con metas claras de aprendizaje."
-  step3Title: "3) Construir y celebrar"
-  step3Body: "Proyectos prácticos, progreso constante y exhibiciones de estudiantes."
+  # Trial
+  trialTitle: "Sesión de prueba privada (Padre + Hijo)"
+  trialExpectTitle: "Qué esperar"
+  trialBookTitle: "Reserva tu sesión"
+  trialL1: "60 minutos · Gratis"
+  trialL2: "Los padres asisten y observan el estilo de aprendizaje"
+  trialL3: "Recomendación personalizada de programa"
 
-  # FAQ
+  # Preguntas frecuentes
   faqTitle: "Preguntas frecuentes"
-  faqQ1: "¿Qué programas ofrecen?"
-  faqA1: "Ofrecemos un programa de Matemáticas y un programa de Programación y Robótica (con proyectos de IA apropiados para mayores). Ambos están disponibles para primaria y secundaria, adaptados por edad y experiencia."
-  faqQ2: "¿Las clases de noviembre son realmente gratis?"
-  faqA2: "Sí. Todas las clases de noviembre son gratuitas para estudiantes nuevos, sin tarifas de inscripción ni compromiso: una forma segura de probar nuestras clases."
-  faqQ3: "¿Cuál es el costo después de noviembre?"
-  faqA3: "La inscripción es mensual y flexible. La colegiatura se cobra al inicio de cada mes para las clases semanales. Ofrecemos 10% de descuento para hermanos y no hay contratos a largo plazo."
-  faqQ4: "¿Cuándo y dónde se imparten las clases?"
-  faqA4: "Las clases son presenciales en nuestro centro del NW de Calgary (Dalhousie CO-OP), con horarios vespertinos y de fin de semana. Avísanos con anticipación para intentar reprogramar si faltas."
+  faqQ1: "¿Las sesiones de prueba son realmente gratis?"
+  faqA1: "¡Sí! La sesión de prueba es completamente gratuita, sin compromiso."
+  faqQ2: "¿Dónde están ubicados?"
+  faqA2: "Estamos dentro del centro comercial CO-OP Dalhousie (NW de Calgary), Unidad 6, 5505 Shaganappi Trail NW."
+  faqQ3: "¿Para qué edades son sus clases?"
+  faqA3: "Aceptamos estudiantes de 5 a 18 años, divididos por edad y nivel."
+  faqQ4: "¿Pueden los padres observar las sesiones?"
+  faqA4: "¡Sí! Animamos a los padres a observar y dar sus comentarios durante la sesión de prueba."
 
-  # Offers
-  offersTitle: "Ofertas"
-  offersFacebookTitle: "Publicación de Facebook"
-  offersFbFallbackText: "Si la publicación no se carga, prueba el "
-  offersFbLinkText: "enlace directo de Facebook"
-  offersNovemberTitle: "Oferta de noviembre"
-  joinFreeNovemberBtn: "Unirse a clases gratis en noviembre"
-  offersL1: "Todas las clases de noviembre son gratis — sin compromiso."
-  offersL2: "Descuento para hermanos — 10% para hermanos inscritos juntos."
-  offersL3: "Programa de referidos — ambas familias reciben un crédito de $25."
+  # Cómo funciona
+  approachTitle: "Cómo funciona"
+  step1Title: "Clase de prueba gratuita"
+  step1Body: "Reserva una sesión privada (padre e hijo) y experimenta nuestro enfoque de primera mano."
+  step2Title: "Semana gratuita de talleres"
+  step2Body: "Si disfrutaste la sesión de prueba, ¡aprovecha una semana completa de talleres grupales gratis!"
+  step3Title: "Inscríbete en cualquier momento"
+  step3Body: "Elige el plan mensual que se adapte a tu horario — sin compromiso a largo plazo."
 
-  # Policies
-  policyTitle: "Política"
-  policyL1: "Clases gratis en noviembre: los estudiantes nuevos pueden asistir gratis en noviembre (una promoción por estudiante)."
-  policyL2: "Inscripción y facturación: inscripción mensual. La colegiatura se cobra al inicio de cada mes para las clases semanales."
-  policyL3: "Horarios y asistencia: una clase semanal por programa. Elige un horario fijo; avísanos con anticipación para opciones de reposición."
-  policyL4: "Descuentos: 10% de descuento para hermanos inscritos juntos. Programa de referidos: si un amigo se inscribe, ambas familias reciben $25 de crédito."
+  # Portal
+  portalTitle: "Portal de Padres y Estudiantes"
+  portalSubtitle: "¿Ya probaste una clase? Inicia sesión o regístrate para administrar tus sesiones a continuación."
+  loginTitle: "Iniciar sesión"
+  signupTitle: "Regístrate"
 
-  # Contact & footer
+  # Contacto y Ubicación
   contactTitle: "Contacto y Ubicación"
   emailLabel: "Correo:"
   phoneLabel: "Teléfono:"
   locationLabel: "Ubicación:"
-  mapNote: "Estamos en CO-OP Plaza, Unidad 6 — 5505 Shaganappi Trail NW, Calgary."
-  footer: "© 2025 Curious Genius. Sé un creador, no solo un usuario de la tecnología."
+  mapNote: "Estamos dentro del centro comercial CO-OP Dalhousie, Unidad 6 (al lado de la farmacia)."
 
+  # Política
+  policyTitle: "Política"
+  policyL1: "Los padres deben acompañar a los niños durante la primera sesión de prueba."
+  policyL2: "Los talleres perdidos se pueden reprogramar si se avisa con 24 horas de anticipación."
+  policyL3: "Sin contratos a largo plazo. Planes mensuales únicamente."
+
+  # Testimonials
+  testimonialsTitle: "Lo que dicen los padres"
+  testimonials: []
+  labelMostPopular: "Más popular"
 
 ar:
   title: "كيريوس جينيوس | تعلّم البرمجة — دروس للأطفال من 5 إلى 18 سنة"
   brand: "كيريوس جينيوس"
-  tagline: "صفوف صغيرة. مشاريع كبيرة. مهارات حقيقية."
+  tagline: "صفوف صغيرة. مشاريع كبيرة. مهارات حقيقية في البرمجة والروبوتات والرياضيات."
 
+  # Navigation
   navAbout: "حول"
   navPrograms: "البرامج والأسعار"
+  navTrial: "تجربة مجانية"
   navFAQ: "الأسئلة الشائعة"
   navApproach: "كيف نعمل"
   navPortal: "البوابة"
   navContact: "اتصال"
   navPolicy: "السياسات"
-  navOffers: "العروض"
 
-  ctaPrimary: "كل دروس نوفمبر مجانية"
+  # Call-to-Action
+  ctaPrimary: "احجز جلسة تجريبية مجانية"
   ctaSecondary: "استعرض البرامج"
 
+  # لماذا تختار العائلات كيريوس جينيوس
   propsTitle: "لماذا تختار العائلات كيريوس جينيوس"
   prop1Title: "صفوف صغيرة"
   prop1Body: "6 إلى 8 طلاب في كل مجموعة لضمان متابعة فردية."
@@ -245,72 +290,82 @@ ar:
   prop3Title: "منهج موثوق"
   prop3Body: "متوافق مع معايير ألبرتا ومسارات Code.org."
 
+  # البرامج والأسعار
   programsTitle: "البرامج والأسعار"
   btnCurriculum: "استكشف المنهج"
 
-  approachTitle: "كيف نعمل"
-  step1Title: "1) دروس نوفمبر المجانية"
-  step1Body: "طوال نوفمبر الدروس مجانية وبدون التزام — جرّب أي برنامج!"
-  step2Title: "2) خطة تعليمية شخصية"
-  step2Body: "تحديد المستوى حسب العمر والمهارة مع أهداف تعلم واضحة."
-  step3Title: "3) نبني ونحتفل"
-  step3Body: "مشاريع عملية، تقدّم مستمر، وعروض لإنجازات الطلاب."
+  # Trial
+  trialTitle: "جلسة تجريبية خاصة (ولي الأمر + الطفل)"
+  trialExpectTitle: "ما الذي تتوقعه"
+  trialBookTitle: "احجز جلسة التجربة"
+  trialL1: "60 دقيقة · مجانًا"
+  trialL2: "يحضر الوالدان ويلاحظان أسلوب التعلم"
+  trialL3: "توصية مخصصة بالمسار المناسب"
 
-  # FAQ
+  # الأسئلة الشائعة
   faqTitle: "الأسئلة الشائعة"
-  faqQ1: "ما هي البرامج التي تقدّمونها؟"
-  faqA1: "نقدّم برنامج الرياضيات وبرنامج البرمجة والروبوتات (مع مشاريع ذكاء اصطناعي للمراحل الأكبر). كلاهما متاح للمرحلة الابتدائية والمتوسطة/الثانوية، مع تكييف المحتوى حسب العمر والخبرة."
-  faqQ2: "هل دروس نوفمبر مجانية فعلاً؟"
-  faqA2: "نعم، جميع دروس نوفمبر مجانية للطلاب الجدد دون رسوم تسجيل أو التزام — طريقة آمنة لتجربة دروسنا."
-  faqQ3: "كم التكلفة بعد نوفمبر؟"
-  faqA3: "الاشتراك شهري ومرن. تُحصّل الرسوم في بداية كل شهر للدروس الأسبوعية. يوجد خصم 10٪ للأشقاء ولا عقود طويلة — يمكنك الإلغاء للشهر التالي في أي وقت."
-  faqQ4: "متى وأين تُقام الدروس؟"
-  faqA4: "الدروس حضورية في مركزنا بشمال غرب كالغاري (Dalhousie CO-OP) مع مواعيد مسائية وعطلة نهاية الأسبوع. أخبرونا مسبقًا عند الغياب لمحاولة ترتيب حصة تعويضية."
+  faqQ1: "هل الجلسات التجريبية مجانية حقًا؟"
+  faqA1: "نعم! الجلسة التجريبية مجانية تمامًا — بدون أي التزام."
+  faqQ2: "أين موقعكم؟"
+  faqA2: "نحن داخل مركز تسوق CO-OP Dalhousie في شمال غرب كالجاري — الوحدة 6، 5505 Shaganappi Trail NW."
+  faqQ3: "ما الفئات العمرية التي تدرسونها؟"
+  faqA3: "نرحب بالطلاب من عمر 5 إلى 18 سنة، مقسمين حسب العمر والمستوى."
+  faqQ4: "هل يمكن للأهل حضور الجلسات؟"
+  faqA4: "نعم! نشجع الأهالي على الحضور وإبداء آرائهم خلال الجلسة التجريبية."
 
-  # Offers
-  offersTitle: "العروض"
-  offersFacebookTitle: "منشور فيسبوك"
-  offersFbFallbackText: "إذا لم يظهر المنشور، جرّب "
-  offersFbLinkText: "رابط فيسبوك المباشر"
-  offersNovemberTitle: "عرض نوفمبر"
-  joinFreeNovemberBtn: "انضم إلى دروس نوفمبر المجانية"
-  offersL1: "جميع دروس نوفمبر مجانية — دون أي التزام."
-  offersL2: "خصم الأشقاء — 10٪ عند تسجيل الأشقاء معًا."
-  offersL3: "برنامج الإحالة — تحصل الأُسرتان على رصيد بقيمة 25$."
+  # كيف نعمل
+  approachTitle: "كيف نعمل"
+  step1Title: "جلسة تجريبية مجانية"
+  step1Body: "احجز جلسة خاصة (ولي الأمر + الطفل) لتجربة طريقتنا بشكل مباشر."
+  step2Title: "أسبوع مجاني من الورش"
+  step2Body: "إذا استمتعت بجلسة التجربة، تمتع بأسبوع كامل من ورش العمل الجماعية المجانية!"
+  step3Title: "التسجيل في أي وقت"
+  step3Body: "اختر الخطة الشهرية التي تناسب جدولك — بدون أي التزام طويل الأمد."
 
-  # Policies
-  policyTitle: "السياسات"
-  policyL1: "دروس نوفمبر المجانية: في نوفمبر يمكن للطلاب الجدد حضور الدروس مجانًا وبدون التزام (مرة واحدة لكل طالب)."
-  policyL2: "التسجيل والفوترة: اشتراك شهري قابل للإلغاء. تُحصّل الرسوم في بداية كل شهر للدروس الأسبوعية."
-  policyL3: "الجدولة والحضور: حصة أسبوعية واحدة لكل برنامج. اختر موعدًا ثابتًا؛ وأبلغنا مسبقًا لمحاولة توفير تعويض."
-  policyL4: "الخصومات: خصم 10٪ للأشقاء المسجّلين معًا. برنامج الإحالة: عند تسجيل صديق، تحصل الأسرتان على رصيد 25$."
+  # البوابة
+  portalTitle: "بوابة أولياء الأمور والطلاب"
+  portalSubtitle: "هل جربت صفاً من قبل؟ قم بتسجيل الدخول أو التسجيل لإدارة جلساتك الحالية أدناه."
+  loginTitle: "تسجيل الدخول"
+  signupTitle: "إنشاء حساب"
 
-  # Contact & footer
+  # اتصل بنا والموقع
   contactTitle: "اتصل بنا والموقع"
   emailLabel: "البريد الإلكتروني:"
   phoneLabel: "الهاتف:"
   locationLabel: "العنوان:"
-  mapNote: "نحن داخل CO-OP Plaza، الوحدة 6 — 5505 Shaganappi Trail NW، كالجاري."
-  footer: "© 2025 كيريوس جينيوس. كن مُبدعًا لا مجرد مستخدم للتقنية."
+  mapNote: "داخل مركز CO-OP Dalhousie التجاري (الوحدة 6، بجانب الصيدلية)."
 
+  # السياسات
+  policyTitle: "السياسات"
+  policyL1: "يجب أن يصحب الوالدان الأطفال خلال أول جلسة تجريبية."
+  policyL2: "يمكن إعادة جدولة الورش الفائتة إذا تم الإبلاغ قبل 24 ساعة."
+  policyL3: "لا عقود طويلة الأمد. اشتراك شهري فقط."
+
+  # Testimonials
+  testimonialsTitle: "ماذا يقول الأهالي"
+  testimonials: []
+  labelMostPopular: "الأكثر شعبية"
 
 pa:
   title: "Curious Genius | ਕੋਡ ਸਿੱਖੋ — ਉਮਰ 5–18 ਲਈ ਕਲਾਸਾਂ"
   brand: "Curious Genius"
-  tagline: "ਛੋਟੀਆਂ ਕਲਾਸਾਂ। ਵੱਡੇ ਪ੍ਰਾਜੈਕਟ। ਅਸਲੀ ਹੁਨਰ।"
+  tagline: "ਛੋਟੀਆਂ ਕਲਾਸਾਂ। ਵੱਡੇ ਪ੍ਰਾਜੈਕਟ। ਕੋਡਿੰਗ, ਰੋਬੋਟਿਕਸ ਅਤੇ ਗਣਿਤ ਦੇ ਅਸਲੀ ਹੁਨਰ।"
 
+  # Navigation
   navAbout: "ਬਾਰੇ"
   navPrograms: "ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੀਮਤਾਂ"
+  navTrial: "ਮੁਫ਼ਤ ਅਜ਼ਮਾਇਸ਼"
   navFAQ: "ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ"
   navApproach: "ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ"
   navPortal: "ਪੋਰਟਲ"
   navContact: "ਸੰਪਰਕ"
   navPolicy: "ਨੀਤੀਆਂ"
-  navOffers: "ਆਫਰਾਂ"
 
-  ctaPrimary: "ਨਵੰਬਰ ਦੀਆਂ ਸਭ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ"
+  # Call-to-Action
+  ctaPrimary: "ਮੁਫ਼ਤ ਅਜ਼ਮਾਇਸ਼ੀ ਸੈਸ਼ਨ ਬੁੱਕ ਕਰੋ"
   ctaSecondary: "ਪ੍ਰੋਗਰਾਮ ਵੇਖੋ"
 
+  # ਪਰਿਵਾਰ ਕਿਉਂ ਚੁਣਦੇ ਹਨ Curious Genius
   propsTitle: "ਪਰਿਵਾਰ Curious Genius ਕਿਉਂ ਚੁਣਦੇ ਹਨ"
   prop1Title: "ਛੋਟੀਆਂ ਕਲਾਸਾਂ"
   prop1Body: "ਹਰ ਗਰੁੱਪ ਵਿੱਚ 6–8 ਵਿਦਿਆਰਥੀ — ਨਿੱਜੀ ਧਿਆਨ ਲਈ।"
@@ -319,50 +374,58 @@ pa:
   prop3Title: "ਭਰੋਸੇਯੋਗ ਕਰਿਕੁਲਮ"
   prop3Body: "Alberta ਸਿੱਖਿਆ ਅਤੇ Code.org ਮਾਪਦੰਡਾਂ ਅਨੁਸਾਰ।"
 
+  # ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੀਮਤਾਂ
   programsTitle: "ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੀਮਤਾਂ"
   btnCurriculum: "ਕਰਿਕੁਲਮ ਦੇਖੋ"
 
-  approachTitle: "ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ"
-  step1Title: "1) ਨਵੰਬਰ ਮੁਫ਼ਤ ਕਲਾਸਾਂ"
-  step1Body: "ਸਾਰੇ ਨਵੰਬਰ ਵਿੱਚ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ — ਕੋਈ ਫੀਸ ਜਾਂ ਕਮੀਟਮੈਂਟ ਨਹੀਂ। ਕਿਸੇ ਵੀ ਪ੍ਰੋਗਰਾਮ ਨਾਲ ਸ਼ੁਰੂ ਕਰੋ!"
-  step2Title: "2) ਵਿਅਕਤੀਗਤ ਯੋਜਨਾ"
-  step2Body: "ਉਮਰ ਅਤੇ ਹੁਨਰ ਅਨੁਸਾਰ ਪਲੇਸਮੈਂਟ, ਸਪਸ਼ਟ ਸਿਖਲਾਈ ਟੀਚਿਆਂ ਨਾਲ।"
-  step3Title: "3) ਬਣਾਓ ਅਤੇ ਮਨਾਓ"
-  step3Body: "ਹੱਥ-ਓਨ ਪ੍ਰੋਜੈਕਟ, ਲਗਾਤਾਰ ਪ੍ਰਗਤੀ ਅਤੇ ਵਿਦਿਆਰਥੀ ਪ੍ਰਦਰਸ਼ਨ।"
+  # Trial
+  trialTitle: "ਨਿੱਜੀ ਅਜ਼ਮਾਇਸ਼ੀ ਸੈਸ਼ਨ (ਮਾਤਾ-ਪਿਤਾ + ਬੱਚਾ)"
+  trialExpectTitle: "ਕੀ ਉਮੀਦ ਕਰਨੀ ਹੈ"
+  trialBookTitle: "ਆਪਣਾ ਅਜ਼ਮਾਇਸ਼ ਬੁੱਕ ਕਰੋ"
+  trialL1: "60 ਮਿੰਟ · ਮੁਫ਼ਤ"
+  trialL2: "ਮਾਪੇ ਹਾਜ਼ਰ ਹੁੰਦੇ ਹਨ ਅਤੇ ਸਿੱਖਣ ਦੇ ਢੰਗ ਦਾ ਨਿਰਿਖਣ ਕਰਦੇ ਹਨ"
+  trialL3: "ਨਿੱਜੀਕ੍ਰਿਤ ਟ੍ਰੈਕ ਦੀ ਸਿਫਾਰਸ਼"
 
-  # FAQ
+  # ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ
   faqTitle: "ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ"
-  faqQ1: "ਤੁਸੀਂ ਕਿਹੜੇ ਪ੍ਰੋਗਰਾਮ ਦਿੰਦੇ ਹੋ?"
-  faqA1: "ਅਸੀਂ ਗਣਿਤ ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਕੋਡਿੰਗ-ਰੋਬੋਟਿਕਸ ਪ੍ਰੋਗਰਾਮ ਦਿੰਦੇ ਹਾਂ (ਵੱਡਿਆਂ ਲਈ ਉਚਿਤ AI ਪ੍ਰੋਜੈਕਟਾਂ ਸਮੇਤ)। ਦੋਵੇਂ ਪ੍ਰਾਇਮਰੀ ਅਤੇ ਸੈਕੰਡਰੀ ਲਈ ਉਪਲਬਧ ਹਨ, ਉਮਰ ਅਤੇ ਅਨੁਭਵ ਮੁਤਾਬਕ।"
-  faqQ2: "ਕੀ ਨਵੰਬਰ ਦੀਆਂ ਕਲਾਸਾਂ ਸੱਚਮੁਚ ਮੁਫ਼ਤ ਹਨ?"
-  faqA2: "ਹਾਂ। ਨਵੇਂ ਵਿਦਿਆਰਥੀਆਂ ਲਈ ਸਾਰੇ ਨਵੰਬਰ ਵਿੱਚ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ — ਕੋਈ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਫੀਸ ਜਾਂ ਕਮੀਟਮੈਂਟ ਨਹੀਂ।"
-  faqQ3: "ਨਵੰਬਰ ਤੋਂ ਬਾਅਦ ਕੀ ਲਾਗਤ ਰਹੇਗੀ?"
-  faqA3: "ਦਾਖ਼ਲਾ ਮਹੀਨਾ-ਦਰ-ਮਹੀਨਾ ਅਤੇ ਲਚਕੀਲਾ ਹੈ। ਹਫ਼ਤਾਵਾਰੀ ਕਲਾਸਾਂ ਲਈ ਫੀਸ ਹਰ ਮਹੀਨੇ ਦੇ ਸ਼ੁਰੂ ਵਿੱਚ ਲੱਗਦੀ ਹੈ। ਭੈਣ-ਭਰਾ ਲਈ 10% ਛੂਟ, ਅਤੇ ਕੋਈ ਲੰਮਾ ਕਾਂਟਰੈਕਟ ਨਹੀਂ।"
-  faqQ4: "ਕਲਾਸਾਂ ਕਦੋਂ ਅਤੇ ਕਿੱਥੇ ਹੁੰਦੀਆਂ ਹਨ?"
-  faqA4: "ਸਾਡਾ ਕੇਂਦਰ NW ਕੈਲਗਰੀ (Dalhousie CO-OP) ਵਿੱਚ ਹੈ, ਸ਼ਾਮ ਅਤੇ ਵੀਕਐਂਡ ਸਮਿਆਂ ਨਾਲ। ਗ਼ੈਰਹਾਜ਼ਰੀ ਤੋਂ ਪਹਿਲਾਂ ਦੱਸੋ, ਅਸੀਂ ਮੇਕਅਪ ਦਾ ਯਤਨ ਕਰਾਂਗੇ।"
+  faqQ1: "ਕੀ ਟ੍ਰਾਇਲ ਸੈਸ਼ਨ ਸੱਚਮੁੱਚ ਮੁਫ਼ਤ ਹਨ?"
+  faqA1: "ਹਾਂ! ਟ੍ਰਾਇਲ ਪੂਰੀ ਤਰ੍ਹਾਂ ਮੁਫ਼ਤ ਹੈ — ਕਿਸੇ ਵੀ ਕਮੀਟਮੈਂਟ ਤੋਂ ਬਿਨਾ।"
+  faqQ2: "ਤੁਹਾਡਾ ਸਥਾਨ ਕਿੱਥੇ ਹੈ?"
+  faqA2: "ਅਸੀਂ NW ਕੈਲਗਰੀ ਦੇ CO-OP Dalhousie ਮਾਲ ਦੇ ਅੰਦਰ ਸਥਿਤ ਹਾਂ — ਯੂਨਿਟ 6, 5505 Shaganappi Trail NW."
+  faqQ3: "ਤੁਸੀਂ ਕਿਹੜੀਆਂ ਉਮਰਾਂ ਦੇ ਬੱਚਿਆਂ ਨੂੰ ਪੜ੍ਹਾਉਂਦੇ ਹੋ?"
+  faqA3: "ਅਸੀਂ 5 ਤੋਂ 18 ਸਾਲ ਦੀ ਉਮਰ ਦੇ ਵਿਦਿਆਰਥੀਆਂ ਦਾ ਸਵਾਗਤ ਕਰਦੇ ਹਾਂ, ਜਿਨ੍ਹਾਂ ਨੂੰ ਉਮਰ ਅਤੇ ਕੌਸ਼ਲ ਅਨੁਸਾਰ ਵੰਡਿਆ ਗਿਆ ਹੈ।"
+  faqQ4: "ਕੀ ਮਾਪੇ ਸੈਸ਼ਨਾਂ ਦੇਖ ਸਕਦੇ ਹਨ?"
+  faqA4: "ਹਾਂ! ਅਸੀਂ ਮਾਪਿਆਂ ਨੂੰ ਟ੍ਰਾਇਲ ਦੌਰਾਨ ਹਾਜ਼ਰ ਰਹਿਣ ਅਤੇ ਆਪਣੀ ਪ੍ਰਤੀਕਿਰਿਆ ਦੇਣ ਲਈ ਪ੍ਰੋਤਸਾਹਿਤ ਕਰਦੇ ਹਾਂ."
 
-  # Offers
-  offersTitle: "ਆਫਰਾਂ"
-  offersFacebookTitle: "Facebook ਪੋਸਟ"
-  offersFbFallbackText: "ਜੇ ਪੋਸਟ ਨਾ ਲੋਡ ਹੋਵੇ ਤਾਂ "
-  offersFbLinkText: "ਫੇਸਬੁੱਕ ਡਾਇਰੈਕਟ ਲਿੰਕ"
-  offersNovemberTitle: "ਨਵੰਬਰ ਆਫਰ"
-  joinFreeNovemberBtn: "ਨਵੰਬਰ ਮੁਫ਼ਤ ਕਲਾਸਾਂ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ"
-  offersL1: "ਨਵੰਬਰ ਦੀਆਂ ਸਾਰੀਆਂ ਕਲਾਸਾਂ ਮੁਫ਼ਤ ਹਨ — ਕਿਸੇ ਕਮੀਟਮੈਂਟ ਤੋਂ ਬਿਨਾ।"
-  offersL2: "ਭੈਣ-ਭਰਾ ਛੂਟ — ਇਕੱਠੇ ਦਾਖ਼ਲੇ ’ਤੇ 10% ਛੂਟ।"
-  offersL3: "ਰੇਫਰਲ — ਦੋਸਤ ਦਾਖ਼ਲ ਹੋਣ ’ਤੇ ਦੋਵੇਂ ਪਰਿਵਾਰਾਂ ਨੂੰ $25 ਕ੍ਰੇਡਿਟ।"
+  # ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ
+  approachTitle: "ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ"
+  step1Title: "ਮੁਫ਼ਤ ਅਜ਼ਮਾਇਸ਼ੀ ਸੈਸ਼ਨ"
+  step1Body: "ਇੱਕ ਨਿੱਜੀ ਕਲਾਸ (ਮਾਤਾ-ਪਿਤਾ + ਬੱਚਾ) ਬੁੱਕ ਕਰੋ ਅਤੇ ਸਾਡੇ ਤਰੀਕੇ ਨੂੰ ਖੁਦ ਅਨੁਭਵ ਕਰੋ।"
+  step2Title: "ਮੁਫ਼ਤ ਵਰਕਸ਼ਾਪਾਂ ਦਾ ਹਫ਼ਤਾ"
+  step2Body: "ਜੇ ਤੁਹਾਨੂੰ ਤੁਹਾਡੀ ਅਜ਼ਮਾਇਸ਼ੀ ਕਲਾਸ ਚੰਗੀ ਲੱਗੀ, ਤਾਂ ਇੱਕ ਪੂਰਾ ਹਫ਼ਤਾ ਮੁਫ਼ਤ ਸਮੂਹ ਵਰਕਸ਼ਾਪਾਂ ਦਾ ਅਨੰਦ ਲਓ!"
+  step3Title: "ਕਦੇ ਵੀ ਦਾਖਲਾ ਕਰੋ"
+  step3Body: "ਆਪਣੇ ਸਮੇਂ ਅਨੁਸਾਰ ਮਾਸਿਕ ਯੋਜਨਾ ਚੁਣੋ — ਕੋਈ ਲੰਮੇ ਸਮੇਂ ਦੀ ਵਚਨਬੱਧਤਾ ਨਹੀਂ ਹੈ।"
 
-  # Policies
-  policyTitle: "ਨੀਤੀਆਂ"
-  policyL1: "ਨਵੰਬਰ ਮੁਫ਼ਤ ਕਲਾਸਾਂ: ਨਵੇਂ ਵਿਦਿਆਰਥੀ ਨਵੰਬਰ ਵਿੱਚ ਬਿਨਾ ਕਮੀਟਮੈਂਟ ਕਲਾਸਾਂ ਵਿੱਚ ਮੁਫ਼ਤ ਆ ਸਕਦੇ ਹਨ (ਹਰ ਵਿਦਿਆਰਥੀ ਲਈ ਇੱਕ ਵਾਰ)।"
-  policyL2: "ਦਾਖ਼ਲਾ ਅਤੇ ਬਿਲਿੰਗ: ਮਹੀਨਾ-ਦਰ-ਮਹੀਨਾ ਦਾਖ਼ਲਾ। ਹਫ਼ਤਾਵਾਰੀ ਕਲਾਸਾਂ ਲਈ ਫੀਸ ਮਹੀਨੇ ਦੀ ਸ਼ੁਰੂਆਤ ਵਿੱਚ।"
-  policyL3: "ਸ਼ਡਿਊਲ ਅਤੇ ਹਾਜ਼ਰੀ: ਹਰ ਪ੍ਰੋਗਰਾਮ ਲਈ ਹਫ਼ਤੇ ਵਿੱਚ ਇੱਕ ਕਲਾਸ। ਨਿਯਮਿਤ ਸਮਾਂ ਚੁਣੋ; ਪਹਿਲਾਂ ਦੱਸਣ ’ਤੇ ਮੇਕਅਪ ਵਿਕਲਪ ਮਿਲ ਸਕਦੇ ਹਨ।"
-  policyL4: "ਛੂਟ: ਇੱਕਠੇ ਦਾਖ਼ਲੇ ’ਤੇ ਭੈਣ-ਭਰਾ ਲਈ 10% ਛੂਟ। ਰੈਫਰਲ ਪ੍ਰੋਗਰਾਮ: ਦੋਸਤ ਦਾਖ਼ਲ ਹੋਣ ’ਤੇ ਦੋਵੇਂ ਪਰਿਵਾਰਾਂ ਨੂੰ $25 ਕ੍ਰੇਡਿਟ।"
+  # ਪੋਰਟਲ
+  portalTitle: "ਮਾਪੇ ਅਤੇ ਵਿਦਿਆਰਥੀ ਪੋਰਟਲ"
+  portalSubtitle: "ਕੀ ਤੁਸੀਂ ਪਹਿਲਾਂ ਹੀ ਇੱਕ ਕਲਾਸ ਅਜ਼ਮਾਈ ਹੈ? ਹੇਠਾਂ ਆਪਣੀਆਂ ਚਾਲੂ ਸੈਸ਼ਨਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਨ ਲਈ ਲਾਗਇਨ ਕਰੋ ਜਾਂ ਸਾਇਨ ਅਪ ਕਰੋ।"
+  loginTitle: "ਲਾਗਇਨ"
+  signupTitle: "ਸਾਈਨ ਅਪ"
 
-  # Contact & footer
+  # ਸੰਪਰਕ ਅਤੇ ਸਥਾਨ
   contactTitle: "ਸੰਪਰਕ ਅਤੇ ਸਥਾਨ"
   emailLabel: "ਈਮੇਲ:"
   phoneLabel: "ਫ਼ੋਨ:"
   locationLabel: "ਪਤਾ:"
-  mapNote: "ਅਸੀਂ CO-OP Plaza ਦੇ ਅੰਦਰ ਹਾਂ, ਯੂਨਿਟ 6 — 5505 Shaganappi Trail NW, ਕੈਲਗਰੀ।"
-  footer: "© 2025 Curious Genius. ਟੈਕਨੋਲੋਜੀ ਦੇ ਵਰਤੋਂਕਾਰ ਨਹੀਂ, ਬਣਾਉਣ ਵਾਲੇ ਬਣੋ।"
+  mapNote: "ਅਸੀਂ CO-OP Dalhousie ਮਾਲ ਦੇ ਅੰਦਰ ਹਾਂ (ਯੂਨਿਟ 6, ਫਾਰਮੇਸੀ ਦੇ ਕੋਲ)."
+
+  # ਨੀਤੀਆਂ
+  policyTitle: "ਨੀਤੀਆਂ"
+  policyL1: "ਮਾਪੇ ਪਹਿਲੀ ਅਜ਼ਮਾਇਸ਼ੀ ਕਲਾਸ ਦੌਰਾਨ ਬੱਚਿਆਂ ਨਾਲ ਹੋਣੇ ਚਾਹੀਦੇ ਹਨ।"
+  policyL2: "ਗੈਰਹਾਜ਼ਰ ਵਰਕਸ਼ਾਪਾਂ ਨੂੰ 24 ਘੰਟੇ ਪਹਿਲਾਂ ਸੁਚਨਾ ਤੇ ਦੁਬਾਰਾ ਤਹਿ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।"
+  policyL3: "ਕੋਈ ਲੰਬੇ ਸਮੇਂ ਦੇ ਕਾਂਟਰੈਕਟ ਨਹੀਂ। ਸਿਰਫ਼ ਮਹੀਨਾ-ਦਰ-ਮਹੀਨਾ ਯੋਜਨਾਵਾਂ ਹੀ ਹਨ।"
+
+  # Testimonials
+  testimonialsTitle: "ਮਾਤਾ-ਪਿਤਾ ਕੀ ਕਹਿੰਦੇ ਹਨ"
+  testimonials: []
+  labelMostPopular: "ਸਭ ਤੋਂ ਲੋਕਪ੍ਰਿਯ"
