@@ -1,21 +1,21 @@
 # Programs & Pricing (Plans)
 programs:
-  - name: "Technology Explorer"
-    price: 99
-    unit: "month"
-    sessions_per_month: 8
-    description: "Includes 8 sessions/month. Choose Coding, Robotics, or AI projects."
-  - name: "Technology Builder"
-    price: 149
-    unit: "month"
-    sessions_per_month: 24
-    description: "Up to 24 sessions/month for deeper exploration."
-    featured: true  # Most popular
-  - name: "Math Mastery"
-    price: 99
+  - name: "Technology Maker"
+    price: $149
     unit: "month"
     sessions_per_month: 4
-    description: "Weekly sessions to build strong foundations using Alberta & Singapore Math methods."
+    description: "Includes 4 sessions/month. Choose Coding, Robotics, or AI projects."
+  - name: "Math Master"
+    price: $149
+    unit: "month"
+    sessions_per_month: 24
+    description: "Includes 4 sessions/month. Master Mathmatics, build strong foundations using Alberta Math methods."
+    featured: true  # Most popular
+  - name: "1-1 Private"
+    price: $49
+    unit: "session"
+    sessions_per_month: 1
+    description: "Individual sessions to build strong foundations using Alberta Math methods."
 
 # Discounts
 discounts:
