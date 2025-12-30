@@ -135,35 +135,3 @@ footer .sep{display:inline-block;padding:0 10px;opacity:.7}
 .ig-embed-wrap blockquote.instagram-media{
   width: 100% !important;
 }
-
-/* Mobile nav behavior */
-@media (max-width: 900px) {
-  .hamburger { display: inline-flex; }
-
-  .topbar { position: relative; }
-
-  .mainnav {
-    display: none;
-    position: absolute;
-    top: 64px;           /* adjust if needed */
-    right: 16px;
-    left: 16px;
-    flex-direction: column;
-    gap: 10px;
-    padding: 14px;
-    border-radius: 12px;
-    background: white;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    z-index: 9999;
-  }
-
-  .mainnav.is-open {
-    display: flex;
-  }
-}
-
-/* Desktop nav */
-@media (min-width: 901px) {
-  .hamburger { display: none; }
-  .mainnav { display: flex; }
-}
