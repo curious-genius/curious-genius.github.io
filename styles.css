@@ -107,12 +107,25 @@ footer .sep{display:inline-block;padding:0 10px;opacity:.7}
 
 /* Responsive */
 @media (max-width: 980px){
+  .topbar{ position: sticky; top:0; z-index:50; }
+  .topbar{ position: relative; } /* anchor for absolute menu */
+
   .grid--3{grid-template-columns:1fr}
   .grid--2{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
 
   .hamburger{display:block}
-  .mainnav{position:absolute;inset:60px 12px auto 12px;display:none;flex-direction:column;background:#fff;border:1px solid #eee;border-radius:12px;padding:10px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+  .mainnav{
+    position:absolute;
+    inset:60px 12px auto 12px;
+    display:none;
+    flex-direction:column;
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:12px;
+    padding:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08)
+  }
   .mainnav.open{display:flex}
 }
 
