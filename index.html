@@ -87,6 +87,53 @@
     }
     document.addEventListener('DOMContentLoaded', loadContent);
   </script>
+
+  <!-- hamburger menu -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('hamburger');
+    const nav = document.querySelector('.mainnav');
+    if (!btn || !nav) return;
+
+    // Accessibility
+    btn.setAttribute('aria-expanded', 'false');
+
+    function closeMenu() {
+      nav.classList.remove('is-open');
+      btn.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleMenu() {
+      const isOpen = nav.classList.toggle('is-open');
+      btn.classList.toggle('is-open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      toggleMenu();
+    });
+
+    // Close when clicking a nav link (mobile)
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => closeMenu());
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function (e) {
+      if (!nav.classList.contains('is-open')) return;
+      const clickedInside = nav.contains(e.target) || btn.contains(e.target);
+      if (!clickedInside) closeMenu();
+    });
+
+    // Close when resizing up to desktop
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900) closeMenu();
+    });
+  });
+</script>
+
 </head>
 
 <body>
