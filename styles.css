@@ -284,3 +284,16 @@ footer .sep{display:inline-block;padding:0 10px;opacity:.7}
   }
 }
 
+.read-more {
+  margin-top: 0.75rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #1a73e8;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
