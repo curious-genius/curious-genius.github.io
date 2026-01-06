@@ -297,3 +297,63 @@ footer .sep{display:inline-block;padding:0 10px;opacity:.7}
 .read-more:hover {
   text-decoration: underline;
 }
+/* =========================
+   Modal
+========================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 999;
+}
+
+.modal[aria-hidden="false"] {
+  display: block;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal__panel {
+  position: relative;
+  background: #fff;
+  max-width: 720px;
+  margin: 6vh auto;
+  padding: 2rem;
+  border-radius: 16px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.tool {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.tool img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+@media (max-width: 700px) {
+  .tool {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
