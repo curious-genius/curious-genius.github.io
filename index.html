@@ -125,6 +125,22 @@
     });
   });
 </script>
+<script>
+  document.addEventListener('click', function (e) {
+    const open = e.target.closest('[data-open]');
+    const close = e.target.closest('[data-close]');
+
+    if (open) {
+      document.getElementById(open.dataset.open)
+        .setAttribute('aria-hidden', 'false');
+    }
+
+    if (close) {
+      close.closest('.modal')
+        .setAttribute('aria-hidden', 'true');
+    }
+  });
+</script>
 
 
 </head>
