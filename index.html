@@ -327,6 +327,7 @@
       <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
         <a class="btn" href="sms:+18259948148?&body=ROBLOX">Text “ROBLOX”</a>
         <a class="btn btn--ghost" href="#book">Book Now</a>
+        <a class="btn btn--ghost" href="#" onclick="openRobloxPlan(event)">📘 View Learning Plan</a>
       </div>
     </div>
   </div>
@@ -609,5 +610,96 @@
   </div>
 </div>
 
+
+  <!-- Roblox Journey Learning Plan Modal -->
+<div id="robloxPlanModal" class="modal-overlay" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeRobloxPlan()">×</button>
+
+    <h2>🎮 Build Your Own Game (Roblox)</h2>
+    <p class="modal-subtitle">
+      12-Week Instructor-Led Learning Journey • Ages 7–17
+    </p>
+
+    <div class="modal-grid">
+      <div class="modal-week">
+        <h4>Weeks 1–2 · Foundations</h4>
+        <ul>
+          <li>Roblox Studio interface</li>
+          <li>Game world & objects</li>
+          <li>Player movement & obstacles</li>
+        </ul>
+      </div>
+
+      <div class="modal-week">
+        <h4>Weeks 3–4 · Lua Basics</h4>
+        <ul>
+          <li>Lua scripting fundamentals</li>
+          <li>Events & interactions</li>
+          <li>Triggers & conditions</li>
+        </ul>
+      </div>
+
+      <div class="modal-week">
+        <h4>Weeks 5–6 · Game Mechanics</h4>
+        <ul>
+          <li>Variables & scoring systems</li>
+          <li>Loops & timers</li>
+          <li>Win & lose conditions</li>
+        </ul>
+      </div>
+
+      <div class="modal-week">
+        <h4>Weeks 7–8 · Game Systems</h4>
+        <ul>
+          <li>Menus & UI basics</li>
+          <li>Sound & visual effects</li>
+          <li>Checkpoints & levels</li>
+        </ul>
+      </div>
+
+      <div class="modal-week">
+        <h4>Weeks 9–10 · Advanced Play</h4>
+        <ul>
+          <li>NPCs & simple AI</li>
+          <li>Game rules & balance</li>
+          <li>Testing & debugging</li>
+        </ul>
+      </div>
+
+      <div class="modal-week">
+        <h4>Weeks 11–12 · Publish & Share</h4>
+        <ul>
+          <li>Final game polish</li>
+          <li>Publishing to Roblox</li>
+          <li>Presentation & certificate</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <p>
+        🎯 <strong>Final Outcome:</strong>  
+        A published Roblox game + real Lua coding experience
+      </p>
+      <a class="btn" href="sms:+18259948148?&body=ROBLOX">
+        Text ROBLOX to Register
+      </a>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
+<script>
+  function openRobloxPlan(e) {
+    e.preventDefault();
+    document.getElementById('robloxPlanModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeRobloxPlan() {
+    document.getElementById('robloxPlanModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+</script>
