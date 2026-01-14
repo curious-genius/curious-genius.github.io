@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title id="pageTitle">Curious Genius | Learn to Code — Classes for Ages 5–18</title>
-  <meta name="description" content="Curious Genius offers small-group Math, Coding & Robotics for ages 5–18 in NW Calgary. All November classes are free with no commitment. Alberta-aligned, Code.org powered." />
+  <meta name="description" content="Curious Genius offers small-group Coding, Robotics & Math for ages 5–18 in NW Calgary. Project-based learning, real skills, and supportive instruction. Book a free trial." />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="canonical" href="https://curiousgenius.ca/" />
 
@@ -32,24 +32,17 @@
     body.rtl ul { padding-inline-start: 0; }
   </style>
 
-  <!-- Google tag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17680952488"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-17680952488');
-  </script>
-
-  <!-- Google tag (gtag.js) -->
+ <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6K2N47760T"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-6K2N47760T');
+  gtag('config', 'G-6K2N47760T');         // GA4
+  gtag('config', 'AW-17680952488');       // Google Ads
 </script>
+
 
   <!-- Instagram -->
   <script async defer src="https://www.instagram.com/embed.js"></script>
@@ -205,7 +198,7 @@
     <div class="image-block__content">
       <h2>Learning That Feels Personal</h2>
       <p>
-        Small groups of 3–6 students. Real guidance from caring instructors.
+        Small groups of 2–6 students. Real guidance from caring instructors.
         Hands-on coding, robotics, and problem-solving in a calm, supportive space.
       </p>
     </div>
@@ -219,7 +212,7 @@
         <li class="card">
           <div class="card-icon">👩‍🏫</div>
           <h3>Small Classes</h3>
-          <p>6–8 learners per cohort for focused, individualized attention.</p>
+          <p>2–6 learners per cohort for focused, individualized attention.</p>
         </li>
         <li class="card">
           <div class="card-icon">🎮</div>
@@ -327,7 +320,8 @@
       <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
         <a class="btn" href="sms:+18259948148?&body=ROBLOX">Text “ROBLOX”</a>
         <a class="btn btn--ghost" href="#book">Book Now</a>
-        <a class="btn btn--ghost" href="#" onclick="openRobloxPlan(event)">📘 View Learning Plan</a>
+        
+        <button class="read-more" data-open="robloxPlanModal">📘 View Learning Plan →</button>
       </div>
     </div>
   </div>
@@ -531,7 +525,7 @@
   <footer>
     <div class="footer-inner">
       <p><strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a> |
-      <strong>Phone:</strong> <a href="tel:+15872912906">587-291-2906</a></p>
+      <strong>Phone:</strong> <a href="tel:+15872912906">825-994-8148</a></p>
       <p class="muted">© 2025 Curious Genius Learning Centre — Inside CO-OP Dalhousie, Calgary AB</p>
     </div>
   </footer>
@@ -611,95 +605,82 @@
 </div>
 
 
-  <!-- Roblox Journey Learning Plan Modal -->
-<div id="robloxPlanModal" class="modal-overlay" aria-hidden="true">
-  <div class="modal-card">
-    <button class="modal-close" onclick="closeRobloxPlan()">×</button>
+<div class="modal" id="robloxPlanModal" aria-hidden="true">
+  <div class="modal__overlay" data-close></div>
 
-    <h2>🎮 Build Your Own Game (Roblox)</h2>
-    <p class="modal-subtitle">
-      12-Week Instructor-Led Learning Journey • Ages 7–17
-    </p>
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="robloxPlanTitle">
+    <button class="modal__close" data-close aria-label="Close">✕</button>
 
-    <div class="modal-grid">
-      <div class="modal-week">
+    <h2 id="robloxPlanTitle">🎮 12-Week Learning Plan: Build Your Own Game (Roblox)</h2>
+    <p class="muted">Instructor-led • Ages 7–17 • Real Lua coding (not just blocks)</p>
+
+    <div class="grid grid--3 grid--cards" style="margin-top:12px;">
+      <div class="card">
         <h4>Weeks 1–2 · Foundations</h4>
         <ul>
           <li>Roblox Studio interface</li>
           <li>Game world & objects</li>
-          <li>Player movement & obstacles</li>
+          <li>Movement + obstacles</li>
         </ul>
       </div>
 
-      <div class="modal-week">
+      <div class="card">
         <h4>Weeks 3–4 · Lua Basics</h4>
         <ul>
           <li>Lua scripting fundamentals</li>
           <li>Events & interactions</li>
-          <li>Triggers & conditions</li>
+          <li>Triggers + conditions</li>
         </ul>
       </div>
 
-      <div class="modal-week">
+      <div class="card">
         <h4>Weeks 5–6 · Game Mechanics</h4>
         <ul>
-          <li>Variables & scoring systems</li>
-          <li>Loops & timers</li>
-          <li>Win & lose conditions</li>
+          <li>Variables + scoring</li>
+          <li>Loops + timers</li>
+          <li>Win / lose rules</li>
         </ul>
       </div>
 
-      <div class="modal-week">
+      <div class="card">
         <h4>Weeks 7–8 · Game Systems</h4>
         <ul>
-          <li>Menus & UI basics</li>
-          <li>Sound & visual effects</li>
-          <li>Checkpoints & levels</li>
+          <li>Menus + UI basics</li>
+          <li>Sound + effects</li>
+          <li>Checkpoints + levels</li>
         </ul>
       </div>
 
-      <div class="modal-week">
+      <div class="card">
         <h4>Weeks 9–10 · Advanced Play</h4>
         <ul>
-          <li>NPCs & simple AI</li>
-          <li>Game rules & balance</li>
+          <li>NPCs + simple AI</li>
+          <li>Game balance</li>
           <li>Testing & debugging</li>
         </ul>
       </div>
 
-      <div class="modal-week">
-        <h4>Weeks 11–12 · Publish & Share</h4>
+      <div class="card">
+        <h4>Weeks 11–12 · Publish</h4>
         <ul>
-          <li>Final game polish</li>
-          <li>Publishing to Roblox</li>
-          <li>Presentation & certificate</li>
+          <li>Final polish</li>
+          <li>Publish to Roblox</li>
+          <li>Presentation + certificate</li>
         </ul>
       </div>
     </div>
 
-    <div class="modal-footer">
-      <p>
-        🎯 <strong>Final Outcome:</strong>  
-        A published Roblox game + real Lua coding experience
+    <div class="card" style="margin-top:12px;">
+      <p style="margin:0;">🎯 <strong>Final Outcome:</strong> A published Roblox game + real Lua coding experience.</p>
+      <p style="margin:10px 0 0;">
+        <a class="btn" href="sms:+18259948148?&body=ROBLOX">Text ROBLOX to Register</a>
       </p>
-      <a class="btn" href="sms:+18259948148?&body=ROBLOX">
-        Text ROBLOX to Register
-      </a>
     </div>
   </div>
 </div>
 
+
+
 </body>
 </html>
-<script>
-  function openRobloxPlan(e) {
-    e.preventDefault();
-    document.getElementById('robloxPlanModal').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
 
-  function closeRobloxPlan() {
-    document.getElementById('robloxPlanModal').style.display = 'none';
-    document.body.style.overflow = '';
-  }
-</script>
