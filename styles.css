@@ -357,3 +357,16 @@ footer .sep{display:inline-block;padding:0 10px;opacity:.7}
     text-align: center;
   }
 }
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.18);
+}
+
+.btn--ghost {
+  background: transparent;
+}
