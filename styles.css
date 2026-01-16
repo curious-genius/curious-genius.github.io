@@ -443,3 +443,11 @@ footer .sep{display:inline-block;padding:0 10px;opacity:.7}
   align-items: center;
   justify-content: space-between;
 }
+.read-more{
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+}
