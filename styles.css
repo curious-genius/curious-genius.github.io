@@ -451,3 +451,76 @@ footer .sep{display:inline-block;padding:0 10px;opacity:.7}
   font: inherit;
   text-decoration: underline;
 }
+/* ===== Math Journeys typography polish ===== */
+
+/* Section title + intro text */
+#mathJourney h2{
+  letter-spacing: .2px;
+  line-height: 1.15;
+}
+#mathJourney .muted{
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+/* Card typography */
+#mathJourney .card h4{
+  font-size: 1.05rem;
+  line-height: 1.25;
+  margin-bottom: .45rem;
+}
+
+#mathJourney .card p{
+  line-height: 1.6;
+}
+
+/* Bullet list spacing + readability */
+#mathJourney .card ul{
+  margin: .6rem 0 0;
+  padding-left: 1.1rem;
+}
+#mathJourney .card li{
+  margin: .35rem 0;
+  line-height: 1.45;
+}
+
+/* Make "Read more" look intentional */
+#mathJourney .read-more{
+  display: inline-block;
+  margin-top: .6rem;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Keep the CTA area aligned inside every card */
+#mathJourney .card{
+  display: flex;
+  flex-direction: column;
+}
+
+#mathJourney .card .card-actions{
+  margin-top: auto;         /* pushes actions to bottom */
+  padding-top: .75rem;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Make “Text XYZ” look like a clean secondary CTA */
+#mathJourney .text-cta{
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Optional: slightly bigger tap targets on mobile */
+@media (max-width: 520px){
+  #mathJourney .card h4{ font-size: 1.1rem; }
+  #mathJourney .card p{ font-size: 1rem; }
+}
