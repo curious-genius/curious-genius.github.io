@@ -1,939 +1,546 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"> 
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="pageTitle">Curious Genius | Learn to Code — Classes for Ages 5–18</title>
-  <meta name="description" content="Curious Genius offers small-group Coding, Robotics & Math for ages 5–18 in NW Calgary. Project-based learning, real skills, and supportive instruction. Book a free trial." />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="canonical" href="https://curiousgenius.ca/" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Curious Genius Learning Centre | Calgary's Premier Coding & AI Lab for Kids K-8. Turn screen time into future skills.">
+    <title>Curious Genius | The Future is Built Here</title>
+    
+    <!-- Modern Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Curious Genius — Coding and Math for Ages 5–18" />
-  <meta property="og:description" content="Small classes. Big projects. Real skills — and all November classes are free with no commitment. In-person STEM in Dalhousie CO-OP." />
-  <meta property="og:image" content="https://curiousgenius.ca/hero-main.png" />
-  <meta property="og:url" content="https://curiousgenius.ca/" />
-  <meta name="twitter:card" content="summary_large_image" />
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com" rel="stylesheet">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;500;700&family=Cairo:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* --- STATE OF THE ART CSS VARIABLES --- */
+        :root {
+            --bg-dark: #0B0E14;
+            --bg-panel: #151921;
+            --primary: #6366F1; /* Indigo */
+            --primary-glow: rgba(99, 102, 241, 0.4);
+            --accent: #0EA5E9; /* Sky Blue */
+            --highlight: #F59E0B; /* Amber */
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --radius: 24px;
+        }
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=20251110" />
-
-  <!-- Minimal RTL -->
-  <style>
-    body.rtl { direction: rtl; }
-    body.rtl nav { direction: rtl; }
-    body.rtl .btn { letter-spacing: 0; }
-    body.rtl ul { padding-inline-start: 0; }
-  </style>
-
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6K2N47760T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6K2N47760T');         // GA4
-  gtag('config', 'AW-17680952488');       // Google Ads
-</script>
-
-
-  <!-- Instagram -->
-  <script async defer src="https://www.instagram.com/embed.js"></script>
-
-  <!-- YAML parser -->
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" defer></script>
-  <script type="application/ld+json" id="orgSchema"></script>
-
-  <script>
-    const supportedLangs = ['en', 'fr', 'es', 'ar', 'pa'];
-    const stored = localStorage.getItem('cg_lang');
-    const rawLang = (navigator.language || 'en').toLowerCase();
-    const browserLang = rawLang.slice(0, 2);
-    let currentLang = supportedLangs.includes(stored || '') ? stored : (supportedLangs.includes(browserLang) ? browserLang : 'en');
-
-    let yamlMain = null;
-    const YAML_VERSION = '20251110';
-
-    async function fetchYaml(path) {
-      try {
-        const res = await fetch(path + `?v=${encodeURIComponent(YAML_VERSION)}`, { cache: 'no-store' });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const text = await res.text();
-        return jsyaml.load(text);
-      } catch (e) {
-        console.error('[fetchYaml]', e);
-        return null;
-      }
-    }
-
-    async function loadContent(lang = currentLang) {
-      yamlMain = await fetchYaml('content.yaml');
-      if (!yamlMain || !yamlMain[lang]) lang = 'en';
-      document.title = yamlMain[lang].title || 'Curious Genius';
-    }
-    document.addEventListener('DOMContentLoaded', loadContent);
-  </script>
-
-  <!-- hamburger menu -->
- <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('hamburger');
-    const nav = document.querySelector('.mainnav');
-    if (!btn || !nav) return;
-
-    btn.setAttribute('aria-expanded', 'false');
-
-    function closeMenu() {
-      nav.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-
-    function toggleMenu() {
-      const isOpen = nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', String(isOpen));
-    }
-
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      toggleMenu();
-    });
-
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-
-    document.addEventListener('click', function (e) {
-      if (!nav.classList.contains('open')) return;
-      if (nav.contains(e.target) || btn.contains(e.target)) return;
-      closeMenu();
-    });
-
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 980) closeMenu();
-    });
-  });
-</script>
-<script>
-  document.addEventListener('click', function (e) {
-    const open = e.target.closest('[data-open]');
-    const close = e.target.closest('[data-close]');
-
-    if (open) {
-      document.getElementById(open.dataset.open)
-        .setAttribute('aria-hidden', 'false');
-    }
-
-    if (close) {
-      close.closest('.modal')
-        .setAttribute('aria-hidden', 'true');
-    }
-  });
-</script>
-
-
-</head>
-
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- NAV -->
-  <header class="topbar">
-    <a class="brand" href="#">
-      <img src="curious-genius-logo.png" alt="Curious Genius Logo" loading="lazy" />
-      <span>Curious Genius</span>
-    </a>
-
-    <button id="hamburger" class="hamburger" aria-label="Toggle navigation">
-      <span class="hamburger-box"></span>
-    </button>
-
-    <nav class="mainnav">
-      <a id="navAbout" href="#about">About</a>
-      <a id="navPrograms" href="#programs">Programs</a>
-      <a href="#robloxJourney">Roblox Journey</a>
-      <a id="navTrial" href="#book">Trial</a>
-      <a id="navFAQ" href="#faq">FAQ</a>
-      <a id="navApproach" href="#approach">How It Works</a>
-      <a id="navPortal" href="#portal">Portal</a>
-      <a id="navContact" href="#contact">Contact</a>
-      <a id="navPolicy" href="#policy">Policy</a>
-      <a id="navOffers" href="#offers" class="btn btn--ghost">Offers</a>
-    </nav>
-  </header>
-
-  <main id="main">
-
-    <!-- HERO -->
-    <section class="hero hero--image">
-  <img
-    src="hero-main.png"
-    alt="Kids learning coding and robotics at Curious Genius Learning Centre in Calgary"
-    class="hero__bg"
-    loading="eager"
-  />
-
-  <div class="hero__content">
-    <h1>Curious Genius</h1>
-    <p>Small classes. Big projects. Real skills.</p>
-    <div class="hero__actions">
-      <a href="#book" class="btn" id="ctaTrial">Book a Free Trial</a>
-      <a href="#programs" class="btn btn--ghost" id="ctaSecondary">See Programs</a>
-    </div>
-  </div>
-</section>
-
-    <!-- CLASSROOM IMAGE -->
-<section class="section section--image">
-  <div class="image-block">
-    <img
-      src="classroom-learning.png"
-      alt="Small group coding and robotics class with instructor helping students at Curious Genius Learning Centre"
-      loading="lazy"
-    />
-    <div class="image-block__content">
-      <h2>Learning That Feels Personal</h2>
-      <p>
-        Small groups of 2–6 students. Real guidance from caring instructors.
-        Hands-on coding, robotics, and problem-solving in a calm, supportive space.
-      </p>
-    </div>
-  </div>
-</section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <h2>Why families choose Curious Genius</h2>
-      <ul class="grid grid--3">
-        <li class="card">
-          <div class="card-icon">👩‍🏫</div>
-          <h3>Small Classes</h3>
-          <p>2–6 learners per cohort for focused, individualized attention.</p>
-        </li>
-        <li class="card">
-          <div class="card-icon">🎮</div>
-          <h3>Project-Based Learning</h3>
-          <p>Kids build real games, robots, and AI projects they’re proud to show.</p>
-        </li>
-        <li class="card">
-          <div class="card-icon">✅</div>
-          <h3>Trusted Curriculum</h3>
-          <p>Aligned with Alberta Education and Code.org standards.</p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- PROGRAM VISUALS -->
-<section class="section section--program-visuals">
-  <div class="program-visuals">
-    <img
-      src="program-visuals.png"
-      alt="Coding, Robotics, Math, and AI logic puzzle programs for kids at Curious Genius Learning Centre"
-      loading="lazy"
-    />
-
-    <div class="program-visuals__content">
-      <h2>What We Teach</h2>
-      <p>
-        Our programs combine creativity, logic, and real-world problem solving.
-        Students learn through hands-on projects designed to build confidence,
-        curiosity, and future-ready skills.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- PROGRAMS -->
-<section class="section" id="programs">
-  <h2>Programs & Pricing</h2>
-
-  <ul class="grid grid--3 grid--cards" id="realmsList">
-    <li class="card">
-      <h4>🎮 Build Your Own Game (Roblox) — $149/month</h4>
-      <p>Learn real coding with Lua (not just blocks). Build & publish a playable Roblox game. Ages 7–17.</p>
-      <p style="margin-top:10px;">
-        <a class="btn" href="#robloxJourney">View Journey</a>
-        <a class="btn btn--ghost" href="sms:+18259948148?&body=ROBLOX">Text ROBLOX</a>
-      </p>
-    </li>
-
-    <!-- Technology Maker -->
-    <li class="card">
-      <h4>Technology Maker — $149/month</h4>
-      <p>Includes 4 sessions/month. Choose Coding, Robotics, or AI projects.</p>
-
-      <button class="read-more" data-open="techModal">
-        Read more →
-      </button>
-    </li>
-
-    <!-- Math Master -->
-    <li class="card">
-      <h4>Math Master — $149/month</h4>
-      <p>Up to 4 sessions/month. Build strong foundations using Alberta & Singapore Math methods.</p>
-
-      <button class="read-more" data-open="mathModal">
-        Read more →
-      </button>
-    </li>
-
-    <!-- Private -->
-    <li class="card">
-      <h4>1-1 Private Session — $49/session</h4>
-      <p>Build strong foundations using Alberta Singapore Math methods.</p>
-    </li>
-
-  </ul>
-</section>
-<!-- MATH JOURNEYS -->
-<section class="section section--alt" id="mathJourney">
-  <h2>➗ Math Journeys (Alberta-Aligned)</h2>
-  <p class="muted">
-    Math tutoring that feels personal — small groups (2–6), patient coaching, and clear progress tracking.
-    Start with a free trial private session (Parent + Child).
-  </p>
-
-  <div class="grid grid--3 grid--cards" style="margin-top:12px;">
-
-    <div class="card">
-      <h4>🧱 Math Foundations & Confidence (K–6)</h4>
-      <p>Build number sense, math facts, and strong foundations — with confidence and calm coaching.</p>
-      <ul style="margin-top:10px;">
-        <li>Place value + mental math</li>
-        <li>Add / subtract / multiply / divide</li>
-        <li>Word problems made simple</li>
-      </ul>
-      <p style="margin-top:10px;">
-        <button class="read-more" data-open="mathFoundationsModal">Read more →</button>
-      </p>
-      <p style="margin-top:10px;">
-        <a class="btn" href="#book">Book Free Trial</a>
-        <a class="btn btn--ghost" href="sms:+18259948148?&body=MATH%20FOUNDATIONS">Text MATH FOUNDATIONS</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h4>🔢 Fraction & Number Mastery (4–8)</h4>
-      <p>Fix the #1 gap that blocks future math: fractions, decimals, and percentages.</p>
-      <ul style="margin-top:10px;">
-        <li>Fractions (+ − × ÷)</li>
-        <li>Decimals ⇄ Percent</li>
-        <li>Real-life word problems</li>
-      </ul>
-      <p style="margin-top:10px;">
-        <button class="read-more" data-open="fractionMasteryModal">Read more →</button>
-      </p>
-      <p style="margin-top:10px;">
-        <a class="btn" href="#book">Book Free Trial</a>
-        <a class="btn btn--ghost" href="sms:+18259948148?&body=FRACTION%20MASTERY">Text FRACTION MASTERY</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h4>📈 Algebra Confidence Builder (6–9)</h4>
-      <p>Turn fear of variables into confident problem solving — ideal for Grades 7–9 and PAT readiness.</p>
-      <ul style="margin-top:10px;">
-        <li>Integers + BEDMAS</li>
-        <li>Equations + inequalities</li>
-        <li>Patterns + linear thinking</li>
-      </ul>
-      <p style="margin-top:10px;">
-        <button class="read-more" data-open="algebraConfidenceModal">Read more →</button>
-      </p>
-      <p style="margin-top:10px;">
-        <a class="btn" href="#book">Book Free Trial</a>
-        <a class="btn btn--ghost" href="sms:+18259948148?&body=ALGEBRA%20CONFIDENCE">Text ALGEBRA CONFIDENCE</a>
-      </p>
-    </div>
-
-  </div>
-
-  <div class="grid grid--2" style="margin-top:16px; align-items:start; gap:16px;">
-    <div class="card">
-      <h3 style="margin-top:0;">🎯 PAT Support (Grade 6 & 9)</h3>
-      <p>
-        PAT-style practice + strategies + confidence. We focus on multi-step thinking, time management,
-        and the skills most likely to raise marks quickly.
-      </p>
-      <p style="margin-top:10px;">
-        <button class="read-more" data-open="patPrepModal">Read more →</button>
-      </p>
-      <p style="margin-top:10px;">
-        <a class="btn" href="#book">Book Free Trial</a>
-        <a class="btn btn--ghost" href="sms:+18259948148?&body=PAT%20PREP">Text PAT PREP</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h3 style="margin-top:0;">🎓 High School Math (10C / 20-1 / 20-2)</h3>
-      <p>
-        Stay on track with Alberta-aligned instruction for functions, factoring, quadratics,
-        trig basics, and exam preparation.
-      </p>
-      <p style="margin-top:10px;">
-        <button class="read-more" data-open="highSchoolMathModal">Read more →</button>
-      </p>
-      <p style="margin-top:10px;">
-        <a class="btn" href="#book">Book Free Trial</a>
-        <a class="btn btn--ghost" href="sms:+18259948148?&body=HIGH%20SCHOOL%20MATH">Text HIGH SCHOOL MATH</a>
-      </p>
-    </div>
-  </div>
-
-  <div class="card" style="margin-top:16px;">
-    <h3 style="margin-top:0;">How Math Tutoring Works</h3>
-    <ul class="steps" style="margin-top:10px;">
-      <li class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <h4>Free Trial Private Session</h4>
-          <p>Parent + child meet us, try the teaching style, and we observe learning needs.</p>
-        </div>
-      </li>
-      <li class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <h4>Quick Skill Check</h4>
-          <p>We identify strengths and gaps (math facts, fractions, algebra, problem solving).</p>
-        </div>
-      </li>
-      <li class="step">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <h4>Personalized Plan</h4>
-          <p>We recommend the best path: Foundations, Fraction Mastery, Algebra, PAT, or High School support.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-
-<section class="section" id="robloxJourney">
-  <h2>🎮 Journey: Build Your Own Game (Roblox)</h2>
-
-  <div class="grid grid--2" style="align-items:start; gap:16px;">
-    <div class="card">
-      <img src="roblox-journey.png" alt="Build Your Own Game - Roblox Journey" style="width:100%; border-radius:14px;" />
-      <p style="margin-top:12px;">
-        <strong>Text “ROBLOX” to:</strong>
-        <a href="sms:+18259948148?&body=ROBLOX">825-994-8148</a>
-        <br />
-        <small>Tip: texting is the fastest way to get schedule + availability.</small>
-      </p>
-    </div>
-
-    <div class="card">
-      <h3 style="margin-top:0;">Learn Real Coding with Lua — Not Just Blocks</h3>
-      <p>
-        This 12-week instructor-led Journey teaches students how to design, code, test, and publish a playable Roblox game
-        using <strong>Roblox Studio</strong> and the <strong>Lua scripting language</strong>.
-      </p>
-
-      <ul>
-        <li><strong>Ages:</strong> 7–17 (Beginner friendly)</li>
-        <li><strong>Format:</strong> Small group (2–6 students) + optional 1-on-1 upgrade</li>
-        <li><strong>Schedule:</strong> 1 session/week (60 minutes)</li>
-        <li><strong>Outcome:</strong> Publish & share a playable Roblox game</li>
-      </ul>
-
-      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
-        <a class="btn" href="sms:+18259948148?&body=ROBLOX">Text “ROBLOX”</a>
-        <a class="btn btn--ghost" href="#book">Book Now</a>
+        /* --- BASE STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden; 
+        }
+        h1, h2, h3, .brand { font-family: 'Space Grotesk', sans-serif; }
         
-        <button class="read-more" data-open="robloxPlanModal">📘 View Learning Plan →</button>
-      </div>
-    </div>
-  </div>
+        /* --- UTILITIES --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+        .text-gradient { 
+            background: linear-gradient(to right, var(--primary), var(--accent)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 0 20px var(--primary-glow); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px var(--primary-glow); }
+        .btn-secondary { background: transparent; border: 1px solid var(--glass-border); color: var(--text-main); backdrop-filter: blur(10px); }
+        .btn-secondary:hover { background: var(--glass); border-color: var(--accent); }
 
-  <div class="grid grid--3 grid--cards" style="margin-top:16px;">
-    <div class="card">
-      <h4>🧠 What Students Learn</h4>
-      <ul>
-        <li>Lua scripting fundamentals</li>
-        <li>Events, variables, loops, conditionals</li>
-        <li>Game rules, scoring, checkpoints</li>
-        <li>Debugging & problem solving</li>
-      </ul>
-    </div>
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            background: rgba(11, 14, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: white; text-decoration: none; letter-spacing: -1px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: white; }
+        .login-btn { padding: 0.5rem 1.5rem; background: var(--glass); border-radius: 20px; border: 1px solid var(--glass-border); }
 
-    <div class="card">
-      <h4>🕹️ What Students Build</h4>
-      <ul>
-        <li>Interactive mini-games</li>
-        <li>Game mechanics (score, timers, obstacles)</li>
-        <li>UI basics (menus, messages)</li>
-        <li>A published Roblox game link</li>
-      </ul>
-    </div>
+        /* --- HERO SECTION --- */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+        }
+        .hero-content { text-align: center; max-width: 900px; margin: 0 auto; z-index: 2; padding-top: 80px; }
+        .badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--highlight);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            margin-bottom: 1.5rem;
+        }
+        header h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+        header p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+        .stat-item h4 { font-size: 2.5rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
+        .stat-item p { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
 
-    <div class="card">
-      <h4>🏆 Progress & Motivation</h4>
-      <ul>
-        <li><strong>Journeer</strong> → <strong>Creator</strong> → <strong>Developer</strong></li>
-        <li>Milestone projects + badges</li>
-        <li>Parent progress updates</li>
-        <li>Certificate at completion</li>
-      </ul>
-    </div>
-  </div>
+        /* --- PROBLEM / SOLUTION --- */
+        .split-section { padding: 8rem 0; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .glass-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
 
-  <div class="card" style="margin-top:16px;">
-    <h3 style="margin-top:0;">Pricing</h3>
-    <p><strong>$149 / month</strong> — includes 4 instructor-led sessions.</p>
-    <p><small>Optional 1-on-1 upgrade available for students who want extra help or faster progress.</small></p>
-    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-      <a class="btn" href="sms:+18259948148?&body=ROBLOX">Text to Register</a>
-      <a class="btn btn--ghost" href="#book">Book Online</a>
-    </div>
-  </div>
+        /* --- CURRICULUM TRACKS --- */
+        #program { background: var(--bg-panel); padding: 6rem 0; position: relative; }
+        .track-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .track-card {
+            background: var(--bg-dark);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
+            transition: 0.3s;
+        }
+        .track-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .track-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .track-card ul { list-style: none; margin-top: 1.5rem; }
+        .track-card li { margin-bottom: 0.8rem; color: var(--text-muted); display: flex; align-items: center; }
+        .track-card li i { color: var(--accent); margin-right: 10px; font-size: 0.8rem; }
 
-  <div class="card" style="margin-top:16px;">
-    <h3 style="margin-top:0;">FAQ</h3>
+        /* --- HOW IT WORKS (THE FUNNEL) --- */
+        .steps { padding: 6rem 0; text-align: center; }
+        .step-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .step { flex: 1; min-width: 250px; position: relative; z-index: 2; }
+        .step-num {
+            width: 60px; height: 60px;
+            background: var(--bg-panel);
+            border: 2px solid var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+        }
 
-    <details>
-      <summary><strong>Does my child need experience?</strong></summary>
-      <p>No. This Journey is beginner friendly and instructor-led. We start from fundamentals and build step-by-step.</p>
-    </details>
+        /* --- PRICING --- */
+        #pricing { padding: 6rem 0; background: var(--bg-panel); }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto; }
+        .price-card {
+            padding: 3rem;
+            background: var(--bg-dark);
+            border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            position: relative;
+        }
+        .price-card.featured { border: 2px solid var(--primary); transform: scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .price-amount { font-size: 3.5rem; font-weight: 700; margin: 1rem 0; color: white; }
+        .price-amount span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+        .features-list { text-align: left; margin: 2rem 0; }
+        .features-list li { margin-bottom: 1rem; color: var(--text-muted); }
+        .features-list i { color: var(--highlight); margin-right: 10px; }
 
-    <details>
-      <summary><strong>Is this real coding or only Roblox building?</strong></summary>
-      <p>Real coding. Students learn Lua scripting (events, variables, loops, conditionals) while building games in Roblox Studio.</p>
-    </details>
+        /* --- PORTAL / BOOKING --- */
+        #portal { padding: 6rem 0; }
+        .portal-box {
+            background: white; /* Light background for TutorBird readability */
+            color: var(--bg-dark);
+            border-radius: var(--radius);
+            padding: 2rem;
+            min-height: 600px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
 
-    <details>
-      <summary><strong>What does my child need to bring?</strong></summary>
-      <p>Nothing special. We provide all required laptops and learning tools. Students only need to bring a water bottle and their curiosity to learn.</p>
-    </details>
+        /* --- CONTACT / FOOTER --- */
+        footer { background: var(--bg-panel); padding: 4rem 0; border-top: 1px solid var(--glass-border); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
+        .social-icons a { color: white; font-size: 1.5rem; margin-right: 1.5rem; transition: 0.3s; }
+        .social-icons a:hover { color: var(--primary); }
+        .contact-item { display: flex; align-items: center; margin-bottom: 1rem; color: var(--text-muted); }
+        .contact-item i { color: var(--accent); width: 30px; }
 
-    <details>
-      <summary><strong>How do parents track progress?</strong></summary>
-      <p>Parents receive milestone updates, project screenshots/videos, and a final published game link.</p>
-    </details>
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Add hamburger menu JS if needed later */
+            .price-card.featured { transform: scale(1); }
+            .hero-stats { gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
 
-    <details>
-      <summary><strong>How do we register?</strong></summary>
-      <p>Text <strong>ROBLOX</strong> to <a href="sms:+18259948148?&body=ROBLOX">825-994-8148</a> or book from the website.</p>
-    </details>
-  </div>
-</section>
-
-
-    <!-- TRIAL -->
-    <section class="section section--alt" id="book">
-      <h2>Trial Private Session (Parent + Child)</h2>
-      <div class="grid grid--2">
-        <div class="card">
-          <h3>What to Expect</h3>
-          <p>
-            Experience our approach in a relaxed one-on-one session for parent and child.
-            Meet our instructors, see our space inside Dalhousie CO-OP, and explore Coding, Robotics, AI, or Math.
-          </p>
-          <ul style="list-style:disc; padding-left:1.2rem">
-            <li>60 minutes · Free</li>
-            <li>Parents attend and observe learning style</li>
-            <li>Personalized track recommendation</li>
-          </ul>
-          <p class="muted" style="margin-top:.5rem">
-            If you see “requires make-up credit,” pick another time or contact us—we’ll open a trial slot for you.
-          </p>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">Curious<span>Genius</span></a>
+            <div class="nav-links">
+                <a href="#program">The Path</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Calgary Lab</a>
+                <a href="#portal" class="login-btn"><i class="fas fa-user-lock"></i> Portal Login</a>
+            </div>
         </div>
-        <div class="card card--widget">
-          <h3>Book Your Session</h3>
-          <div class="widget">
-            <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQnNKUSJ9"></script>
-          </div>
-          <noscript><p>Please enable JavaScript to book a session.</p></noscript>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="container hero-content" data-aos="fade-up">
+            <span class="badge">🚀 Now Enrolling for 2026</span>
+            <h1>Don't Just Play Games.<br><span class="text-gradient">Build The Future.</span></h1>
+            <p>We turn "screen time" into university-ready skills. Join the elite coding academy for students K-8 in Calgary and Worldwide.</p>
+            <div style="margin-top: 2rem;">
+                <a href="#portal" class="btn btn-primary">Start Free Trial</a>
+                <a href="#program" class="btn btn-secondary" style="margin-left: 1rem;">View Curriculum</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h4>100%</h4>
+                    <p>Licensed Platform</p>
+                </div>
+                <div class="stat-item">
+                    <h4>50+</h4>
+                    <p>Projects per Year</p>
+                </div>
+                <div class="stat-item">
+                    <h4>1-on-1</h4>
+                    <p>Expert Guidance</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </header>
+
+    <!-- The Problem / Solution -->
+    <section class="split-section">
+        <div class="container">
+            <div class="grid-2">
+                <div data-aos="fade-right">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">The Screen Time Dilemma</h2>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">
+                        Every parent knows the struggle. Hours spent staring at screens, consuming content, and playing endless video games. 
+                        <br><br>
+                        But what if that same device could be the tool that gets them into a top university? What if they stopped <strong>consuming</strong> and started <strong>creating</strong>?
+                    </p>
+                    <ul style="list-style: none; color: var(--text-muted);">
+                        <li style="margin-bottom: 1rem;"><i class="fas fa-times-circle" style="color: #ef4444; margin-right: 10px;"></i> Passive Gaming & Scrolling</li>
+                        <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--accent); margin-right: 10px;"></i> Active Logic & Engineering</li>
+                    </ul>
+                </div>
+                <div class="glass-card" data-aos="fade-left">
+                    <h3 style="margin-bottom: 1rem;"><i class="fas fa-robot" style="color: var(--primary);"></i> The Genius Solution</h3>
+                    <p style="color: var(--text-muted);">
+                        We use a <strong>Professional K-8 Enterprise Platform</strong> (powered by Tynker) to teach real computer science.
+                    </p>
+                    <div style="margin-top: 2rem; border-top: 1px solid var(--glass-border); padding-top: 1.5rem;">
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <div style="background: var(--bg-dark); padding: 10px; border-radius: 10px; margin-right: 15px;">
+                                <i class="fas fa-code" style="color: var(--highlight);"></i>
+                            </div>
+                            <div>
+                                <strong>Coding & AI</strong>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Python, JavaScript, and Block Coding</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="background: var(--bg-dark); padding: 10px; border-radius: 10px; margin-right: 15px;">
+                                <i class="fas fa-gamepad" style="color: var(--accent);"></i>
+                            </div>
+                            <div>
+                                <strong>Game Design</strong>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Modding, 3D Design, and Logic</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <h2>Frequently Asked Questions</h2>
-      <details>
-        <summary>Are the trial sessions really free?</summary>
-        <p>Yes! The trial is completely free — no commitment required.</p>
-      </details>
-      <details>
-        <summary>Where are you located?</summary>
-        <p>Inside Calgary Co-op Dalhousie (NW Calgary) — Unit 6, 5505 Shaganappi Trail NW.</p>
-      </details>
-      <details>
-        <summary>What age groups do you teach?</summary>
-        <p>We welcome students ages 5–18, divided by age and skill level.</p>
-      </details>
-      <details>
-        <summary>Can parents watch the sessions?</summary>
-        <p>Yes! Parents are encouraged to observe and give feedback during the trial.</p>
-      </details>
-    </section>
+    <!-- Curriculum -->
+    <section id="program">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <h2>The Innovation Path</h2>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Our structured curriculum grows with your child, from their first block of code to their first AI algorithm.</p>
+            </div>
 
-    <!-- HOW IT WORKS -->
-    <section class="section section--alt" id="approach">
-      <h2>How It Works</h2>
-      <ul class="steps">
-        <li class="step"><div class="step-num">1</div><div class="step-body"><h4>Free Trial</h4><p>Book your private session and experience our approach firsthand.</p></div></li>
-        <li class="step"><div class="step-num">2</div><div class="step-body"><h4>Free Week of Workshops</h4><p>If you enjoyed your trial, enjoy a full week of free group workshops!</p></div></li>
-        <li class="step"><div class="step-num">3</div><div class="step-body"><h4>Enroll Anytime</h4><p>Choose the monthly plan that fits your schedule — no long-term commitment.</p></div></li>
-      </ul>
-    </section>
-
-    <!-- PORTAL -->
-    <section class="section" id="portal">
-      <h2>Parent & Student Portal</h2>
-      <p class="muted">Already tried a class? Login or sign up to manage your ongoing sessions below.</p>
-      <div class="grid grid--2">
-        <div class="card card--widget">
-          <h3>Login</h3>
-          <div class="widget">
-            <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjNKeSJ9"></script>
-          </div>
+            <div class="track-grid">
+                <!-- K-2 -->
+                <div class="track-card" data-aos="fade-up" data-aos-delay="0">
+                    <i class="fas fa-shapes track-icon"></i>
+                    <h3>Foundations (K-Gr 2)</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Logic, Patterns & Creativity</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Visual Block Coding</li>
+                        <li><i class="fas fa-check"></i> Storytelling & Animation</li>
+                        <li><i class="fas fa-check"></i> Basic Robotics Logic</li>
+                    </ul>
+                </div>
+                <!-- 3-5 -->
+                <div class="track-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-layer-group track-icon"></i>
+                    <h3>Builders (Gr 3-5)</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Game Design & Engineering</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Minecraft Modding</li>
+                        <li><i class="fas fa-check"></i> Physics & Game Engines</li>
+                        <li><i class="fas fa-check"></i> Hardware Integration</li>
+                    </ul>
+                </div>
+                <!-- 6-8 -->
+                <div class="track-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-terminal track-icon"></i>
+                    <h3>Innovators (Gr 6-8)</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Real World Code & AI</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Python & JavaScript</li>
+                        <li><i class="fas fa-check"></i> Artificial Intelligence</li>
+                        <li><i class="fas fa-check"></i> Web Development</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="card card--widget">
-          <h3>Sign Up</h3>
-          <div class="widget">
-            <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjJKTSJ9"></script>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <h2>Contact & Location</h2>
-      <div class="contact-grid">
-        <div class="card card--widget">
-          <div class="widget">
-            <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQkRKSCJ9"></script>
-          </div>
+    <!-- How It Works (The Funnel) -->
+    <section id="how-it-works" class="steps">
+        <div class="container">
+            <h2>How to Start Your Genius Journey</h2>
+            <div class="step-container">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h3>Register Parent</h3>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">Create your family portal account below using our secure system.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h3>Get Access</h3>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">We'll email you the login to the Premium Learning Platform (Tynker).</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h3>Book Session</h3>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">Schedule your Free Trial or weekly sessions via the dashboard.</p>
+                </div>
+            </div>
         </div>
-        <div class="map">
-          <iframe src="https://www.google.com/maps?q=Unit%206%2C%205505%20Shaganappi%20Trail%20NW%2C%20Calgary%2C%20AB%20T3A%201Z6&output=embed" width="100%" height="350" style="border:0;border-radius:12px;" allowfullscreen loading="lazy"></iframe>
-          <p class="muted">Located inside Dalhousie CO-OP mall (Unit 6, beside the pharmacy).</p>
-        </div>
-      </div>
     </section>
 
-    <!-- POLICY -->
-    <section class="section section--alt" id="policy">
-      <h2>Policies</h2>
-      <ul style="list-style:disc; padding-left:1.2rem">
-        <li>Parents must accompany children during the first trial session.</li>
-        <li>Missed workshops can be rescheduled if notice is given 24 hours in advance.</li>
-        <li>No long-term contracts. Month-to-month plans only.</li>
-      </ul>
+    <!-- Pricing -->
+    <section id="pricing">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 4rem;">Simple, Transparent Investment</h2>
+            <div class="pricing-grid">
+                <!-- Online -->
+                <div class="price-card">
+                    <h3>Online Global</h3>
+                    <div class="price-amount">$25<span>/week</span></div>
+                    <p style="color: var(--text-muted);">Perfect for international students or busy schedules.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> 1-on-1 Expert Coaching</li>
+                        <li><i class="fas fa-check"></i> Full Platform License Included</li>
+                        <li><i class="fas fa-check"></i> Weekly Progress Reports</li>
+                        <li><i class="fas fa-check"></i> Flexible Zoom Scheduling</li>
+                    </ul>
+                    <a href="#portal" class="btn btn-secondary" style="width: 100%;">Enroll Online</a>
+                </div>
+                <!-- In Person -->
+                <div class="price-card featured">
+                    <div style="position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background: var(--primary); padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">BEST VALUE</div>
+                    <h3>Calgary In-Person</h3>
+                    <div class="price-amount">$160<span>/month</span></div>
+                    <p style="color: var(--text-muted);">Hands-on learning at our Dalhousie Co-op Lab.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> <strong>Premium Tech Lab Access</strong></li>
+                        <li><i class="fas fa-check"></i> Small Groups or 1-on-1</li>
+                        <li><i class="fas fa-check"></i> Full Platform License Included</li>
+                        <li><i class="fas fa-check"></i> Physical Robotics Equipment</li>
+                    </ul>
+                    <a href="#portal" class="btn btn-primary" style="width: 100%;">Secure a Spot</a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- OFFER -->
-    <!-- OFFERS -->
-<section class="section" id="offers">
-  <h2>Offers</h2>
-  <p class="muted">Latest offer from our Instagram:</p>
+    <!-- Portal Integration (TutorBird) -->
+    <section id="portal">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2>Parent Portal & Registration</h2>
+                <p style="color: var(--text-muted);">Existing parents login on the left. New geniuses register on the right.</p>
+            </div>
+            
+            <div class="grid-2">
+                <!-- Widget 1: Login (Placeholder - Replace ID with yours) -->
+                <div class="glass-card" style="text-align: center;">
+                    <h3><i class="fas fa-sign-in-alt"></i> Current Student Login</h3>
+                    <p style="margin-bottom: 2rem; color: var(--text-muted);">Access your schedule and billing.</p>
+                    <!-- TutorBird Login Widget Script Goes Here -->
+                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <script type='text/javascript' src='https://app.tutorbird.com'></script>
+                    </div>
+                </div>
 
-  <div class="ig-embed-wrap">
-    <blockquote class="instagram-media"
-      data-instgrm-permalink="https://www.instagram.com/p/DSSw8y0jP7U/?utm_source=ig_embed&amp;utm_campaign=loading"
-      data-instgrm-version="14"
-      style="background:#FFF; border:0; border-radius:12px; box-shadow:0 0 1px 0 rgba(0,0,0,0.18),0 6px 18px 0 rgba(0,0,0,0.12); margin: 0 auto; max-width:540px; width:100%;">
-    </blockquote>
-  </div>
-</section>
+                <!-- Widget 2: Registration (Placeholder) -->
+                <div class="glass-card" style="text-align: center; border-color: var(--accent);">
+                    <h3><i class="fas fa-user-plus"></i> New Student Registration</h3>
+                    <p style="margin-bottom: 2rem; color: var(--text-muted);">Create an account to book your <strong>Free Trial</strong>.</p>
+                    <!-- TutorBird Sign-Up Widget Script Goes Here -->
+                     <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <p style="color: #333;">(Registration Form Will Load Here)</p>
+                        <!-- Replace the script above with the 'Student Sign-Up' widget from your TutorBird Settings -->
+                        <a href="https://app.tutorbird.com" target="_blank" class="btn btn-primary">Open Registration Form</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  </main>
+    <!-- Location & Footer -->
+    <section id="contact">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h2>Visit the Lab</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                        Located safely inside the Dalhousie CO-OP. A secure, high-tech environment for your child to focus.
+                    </p>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Unit 6, 5505 Shaganappi Trail NW, Calgary</div>
+                    <div class="contact-item"><i class="fab fa-whatsapp"></i> <a href="https://wa.me" style="color: white; text-decoration: none;">(825) 994-8148</a></div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i> hello@curiousgenius.ca</div>
+                    
+                    <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Lab Hours</h3>
+                    <p style="color: var(--text-muted);">
+                        <strong>Mon - Fri:</strong> 4:30 PM - 7:30 PM<br>
+                        <strong>Sat & Mon Mornings:</strong> 9:30 AM - 12:30 PM
+                    </p>
+                </div>
+                <div style="border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border);">
+                    <iframe src="https://www.google.com" 
+                    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <div class="footer-inner">
-      <p><strong>Email:</strong> <a href="mailto:learn@curiousgenius.ca">learn@curiousgenius.ca</a> |
-      <strong>Phone:</strong> <a href="tel:+15872912906">825-994-8148</a></p>
-      <p class="muted">© 2025 Curious Genius Learning Centre — Inside CO-OP Dalhousie, Calgary AB</p>
-    </div>
-  </footer>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="logo">Curious<span>Genius</span></a>
+                    <p style="color: var(--text-muted); margin-top: 1rem; font-size: 0.9rem;">
+                        Empowering the next generation of Calgary's innovators through code, logic, and play.
+                    </p>
+                </div>
+                <div>
+                    <h4>Programs</h4>
+                    <ul style="list-style: none; margin-top: 1rem; line-height: 2;">
+                        <li><a href="#" style="color: var(--text-muted); text-decoration: none;">Coding K-8</a></li>
+                        <li><a href="#" style="color: var(--text-muted); text-decoration: none;">Robotics</a></li>
+                        <li><a href="#" style="color: var(--text-muted); text-decoration: none;">Python & AI</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="social-icons" style="margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 4rem; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid var(--glass-border); padding-top: 2rem;">
+                &copy; 2026 Curious Genius Learning Centre. All Rights Reserved. <br>
+                Curriculum Powered by Tynker Enterprise.
+            </div>
+        </div>
+    </footer>
 
-  <!-- Google Ads conversion event: Book a session click -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var trialBtn = document.getElementById('ctaTrial');
-      if (trialBtn && typeof gtag === 'function') {
-        trialBtn.addEventListener('click', function () {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-17680952488/NX18CP_uocsbEKjZ9-5B'
-          });
+    <!-- Scripts -->
+    <script src="https://unpkg.com"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
         });
-      }
-    });
-  </script>
-
-  <!-- TECHNOLOGY MAKER MODAL -->
-<div class="modal" id="techModal" aria-hidden="true">
-  <div class="modal__overlay" data-close></div>
-
-  <div class="modal__panel">
-    <button class="modal__close" data-close>✕</button>
-
-    <h2>Technology Maker Program</h2>
-    <p class="muted">
-      Hands-on learning through robotics, coding, and creative problem solving.
-    </p>
-
-    <div class="tool">
-      <img src="dash-robot.jpg" alt="DASH robot for kids coding" />
-      <div>
-        <h3>DASH Robot 🤖</h3>
-        <p>
-          DASH is a friendly robot that helps kids learn coding through play.
-          Children program DASH to move, react, and solve fun challenges while
-          building confidence and logical thinking.
-        </p>
-      </div>
-    </div>
-
-    <div class="tool">
-      <img src="mbot2.jpg" alt="mBot2 STEAM education robot" />
-      <div>
-        <h3>mBot2</h3>
-        <p>
-          mBot2 is a STEAM education robot designed for beginners.
-          Kids build a robot from scratch, explore electronic parts,
-          and learn block-based programming while developing design
-          and problem-solving skills.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</div>
-<!-- MATH MASTER MODAL -->
-<div class="modal" id="mathModal" aria-hidden="true">
-  <div class="modal__overlay" data-close></div>
-
-  <div class="modal__panel">
-    <button class="modal__close" data-close>✕</button>
-
-    <h2>Math Master Program</h2>
-    <p>
-      Build strong math foundations using Alberta Curriculum
-      combined with Singapore Math strategies.
-    </p>
-
-    <ul>
-      <li>Concept-first understanding</li>
-      <li>Visual & hands-on problem solving</li>
-      <li>Confidence building for school success</li>
-    </ul>
-  </div>
-</div>
-
-<!-- MATH FOUNDATIONS MODAL -->
-<div class="modal" id="mathFoundationsModal" aria-hidden="true">
-  <div class="modal__overlay" data-close></div>
-  <div class="modal__panel">
-    <button class="modal__close" data-close>✕</button>
-
-    <h2>🧱 Math Foundations & Confidence (Grades K–6)</h2>
-    <p class="muted">Strong basics + calm coaching + confidence building.</p>
-
-    <p>
-      Ideal for students who feel behind, rush through homework, or struggle with math facts and basic procedures.
-      We teach concepts clearly and practice until the skill becomes easy.
-    </p>
-
-    <ul>
-      <li>Number sense, place value, mental math</li>
-      <li>Addition, subtraction, multiplication, division (concept + method)</li>
-      <li>Word problems: how to read, plan, solve</li>
-      <li>Confidence, focus, and learning habits</li>
-    </ul>
-
-    <p style="margin-top:12px;">
-      <a class="btn" href="#book">Book Free Trial</a>
-      <a class="btn btn--ghost" href="sms:+18259948148?&body=MATH%20FOUNDATIONS">Text MATH FOUNDATIONS</a>
-    </p>
-  </div>
-</div>
-
-<!-- FRACTION MASTERY MODAL -->
-<div class="modal" id="fractionMasteryModal" aria-hidden="true">
-  <div class="modal__overlay" data-close></div>
-  <div class="modal__panel">
-    <button class="modal__close" data-close>✕</button>
-
-    <h2>🔢 Fraction & Number Mastery (Grades 4–8)</h2>
-    <p class="muted">The skill gap that blocks algebra and PAT success.</p>
-
-    <p>
-      Fractions, decimals, and percentages are the most common reason students fall behind.
-      We use visual models and step-by-step methods to make these topics finally “click”.
-    </p>
-
-    <ul>
-      <li>Equivalent & simplified fractions</li>
-      <li>Fractions operations (+ − × ÷)</li>
-      <li>Decimals ⇄ percent conversions</li>
-      <li>Word problems with real-life examples</li>
-    </ul>
-
-    <p style="margin-top:12px;">
-      <a class="btn" href="#book">Book Free Trial</a>
-      <a class="btn btn--ghost" href="sms:+18259948148?&body=FRACTION%20MASTERY">Text FRACTION MASTERY</a>
-    </p>
-  </div>
-</div>
-
-<!-- ALGEBRA CONFIDENCE MODAL -->
-<div class="modal" id="algebraConfidenceModal" aria-hidden="true">
-  <div class="modal__overlay" data-close></div>
-  <div class="modal__panel">
-    <button class="modal__close" data-close>✕</button>
-
-    <h2>📈 Algebra Confidence Builder (Grades 6–9)</h2>
-    <p class="muted">From “I don’t get x” → “I can solve it.”</p>
-
-    <p>
-      We help students understand algebra logically, not by memorizing rules.
-      Perfect for Grade 7–9 transitions and PAT readiness.
-    </p>
-
-    <ul>
-      <li>Integers + BEDMAS</li>
-      <li>Expressions, variables, substitution</li>
-      <li>Equations and inequalities</li>
-      <li>Patterns and linear thinking</li>
-    </ul>
-
-    <p style="margin-top:12px;">
-      <a class="btn" href="#book">Book Free Trial</a>
-      <a class="btn btn--ghost" href="sms:+18259948148?&body=ALGEBRA%20CONFIDENCE">Text ALGEBRA CONFIDENCE</a>
-    </p>
-  </div>
-</div>
-
-<!-- PAT PREP MODAL -->
-<div class="modal" id="patPrepModal" aria-hidden="true">
-  <div class="modal__overlay" data-close></div>
-  <div class="modal__panel">
-    <button class="modal__close" data-close>✕</button>
-
-    <h2>🎯 Alberta PAT Math Prep (Grade 6 & 9)</h2>
-    <p class="muted">Practice + strategy + confidence under time pressure.</p>
-
-    <ul>
-      <li>PAT-style problems and multi-step questions</li>
-      <li>Time management and accuracy techniques</li>
-      <li>Common traps and how to avoid them</li>
-      <li>Targeted review based on skill gaps</li>
-    </ul>
-
-    <p style="margin-top:12px;">
-      <a class="btn" href="#book">Book Free Trial</a>
-      <a class="btn btn--ghost" href="sms:+18259948148?&body=PAT%20PREP">Text PAT PREP</a>
-    </p>
-  </div>
-</div>
-
-<!-- HIGH SCHOOL MATH MODAL -->
-<div class="modal" id="highSchoolMathModal" aria-hidden="true">
-  <div class="modal__overlay" data-close></div>
-  <div class="modal__panel">
-    <button class="modal__close" data-close>✕</button>
-
-    <h2>🎓 High School Math Support (10C / 20-1 / 20-2)</h2>
-    <p class="muted">Alberta-aligned support to stay on track and raise grades.</p>
-
-    <ul>
-      <li>Factoring, polynomials, radicals</li>
-      <li>Functions, quadratics, graphing</li>
-      <li>Systems, trig basics, exam review</li>
-      <li>Homework + test prep with clear strategies</li>
-    </ul>
-
-    <p style="margin-top:12px;">
-      <a class="btn" href="#book">Book Free Trial</a>
-      <a class="btn btn--ghost" href="sms:+18259948148?&body=HIGH%20SCHOOL%20MATH">Text HIGH SCHOOL MATH</a>
-    </p>
-  </div>
-</div>
-
-<div class="modal" id="robloxPlanModal" aria-hidden="true">
-  <div class="modal__overlay" data-close></div>
-
-  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="robloxPlanTitle">
-    <button class="modal__close" data-close aria-label="Close">✕</button>
-
-    <h2 id="robloxPlanTitle">🎮 12-Week Learning Plan: Build Your Own Game (Roblox)</h2>
-    <p class="muted">Instructor-led • Ages 7–17 • Real Lua coding (not just blocks)</p>
-
-    <div class="grid grid--3 grid--cards" style="margin-top:12px;">
-      <div class="card">
-        <h4>Weeks 1–2 · Foundations</h4>
-        <ul>
-          <li>Roblox Studio interface</li>
-          <li>Game world & objects</li>
-          <li>Movement + obstacles</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h4>Weeks 3–4 · Lua Basics</h4>
-        <ul>
-          <li>Lua scripting fundamentals</li>
-          <li>Events & interactions</li>
-          <li>Triggers + conditions</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h4>Weeks 5–6 · Game Mechanics</h4>
-        <ul>
-          <li>Variables + scoring</li>
-          <li>Loops + timers</li>
-          <li>Win / lose rules</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h4>Weeks 7–8 · Game Systems</h4>
-        <ul>
-          <li>Menus + UI basics</li>
-          <li>Sound + effects</li>
-          <li>Checkpoints + levels</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h4>Weeks 9–10 · Advanced Play</h4>
-        <ul>
-          <li>NPCs + simple AI</li>
-          <li>Game balance</li>
-          <li>Testing & debugging</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h4>Weeks 11–12 · Publish</h4>
-        <ul>
-          <li>Final polish</li>
-          <li>Publish to Roblox</li>
-          <li>Presentation + certificate</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:12px;">
-      <p style="margin:0;">🎯 <strong>Final Outcome:</strong> A published Roblox game + real Lua coding experience.</p>
-      <p style="margin:10px 0 0;">
-        <a class="btn" href="sms:+18259948148?&body=ROBLOX">Text ROBLOX to Register</a>
-      </p>
-    </div>
-  </div>
-</div>
-
-
-
+    </script>
 </body>
 </html>
-
