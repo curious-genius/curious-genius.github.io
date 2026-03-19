@@ -256,28 +256,41 @@
     </div>
 
     <!-- Changed "grid-2" to a vertical flex layout -->
-    <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 800px; margin: 0 auto;">
-      
-       
-         <!-- Widget 1: Login -->
-      <div class="glass-card" style="text-align: center; border-color: var(--accent);">
-        <h3><i class="fas fa-sign-in-alt"></i> Current Student Login</h3>
-        <p style="margin-bottom: 2rem; color: var(--text-muted);">Access your schedule and billing.</p>
-        <div style="background: white; padding: 20px; border-radius: 10px;">
-        <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjNKeSJ9"></script> 
-        </div>
-      </div>
+   
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; margin: 0 auto;">
 
-          <!-- Widget 2: Registration -->
-      <div class="glass-card" style="text-align: center;">
-        <h3><i class="fas fa-user-plus"></i> New Student Registration</h3>
-        <p style="margin-bottom: 2rem; color: var(--text-muted);">Create an account to book your <strong>Free Trial</strong>.</p>
-        <div style="background: white; padding: 20px; border-radius: 10px;">
-        <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjJKTSJ9"></script> 
-        </div>
-      </div>
-
+  <!-- COLLAPSIBLE LOGIN -->
+  <details class="glass-card" style="cursor: pointer; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1);">
+    <summary style="padding: 20px; text-align: center; list-style: none; outline: none;">
+      <h3 style="margin: 0; display: inline-block;">
+        <i class="fas fa-sign-in-alt"></i> Already a Student? <strong>Login Here</strong>
+      </h3>
+      <p style="margin: 5px 0 0 0; color: var(--text-muted); font-size: 0.9rem;">Click to access your schedule and billing.</p>
+    </summary>
+    
+    <div style="background: white; padding: 20px; border-radius: 0 0 10px 10px; cursor: default;">
+       <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjNKeSJ9"></script> 
+  
     </div>
+  </details>
+
+  <!-- COLLAPSIBLE REGISTRATION -->
+  <details class="glass-card" style="cursor: pointer; transition: 0.3s; border: 1px solid var(--accent);">
+    <summary style="padding: 20px; text-align: center; list-style: none; outline: none;">
+      <h3 style="margin: 0; display: inline-block;">
+        <i class="fas fa-user-plus"></i> New Genius? <strong>Register Here</strong>
+      </h3>
+      <p style="margin: 5px 0 0 0; color: var(--text-muted); font-size: 0.9rem;">Click to book your <strong>Free Trial</strong>.</p>
+    </summary>
+    
+    <div style="background: white; padding: 20px; border-radius: 0 0 10px 10px; cursor: default;">
+           <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9ZYmxKWiIsIldlYnNpdGVJRCI6Indic181M3pKSCIsIldlYnNpdGVCbG9ja0lEIjoid2JiX0RwQjJKTSJ9"></script> 
+     
+    </div>
+  </details>
+
+</div>
+
   </div>
 </section>
 
