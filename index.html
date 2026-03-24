@@ -52,43 +52,56 @@
     </script>
     <!-- Add this Script for the Tabs -->
 <script>
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tab-btn");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    
-    // SAFETY CHECK: Only run if the element exists
-    var targetTab = document.getElementById(tabName);
-    if (targetTab) {
-        targetTab.style.display = "block";
-        evt.currentTarget.className += " active";
-    } else {
-        console.error("Tab ID not found: " + tabName);
-    }
-}
-</script>
-    <!-- 1. Add the AOS CSS here -->
+<!-- 1. Add the AOS CSS here -->
 <link href="https://unpkg.com" rel="stylesheet">
 
 <!-- 2. Add the AOS JS here -->
 <script src="https://unpkg.com"></script>
 
-<!-- 3. Initialize AOS immediately after -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100
+/**
+ * Tab Switching Logic
+ */
+function openTab(evt, tabName) {
+    // 1. Hide all tab content
+    const tabContents = document.querySelectorAll(".tab-content");
+    tabContents.forEach(content => {
+        content.classList.remove("active-tab");
     });
-  });
+
+    // 2. Remove 'active' class from all buttons
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    tabButtons.forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    // 3. Show current tab and set button to active
+    const targetTab = document.getElementById(tabName);
+    if (targetTab) {
+        targetTab.classList.add("active-tab");
+        evt.currentTarget.classList.add("active");
+    } else {
+        console.error("Curriculum Error: Tab ID '" + tabName + "' not found.");
+    }
+}
+
+/**
+ * AOS Initialization (Fixes 'AOS is not defined' error)
+ */
+window.addEventListener('load', function() {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    } else {
+        console.warn("AOS Library failed to load. Check your script source.");
+    }
+});
+
 </script>
+
+
 
 </head>
 
@@ -193,71 +206,86 @@ function openTab(evt, tabName) {
     <!-- Curriculum -->
     <!-- NEW CURRICULUM SECTION -->
 <!-- ENHANCED CURRICULUM SECTION -->
-<section id="curriculum-path" style="padding: 100px 0; background: var(--bg-dark);">
+<!-- ENHANCED CURRICULUM SECTION -->
+<section id="curriculum-path" class="curriculum-section">
     <div class="container">
-        <div style="text-align: center; margin-bottom: 4rem;" data-aos="fade-up">
-            <h2 style="font-size: 3rem; letter-spacing: -1px;">Expert-Led <span class="text-gradient">Learning Tracks</span></h2>
-            <p style="color: var(--text-muted); font-size: 1.2rem;">310+ Lessons. Self-Paced Mastery. University-Ready Skills.</p>
+        <div class="section-header" data-aos="fade-up">
+            <h2>Expert-Led <span class="text-gradient">Learning Tracks</span></h2>
+            <p>310+ Lessons. Self-Paced Mastery. University-Ready Skills.</p>
         </div>
 
         <!-- Tab Navigation -->
-        <div class="tab-nav" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 50px;">
+        <div class="tab-nav" data-aos="fade-up">
             <button class="tab-btn active" onclick="openTab(event, 'k2')">Junior (K-G2)</button>
             <button class="tab-btn" onclick="openTab(event, 'g35')">Maker (G3-G5)</button>
             <button class="tab-btn" onclick="openTab(event, 'g68')">Master (G6-G8)</button>
         </div>
 
-        <!-- GRADE 6-8 TAB (Using Tynker-style Cards) -->
-        <div id="g68" class="tab-content" style="display:none;" data-aos="fade-up">
+        <!-- K-2 TAB -->
+        <div id="k2" class="tab-content active-tab">
             <div class="course-grid">
-                <!-- Course Card 1 -->
                 <div class="course-card">
-                    <div class="course-icon" style="background: #4A90E2;"><i class="fab fa-python"></i></div>
-                    <div class="course-body">
-                        <span class="badge-level">G6-8 • Intermediate</span>
-                        <h4>Python 101</h4>
-                        <p>Learn the world's most popular language for Data Science and AI.</p>
-                        <div class="course-footer"><span><i class="fas fa-book"></i> 15 Lessons</span></div>
-                    </div>
+                    <div class="course-icon icon-orange"><i class="fas fa-shapes"></i></div>
+                    <span class="badge-level">K-G2 • Beginner</span>
+                    <h4>Icon Coding</h4>
+                    <p>Picture-based logic for early learners. No reading required.</p>
+                    <div class="course-footer"><i class="fas fa-book"></i> 38 Lessons</div>
                 </div>
-
-                <!-- Course Card 2 -->
                 <div class="course-card">
-                    <div class="course-icon" style="background: #F7DF1E; color: #000;"><i class="fab fa-js"></i></div>
-                    <div class="course-body">
-                        <span class="badge-level">G6-8 • Advanced</span>
-                        <h4>JavaScript 101</h4>
-                        <p>The language of the web. Build interactive games and dynamic apps.</p>
-                        <div class="course-footer"><span><i class="fas fa-book"></i> 15 Lessons</span></div>
-                    </div>
-                </div>
-
-                <!-- Course Card 3 -->
-                <div class="course-card">
-                    <div class="course-icon" style="background: #FF4B2B;"><i class="fas fa-brain"></i></div>
-                    <div class="course-body">
-                        <span class="badge-level">G6-8 • Cutting Edge</span>
-                        <h4>Artificial Intelligence</h4>
-                        <p>Computer vision, face tracking, and machine learning models.</p>
-                        <div class="course-footer"><span><i class="fas fa-book"></i> 10 Lessons</span></div>
-                    </div>
-                </div>
-
-                <!-- Course Card 4 -->
-                <div class="course-card">
-                    <div class="course-icon" style="background: #7427CC;"><i class="fas fa-atom"></i></div>
-                    <div class="course-body">
-                        <span class="badge-level">G6-8 • STEM</span>
-                        <h4>Physics Engineering</h4>
-                        <p>Gravity, projectiles, and collision math (Programming 302).</p>
-                        <div class="course-footer"><span><i class="fas fa-book"></i> 16 Lessons</span></div>
-                    </div>
+                    <div class="course-icon icon-blue"><i class="fas fa-rocket"></i></div>
+                    <span class="badge-level">K-G2 • Beginner</span>
+                    <h4>Space Cadet</h4>
+                    <p>Solve space-themed puzzles to learn sequencing and loops.</p>
+                    <div class="course-footer"><i class="fas fa-book"></i> 8 Lessons</div>
                 </div>
             </div>
         </div>
-        <!-- (Repeat same card structure for K2 and G35 tabs) -->
+
+        <!-- G3-5 TAB -->
+        <div id="g35" class="tab-content">
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-icon icon-green"><i class="fas fa-code"></i></div>
+                    <span class="badge-level">G3-5 • Beginner</span>
+                    <h4>Programming 101</h4>
+                    <p>Block-based coding for games, music, and math art.</p>
+                    <div class="course-footer"><i class="fas fa-book"></i> 15 Lessons</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon icon-red"><i class="fas fa-cube"></i></div>
+                    <span class="badge-level">G3-5 • Game Design</span>
+                    <h4>Minecraft Modding</h4>
+                    <p>Use code to change the game world and build structures.</p>
+                    <div class="course-footer"><i class="fas fa-book"></i> 20+ Activities</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- G6-8 TAB -->
+        <div id="g68" class="tab-content">
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-icon icon-python"><i class="fab fa-python"></i></div>
+                    <span class="badge-level">G6-8 • Intermediate</span>
+                    <h4>Python 101</h4>
+                    <p>Master real-world text coding for Data Science and AI.</p>
+                    <div class="course-footer"><i class="fas fa-book"></i> 15 Lessons</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon icon-ai"><i class="fas fa-brain"></i></div>
+                    <span class="badge-level">G6-8 • Advanced</span>
+                    <h4>Artificial Intelligence</h4>
+                    <p>Build apps with face tracking and machine learning models.</p>
+                    <div class="course-footer"><i class="fas fa-book"></i> 10 Lessons</div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<!-- LOAD AOS LIBRARY AT BOTTOM OF BODY -->
+<script src="https://unpkg.com"></script>
+
     <section id="program">
         <div class="container">
             <div style="text-align: center; max-width: 700px; margin: 0 auto;">
