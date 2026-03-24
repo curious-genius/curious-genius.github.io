@@ -50,6 +50,29 @@
       "telephone": "+15872912906"
     }
     </script>
+    <!-- Add this Script for the Tabs -->
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    
+    // SAFETY CHECK: Only run if the element exists
+    var targetTab = document.getElementById(tabName);
+    if (targetTab) {
+        targetTab.style.display = "block";
+        evt.currentTarget.className += " active";
+    } else {
+        console.error("Tab ID not found: " + tabName);
+    }
+}
+</script>
     <!-- 1. Add the AOS CSS here -->
 <link href="https://unpkg.com" rel="stylesheet">
 
@@ -235,27 +258,6 @@
         <!-- (Repeat same card structure for K2 and G35 tabs) -->
     </div>
 </section>
-
-
-<!-- Add this Script for the Tabs -->
-<script>
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tab-btn");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-</script>
-
-
-
     <section id="program">
         <div class="container">
             <div style="text-align: center; max-width: 700px; margin: 0 auto;">
