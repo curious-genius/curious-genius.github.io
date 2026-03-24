@@ -346,3 +346,104 @@ h1 {
 
 .badge-level { font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: #4db8ff; display: block; margin-bottom: 8px; }
 .course-footer { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px; margin-top: 15px; font-size: 0.8rem; color: #888; }
+/* Canada Section Styling */
+.canada-section { padding: 100px 0; background: #0b1120; border-top: 1px solid rgba(255,255,255,0.05); }
+
+.canada-title i { color: #ff4d4d; margin-right: 10px; filter: drop-shadow(0 0 8px rgba(255,77,77,0.4)); }
+
+.pioneer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+
+.pioneer-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 30px;
+    text-align: center;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pioneer-card:hover { transform: translateY(-12px); border-color: rgba(77, 184, 255, 0.4); background: rgba(255, 255, 255, 0.04); }
+
+.pioneer-img-wrapper { position: relative; width: 120px; height: 120px; margin: 0 auto 20px; }
+
+.pioneer-img-wrapper img { 
+    width: 100%; height: 100%; object-fit: cover; border-radius: 50%; 
+    border: 3px solid #4db8ff; padding: 5px; 
+}
+
+.location-tag {
+    position: absolute; bottom: -5px; right: -10px;
+    background: #ff4d4d; color: white; font-size: 0.65rem; font-weight: 800;
+    padding: 4px 10px; border-radius: 20px; text-transform: uppercase;
+}
+
+.pioneer-card h3 { margin-bottom: 5px; font-size: 1.4rem; color: #fff; }
+.pioneer-role { color: #4db8ff; font-weight: 700; font-size: 0.9rem; margin-bottom: 15px; text-transform: uppercase; }
+.pioneer-desc { color: #94a3b8; font-size: 0.9rem; line-height: 1.6; }
+
+.canada-footer { text-align: center; margin-top: 60px; padding: 20px; border-radius: 15px; background: rgba(77, 184, 255, 0.05); }
+.canada-footer p { color: #fff; font-size: 1.1rem; }
+/* Logo Container for Nav Links */
+.brand-logo {
+    display: flex;
+    align-items: center; /* Aligns letters and icon on the same baseline */
+    font-size: 26px; /* Adjust to match your current font size */
+    font-weight: 700;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* The 'O' Icon Replacement */
+.brand-icon {
+    height: 1.1em; /* Scales based on your font size */
+    width: auto;
+    margin: 0 1px; /* Tiny spacing to keep letters from touching */
+    vertical-align: middle;
+    /* Optional: Add a subtle glow for extra branding punch */
+    filter: drop-shadow(0 0 5px rgba(255, 159, 67, 0.4));
+}
+
+.brand-logo span {
+    color: #4db8ff; /* Your Genius blue highlight */
+    margin-left: 2px;
+}
+/* Navigation Logo Icon Scaling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0; /* Keep letters tight */
+}
+
+.logo-icon {
+    height: 0.9em; /* Matches font height perfectly */
+    width: auto;
+    margin: 0 1px;
+    filter: drop-shadow(0 0 5px rgba(255, 159, 67, 0.4));
+}
+
+/* Proudly Canadian Nav Link Style */
+.nav-canada {
+    color: #ff4d4d !important; /* Canadian Red */
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.nav-canada i {
+    font-size: 1.1rem;
+    filter: drop-shadow(0 0 5px rgba(255, 77, 77, 0.3));
+}
+
+.nav-canada:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+}
+
+/* Mobile responsive tweak */
+@media (max-width: 768px) {
+    .nav-canada {
+        margin-bottom: 10px;
+    }
+}
