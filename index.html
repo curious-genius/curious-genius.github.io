@@ -476,57 +476,131 @@ function openTab(evt, tabName) {
   </div>
 </section>
     <!-- FAQ -->
-   <section id="faq">
-    <div class="faq-container">
-        <h2 style="font-family: 'Orbitron', sans-serif; color: #4db8ff; text-align: center; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px;">
-            Frequently Asked Questions
-        </h2>
+  <style>
+    #faq-section {
+        background: #0f172a;
+        padding: 100px 20px;
+        color: #ffffff;
+        font-family: 'Rubik', sans-serif;
+        display: flex;
+        justify-content: center;
+    }
+    .faq-wrapper {
+        width: 100%;
+        max-width: 800px; /* Centers the content in the middle */
+    }
+    .faq-header {
+        font-family: 'Orbitron', sans-serif;
+        color: #4db8ff;
+        text-align: center;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 2rem;
+    }
+    .faq-item {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+    }
+    .faq-question {
+        width: 100%;
+        background: none;
+        border: none;
+        color: #ffffff;
+        text-align: left;
+        padding: 22px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .faq-question:hover {
+        color: #4db8ff;
+        background: rgba(77, 184, 255, 0.05);
+    }
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0 22px;
+        color: #cbd5e1;
+        line-height: 1.7;
+    }
+    /* Active State Logic */
+    .faq-item.active {
+        border-color: #4db8ff;
+        background: rgba(77, 184, 255, 0.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    .faq-item.active .faq-answer {
+        max-height: 400px; /* Allow enough room for long answers */
+        padding-bottom: 22px;
+    }
+    .faq-item.active i {
+        transform: rotate(180deg);
+        color: #4db8ff;
+    }
+    .faq-question i {
+        transition: transform 0.3s ease;
+        font-size: 0.9rem;
+    }
+</style>
 
-        <div class="faq-category-title">Programs & Learning</div>
-        
+<section id="faq-section">
+    <div class="faq-wrapper">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+
         <div class="faq-item">
-            <button class="faq-question">What programs do you offer? <i class="fas fa-chevron-down"></i></button>
+            <button class="faq-question">What programs and services do you offer? <i class="fas fa-chevron-down"></i></button>
             <div class="faq-answer">
-                <p>We specialize in <strong>Coding, Robotics, and AI</strong> for students from Kindergarten to Grade 12. Our project-based curriculum is designed to turn screen time into future-ready skills.</p>
+                <p>We provide expert 1-on-1 sessions in <strong>Coding, Robotics, and Artificial Intelligence (AI)</strong> for kids from Kindergarten to Grade 12. We use a certified, project-based curriculum that makes learning feel like play.</p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">My child has ADHD or is still learning to read—is this a fit? <i class="fas fa-chevron-down"></i></button>
+            <button class="faq-question">Where are you located and what are your hours? <i class="fas fa-chevron-down"></i></button>
             <div class="faq-answer">
-                <p>Absolutely! Because our sessions are <strong>strictly 1-on-1</strong>, we customize the pace for every child. Our hands-on robotics projects are excellent for keeping active minds engaged and focused.</p>
-            </div>
-        </div>
-
-        <div class="faq-category-title">Location & Schedule</div>
-
-        <div class="faq-item">
-            <button class="faq-question">Where are classes held and what are the hours? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">
-                <p>Visit us in person at <strong>CO-OP Dalhousie, NW Calgary</strong>, or join us online. We are open <strong>7 days a week, from 9:00 AM to 7:00 PM</strong>, to fit your family's busy schedule.</p>
+                <p>You can find us at the <strong>CO-OP Dalhousie in NW Calgary</strong> for in-person learning, or join us online from anywhere. We are open <strong>7 days a week, from 9:00 AM to 7:00 PM</strong>.</p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">How do I book sessions? <i class="fas fa-chevron-down"></i></button>
+            <button class="faq-question">How much does it cost? Are there sibling discounts? <i class="fas fa-chevron-down"></i></button>
             <div class="faq-answer">
-                <p>Everything is managed through our <strong>Parent Portal</strong>. You can book sessions, view progress reports, and download achievement certificates with one click.</p>
-            </div>
-        </div>
-
-        <div class="faq-category-title">Pricing & Trials</div>
-
-        <div class="faq-item">
-            <button class="faq-question">How much does it cost? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">
-                <p>Our monthly plans are simple: <strong>$99/month for In-Person</strong> or <strong>$79/month for Online</strong>. We also offer an incredible <strong>50% discount</strong> for siblings or friends attending the same session!</p>
+                <p>Our plans are simple: <strong>$99/month for In-Person</strong> or <strong>$79/month for Online</strong> instructor-led sessions. We also offer a <strong>50% discount</strong> for siblings or friends joining the same session!</p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">Can we try a free demo? <i class="fas fa-chevron-down"></i></button>
+            <button class="faq-question">My child has ADHD or is a beginner—will they be successful? <i class="fas fa-chevron-down"></i></button>
             <div class="faq-answer">
-                <p>Yes! We encourage all parents to book a <strong>Free Trial Session</strong> through our portal so your child can experience the lab firsthand before you commit.</p>
+                <p>Yes! Our <strong>strictly 1-on-1 format</strong> is perfect for students with ADHD or different learning needs. We tailor the pace to your child, using visual coding for beginners and stimulating robotics for active minds.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Who will be teaching my child? <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer">
+                <p>Your child will learn from a <strong>professional coach and software developer</strong>. This ensures they gain real-world industry skills from someone who actually builds technology for a living.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How do I track my child's progress and certificates? <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer">
+                <p>Our <strong>Parent Portal</strong> allows you to book sessions, view progress reports, and download achievement certificates 24/7. Your child also gets 24/7 access to our online platform to practice at home.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Can we try a class before we enroll? <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer">
+                <p>Absolutely! You can book a <strong>Free Demo Session</strong> through our portal. Come meet the instructor, see our robotics kits, and let your child build their first project for free.</p>
             </div>
         </div>
 
@@ -534,23 +608,23 @@ function openTab(evt, tabName) {
 </section>
 
 <script>
-    // This script runs AFTER the HTML above is loaded
+    // Robust script that waits for the page to load
     document.addEventListener('DOMContentLoaded', () => {
-        const faqQuestions = document.querySelectorAll('.faq-question');
+        const questions = document.querySelectorAll('.faq-question');
         
-        faqQuestions.forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
 
-                // Close other open items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
+                // Close other items for a clean accordion effect
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
                     }
                 });
 
                 // Toggle the clicked item
-                faqItem.classList.toggle('active');
+                item.classList.toggle('active');
             });
         });
     });
