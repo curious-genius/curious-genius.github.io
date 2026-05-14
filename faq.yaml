@@ -1,0 +1,20 @@
+- category: "Programs & Learning"
+  questions:
+    - q: "What programs do you offer?"
+      a: "We specialize in <strong>Coding, Robotics, and AI</strong> for students from Kindergarten to Grade 12. Our project-based curriculum is designed to turn screen time into future-ready skills."
+    - q: "My child has ADHD or is still learning to read—is this a fit?"
+      a: "Absolutely! Because our sessions are <strong>strictly 1-on-1</strong>, we customize the pace for every child. Our hands-on robotics projects are excellent for keeping active minds engaged and focused."
+
+- category: "Location & Schedule"
+  questions:
+    - q: "Where are classes held and what are the hours?"
+      a: "Visit us in person at <strong>CO-OP Dalhousie, NW Calgary</strong>, or join us online. We are open <strong>7 days a week, from 9:00 AM to 7:00 PM</strong>, to fit your family's busy schedule."
+    - q: "How do I book sessions?"
+      a: "Everything is managed through our <strong>Parent Portal</strong>. You can book sessions, view progress reports, and download achievement certificates with one click."
+
+- category: "Pricing & Trials"
+  questions:
+    - q: "How much does it cost?"
+      a: "Our monthly plans are simple: <strong>$99/month for In-Person</strong> or <strong>$79/month for Online</strong>. We also offer an incredible <strong>50% discount</strong> for siblings or friends attending the same session!"
+    - q: "Can we try a free demo?"
+      a: "Yes! We encourage all parents to book a <strong>Free Trial Session</strong> through our portal so your child can experience the lab firsthand before you commit."
