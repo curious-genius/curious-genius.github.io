@@ -454,37 +454,72 @@ h1 {
     border-radius: 50%; 
 }
 /* FAQ Accordion Styling */
-.faq-item {
-    border-bottom: 1px solid #1e293b;
-    margin-bottom: 10px;
-}
-.faq-question {
-    width: 100%;
-    background: none;
-    border: none;
-    color: #ffffff;
-    text-align: left;
-    padding: 20px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: color 0.3s ease;
-}
-.faq-question:hover {
-    color: #4db8ff;
-}
-.faq-answer {
-    padding: 0 20px 20px 20px;
-    display: none;
-    color: #cbd5e1;
-    line-height: 1.6;
-}
-.faq-item.active .faq-answer {
-    display: block;
-}
-.faq-item.active .fa-chevron-down {
-    transform: rotate(180deg);
-}
+  /* FAQ Styling - Matches your dark theme */
+    #faq {
+        background: #0f172a;
+        padding: 80px 20px;
+        color: #ffffff;
+        font-family: 'Rubik', sans-serif;
+    }
+    .faq-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .faq-category-title {
+        font-family: 'Orbitron', sans-serif;
+        color: #4db8ff;
+        font-size: 1.2rem;
+        margin: 30px 0 15px 0;
+        border-left: 4px solid #4db8ff;
+        padding-left: 15px;
+        text-transform: uppercase;
+    }
+    .faq-item {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+    }
+    .faq-question {
+        width: 100%;
+        background: none;
+        border: none;
+        color: #ffffff;
+        text-align: left;
+        padding: 20px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .faq-question:hover {
+        background: rgba(77, 184, 255, 0.05);
+        color: #4db8ff;
+    }
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease;
+        padding: 0 20px;
+        color: #cbd5e1;
+        line-height: 1.6;
+    }
+    /* This makes it open */
+    .faq-item.active .faq-answer {
+        max-height: 300px; /* Adjust if answer is very long */
+        padding-bottom: 20px;
+    }
+    .faq-item.active {
+        border-color: #4db8ff;
+        background: rgba(77, 184, 255, 0.05);
+    }
+    .faq-item.active i {
+        transform: rotate(180deg);
+        color: #4db8ff;
+    }
+    .faq-question i {
+        transition: transform 0.3s ease;
+    }
