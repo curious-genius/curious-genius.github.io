@@ -453,3 +453,38 @@ h1 {
     object-fit: cover; /* This prevents the image from stretching */
     border-radius: 50%; 
 }
+/* FAQ Accordion Styling */
+.faq-item {
+    border-bottom: 1px solid #1e293b;
+    margin-bottom: 10px;
+}
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #ffffff;
+    text-align: left;
+    padding: 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+.faq-question:hover {
+    color: #4db8ff;
+}
+.faq-answer {
+    padding: 0 20px 20px 20px;
+    display: none;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+.faq-item.active .faq-answer {
+    display: block;
+}
+.faq-item.active .fa-chevron-down {
+    transform: rotate(180deg);
+}
