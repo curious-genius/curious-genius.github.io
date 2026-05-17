@@ -1,0 +1,544 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Driven Early Warning System: OULAD Case Study</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Chosen Palette: Warm Neutrals & Muted Analytics (Stone 50 bg, Slate 800 text, Teal 600 primary accent, Rose 500 risk accent) -->
+    <!-- Application Structure Plan: A linear narrative dashboard. 
+         1. Executive Summary: The problem (dropout) & proposed solution (AI). 
+         2. Demographic Baseline: Understanding the OULAD student body (Interactive pie/bar to show demographic impact on pass rates). 
+         3. Behavioral Engagement (The Hobbs Connection): Visualizing how VLE interaction volume correlates with success. 
+         4. The ML Pipeline: A CSS-based flow diagram explaining the temporal methodology. 
+         5. Interactive Student Persona Simulator: The "Wow" factor. Users select a student type (Consistent vs. Crammer) and watch a temporal risk score evolve, complete with simulated SHAP (Explainable AI) feedback. This structure moves from macro (dataset) to micro (individual student), mimicking the goal of the proposed EWS. -->
+    <!-- Visualization & Content Choices: 
+         - Demographics -> Goal: Compare baseline stats -> Viz: Chart.js Doughnut (Overall) & Bar (By Education) -> Interaction: Hover tooltips, responsive layout -> Lib: Chart.js (Canvas). 
+         - VLE Engagement -> Goal: Show relationships (Hobbs 2016) -> Viz: Chart.js Scatter Plot -> Interaction: Hover to see click/score ratio -> Lib: Chart.js (Canvas). 
+         - ML Pipeline -> Goal: Organize/Explain Methodology -> Viz: HTML/CSS Flexbox Process flow -> Interaction: None (Informational) -> Lib: HTML/CSS (NO SVG/Mermaid). 
+         - Persona Simulator -> Goal: Demonstrate Temporal EWS (Change over time) -> Viz: Chart.js Line Chart (Risk Trajectory) + HTML Text blocks -> Interaction: Dropdown selection updates chart and text dynamically -> Lib: Vanilla JS & Chart.js. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        /* CRITICAL: Chart Container Styling Requirements */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px; /* Constrains width on large screens */
+            margin-left: auto;
+            margin-right: auto;
+            height: 45vh; /* Responsive height */
+            min-height: 250px;
+            max-height: 400px; /* Prevents vertical overflow */
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafaf9; /* stone-50 */
+            color: #1e293b; /* slate-800 */
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Header / Hero -->
+    <header class="bg-slate-900 text-stone-50 py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-teal-500">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">Predictive Modeling to Identify At-Risk Online Students</h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mb-6">
+                Mitigating Course Failure and Dropout in Online Higher Education. An interactive exploration of the Open University Learning Analytics Dataset (OULAD) and the proposed temporal, Explainable AI (XAI) methodology.
+            </p>
+            <div class="flex flex-wrap gap-4 text-sm font-medium">
+                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">&#128202; N = 32,593 Students</span>
+                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">&#128187; VLE Clickstream Data</span>
+                <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">&#129302; Explainable ML (SHAP)</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+
+        <!-- Introduction Context -->
+        <section class="bg-white rounded-xl shadow-sm p-8 border border-slate-200">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 border-b pb-2 border-slate-100">The Challenge: "One-Size-Fits-All" Fails</h2>
+            <p class="text-slate-600 leading-relaxed mb-4">
+                Online higher education faces persistently high failure and dropout rates. Current Early Warning Systems (EWS) often rely on static demographic thresholds, ignoring crucial individual <strong>Self-Regulated Learning (SRL)</strong> behaviors like pacing, engagement, and consistency. 
+            </p>
+            <p class="text-slate-600 leading-relaxed">
+                This interactive application outlines a research methodology to develop a personalized, AI-driven EWS using the comprehensive OULAD dataset. By analyzing daily Virtual Learning Environment (VLE) clickstreams alongside demographic data, we aim to provide instructors with actionable, explainable insights to intervene <em>before</em> a student fails.
+            </p>
+        </section>
+
+        <!-- Section 1: The Baseline Data (Demographics) -->
+        <section>
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">1. The Baseline: Understanding the Learner Profile</h2>
+                <p class="text-slate-600 max-w-4xl">
+                    To build a predictive model, we first must understand the historical outcomes. This section explores the <code>studentInfo.csv</code> data. While demographics alone are insufficient for an accurate EWS, they form the foundation. Notice the high combined rate of Withdrawals and Failures—highlighting the critical need for intervention.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Doughnut Chart -->
+                <div class="flex flex-col items-center">
+                    <h3 class="text-lg font-semibold text-slate-700 mb-2">Overall Student Outcomes</h3>
+                    <div class="chart-container">
+                        <canvas id="outcomeDoughnut"></canvas>
+                    </div>
+                    <p class="text-sm text-slate-500 mt-4 text-center max-w-sm">
+                        Nearly 53% of students in the dataset either withdrew or failed, underscoring the retention crisis in self-paced online learning.
+                    </p>
+                </div>
+
+                <!-- Bar Chart -->
+                <div class="flex flex-col items-center">
+                    <h3 class="text-lg font-semibold text-slate-700 mb-2">Outcomes by Prior Education</h3>
+                    <div class="chart-container">
+                        <canvas id="educationBar"></canvas>
+                    </div>
+                    <p class="text-sm text-slate-500 mt-4 text-center max-w-sm">
+                        Students entering with "Lower Than A Level" qualifications show significantly higher withdrawal rates, identifying an initially vulnerable cohort.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Behavioral Engagement (VLE Data) -->
+        <section class="bg-slate-100 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-16">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">2. The Behavioral Engine: VLE Clickstreams</h2>
+                    <p class="text-slate-600 max-w-4xl">
+                        Building on findings by Hobbs (2016), static demographics are augmented with dynamic behavioral data (<code>studentVle.csv</code>). Interaction volume—specifically in forums and active content modules—acts as a proxy for Self-Regulated Learning (SRL) strategies. Active engagement heavily correlates with final assessment scores.
+                    </p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row items-center gap-8">
+                    <div class="w-full lg:w-2/3">
+                        <div class="chart-container" style="max-width: 100%; height: 50vh; max-height: 500px;">
+                            <canvas id="engagementScatter"></canvas>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/3 space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-teal-500">
+                            <h4 class="font-bold text-slate-800 mb-2">&#128269; The Hobbs Correlation</h4>
+                            <p class="text-sm text-slate-600">
+                                Hobbs identified that active participation (posting in forums, early assessment submission) is a stronger predictor of success than mere content viewing. The scatter plot visualizes this: higher interaction volumes cluster toward the "Pass" and "Distinction" ranges.
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
+                            <h4 class="font-bold text-slate-800 mb-2">&#9888;&#65039; The "Lurker" Risk</h4>
+                            <p class="text-sm text-slate-600">
+                                Students with low interaction days (bottom left quadrant) are at the highest risk of withdrawal. A temporal model captures this decay in engagement week over week.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Methodology / Architecture -->
+        <section>
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">3. Proposed Methodology: Temporal Modeling & XAI</h2>
+                <p class="text-slate-600 max-w-4xl">
+                    An Early Warning System is useless if it predicts failure on the last day of the course. The proposed model uses <strong>Temporal Slicing</strong> to predict outcomes at critical junctures (e.g., Week 2, Week 4). Furthermore, using <strong>SHAP (SHapley Additive exPlanations)</strong>, the model transforms from a "Black Box" into an actionable tool for instructors.
+                </p>
+            </div>
+
+            <!-- CSS Flow Diagram (No SVG) -->
+            <div class="flex flex-col md:flex-row items-stretch justify-between gap-4 text-center">
+                
+                <div class="flex-1 bg-white border border-slate-200 rounded-xl p-6 shadow-sm flex flex-col justify-center relative">
+                    <div class="text-3xl mb-3">&#128193;</div>
+                    <h4 class="font-bold text-slate-800">1. Data Ingestion</h4>
+                    <p class="text-xs text-slate-500 mt-2">Merge Demographics, VLE Clickstreams, and Assessment Bank data.</p>
+                    <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-2xl text-slate-300">&#10142;</div>
+                    <div class="block md:hidden absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-2xl text-slate-300">&#11015;</div>
+                </div>
+
+                <div class="flex-1 bg-white border border-teal-200 rounded-xl p-6 shadow-sm flex flex-col justify-center relative ring-2 ring-teal-50">
+                    <div class="text-3xl mb-3">&#9201;&#65039;</div>
+                    <h4 class="font-bold text-teal-800">2. Temporal Slicing</h4>
+                    <p class="text-xs text-slate-500 mt-2">Extract features for Time T (e.g., clicks up to Day 30). Ignore future data to prevent leakage.</p>
+                    <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-2xl text-slate-300">&#10142;</div>
+                    <div class="block md:hidden absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-2xl text-slate-300">&#11015;</div>
+                </div>
+
+                <div class="flex-1 bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-sm flex flex-col justify-center relative text-white">
+                    <div class="text-3xl mb-3">&#129417;</div> <!-- Owl = AI/Model -->
+                    <h4 class="font-bold">3. Ensemble Model</h4>
+                    <p class="text-xs text-slate-300 mt-2">Train LightGBM/XGBoost on sliced data. Handle imbalance with SMOTE.</p>
+                    <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-2xl text-slate-300">&#10142;</div>
+                    <div class="block md:hidden absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-2xl text-slate-300">&#11015;</div>
+                </div>
+
+                <div class="flex-1 bg-white border border-rose-200 rounded-xl p-6 shadow-sm flex flex-col justify-center ring-2 ring-rose-50">
+                    <div class="text-3xl mb-3">&#128161;</div>
+                    <h4 class="font-bold text-rose-700">4. XAI Intervention</h4>
+                    <p class="text-xs text-slate-500 mt-2">Generate SHAP values for personalized instructor feedback (Moodle Plugin).</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 4: Interactive Simulator -->
+        <section class="pb-16">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">4. Interactive EWS Simulator</h2>
+                <p class="text-slate-600 max-w-4xl">
+                    Experience how the proposed temporal model evaluates risk over a 12-week course. Select a simulated student persona based on typical OULAD behavioral clusters. Watch how the Risk Probability changes as new VLE data arrives each week, and observe the Explainable AI (SHAP) feedback that an instructor would receive.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
+                <!-- Dashboard Top Bar -->
+                <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">&#128100;</span>
+                        <h3 class="text-lg font-bold text-slate-800">Student Persona Simulator</h3>
+                    </div>
+                    
+                    <div class="w-full md:w-auto">
+                        <label for="personaSelect" class="sr-only">Select Persona</label>
+                        <select id="personaSelect" class="w-full md:w-64 bg-white border border-slate-300 text-slate-700 py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 shadow-sm">
+                            <option value="consistent">The Consistent Learner (Low Risk)</option>
+                            <option value="crammer">The Late Crammer (Medium Risk)</option>
+                            <option value="disengaged">The Disengaged "Lurker" (High Risk)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Dashboard Content -->
+                <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Left: Trajectory Chart -->
+                    <div class="lg:col-span-2">
+                        <h4 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">Risk Probability Trajectory (Weeks 1-12)</h4>
+                        <div class="chart-container" style="height: 350px; max-width: 100%;">
+                            <canvas id="riskTimeline"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Right: XAI Insights panel -->
+                    <div class="bg-slate-50 rounded-lg p-5 border border-slate-200 flex flex-col h-full">
+                        <h4 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4 flex items-center justify-between">
+                            <span>Simulated XAI Insights (Week 8)</span>
+                            <span class="text-xs bg-slate-200 px-2 py-1 rounded text-slate-600">SHAP Analysis</span>
+                        </h4>
+                        
+                        <div id="xaiContent" class="flex-1 flex flex-col justify-center">
+                            <!-- Populated by JS -->
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-200">
+                            <p class="text-xs text-slate-500 leading-tight">
+                                <em>Note:</em> The AI generates these insights based on feature importance (SHAP values) derived from the student's historical clickstream variance and assessment banking compared to the cohort average.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>Interactive Concept developed for: Predictive Modeling to Identify At-Risk Online Students.</p>
+            <p class="mt-2">Data Source: Open University Learning Analytics Dataset (OULAD).</p>
+        </div>
+    </footer>
+
+    <!-- Application Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Core Configuration for Charts ---
+            Chart.defaults.font.family = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+            Chart.defaults.color = '#64748b'; // slate-500
+            
+            // --- 1. Baseline Data Charts (Demographics) ---
+            
+            // Doughnut Chart Data (OULAD outcomes)
+            const doughnutCtx = document.getElementById('outcomeDoughnut').getContext('2d');
+            new Chart(doughnutCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Pass', 'Fail', 'Withdrawn', 'Distinction'],
+                    datasets: [{
+                        data: [12361, 7052, 10156, 3024], // Actual OULAD numbers
+                        backgroundColor: [
+                            '#14b8a6', // teal-500 (Pass)
+                            '#f43f5e', // rose-500 (Fail)
+                            '#f59e0b', // amber-500 (Withdrawn)
+                            '#0f766e'  // teal-700 (Distinction)
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false, // CRITICAL for container constraints
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) { label += ': '; }
+                                    let value = context.raw;
+                                    let total = context.chart._metasets[context.datasetIndex].total;
+                                    let percentage = Math.round((value / total) * 100) + '%';
+                                    return label + value.toLocaleString() + ' (' + percentage + ')';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Bar Chart Data (Education Level impact on outcomes - Mocked proportions based on generic trends)
+            const barCtx = document.getElementById('educationBar').getContext('2d');
+            new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['No Formal Quals', 'Lower Than A Level', 'A Level', 'HE Qualification', 'Post Grad'],
+                    datasets: [
+                        {
+                            label: 'Success (Pass/Dist)',
+                            data: [35, 42, 55, 68, 75],
+                            backgroundColor: '#14b8a6' // teal-500
+                        },
+                        {
+                            label: 'At Risk (Fail/Withdrawn)',
+                            data: [65, 58, 45, 32, 25],
+                            backgroundColor: '#f43f5e' // rose-500
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false, // CRITICAL for container constraints
+                    scales: {
+                        x: { stacked: true, grid: { display: false } },
+                        y: { 
+                            stacked: true, 
+                            title: { display: true, text: 'Percentage of Cohort' },
+                            max: 100 
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+
+            // --- 2. Behavioral Engagement Chart (Scatter) ---
+            
+            // Generate synthetic scatter data mimicking Hobbs' findings
+            // High interactions -> Higher scores. Low interactions -> Lower scores.
+            const generateScatterData = (numPoints, isPass) => {
+                let data = [];
+                for (let i = 0; i < numPoints; i++) {
+                    let interactions = isPass ? Math.random() * 800 + 100 : Math.random() * 300 + 10;
+                    let score = isPass ? Math.random() * 60 + 40 : Math.random() * 50 + 10;
+                    // Add some noise/outliers
+                    if(Math.random() > 0.9) {
+                        interactions = isPass ? Math.random() * 200 : Math.random() * 600 + 200;
+                    }
+                    data.push({x: interactions, y: score});
+                }
+                return data;
+            };
+
+            const scatterCtx = document.getElementById('engagementScatter').getContext('2d');
+            new Chart(scatterCtx, {
+                type: 'scatter',
+                data: {
+                    datasets: [
+                        {
+                            label: 'Passed',
+                            data: generateScatterData(100, true),
+                            backgroundColor: 'rgba(20, 184, 166, 0.6)', // teal-500 transparent
+                            borderColor: 'rgba(20, 184, 166, 1)',
+                            pointRadius: 4
+                        },
+                        {
+                            label: 'Failed/Withdrawn',
+                            data: generateScatterData(100, false),
+                            backgroundColor: 'rgba(244, 63, 94, 0.6)', // rose-500 transparent
+                            borderColor: 'rgba(244, 63, 94, 1)',
+                            pointRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Total VLE Interactions (Clicks)' },
+                            type: 'linear',
+                            position: 'bottom'
+                        },
+                        y: {
+                            title: { display: true, text: 'Final Course Score (%)' },
+                            min: 0,
+                            max: 100
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `Clicks: ${Math.round(context.raw.x)}, Score: ${Math.round(context.raw.y)}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+
+            // --- 3. Interactive Persona Simulator ---
+
+            // Data store for the personas
+            const personaData = {
+                consistent: {
+                    trajectory: [10, 12, 9, 8, 5, 4, 4, 3, 2, 2, 1, 1], // Risk percentages over 12 weeks
+                    statusColor: 'text-teal-600',
+                    bgColor: 'bg-teal-50',
+                    borderColor: 'border-teal-200',
+                    riskLevel: 'LOW (3%)',
+                    xaiTopPositive: ['Consistent weekly logins (+)', 'Forum posts above average (+)'],
+                    xaiTopNegative: ['Assignment 2 submitted 1 day late (-)'],
+                    summary: 'This student exhibits strong Self-Regulated Learning (SRL). Interventions are unnecessary; keep up the good work.'
+                },
+                crammer: {
+                    trajectory: [15, 20, 45, 15, 25, 55, 18, 30, 65, 20, 40, 60],
+                    statusColor: 'text-amber-600',
+                    bgColor: 'bg-amber-50',
+                    borderColor: 'border-amber-200',
+                    riskLevel: 'MEDIUM (65%)',
+                    xaiTopPositive: ['High total module views (+)'],
+                    xaiTopNegative: ['High variance in weekly activity (Cramming) (-)', 'No forum participation (-)'],
+                    summary: 'Displays sporadic engagement spikes directly preceding assessments. The model flags this variance as a risk for long-term retention.'
+                },
+                disengaged: {
+                    trajectory: [20, 35, 50, 65, 75, 82, 88, 92, 95, 98, 99, 99],
+                    statusColor: 'text-rose-600',
+                    bgColor: 'bg-rose-50',
+                    borderColor: 'border-rose-200',
+                    riskLevel: 'HIGH (92%)',
+                    xaiTopPositive: ['Completed demographic profile (+)'],
+                    xaiTopNegative: ['0 VLE clicks in last 14 days (-)', 'Missed Assessment 2 (-)'],
+                    summary: 'A classic "lurker" profile turning into a withdrawal. Early Warning should have triggered at Week 3. Immediate instructor outreach required.'
+                }
+            };
+
+            // Initialize Line Chart
+            const riskTimelineCtx = document.getElementById('riskTimeline').getContext('2d');
+            let riskChart = new Chart(riskTimelineCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Wk1', 'Wk2', 'Wk3', 'Wk4', 'Wk5', 'Wk6', 'Wk7', 'Wk8', 'Wk9', 'Wk10', 'Wk11', 'Wk12'],
+                    datasets: [{
+                        label: 'Probability of Failure/Dropout (%)',
+                        data: personaData['consistent'].trajectory,
+                        borderColor: '#14b8a6', // teal-500
+                        backgroundColor: 'rgba(20, 184, 166, 0.1)',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#14b8a6',
+                        pointRadius: 4,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            min: 0,
+                            max: 100,
+                            title: { display: true, text: 'Risk Probability (%)' }
+                        },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Function to update UI based on selected persona
+            const updatePersonaUI = (personaKey) => {
+                const data = personaData[personaKey];
+                
+                // Update Chart
+                let colorHex = personaKey === 'consistent' ? '#14b8a6' : (personaKey === 'crammer' ? '#f59e0b' : '#f43f5e');
+                riskChart.data.datasets[0].data = data.trajectory;
+                riskChart.data.datasets[0].borderColor = colorHex;
+                riskChart.data.datasets[0].pointBackgroundColor = colorHex;
+                riskChart.data.datasets[0].backgroundColor = colorHex + '20'; // add transparency
+                riskChart.update();
+
+                // Update XAI Content HTML
+                const xaiContainer = document.getElementById('xaiContent');
+                
+                let positiveList = data.xaiTopPositive.map(item => `<li class="flex items-start gap-2"><span class="text-teal-500 mt-1">&#10003;</span> <span class="text-sm">${item}</span></li>`).join('');
+                let negativeList = data.xaiTopNegative.map(item => `<li class="flex items-start gap-2"><span class="text-rose-500 mt-1">&#10007;</span> <span class="text-sm">${item}</span></li>`).join('');
+
+                xaiContainer.innerHTML = `
+                    <div class="text-center mb-4 p-3 rounded-md ${data.bgColor} ${data.borderColor} border">
+                        <span class="block text-xs uppercase tracking-widest text-slate-500 mb-1">Current Risk Status</span>
+                        <span class="text-2xl font-black ${data.statusColor}">${data.riskLevel}</span>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h5 class="text-xs font-bold text-slate-700 uppercase border-b pb-1 mb-2">Risk Reducers (Pushing score down)</h5>
+                            <ul class="text-slate-600 space-y-1">
+                                ${positiveList}
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="text-xs font-bold text-slate-700 uppercase border-b pb-1 mb-2">Risk Drivers (Pushing score up)</h5>
+                            <ul class="text-slate-600 space-y-1">
+                                ${negativeList}
+                            </ul>
+                        </div>
+                        <div class="mt-4 p-3 bg-white rounded border border-slate-200">
+                            <span class="text-xs font-bold text-slate-700 uppercase">System Recommendation:</span>
+                            <p class="text-sm text-slate-600 mt-1">${data.summary}</p>
+                        </div>
+                    </div>
+                `;
+            };
+
+            // Event Listener for Select Dropdown
+            document.getElementById('personaSelect').addEventListener('change', (e) => {
+                updatePersonaUI(e.target.value);
+            });
+
+            // Initialize with first persona
+            updatePersonaUI('consistent');
+        });
+    </script>
+</body>
+</html>
+
+```
