@@ -18,14 +18,14 @@
     - q: "What happens if we need to reschedule a session?"
       a: "We value flexibility! You can easily manage your bookings through the Parent Portal. Since sessions are one-on-one, we can work with you to find a makeup time that fits your schedule."
 
-- category: "Pricing & Trials"
-  questions:
-    - q: "How much does it cost?"
-      a: "Our monthly plans are simple: <strong>$99/month for In-Person</strong> or <strong>$79/month for Online</strong>. This includes 1-on-1 coaching, all hardware use in-lab, and 24/7 access to our online learning platform."
-    - q: "Do you offer discounts for siblings?"
-      a: "Yes! We offer an incredible <strong>50% discount</strong> for siblings or friends who attend the same session together."
-    - q: "Can we try a free demo?"
-      a: "Yes! We encourage all parents to book a <strong>Free Trial Session</strong> through our portal so your child can experience the lab firsthand before you commit."
+- category: "Registration & Funding"
+    questions:
+      - q: "How much does it cost?"
+        a: "As an Alberta-incorporated non-profit society, we promote digital equity by delivering free or subsidized technology programs for local families."
+      - q: "How are these programs funded?"
+        a: "Our sessions are supported through non-profit grant validation metrics. When you fill out our Session Activity Log & Community Impact Registry, it helps us secure the funding needed to keep programs free."
+      - q: "Can my child with learning challenges attend?"
+        a: "Absolutely! We design inclusive STEM pathways that support diverse developmental profiles, including accommodations for ADHD, Autism (ASD), Dyslexia, and other learning needs."
 
 - category: "Curriculum & Tech"
   questions:
